@@ -335,7 +335,12 @@ input#newsletter-permission {
 ul.ht-dropdown.dropdown-style-two.sub-menu {
     left: 100%;
     top: 0;
-    width: 200px;
+    width: 360px;
+}
+ul.ht-dropdown.dropdown-style-two.sub-menu2 {
+    left: : 200%;
+    top: 0;
+    width: 300px;
 }
 ul.ht-dropdown.dropdown-style-two li {
     position: relative;
