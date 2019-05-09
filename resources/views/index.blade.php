@@ -183,7 +183,7 @@
 
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/menu/1.jpg" alt="cart-image"></a>
+                                                        <a href="#"><img src="img/pen1.png" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h6><a href="#">Toalha</a></h6>
@@ -194,7 +194,7 @@
 
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/menu/2.jpg" alt="cart-image"></a>
+                                                        <a href="#"><img src="img/caneta1.png" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
                                                         <h6><a href="#">Fitas Top</a></h6>
