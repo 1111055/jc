@@ -127,32 +127,31 @@
                                                     <!-- Start Two Step -->
 
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                            <li><a href="#">Product Category Name </a>
+                                                            <li><a href="#">T-Shirts</a>
                                                             </li>
-                                                            <li><a href="#">Product Category Name</a></li>
-                                                            <li><a href="#">Product Category Name</a></li>
-                                                            <li><img src="https://fakeimg.pl/320x180/" class="img-responsive" alt="menu-img"></li>
+                                                            <li><a href="#">Bonés</a></li>
+                                                            <li><img src="img/mochila1.png"  height="180" width="320" class="img-responsive" alt="menu-img"></li>
                                                         </ul>
                                                     
                                                 </li>
                                                 <li><a href="#">Tecnologia e USB</a>
                                                     <!-- Start Two Step -->
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                            <li><a href="#">Product Category Name </a>
+                                                            <li><a href="#">Pens </a>
                                                             </li>
-                                                            <li><a href="#">Product Category Name</a></li>
-                                                            <li><a href="#">Product Category Name</a></li>
-                                                            <li><img src="https://fakeimg.pl/320x180/" class="img-responsive" alt="menu-img"></li>
+                                                            <li><a href="#">Pens</a></li>
+                                                            <li><a href="#">Pens</a></li>
+                                                            <li><img src="img/mochila1.png" height="180" width="320"  class="img-responsive" alt="menu-img"></li>
                                                         </ul>
                                                 </li>
                                                 <li><a href="#">Sacos e Mochilas</a>
                                                     <!-- Start Two Step -->
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                            <li><a href="#">Product Category Name </a>
+                                                            <li><a href="#">Mochila </a>
                                                             </li>
-                                                            <li><a href="#">Product Category Name</a></li>
-                                                            <li><a href="#">Product Category Name</a></li>
-                                                            <li><img src="https://fakeimg.pl/320x180/" class="img-responsive" alt="menu-img"></li>
+                                                            <li><a href="#">Sacos</a></li>
+                                                            <li><a href="#">Mochilas</a></li>
+                                                            <li><img src="img/mochila1.png"  height="180" width="320"  class="img-responsive" alt="menu-img"></li>
                                                         </ul>
                                                 </li>
                                             </ul>
