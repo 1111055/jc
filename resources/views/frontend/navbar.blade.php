@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
                             <div class="logo">
-                                <a href="/"><img src="https://fakeimg.pl/138x36/" alt="logo-image"></a>
+                                <a href="{{route('home')}}"><img src="img/logo.png" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Primary Vertical-Menu End -->
@@ -68,7 +68,7 @@
                             <div class="middle-menu pull-right">
                                 <nav>
                                     <ul class="middle-menu-list">
-                                        <li><a href="/">home</a>
+                                        <li {{ (Request::is('home') ? 'class=active' : '') }}><a href="{{route('home')}}">home</a>
                                         </li>
                                          <li><a href="#">Produtos<i class="fa fa-angle-down"></i></a>
                                             <!-- Home Version Dropdown Start -->
@@ -107,9 +107,9 @@
                                             </ul>
                                             <!-- Home Version Dropdown End -->
                                         </li>   
-                                        <li><a href="#">Sobre nós</a></li>                                        
+                                        <li {{ (Request::is('home') ? 'class=active' : '') }}><a href="{{route('about')}}">Sobre nós</a></li>                                        
     
-                                        <li><a href="#">Contactos</a></li>                                        
+                                        <li {{ (Request::is('contactos') ? 'class=active' : '') }}><a href="{{route('contactos')}}">Contactos</a></li>                                        
                                     </ul>
                                 </nav>
                             </div>
@@ -155,7 +155,7 @@
 
                                                 <div class="cart-footer fix">
                                                     <div class="cart-actions">
-                                                        <a class="checkout" href="#">Pedir Cotação</a>
+                                                        <a class="checkout" href="{{route('checkout')}}">Pedir Cotação</a>
                                                     </div>
                                                 </div>
 

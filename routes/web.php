@@ -11,12 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend/index');
-});
+// Home Page
+Route::get('/', 'HomeController@index');
+Route::get('home', 'HomeController@index')->name('home');
 
-Route::get('/about', function(){
 
-		return view('frontend/about');
-});
+//About Company
+Route::get('about', 'AboutController@index');
+Route::get('about', 'AboutController@index')->name('about');
 
+//Contactos Company
+Route::get('contactos', 'ContactosController@index');
+Route::get('contactos', 'ContactosController@index')->name('contactos');
+
+//Checkout Products
+Route::get('checkout', 'CheckoutController@index');
+Route::get('checkout', 'CheckoutController@index')->name('checkout');
