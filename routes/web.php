@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//FrontEnd
 // Home Page
 Route::get('/', 'HomeController@index');
 Route::get('home', 'HomeController@index')->name('home');
@@ -27,3 +27,18 @@ Route::get('contactos', 'ContactosController@index')->name('contactos');
 //Checkout Products
 Route::get('checkout', 'CheckoutController@index');
 Route::get('checkout', 'CheckoutController@index')->name('checkout');
+
+
+//Checkout Products
+Route::get('wish', 'WishController@index');
+Route::get('wish', 'WishController@index')->name('wish');
+
+//detail produto
+Route::get('produto', 'ProdutoController@index');
+Route::get('produto', 'ProdutoController@index')->name('produto');
+
+
+// Backend
+//Checkout Products
+Route::get('dash', 'DashController@index');
+Route::get('dash', 'DashController@index')->name('dash');

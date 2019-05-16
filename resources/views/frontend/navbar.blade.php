@@ -126,7 +126,7 @@
                                             <li><a href="account.html">Account</a></li>                                            
                                         </ul>
                                     </li-->                                    
-                                    <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="{{route('wish')}}"><i class="fa fa-heart-o"></i></a></li>
                                     <li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">2</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
