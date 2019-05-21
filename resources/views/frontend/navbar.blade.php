@@ -73,34 +73,34 @@
                                          <li><a href="#">Produtos<i class="fa fa-angle-down"></i></a>
                                             <!-- Home Version Dropdown Start -->
                                             <ul class="ht-dropdown dropdown-style-two" >
-                                                <li><a href="#">Textil</a>
+                                                <li><a href="{{route('shop')}}">Textil</a>
                                                     <!-- Start Two Step -->
 
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                            <li><a href="#">T-Shirts</a>
+                                                            <li><a href="{{route('shop')}}">T-Shirts</a>
                                                             </li>
-                                                            <li><a href="#">Bonés</a></li>
+                                                            <li><a href="{{route('shop')}}">Bonés</a></li>
                                                             <li><img src="img/mochila1.png"  height="180" width="320" class="img-responsive" alt="menu-img"></li>
                                                         </ul>
                                                     
                                                 </li>
-                                                <li><a href="#">Tecnologia e USB</a>
+                                                <li><a href="{{route('shop')}}">Tecnologia e USB</a>
                                                     <!-- Start Two Step -->
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                            <li><a href="#">Pens </a>
+                                                            <li><a href="{{route('shop')}}">Pens </a>
                                                             </li>
-                                                            <li><a href="#">Pens</a></li>
-                                                            <li><a href="#">Pens</a></li>
+                                                            <li><a href="{{route('shop')}}">Pens</a></li>
+                                                            <li><a href="{{route('shop')}}">Pens</a></li>
                                                             <li><img src="img/mochila1.png" height="180" width="320"  class="img-responsive" alt="menu-img"></li>
                                                         </ul>
                                                 </li>
-                                                <li><a href="#">Sacos e Mochilas</a>
+                                                <li><a href="{{route('shop')}}">Sacos e Mochilas</a>
                                                     <!-- Start Two Step -->
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                            <li><a href="#">Mochila </a>
+                                                            <li><a href="{{route('shop')}}">Mochila </a>
                                                             </li>
-                                                            <li><a href="#">Sacos</a></li>
-                                                            <li><a href="#">Mochilas</a></li>
+                                                            <li><a href="{{route('shop')}}">Sacos</a></li>
+                                                            <li><a href="{{route('shop')}}">Mochilas</a></li>
                                                             <li><img src="img/mochila1.png"  height="180" width="320"  class="img-responsive" alt="menu-img"></li>
                                                         </ul>
                                                 </li>
@@ -133,24 +133,24 @@
 
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/pen1.png" alt="cart-image"></a>
+                                                        <a href="{{route('produto')}}"><img src="img/pen1.png" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="#">Toalha</a></h6>
+                                                        <h6><a href="{{route('produto')}}">Toalha</a></h6>
                                                         <span>100</span>
                                                     </div>
-                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href="{{route('produto')}}"><i class="fa fa-window-close-o"></i></a>
                                                 </div>
 
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="#"><img src="img/caneta1.png" alt="cart-image"></a>
+                                                        <a href="{{route('produto')}}"><img src="img/caneta1.png" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="#">Fitas Top</a></h6>
+                                                        <h6><a href="{{route('produto')}}">Fitas Top</a></h6>
                                                         <span>200</span>
                                                     </div>
-                                                    <a class="del-icone" href="#"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href=""><i class="fa fa-window-close-o"></i></a>
                                                 </div>
 
                                                 <div class="cart-footer fix">

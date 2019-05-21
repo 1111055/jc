@@ -38,7 +38,16 @@ Route::get('produto', 'ProdutoController@index');
 Route::get('produto', 'ProdutoController@index')->name('produto');
 
 
+//show produtos
+Route::get('shop', 'ShopController@index');
+Route::get('shop', 'ShopController@index')->name('shop');
+
 // Backend
 //Checkout Products
 Route::get('dash', 'DashController@index');
 Route::get('dash', 'DashController@index')->name('dash');
+
+//Social NetWork
+Route::get('social', 'SocialController@index');
+Route::get('social', 'SocialController@index')->name('social');
+Route::get('social/edit/{id}',   'SocialController@edit');
