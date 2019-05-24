@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Social;
-use App\Http\Requests\SocialRequest;
+use App\Menu;
+use App\Http\Requests\MenuRequest;
 
-class SocialController extends Controller
+class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,14 +17,10 @@ class SocialController extends Controller
     {
 
 
-
-        $social = Social::
+           $menus = Menu::
                  orderBy('ordem','asc')->get();
-
-
-        return view('backend.social.social', compact('social'));
+        return view('backend.Menu.index', compact('menus'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -42,14 +38,13 @@ class SocialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(SocialRequest $request)
+    public function store(MenuRequest $request)
     {
-        
-     //  $user = Auth::user();
+             //  $user = Auth::user();
     
         $request->persist();
 
-        return redirect()->route('social')->with('sucess','Criado com sucesso.');
+        return redirect()->route('menu')->with('sucess','Criado com sucesso.');
     }
 
     /**
@@ -71,10 +66,10 @@ class SocialController extends Controller
      */
     public function edit($id)
     {
+     
+       $menu = Menu::find($id);
 
-        $social = Social::find($id);
-
-       return view('backend.social.editsocial' , compact('social'));
+       return view('backend.Menu.edit' , compact('menu'));
     }
 
     /**
@@ -86,22 +81,21 @@ class SocialController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $social = Social::find($id);
 
+        $menu = Menu::find($id);
 
-        $social->nome=$request->nome;
-        $social->class=$request->class;
-        $social->link=$request->link;
-        $social->menomonica=$request->menomonica;
-        $social->ordem=$request->ordem;
+        $menu->menu=$request->menu;
+        $menu->link=$request->link;
+        $menu->submenu=$request->submenu;
+        $menu->descricao=$request->descricao;
+        $menu->ordem=$request->ordem;
 
-
-        $social->save();
+        $menu->save();
 
 
 
      
-        return redirect()->route('social');
+        return redirect()->route('menu');
     }
 
     /**
@@ -112,8 +106,8 @@ class SocialController extends Controller
      */
     public function destroy($id)
     {
-         Social::destroy($id);
+         Menu::destroy($id);
 
-         return redirect()->route('social')->with('sucess','Criado com sucesso.');
+         return redirect()->route('menu')->with('sucess','Criado com sucesso.');
     }
 }

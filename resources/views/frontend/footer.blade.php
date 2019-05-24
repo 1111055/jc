@@ -115,7 +115,7 @@
                         <div class="footer-social-content">
                             <ul class="social-content-list">
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-wifi"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkdin"></i></a></li>
                                 <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
                                 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                                 <li><a href="#"><i class="fa fa-youtube"></i></a></li>

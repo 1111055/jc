@@ -10,15 +10,14 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                   <h1>
-                   Social NetWork
+                   Menu
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('social')}}"><i class="fa fa-facebook-square"></i> Social Network</a></li>
+                    <li class="active"><a href="{{route('menu')}}"><i class="fa fa-facebook-square"></i> Menu</a></li>
                   </ol>
                 </section>
 
-                <!-- Main content -->
                 <section class="content container-fluid" style="background-image: url({{URL::asset('backend/dist/img/logo2.png')}});  background-repeat: no-repeat;
               background-position: 50% 50%;">             
             <!-- /.row -->
@@ -26,50 +25,47 @@
                       <div class="col-xs-12">
                         <div class="box">
                           <div class="box-header">
-                            <h3 class="box-title">Edit Social NetWork</h3>
+                            <h3 class="box-title">Edit Menu</h3>
 
                           </div>
-                          <!-- /.box-header -->
                          <div class="panel panel-default">
                             <div class="panel-body">
-                            <!-- Horizontal Form -->
-                            <!-- Horizontal Form -->
                             <div class="box box-info">
-                                     {!! Form::model($social, [
+                                     {!! Form::model($menu, [
                                           'method' => 'PUT',
-                                          'route' => ['social.update', $social->id],
+                                          'route' => ['menu.update', $menu->id],
                                           'class' => 'form-horizontal'
                                      ]) !!}
                                     <div class="box-body">
                                       <div class="form-group">
-                                        {!! Form::label('* Nome:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                        {!! Form::label('* Menu:',null, ['class' => 'col-sm-2 control-label']) !!}
                                         <div class="col-sm-8">
-                                           {!! Form::text('nome',$social->nome,['class' => 'form-control']) !!}
+                                           {!! Form::text('menu',$menu->menu,['class' => 'form-control']) !!}
                                         </div>
                                         
                                       </div>
                                       <div class="form-group">
-                                           {!! Form::label('* Menomonica:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                           {!! Form::label('* Descricao:',null, ['class' => 'col-sm-2 control-label']) !!}
                                         <div class="col-sm-8">
-                                           {!! Form::text('menomonica',$social->menomonica,['class' => 'form-control']) !!}
+                                           {!! Form::text('descricao',$menu->descricao,['class' => 'form-control']) !!}
                                         </div>
                                       </div>
                                        <div class="form-group">
-                                          {!! Form::label('* Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                          {!! Form::label('* Submenu:',null, ['class' => 'col-sm-2 control-label']) !!}
                                         <div class="col-sm-8">
-                                           {!! Form::text('ordem',$social->ordem,['class' => 'form-control']) !!}
+                                           {!! Form::text('submenu',$menu->submenu,['class' => 'form-control']) !!}
                                         </div>
                                       </div>
                                       <div class="form-group">
                                           {!! Form::label('* Link:',null, ['class' => 'col-sm-2 control-label']) !!}
                                         <div class="col-sm-8">
-                                           {!! Form::text('link',$social->link,['class' => 'form-control']) !!}
+                                           {!! Form::text('link',$menu->link,['class' => 'form-control']) !!}
                                         </div>
                                        </div>
                                        <div class="form-group">
-                                           {!! Form::label('* Class:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                           {!! Form::label('* Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
                                          <div class="col-sm-8">
-                                           {!! Form::text('class',$social->class,['class' => 'form-control']) !!}
+                                           {!! Form::text('ordem',$menu->ordem,['class' => 'form-control']) !!}
                                          </div>
                                       </div>
 

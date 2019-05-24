@@ -53,7 +53,7 @@
         </li>
 
         <li><a href="#"><i class="fa fa-shopping-cart"></i> <span>Produtos</span></a></li>
-
+        <li><a href="{{route('menu')}}"><i class="fa fa-align-justify"></i> <span>Menus</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-align-justify"></i> <span>Páginas</span>
             <span class="pull-right-container">
@@ -66,9 +66,9 @@
             <li><a href="#">Contactos</a></li>
             <li><a href="#">Produtos</a></li>
             <li><a href="#">Detalhe Produto</a></li>
-            <li><a href="{{route('social')}}">Redes Sociais</a></li>
           </ul>
         </li>
+         <li><a href="{{route('social')}}"><i class="fa fa-facebook"></i> <span>Redes Sociais</span></a></li>
       </ul>
       <!-- /.sidebar-menu -->
     </section>
