@@ -59,7 +59,7 @@
                     <div class="row">
                         <div class="col-xl-3 col-lg-2 col-sm-5 col-5">
                             <div class="logo">
-                                <a href="{{route('home')}}"><img src="img/logo.png" alt="logo-image"></a>
+                                <a href="{{route('home')}}"><img src="logotipo/CROP/logotipo.png" alt="logo-image"></a>
                             </div>
                         </div>
                         <!-- Primary Vertical-Menu End -->

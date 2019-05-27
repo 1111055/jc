@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="{{ asset('backend/bower_components/Ionicons/css/ionicons.min.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/dist/css/AdminLTE.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/dist/css/skins/skin-blue.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/imgareaselect.css') }}">
 
   <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">

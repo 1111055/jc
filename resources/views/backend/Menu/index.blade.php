@@ -18,8 +18,7 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content container-fluid" style="background-image: url('backend/dist/img/logo2.png');  background-repeat: no-repeat;
-              background-position: 50% 50%;">             
+                <section class="content container-fluid" >             
             <!-- /.row -->
                   <div class="row">
                     <div class="col-xs-12">
@@ -55,9 +54,7 @@
                                   </div>
                                 </div>
                               </div>
-                          <!-- /.box-body -->
                         </div>
-                        <!-- /.box -->
                           <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                               <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
@@ -72,21 +69,17 @@
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
-                              <th>ID</th>
                               <th>Ordem</th>
                               <th>Menu</th>
-                              <th>Submenu</th>
-                              <th>Link</th>
+                              <th>Pagina</th>
                               <th>Descrição</th>
                               <th class="text-center">Active</th>
                               <th>#</th>
                             </tr>
                              @foreach($menus as $item)
                               <tr>
-                                <td>{{ $item->id }}</td>
                                 <td>{{ $item->ordem }}</td>
                                 <td>{{ $item->menu }}</td>
-                                <td>{{ $item->submenu }}</td>
                                 <td>{{ $item->link }}</td>
                                 <td>{{ $item->descricao }}</td>
                                 @if ($item->activo === 1)

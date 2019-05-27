@@ -36,7 +36,7 @@
         <li class="active"><a href="{{route('dash')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
         <!-- Optionally, you can add icons to the links -->
-        <li><a href="#"><i class="fa fa-wrench"></i> <span>Configurações</span></a></li>
+        <li><a href="{{route('setting')}}"><i class="fa fa-wrench"></i> <span>Configurações</span></a></li>
 
 
         <li class="treeview">

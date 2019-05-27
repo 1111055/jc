@@ -3,8 +3,18 @@
 @section('content')
 
     @if(session('sucess'))
-        <div style="background-color:green;color:#FFF;padding:15px;width: 100%;">{{session('sucess')}}</div>
+        <div style="background-color:green;color:#FFF;padding:15px;width: 40%;float:right;">{{session('sucess')}}</div>
     @endif
+           @if ($errors->any())
+                <div style="background-color:green;color:#FFF;padding:15px;width: 40%;float: right;">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
               <!-- Content Wrapper. Contains page content -->
               <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
@@ -20,8 +30,7 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content container-fluid" style="background-image: url({{URL::asset('backend/dist/img/logo2.png')}});  background-repeat: no-repeat;
-              background-position: 50% 50%;">             
+                <section class="content container-fluid">             
             <!-- /.row -->
                   <div class="row">
                       <div class="col-xs-12">

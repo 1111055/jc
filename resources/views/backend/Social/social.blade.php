@@ -2,9 +2,6 @@
 
 @section('content')
 
-    @if(session('sucess'))
-        <div style="background-color:green;color:#FFF;padding:15px;width: 100%;">{{session('sucess')}}</div>
-    @endif
 
               <!-- Content Wrapper. Contains page content -->
               <div class="content-wrapper">
@@ -21,8 +18,7 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content container-fluid" style="background-image: url('backend/dist/img/logo2.png');  background-repeat: no-repeat;
-              background-position: 50% 50%;">             
+                <section class="content container-fluid">             
             <!-- /.row -->
                   <div class="row">
                     <div class="col-xs-12">
@@ -34,7 +30,7 @@
                          <div class="panel panel-default">
                             <div class="panel-body">
                             <!-- Horizontal Form -->
-                              <div class="col-xs-10">
+                              <div class="col-xs-8">
                                 <div class="box box-info">
                                   {!! Form::open(['url' => 'social','class' => 'form-horizontal']) !!}
                                         <div class="box-body">
@@ -69,6 +65,21 @@
                                         </div>
                                       {!! Form::close() !!}
                                   </div>
+                                </div>
+                                <div class="col-sm-4">
+
+                                       @if(session('sucess'))
+                                            <div class="alert alert-success" style="width: 100%;float: right;">{{session('sucess')}}</div>
+                                        @endif
+                                       @if ($errors->any())
+                                            <div class="alert alert-danger" style="width: 100%;float: right;">
+                                                <ul>
+                                                    @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                    @endforeach
+                                                </ul>
+                                            </div>
+                                        @endif
                                 </div>
                               </div>
                           <!-- /.box-body -->

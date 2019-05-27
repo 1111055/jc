@@ -18,7 +18,9 @@ class MenuController extends Controller
 
 
            $menus = Menu::
-                 orderBy('ordem','asc')->get();
+                 where('submenu', '=', '')
+                 ->orWhereNull('submenu')
+                 ->orderBy('ordem','asc')->get();
         return view('backend.Menu.index', compact('menus'));
     }
 
@@ -69,7 +71,24 @@ class MenuController extends Controller
      
        $menu = Menu::find($id);
 
-       return view('backend.Menu.edit' , compact('menu'));
+
+       $menus = Menu::
+                 where("submenu","=", $id) 
+                 ->orderBy('ordem','asc')
+                 ->get();
+
+       $menustmp = Menu::
+                 where('submenu', '=', '')
+                 ->orWhereNull('submenu')
+                 ->orderBy('ordem','asc')->get();
+
+
+       $selmenu = $menustmp->pluck('menu','id');
+
+       
+       $selmenu->prepend('-- Escolha um Submenu -- ',0);
+
+       return view('backend.Menu.edit' , compact('menu','menus','selmenu'));
     }
 
     /**

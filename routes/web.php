@@ -61,3 +61,10 @@ Route::get('menu/edit/{id}',           ['as' => 'menu.edit',    'uses'  => 'Menu
 Route::put('menu/update/{id}',         ['as' => 'menu.update',  'uses' => 'MenuController@update']);
 Route::delete('menu/destroy/{id}',     ['as' => 'menu.destroy', 'uses' => 'MenuController@destroy']);
 Route::post('menu', 'MenuController@store');
+
+//Settings
+Route::get('setting', 'SettingController@index')->name('setting');
+Route::get('setting/edit/{id}',           ['as' => 'setting.edit',    'uses'  => 'SettingController@edit']); 
+Route::put('setting/update/{id}',         ['as' => 'setting.update',  'uses' => 'SettingController@update']);
+Route::delete('setting/destroy/{id}',     ['as' => 'setting.destroy', 'uses' => 'SettingController@destroy']);
+Route::post('setting', 'SettingController@store');
