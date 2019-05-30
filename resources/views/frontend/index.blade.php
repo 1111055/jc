@@ -83,13 +83,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -102,13 +95,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#">Bone 25</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
 
@@ -126,13 +112,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -145,13 +124,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#">Bone</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -168,13 +140,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -187,13 +152,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#"></a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -210,13 +168,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -229,13 +180,6 @@
                                 <a href="E"><img class="img" src="img/pen1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#">Pen</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -252,13 +196,7 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <h4><a href="#">Mochila</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -271,13 +209,6 @@
                                 <a href="#"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#">Mochila</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -294,13 +225,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="#">Mochila</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -313,13 +237,7 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <h4><a href="#">Mochila</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -353,14 +271,7 @@
                         </div>
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>                                
+                        <div class="pro-content">                               
                             <h4><a href="#">Pen XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
@@ -384,14 +295,7 @@
                         </div>
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>                                
+                        <div class="pro-content">                           
                             <h4><a href="#">Caneta XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
@@ -417,14 +321,7 @@
                         </div>
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>                                
+                        <div class="pro-content">                             
                             <h4><a href="#">Caneta XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
@@ -448,14 +345,7 @@
                         </div>
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>                                
+                        <div class="pro-content">                               
                             <h4><a href="{{route('produto')}}">Caneta XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
@@ -481,14 +371,7 @@
                         </div>
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>                                
+                        <div class="pro-content">                            
                             <h4><a href="{{route('produto')}}">Mochila XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
@@ -514,14 +397,7 @@
                         </div>
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
-                        <div class="pro-content">
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>                                
+                        <div class="pro-content">                            
                             <h4><a href="{{route('produto')}}">Bloco XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
@@ -583,13 +459,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Caneta</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -601,13 +470,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Bloco</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -619,13 +481,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Boné Rapaz Azul</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -637,13 +492,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">T-Shirt Rosa Menina</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -655,13 +503,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Pen 5Gb</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -676,13 +517,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Caneta v2</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -694,13 +528,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Bloco v2</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -712,13 +539,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Boné Menina Rosa</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -730,13 +550,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">T-Shirt Azul Menina</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -748,13 +561,6 @@
                                             <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <div class="product-rating">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
                                             <h4><a href="{{route('produto')}}">Pen 10Gb</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
@@ -792,14 +598,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                             
                                                 <h4><a href="{{route('produto')}}">Pen 80GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
@@ -825,13 +624,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                              
                                                 <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
@@ -857,14 +650,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                           <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                              
                                                 <h4><a href="{{route('produto')}}">Pen 40GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
@@ -890,13 +676,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">
-                                           <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                              
                                                 <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
@@ -922,14 +702,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                    <div class="product-rating">
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                        <i class="fa fa-star"></i>
-                                                    </div>                                
+                                            <div class="pro-content">                             
                                                     <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
                                                     <p><span class="price"></span><del class="prev-price"></del></p>
                                                     <div class="pro-actions">
@@ -954,14 +727,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                                
                                                 <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
@@ -994,14 +760,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                            
                                                 <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
@@ -1026,14 +785,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                             
                                                 <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
@@ -1059,14 +811,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                               
                                                 <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
@@ -1091,14 +836,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                               
                                                 <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
@@ -1124,13 +862,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                   
                                                 <h4><a href="#">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
@@ -1155,14 +887,7 @@
                                             </div>
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                                <div class="product-rating">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>                                
+                                            <div class="pro-content">                           
                                                 <h4><a href="#">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
@@ -1269,13 +994,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="{{route('produto')}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -1287,13 +1005,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="{{route('produto')}}">Bone</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -1309,13 +1020,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="{{route('produto')}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -1327,13 +1031,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="{{route('produto')}}">Bone</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -1349,13 +1046,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="{{route('produto')}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -1367,13 +1057,7 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <h4><a href="{{route('produto')}}"></a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -1389,13 +1073,7 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <h4><a href="{{route('produto')}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -1407,13 +1085,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="{{route('produto')}}">Pen</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -1429,13 +1100,7 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <h4><a href="{{route('produto')}}">Mochila</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -1447,13 +1112,7 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <h4><a href="{{route('produto')}}">Mochila</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
@@ -1469,13 +1128,7 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
+
                                 <h4><a href="{{route('produto')}}">Mochila</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
@@ -1487,13 +1140,6 @@
                                 <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <div class="product-rating">
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                    <i class="fa fa-star"></i>
-                                </div>
                                 <h4><a href="{{route('produto')}}">Mochila</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>

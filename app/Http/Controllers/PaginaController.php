@@ -85,7 +85,8 @@ class PaginaController extends Controller
 
         $pagina->fill($input)->save();
 
-        return view('backend.pagina.edit', compact('pagina'))->with('sucess','Guardado com sucesso.');
+       
+         return redirect()->route('pagina.edit', compact('pagina'))->with('sucess','Guardado com sucesso.');
 
     }
 
@@ -97,6 +98,8 @@ class PaginaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Pagina::destroy($id);
+
+         return redirect()->route('pagina')->with('sucess','Removido com sucesso.');
     }
 }
