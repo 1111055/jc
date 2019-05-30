@@ -68,3 +68,10 @@ Route::get('setting/edit/{id}',           ['as' => 'setting.edit',    'uses'  =>
 Route::put('setting/update/{id}',         ['as' => 'setting.update',  'uses' => 'SettingController@update']);
 Route::delete('setting/destroy/{id}',     ['as' => 'setting.destroy', 'uses' => 'SettingController@destroy']);
 Route::post('setting', 'SettingController@store');
+
+//Paginas
+Route::get('pagina', 'PaginaController@index')->name('pagina');
+Route::get('pagina/edit/{id}',           ['as' => 'pagina.edit',    'uses'  => 'PaginaController@edit']); 
+Route::put('pagina/update/{id}',         ['as' => 'pagina.update',  'uses' => 'PaginaController@update']);
+Route::delete('pagina/destroy/{id}',     ['as' => 'pagina.destroy', 'uses' => 'PaginaController@destroy']);
+Route::post('pagina', 'PaginaController@store');

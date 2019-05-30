@@ -61,6 +61,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
+            <li><a href="{{route('pagina')}}"><i class="fa fa-plus-circle"></i> Nova Página</a></li>
             <li><a href="#">Home</a></li>
             <li><a href="#">Sobre Nós</a></li>
             <li><a href="#">Contactos</a></li>
