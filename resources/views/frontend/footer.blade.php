@@ -27,9 +27,9 @@
                                 <h3>Contactos</h3>
                                 <div class="footer-content">
                                     <div class="loc-address">
-                                        <span><i class="fa fa-map-marker"></i>Rua Xpto</span>
-                                        <span><i class="fa fa-envelope-o"></i>Email : xpto@xpto.com</span>
-                                        <span><i class="fa fa-phone"></i>Telemovel:   999 999 999</span>
+                                        <span><i class="fa fa-map-marker"></i>{{$setting->rua}} , {{$setting->cidade}} </span>
+                                        <span><i class="fa fa-envelope-o"></i>Email : {{$setting->email1}}</span>
+                                        <span><i class="fa fa-phone"></i>Telemovel:    {{$setting->contacto2}}</span>
                                     </div>
                                     <!--div class="payment-mth"><a href="#"><img class="img" src="img/footer/1.png" alt="payment-image"></a></div-->
                                 </div>
@@ -111,7 +111,7 @@
             <div class="footer-bottom off-white-bg2">
                 <div class="container">
                     <div class="footer-bottom-content">
-                        <p class="copy-right-text">Copyright © <a  href="#">Marco Mendes</a> All Rights Reserved.</p>
+                        <p class="copy-right-text">Copyright © <a  href="#">Ibero Brinde</a> All Rights Reserved.</p>
                         <div class="footer-social-content">
                             <ul class="social-content-list">
                                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>

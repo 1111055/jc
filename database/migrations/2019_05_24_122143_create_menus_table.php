@@ -20,6 +20,7 @@ class CreateMenusTable extends Migration
             $table->string('descricao')->nullable();
             $table->string('link')->nullable();
             $table->string('ordem')->default(0);
+            $table->string('path')->nullable();
             $table->integer('activo')->default(1);
             $table->timestamps();
         });

@@ -26,8 +26,8 @@
 					</div-->
 					<div class="col-lg-12 col-md-12 text-center">
 						<div class="about-content">
-							<h3>Sobre Nós</h3>
-							<p >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim congue convallis. Nam at fermentum est, ac elementum lectus. Aliquam ut risus in turpis pulvinar vehicula vitae ultrices ante. Proin et tortor molestie, feugiat quam vitae, tincidunt neque. Suspendisse feugiat est mollis tortor suscipit facilisis. Duis lacinia ante sit amet enim finibus, eget pulvinar leo dapibus. Vestibulum convallis risus at efficitur gravida. Nulla feugiat at turpis sit amet ultricies. Vestibulum felis odio, tristique sed rhoncus non, molestie quis enim. Nulla a mattis magna, eu tempus purus. Sed lacinia nunc leo, vitae fermentum nulla faucibus non.</p>
+							<h3>{{$pageabout->titulo}}</h3>
+							 {!! $pageabout->descricao !!}
 						</div>
 					</div>
 				</div>
@@ -40,9 +40,9 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="ht-single-about pb-sm-40">
-                            <h3>Os Nossos Valores e Missão</h3>
+                            <h3>{!! $pageabout->titulo1 !!}</h3>
                            
-                            <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut dignissim congue convallis. Nam at fermentum est, ac elementum lectus. Aliquam ut risus in turpis pulvinar vehicula vitae ultrices ante. Proin et tortor molestie, feugiat quam vitae, tincidunt neque. Suspendisse feugiat est mollis tortor suscipit facilisis. Duis lacinia ante sit amet enim finibus, eget pulvinar leo dapibus. Vestibulum convallis risus at efficitur gravida. Nulla feugiat at turpis sit amet ultricies. Vestibulum felis odio, tristique sed rhoncus non, molestie quis enim. Nulla a mattis magna, eu tempus purus. Sed lacinia nunc leo, vitae fermentum nulla faucibus non.</p>
+                            <p class="text-justify"> {!! $pageabout->descricao1 !!}</p>
                             
                         </div>
                     </div>

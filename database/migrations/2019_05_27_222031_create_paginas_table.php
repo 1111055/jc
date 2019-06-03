@@ -18,11 +18,11 @@ class CreatePaginasTable extends Migration
             $table->string('nome');
             $table->string('titulo')->nullable();
             $table->string('subtitulo')->nullable();
-            $table->string('descricao')->nullable();
+            $table->text('descricao')->nullable();
             $table->string('titulo1')->nullable();
-            $table->string('descricao1')->nullable();
+            $table->text('descricao1')->nullable();
             $table->string('titulo2')->nullable();
-            $table->string('descricao2')->nullable();
+            $table->text('descricao2')->nullable();
             $table->string('link')->nullable();
             $table->string('link1')->nullable();
             $table->string('pathimg')->nullable();

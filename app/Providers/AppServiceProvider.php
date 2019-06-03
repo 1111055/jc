@@ -4,7 +4,10 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 use URL;
+use App\Menu;
+use App\Setting;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +19,21 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-         URL::forceScheme('https');
+         //URL::forceScheme('https');
+
+        $menus = Menu::getAllMenu();
+        $setting = Setting::getAllSettings();
+
+
+                 
+
+       //dd($setting);
+
+       // Session::put('menu', $cart); 
+
+         View::share('menu', $menus);
+         View::share('setting', $setting);
+
     }
 
     /**

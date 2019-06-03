@@ -71,7 +71,7 @@
                                               <div class="form-group">
                                                    {!! Form::label('Nova Descrição:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                  <div class="col-sm-8">
-                                                   {!! Form::text('descricao1',$pagina->descricao1,['class' => 'form-control']) !!}
+                                                   {!! Form::textarea('descricao1',$pagina->descricao1,['class' => 'form-control']) !!}
                                                  </div>
                                               </div>
                                               <div class="form-group">
@@ -83,7 +83,7 @@
                                                <div class="form-group">
                                                    {!! Form::label('Nova Descrição:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                  <div class="col-sm-8">
-                                                   {!! Form::text('descricao2',$pagina->descricao2,['class' => 'form-control']) !!}
+                                                   {!! Form::textarea('descricao2',$pagina->descricao2,['class' => 'form-control']) !!}
                                                  </div>
                                                </div>
                                               <div class="form-group">
@@ -109,7 +109,7 @@
                                 <div class="col-xs-4">
 
                                       @if(session('sucess'))
-                                          <div style="background-color:green;color:#FFF;padding:15px;width: 40%;float:right;">{{session('sucess')}}</div>
+                                          <div style="background-color:green;color:#FFF;padding:15px;float:right;">{{session('sucess')}}</div>
                                       @endif
                                        @if ($errors->any())
                                             <div style="background-color:green;color:#FFF;padding:15px;width: 40%;float: right;">

@@ -7,7 +7,7 @@
                         <!-- Header Top left Start -->                        
                         <div class="col-lg-8 col-md-10 d-center">
                             <div class="header-top-left">
-                                <img src="img/icon/call.png" alt="">Contacto : 999 999 999
+                                <img src="img/icon/call.png" alt="">Contacto : {{$setting->contacto1}}
                             </div>                        
                         </div>
                         <!-- Header Top left End -->
@@ -68,13 +68,39 @@
                             <div class="middle-menu pull-right">
                                 <nav>
                                     <ul class="middle-menu-list">
-                                        <li {{ (Request::is('home') ? 'class=active' : '') }}><a href="{{route('home')}}">home</a>
+
+
+                                @foreach($menu as $test) 
+                                    @if(Route::getRoutes()->hasNamedRoute(strtolower($test['path']))) 
+                                         @if(count($test['submenutmp']) < 1 ) 
+                                            <li> <a href="{{route(strtolower($test['path']))}}">{{$test['menu']}}</i></a>
+                                         @else
+                                            <li> <a href="{{route(strtolower($test['path']))}}">{{$test['menu']}} <i class="fa fa-angle-down"></i></a>
+                                            <ul class="ht-dropdown dropdown-style-two" >
+                                              @include('frontend.menucico', ['menutmp' => $test['submenutmp']]) 
+                                          </ul>
+                                         @endif 
+                                    @else{
+                                         @if(count($test['submenutmp']) < 1 ) 
+                                            <li> <a href="#">{{$test['menu']}}</i></a>
+                                         @else
+                                            <li> <a href="#">{{$test['menu']}} <i class="fa fa-angle-down"></i></a> 
+                                                <ul class="ht-dropdown dropdown-style-two" >
+                                                    @include('frontend.menucico', ['menutmp' => $test['submenutmp']]) 
+                                                </ul>
+                                         @endif  
+
+                                    }       
+                                    @endif 
+                                @endforeach
+
+                                        <!--li {{ (Request::is('home') ? 'class=active' : '') }}><a href="{{route('home')}}">home</a>
                                         </li>
                                          <li><a href="#">Produtos<i class="fa fa-angle-down"></i></a>
-                                            <!-- Home Version Dropdown Start -->
+    
                                             <ul class="ht-dropdown dropdown-style-two" >
                                                 <li><a href="{{route('shop')}}">Textil</a>
-                                                    <!-- Start Two Step -->
+
 
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
                                                             <li><a href="{{route('shop')}}">T-Shirts</a>
@@ -85,7 +111,7 @@
                                                     
                                                 </li>
                                                 <li><a href="{{route('shop')}}">Tecnologia e USB</a>
-                                                    <!-- Start Two Step -->
+        
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
                                                             <li><a href="{{route('shop')}}">Pens </a>
                                                             </li>
@@ -95,7 +121,7 @@
                                                         </ul>
                                                 </li>
                                                 <li><a href="{{route('shop')}}">Sacos e Mochilas</a>
-                                                    <!-- Start Two Step -->
+    
                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
                                                             <li><a href="{{route('shop')}}">Mochila </a>
                                                             </li>
@@ -105,11 +131,10 @@
                                                         </ul>
                                                 </li>
                                             </ul>
-                                            <!-- Home Version Dropdown End -->
                                         </li>   
                                         <li {{ (Request::is('home') ? 'class=active' : '') }}><a href="{{route('about')}}">Sobre nós</a></li>                                        
     
-                                        <li {{ (Request::is('contactos') ? 'class=active' : '') }}><a href="{{route('contactos')}}">Contactos</a></li>                                        
+                                        <li {{ (Request::is('contactos') ? 'class=active' : '') }}><a href="{{route('contactos')}}">Contactos</a></li-->                                        
                                     </ul>
                                 </nav>
                             </div>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Menu;
+Use Session;
 
 class HomeController extends Controller
 {
@@ -13,8 +15,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+                
+       // dd(Session::get('menu'));
+
         return view('frontend.index');
     }
+
 
     /**
      * Show the form for creating a new resource.

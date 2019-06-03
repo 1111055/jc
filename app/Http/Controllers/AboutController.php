@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pagina;
 
 class AboutController extends Controller
 {
@@ -13,7 +14,10 @@ class AboutController extends Controller
      */
     public function index()
     {
-        return view('frontend.about');
+
+        $pageabout = Pagina::find(2);
+
+        return view('frontend.about', compact('pageabout'));
     }
 
     /**

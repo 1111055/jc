@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
 class Setting extends Model
 {
      protected $fillable = [
@@ -11,7 +12,7 @@ class Setting extends Model
     ];
     
 
-    public static function getMenu()
+    public static function getSettings()
     {
 
         $valty = DB::table('settings')
@@ -19,4 +20,9 @@ class Setting extends Model
 
         return $valty;
     }
+
+    public static function getAllSettings(){
+
+       return Setting::find(1);
+     }
 }

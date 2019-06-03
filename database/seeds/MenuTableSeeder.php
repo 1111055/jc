@@ -36,6 +36,7 @@ class MenuTableSeeder extends Seeder
             'submenu' => '1',
             'ordem' => '001',
             'link' => '#',
+            'path' => 'home',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
@@ -45,6 +46,7 @@ class MenuTableSeeder extends Seeder
             'submenu' => '1',
             'ordem' => '002',
             'link' => '#',
+            'path' => 'shop',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
@@ -54,6 +56,7 @@ class MenuTableSeeder extends Seeder
             'submenu' => '1',
             'ordem' => '003',
             'link' => '#',
+            'path' => 'about',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
@@ -64,9 +67,23 @@ class MenuTableSeeder extends Seeder
             'submenu' => '1',
             'ordem' => '004',
             'link' => '#',
+            'path' => 'contactos',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
+
+
+        DB::table('menus')->insert([
+            'menu' => 'Textil',
+            'descricao' => 'Menu textil.',
+            'submenu' => '4',
+            'ordem' => '004',
+            'link' => '#',
+            'path' => 'textil',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+
 
 
 
