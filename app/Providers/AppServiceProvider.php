@@ -21,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
          URL::forceScheme('https');
 
+
+
         $menus = Menu::getAllMenu();
         $setting = Setting::getAllSettings();
 
