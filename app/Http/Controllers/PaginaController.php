@@ -70,9 +70,9 @@ class PaginaController extends Controller
 
          $desc =  Desc::where('page_id','=',$id)->get();
 
-        // dd($desc);
+         dd($desc);
 
-        return view('backend.pagina.edit', compact('pagina','desc'));
+        return view('backend.Pagina.edit', compact('pagina','desc'));
     }
 
     /**
