@@ -22,7 +22,7 @@ class SocialController extends Controller
                  orderBy('ordem','asc')->get();
 
 
-        return view('backend.social.social', compact('social'));
+        return view('backend.Social.social', compact('social'));
     }
 
 
@@ -74,7 +74,7 @@ class SocialController extends Controller
 
         $social = Social::find($id);
 
-       return view('backend.social.editsocial' , compact('social'));
+       return view('backend.Social.editsocial' , compact('social'));
     }
 
     /**

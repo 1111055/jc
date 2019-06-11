@@ -67,7 +67,7 @@ class DescController extends Controller
         
        $desc = Desc::find($id);
 
-       return view('backend.desc.edit' , compact('desc','idpage'));
+       return view('backend.Desc.edit' , compact('desc','idpage'));
     }
 
     /**

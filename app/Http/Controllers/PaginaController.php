@@ -21,7 +21,7 @@ class PaginaController extends Controller
                  orderBy('nome','asc')->get();
 
 
-        return view('backend.pagina.index', compact('pagina'));
+        return view('backend.Pagina.index', compact('pagina'));
     }
 
     /**
@@ -72,7 +72,7 @@ class PaginaController extends Controller
 
          //dd($desc);
 
-        return view('backend.pagina.edit', compact('pagina','desc'));
+        return view('backend.Pagina.edit', compact('pagina','desc'));
     }
 
     /**
