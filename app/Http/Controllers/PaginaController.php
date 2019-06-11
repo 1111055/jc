@@ -72,7 +72,7 @@ class PaginaController extends Controller
 
          //dd($desc);
 
-        return view('backend.Pagina.edit', compact('pagina','desc'));
+        return view('backend.pagina.edit', compact('pagina','desc'));
     }
 
     /**
