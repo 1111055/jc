@@ -39,6 +39,24 @@
         //bootstrap WYSIHTML5 - text editor
         $('.textarea').wysihtml5()
       })
+
+        $(document).ready(function() {
+            $(".btn-pref .btn").click(function () {
+                $(".btn-pref .btn").removeClass("btn-warning").addClass("btn-default");
+                // $(".tab").addClass("active"); // instead of this do the below 
+                $(this).removeClass("btn-default").addClass("btn-warning");   
+            });
+        });
+
+       $("#add").on('click', function () {
+             
+               var html = '<input type="text" name="titulo[]" id="titulo" class="form-control" /> <input type="text" name="titulo[]" id="titulo" class="form-control" /> </br>';
+         
+
+                $(".addlines").append(html);
+
+
+        });
     </script>
 
     </body>

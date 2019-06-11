@@ -42,36 +42,28 @@
                         <div class="ht-single-about pb-sm-40">
                             <h3>{!! $pageabout->titulo1 !!}</h3>
                            
-                            <p class="text-justify"> {!! $pageabout->descricao1 !!}</p>
+                              {!! $pageabout->descricao1 !!}
                             
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="ht-single-about">
-                            <h3>Objectivos</h3>
-                            <div class="ht-about-work">
-                                <span>1</span>
-                                <div class="ht-work-text">
-                                    <h5><a href="#">LOREM IPSUM DOLOR SIT AMET</a></h5>
-                                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu nisi ac mi</p>
-                                </div>
-                            </div>
-                            <div class="ht-about-work">
-                                <span>2</span>
-                                <div class="ht-work-text">
-                                    <h5><a href="#">DONEC FERMENTUM EROS</a></h5>
-                                    <p class="text-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu nisi ac mi</p>
-                                </div>
-                            </div>
-                            <div class="ht-about-work">
-                                <span>3</span>
-                                <div class="ht-work-text">
-                                    <h5 class="text-justify"><a href="#">LOREM IPSUM DOLOR SIT AMET</a></h5>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent eu nisi ac mi</p>
-                                </div>
+                    @if(count($desc)>0)
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="ht-single-about">
+                                <h3>Objectivos</h3>
+                                @foreach ($desc as $key => $item)   
+                                        <div class="ht-about-work">
+                                            <span>{{ $key + 1 }}</span>
+                                            <div class="ht-work-text">
+                                                <h5><a href="#"> {{ $item->titulo }}</a></h5>
+                                                <p class="text-justify">{{ $item->descricao }}</p>
+                                            </div>
+                                        </div>
+                                @endforeach
+    
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
             </div>
         </div>

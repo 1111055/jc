@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Pagina;
 
 class Pagina extends Model
 {
@@ -14,8 +15,8 @@ class Pagina extends Model
     public static function getPagina()
     {
 
-        $valty = DB::table('paginas')
-            ->get();
+        $valty = Pagina::orderBy('nome','asc')->get();
+         
 
         return $valty;
     }

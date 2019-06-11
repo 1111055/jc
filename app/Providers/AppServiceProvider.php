@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\View;
 use URL;
 use App\Menu;
 use App\Setting;
+use App\Pagina;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -19,22 +20,24 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-         URL::forceScheme('https');
+        // URL::forceScheme('https');
 
 
 
         $menus = Menu::getAllMenu();
         $setting = Setting::getAllSettings();
+        $page = Pagina::getPagina();
 
 
                  
 
-       //dd($setting);
+      // dd($menus);
 
        // Session::put('menu', $cart); 
 
          View::share('menu', $menus);
          View::share('setting', $setting);
+         View::share('paginas', $page);
 
     }
 

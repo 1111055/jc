@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pagina;
 use App\Desc;
-use App\Http\Requests\PaginaRequest;
+use App\Http\Requests\DescRequest;
 
-class PaginaController extends Controller
+
+class DescController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,7 @@ class PaginaController extends Controller
      */
     public function index()
     {
-
-         $pagina = Pagina::
-                 orderBy('nome','asc')->get();
-
-
-        return view('backend.pagina.index', compact('pagina'));
+        //
     }
 
     /**
@@ -40,11 +35,14 @@ class PaginaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PaginaRequest $request)
+    public function store(DescRequest $request)
     {
-          $request->persist();
+       
 
-        return redirect()->route('pagina')->with('sucess','Criado com sucesso.');
+
+        $request->persist();
+
+        return redirect()->route('pagina.edit', ['id' => request()->idpage])->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -64,15 +62,12 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,$idpage)
     {
-        $pagina = Pagina::find($id);
+        
+       $desc = Desc::find($id);
 
-         $desc =  Desc::where('page_id','=',$id)->get();
-
-        // dd($desc);
-
-        return view('backend.pagina.edit', compact('pagina','desc'));
+       return view('backend.desc.edit' , compact('desc','idpage'));
     }
 
     /**
@@ -82,17 +77,21 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PaginaRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $pagina = Pagina::findOrFail($id);
+        $desc = Desc::find($id);
 
-        $input = $request->all();
 
-        $pagina->fill($input)->save();
+        $desc->titulo=$request->titulo;
+        $desc->descricao=$request->descricaodesc;
 
-       
-         return redirect()->route('pagina.edit', compact('pagina'))->with('sucess','Guardado com sucesso.');
+        
+        $desc->save();
 
+
+
+     
+       return redirect()->route('pagina.edit', ['id' => request()->idpage])->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -101,10 +100,10 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id,$idpage)
     {
-        Pagina::destroy($id);
+        Desc::destroy($id);
 
-         return redirect()->route('pagina')->with('sucess','Removido com sucesso.');
+         return redirect()->route('pagina.edit', ['id' => $idpage])->with('sucess','Removido com sucesso.');
     }
 }

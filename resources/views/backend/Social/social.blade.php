@@ -63,7 +63,7 @@
                                         <div class="box-footer">
                                             {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
                                         </div>
-                                      {!! Form::close() !!}
+                                {!! Form::close() !!}
                                   </div>
                                 </div>
                                 <div class="col-sm-4">

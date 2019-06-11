@@ -62,11 +62,13 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{route('pagina')}}"><i class="fa fa-plus-circle"></i> Nova Página</a></li>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Sobre Nós</a></li>
-            <li><a href="#">Contactos</a></li>
-            <li><a href="#">Produtos</a></li>
-            <li><a href="#">Detalhe Produto</a></li>
+
+            @if(count($paginas) > 0)
+               @foreach($paginas as $item)
+                <li><a href="{{ route('pagina.edit', ['id' => $item->id])}}">{{ $item->nome}}</a></li>
+               @endforeach 
+            @endif
+
           </ul>
         </li>
          <li><a href="{{route('social')}}"><i class="fa fa-facebook"></i> <span>Redes Sociais</span></a></li>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pagina;
+use App\Desc;
 
 class AboutController extends Controller
 {
@@ -15,9 +16,11 @@ class AboutController extends Controller
     public function index()
     {
 
-        $pageabout = Pagina::find(2);
+        $pageabout = Pagina::find(11);
 
-        return view('frontend.about', compact('pageabout'));
+        $desc =  Desc::where('page_id','=','11')->orderBy('ordem','asc')->get();
+
+        return view('frontend.about', compact('pageabout','desc'));
     }
 
     /**
@@ -60,7 +63,7 @@ class AboutController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**

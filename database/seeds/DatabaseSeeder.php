@@ -15,7 +15,8 @@ class DatabaseSeeder extends Seeder
        $this->call([
         SocialTableSeeder::class,
         MenuTableSeeder::class,
-        SettingTableSeeder::class
+        SettingTableSeeder::class,
+        PaginasTableSeeder::class
 
        ]);
     }

@@ -41,8 +41,6 @@ class PaginaRequest extends FormRequest
     }
     
     public function persist(){
-
-
    
        Pagina::create([
             'nome'         => request()->nome,
