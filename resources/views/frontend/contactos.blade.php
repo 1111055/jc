@@ -1,6 +1,11 @@
 @extends('frontend.app')
 
 @section('content')
+
+<style type="text/css">
+    
+
+</style>>
  <!-- Header Area End -->  
         <!-- Breadcrumb Start -->
         <div class="breadcrumb-area ptb-60 ptb-sm-30">
@@ -25,8 +30,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-sm-12">
-                        <h3>Contacte Nos</h3>
-                        <p class="text-capitalize mb-40">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <h3>{{ $contact->titulo}}</h3>
+                        <div class="descbody" style="margin-top: 2%;">
+                           {!! $contact->descricao !!}
+                        </div>        
                         <form id="contact-form" class="contact-form" action="mail.php" method="post">
                             <div class="address-wrapper">
                                 <div class="row">    

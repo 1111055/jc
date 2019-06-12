@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Pagina;
 class ContactosController extends Controller
 {
     /**
@@ -13,7 +13,10 @@ class ContactosController extends Controller
      */
     public function index()
     {
-        return view('frontend.contactos');
+
+       $contact = Pagina::find(21);
+
+        return view('frontend.contactos', compact('contact'));
     }
 
     /**

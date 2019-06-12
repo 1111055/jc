@@ -145,6 +145,12 @@
                 ]
             };
 
+            var long = {{ $setting->longitude }}
+            var lat = {{ $setting->latitude }}
+
+
+           // alert(long);
+
             // Get the HTML DOM element that will contain your map 
             // We are using a div with id="map" seen below in the <body>
             var mapElement = document.getElementById('map');
@@ -154,10 +160,12 @@
 
             // Let's also add a marker while we're at it
             var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(41.581237, -8.405879),
+                position: new google.maps.LatLng(lat, long),
                 map: map,
                 title: 'Morada'
             });
+
+            $('.descbody p').addClass('text-justify text-capitalize mb-40');
         }
     </script>
 
