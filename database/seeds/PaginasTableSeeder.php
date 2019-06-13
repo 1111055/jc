@@ -25,5 +25,11 @@ class PaginasTableSeeder extends Seeder
             'nome'   => 'Contactos',
             'titulo' => 'titulo contactos'
         ]);
+
+
+        DB::table('paginas')->insert([
+            'nome'   => 'Termos e Condições',
+            'titulo' => 'titulo Termos e Condições'
+        ]);
     }
 }

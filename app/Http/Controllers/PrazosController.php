@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Pagina;
-use App\Desc;
-use App\Http\Requests\PaginaRequest;
+use App\Prazos;
+use App\Http\Requests\PrazosRequest;
 
-class PaginaController extends Controller
+
+class PrazosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +16,9 @@ class PaginaController extends Controller
      */
     public function index()
     {
+      $prazos = Prazos::Where('activo','=', '1')->orderby('ordem','asc')->get();
 
-         $pagina = Pagina::
-                 orderBy('nome','asc')->get();
-
-
-        return view('backend.Pagina.index', compact('pagina'));
+        return view('backend.Prazos.index',compact('prazos'));
     }
 
     /**
@@ -40,11 +37,13 @@ class PaginaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PaginaRequest $request)
+    public function store(PrazosRequest $request)
     {
-          $request->persist();
+         //  $user = Auth::user();
+    
+        $request->persist();
 
-        return redirect()->route('pagina')->with('sucess','Criado com sucesso.');
+        return redirect()->route('prazo')->with('sucess','Criado com sucesso.');
     }
 
     /**
@@ -55,7 +54,7 @@ class PaginaController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -66,13 +65,9 @@ class PaginaController extends Controller
      */
     public function edit($id)
     {
-        $pagina = Pagina::find($id);
+        $prazos = Prazos::find($id);
 
-         $desc =  Desc::where('page_id','=',$id)->get();
-
-        
-
-        return view('backend.Pagina.edit', compact('pagina','desc'));
+       return view('backend.Prazos.edit' , compact('prazos'));
     }
 
     /**
@@ -82,18 +77,19 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PaginaRequest $request, $id)
+    public function update(PrazosRequest $request, $id)
     {
-        $pagina = Pagina::findOrFail($id);
+        
+        $prazos = Prazos::findOrFail($id);
 
         $input = $request->all();
 
-      //  dd($input);
-        $pagina->fill($input)->save();
+       // dd($input);
+
+        $prazos->fill($input)->save();
 
        
-         return redirect()->route('pagina.edit', compact('pagina'))->with('sucess','Guardado com sucesso.');
-
+         return redirect()->route('prazo.edit', compact('prazos'))->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -104,8 +100,8 @@ class PaginaController extends Controller
      */
     public function destroy($id)
     {
-        Pagina::destroy($id);
+         Prazos::destroy($id);
 
-         return redirect()->route('pagina')->with('sucess','Removido com sucesso.');
+         return redirect()->route('prazo')->with('sucess','Removido com sucesso.');
     }
 }

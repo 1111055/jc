@@ -65,4 +65,15 @@ class Menu extends Model
                 return $cart;
 
     }
+        public static function getMenuFooter(){
+
+        $menusf = Menu::
+                 where('submenu', '=', '11')
+                 ->orderBy('ordem','asc')->get();
+
+
+   
+        return $menusf;
+
+    }
 }

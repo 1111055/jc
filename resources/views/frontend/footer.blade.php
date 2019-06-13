@@ -42,11 +42,9 @@
                                 <h3 class="footer-title">Informações</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><a href="#">Site Map</a></li>
-                                        <li><a href="#">Sobre nós</a></li>
-                                        <li><a href="#">Termos e Condições </a></li>
-                                        <li><a href="#">Envios e Entregas</a></li>
-                                        <li><a href="#">Politica de privacidade</a></li>
+                                        @foreach($menufooter as $item)
+                                             <li><a href="{{$item->path}}">{{ $item->menu}}</a></li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -58,10 +56,9 @@
                                 <h3 class="footer-title">Prazos e Entregas</h3>
                                 <div class="footer-content">
                                     <ul class="footer-list">
-                                        <li><i class="fa fa-truck"></i>  xpto - 10 dias</li>
-                                        <li><i class="fa fa-truck"></i>  xpto - 5 dias</li>
-                                        <li><i class="fa fa-truck"></i>  xpto - 3 dias</li>
-                                        <li><i class="fa fa-truck"></i>  xpto - 1 dia</li>
+                                         @foreach($prazos as $item)
+                                            <li><i class="fa fa-truck"></i> {{$item->titulo}}  - {{$item->dias}} dias</li>
+                                         @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -114,11 +111,10 @@
                         <p class="copy-right-text">Copyright © <a  href="#">Ibero Brinde</a> All Rights Reserved.</p>
                         <div class="footer-social-content">
                             <ul class="social-content-list">
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkdin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+
+                              @foreach($socials as $item)
+                                <li><a href="{{ $item->link}}"><i class="{{$item->class}}"></i></a></li>
+                              @endforeach
                             </ul>
                         </div>
                     </div>

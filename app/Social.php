@@ -14,7 +14,7 @@ class Social extends Model
     public static function getSocial()
     {
 
-        $valty = DB::table('socials')
+        $valty = DB::table('socials')->Where('activo', '=', '1')->orderby('ordem','asc')
             ->get();
 
         return $valty;

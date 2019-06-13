@@ -114,6 +114,6 @@ class SocialController extends Controller
     {
          Social::destroy($id);
 
-         return redirect()->route('social')->with('sucess','Criado com sucesso.');
+         return redirect()->route('social')->with('sucess','Removido com sucesso.');
     }
 }

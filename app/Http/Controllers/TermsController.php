@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Pagina;
 use App\Desc;
-use App\Http\Requests\PaginaRequest;
 
-class PaginaController extends Controller
+class TermsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,12 +15,11 @@ class PaginaController extends Controller
      */
     public function index()
     {
+        $pageterms = Pagina::find(31);
 
-         $pagina = Pagina::
-                 orderBy('nome','asc')->get();
+        $desc =  Desc::where('page_id','=','31')->orderBy('ordem','asc')->get();
 
-
-        return view('backend.Pagina.index', compact('pagina'));
+        return view('frontend.terms', compact('pageterms','desc'));
     }
 
     /**
@@ -40,11 +38,9 @@ class PaginaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PaginaRequest $request)
+    public function store(Request $request)
     {
-          $request->persist();
-
-        return redirect()->route('pagina')->with('sucess','Criado com sucesso.');
+        //
     }
 
     /**
@@ -66,13 +62,7 @@ class PaginaController extends Controller
      */
     public function edit($id)
     {
-        $pagina = Pagina::find($id);
-
-         $desc =  Desc::where('page_id','=',$id)->get();
-
-        
-
-        return view('backend.Pagina.edit', compact('pagina','desc'));
+        //
     }
 
     /**
@@ -82,18 +72,9 @@ class PaginaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PaginaRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $pagina = Pagina::findOrFail($id);
-
-        $input = $request->all();
-
-      //  dd($input);
-        $pagina->fill($input)->save();
-
-       
-         return redirect()->route('pagina.edit', compact('pagina'))->with('sucess','Guardado com sucesso.');
-
+        //
     }
 
     /**
@@ -104,8 +85,6 @@ class PaginaController extends Controller
      */
     public function destroy($id)
     {
-        Pagina::destroy($id);
-
-         return redirect()->route('pagina')->with('sucess','Removido com sucesso.');
+        //
     }
 }

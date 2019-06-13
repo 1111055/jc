@@ -42,6 +42,12 @@ Route::get('produto', 'ProdutoController@index')->name('produto');
 Route::get('shop', 'ShopController@index');
 Route::get('shop', 'ShopController@index')->name('shop');
 
+//Termos e condições
+Route::get('terms', 'TermsController@index');
+Route::get('terms', 'TermsController@index')->name('terms');
+
+
+
 // Backend
 //Checkout Products
 Route::get('dash', 'DashController@index');
@@ -81,4 +87,13 @@ Route::post('desc', 'DescController@store');
 Route::get('desc/edit/{id}/{idpage}',         ['as' => 'desc.edit',    'uses' => 'DescController@edit']); 
 Route::put('desc/update/{id}',                ['as' => 'desc.update',  'uses' => 'DescController@update']);
 Route::delete('desc/destroy/{id}/{idpage}',   ['as' => 'desc.destroy', 'uses' => 'DescController@destroy']);
+
+//Prazos
+Route::get('prazo', 'PrazosController@index')->name('prazo');
+Route::get('prazo/edit/{id}',           ['as' => 'prazo.edit',    'uses' => 'PrazosController@edit']); 
+Route::put('prazo/update/{id}',         ['as' => 'prazo.update',  'uses' => 'PrazosController@update']);
+Route::delete('prazo/destroy/{id}',     ['as' => 'prazo.destroy', 'uses' => 'PrazosController@destroy']);
+Route::post('prazo', 'PrazosController@store');
+
+
 

@@ -2,17 +2,33 @@
 
 @section('content')
 
+         @if(session('sucess'))
+         <!--Alerta de sucess-->
+            <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+              {{session('sucess')}}
+          </div>
+          @endif
+           @if ($errors->any())
+                <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
 
               <!-- Content Wrapper. Contains page content -->
               <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                   <h1>
-                   Social NetWork
+                   Prazos de Entregas
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('social')}}"><i class="fa fa-facebook-square"></i> Social Network</a></li>
+                    <li class="active"><a href="{{route('prazo')}}"><i class="fa fa-facebook-square"></i> Prazos</a></li>
                   </ol>
                 </section>
 
@@ -23,62 +39,32 @@
                     <div class="col-xs-12">
                       <div class="box">
                         <div class="box-header">
-                          <h3 class="box-title">Social NetWork</h3>
+                          <h3 class="box-title">Prazos de Entregas</h3>
 
                           <!-- /.adicionar um novo -->
                          <div class="panel panel-default">
                             <div class="panel-body">
                             <!-- Horizontal Form -->
-                              <div class="col-xs-8">
+                              <div class="col-xs-12">
                                 <div class="box box-info">
-                                  {!! Form::open(['url' => 'social','class' => 'form-horizontal']) !!}
+                                  {!! Form::open(['url' => 'prazo','class' => 'form-horizontal']) !!}
                                         <div class="box-body">
                                           <div class="form-group">
-                                            {!! Form::label('* Nome:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-2">
-                                               {!! Form::text('nome',null,['class' => 'form-control']) !!}
+                                            {!! Form::label('* Titulo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                            <div class="col-sm-4">
+                                               {!! Form::text('titulo',null,['class' => 'form-control']) !!}
                                             </div>
-                                               {!! Form::label('* Menomonica:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-2">
-                                               {!! Form::text('menomonica',null,['class' => 'form-control']) !!}
-                                            </div>
-                                              {!! Form::label('* Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                              {!! Form::label('Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
                                             <div class="col-sm-2">
                                                {!! Form::text('ordem',null,['class' => 'form-control']) !!}
                                             </div>
                                           </div>
-                                          <div class="form-group">
-                                              {!! Form::label('* Link:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-4">
-                                               {!! Form::text('link',null,['class' => 'form-control']) !!}
-                                            </div>
-                                               {!! Form::label('* Class:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-4">
-                                               {!! Form::text('class',null,['class' => 'form-control']) !!}
-                                            </div>
-                                          </div>
-
                                         </div>
                                         <div class="box-footer">
                                             {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
                                         </div>
                                 {!! Form::close() !!}
                                   </div>
-                                </div>
-                                <div class="col-sm-4">
-
-                                       @if(session('sucess'))
-                                            <div class="alert alert-success" style="width: 100%;float: right;">{{session('sucess')}}</div>
-                                        @endif
-                                       @if ($errors->any())
-                                            <div class="alert alert-danger" style="width: 100%;float: right;">
-                                                <ul>
-                                                    @foreach ($errors->all() as $error)
-                                                        <li>{{ $error }}</li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                        @endif
                                 </div>
                               </div>
                           <!-- /.box-body -->
@@ -99,30 +85,28 @@
                           <table class="table table-hover">
                             <tr>
                               <th>#</th>
+                              <th>Titulo</th>
+                              <th>Descricao</th>
+                              <th>Dias</th>
                               <th>Ordem</th>
-                              <th>Social</th>
-                              <th>Class</th>
-                              <th>Link</th>
-                              <th>Menomonica</th>
                               <th class="text-center">Active</th>
                               <th>#</th>
                             </tr>
-                             @foreach($social as $item)
+                             @foreach($prazos as $item)
                               <tr>
-                                <td><i class="{{ $item->class }}"></i></td>
+                                <th>#</th>
+                                <td>{{ $item->titulo }}</td>
+                                <td>{{ $item->descricao }}</td>
+                                <td>{{ $item->dias }}</td>
                                 <td>{{ $item->ordem }}</td>
-                                <td>{{ $item->nome }}</td>
-                                <td>{{ $item->class }}</td>
-                                <td>{{ $item->link }}</td>
-                                <td>{{ $item->menomonica }}</td>
                                 @if ($item->activo === 1)
                                     <td class="text-center"><i class="fa fa-check-circle"></i></td>
                                 @else                       
                                 <td class="text-center"><i class="fa fa-times-circle"></i></td>
                                 @endif   
-                                <td><a href="{{route('social.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
+                                <td><a href="{{route('prazo.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
 
-                                    {{ Form::open(['route' => ['social.destroy', $item->id], 'method' => 'delete']) }}
+                                    {{ Form::open(['route' => ['prazo.destroy', $item->id], 'method' => 'delete']) }}
                                     <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
                                     {{ Form::close() }}
 

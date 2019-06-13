@@ -72,6 +72,8 @@
           </ul>
         </li>
          <li><a href="{{route('social')}}"><i class="fa fa-facebook"></i> <span>Redes Sociais</span></a></li>
+         <li><a href="{{route('prazo')}}"><i class="fa fa-truck"></i> <span>Prazos Transporte</span></a></li>
+       
       </ul>
       <!-- /.sidebar-menu -->
     </section>

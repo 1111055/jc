@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         SocialTableSeeder::class,
         MenuTableSeeder::class,
         SettingTableSeeder::class,
-        PaginasTableSeeder::class
+        PaginasTableSeeder::class,
+        PrazoTableSeeder::class
 
        ]);
     }
