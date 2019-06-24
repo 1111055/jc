@@ -100,7 +100,7 @@
                                                      <div class="col-xs-2">
                                                           <img src="{{$bannerlines->path}}" style="max-width: 200%;" />
                                                       </div>
-                                                    </div>
+                                                 </div>
                                               </div>
                                                 
                                             </div>

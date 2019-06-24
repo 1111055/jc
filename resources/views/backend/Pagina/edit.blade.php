@@ -140,11 +140,6 @@
                                       </button>
                                   </div>
                                   <div class="btn-group" role="group">
-                                      <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="fa fa-image" aria-hidden="true"></span>
-                                          <div class="hidden-xs">Imagens</div>
-                                      </button>
-                                  </div>
-                                  <div class="btn-group" role="group">
                                       <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="fa fa-plus-square" aria-hidden="true"></span>
                                           <div class="hidden-xs">Plugins</div>
                                       </button>
@@ -158,7 +153,8 @@
                                              {!! Form::model($pagina, [
                                                   'method' => 'PUT',
                                                   'route' => ['pagina.update', $pagina->id],
-                                                  'class' => 'form-horizontal'
+                                                  'class' => 'form-horizontal',
+                                                  'file' => true
                                              ]) !!}
                                             <div class="box-body">
                                               <div class="form-group">
@@ -222,7 +218,19 @@
                                                  <div class="col-sm-8">
                                                    {!! Form::text('link1',$pagina->link1,['class' => 'form-control']) !!}
                                                  </div>
-                                               </div>
+                                              </div>
+                                             <div class="form-group">
+                                                    <label class="col-sm-2 control-label">Imagem (870x240)</label>
+                                                    <div class="col-sm-8">
+                                                     <input type="file" name="banerimg" id="exampleInputImage" class="image"> 
+                                                   </div>
+                                             </div>
+                                             <div class="form-group col-xs-12">
+                                                     <p><div id="fileDisplayArea"></div></p>
+                                                     <div class="col-xs-2">
+                                                          <img src="" style="max-width: 200%;" />
+                                                    </div>
+                                            </div>
                                             </div>
                                             <div class="box-footer">
                                                 {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
@@ -300,12 +308,6 @@
 
                                       </div>
                                  </div>
-                                  <div class="tab-pane fade in" id="tab3">
-                                     <div class="box box-info">
-                                      <div class="box-body">
-                                      </div>
-                                    </div>
-                                  </div>
                                   <div class="tab-pane fade in" id="tab4">
                                      <div class="box box-info">
                                       <div class="box-body">

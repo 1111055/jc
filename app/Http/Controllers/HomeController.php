@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Menu;
 use App\BannerLine;
-use App\PageBanner;
+use App\Pagebanner;
 use App\Banner;
 Use Session;
 
