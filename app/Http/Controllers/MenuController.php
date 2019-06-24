@@ -102,19 +102,19 @@ class MenuController extends Controller
     {
 
         $menu = Menu::find($id);
-
         $menu->menu=$request->menu;
         $menu->link=$request->link;
         $menu->submenu=$request->submenu;
         $menu->descricao=$request->descricao;
         $menu->ordem=$request->ordem;
+        $menu->path=$request->path;
 
         $menu->save();
 
 
 
      
-        return redirect()->route('menu');
+        return redirect()->route('menu')->with('sucess','Actualizado com sucesso.');
     }
 
     /**

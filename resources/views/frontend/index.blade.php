@@ -2,72 +2,31 @@
 
 @section('content')
 
-        <!-- Header Area End -->
-        <!-- Slider Area Start -->
         <div class="slider-area pb-60">
             <div class="slider-wrapper theme-default  nivo2">
-                <!-- Slider Background  Image Start-->
                 <div id="slider" class="nivoSlider">
-                    <a href="#"><img src="img/slider/blocos.jpeg" data-thumb="img/slider/blocos.jpeg" alt="" title="#slider-1-caption1"/></a>
-                    <a href="#"><img src="img/slider/sapatos.jpg" data-thumb="img/slider/sapatos.jpg" alt="" title="#slider-1-caption2"/></a>
+                     @foreach($bannerline[0] as $key => $item)
+                           <a href="{{$item->link}}"><img src="{{$item->path}}"  alt="" title="#slider-1-caption{{$key}}" /></a>
+                     @endforeach
                 </div>
-                <!-- Slider Background  Image Start-->
-                <div id="slider-1-caption1" class="nivo-html-caption nivo-caption">
-                    <div class="text-content-wrapper">
-                        <div class="container text-right">
-                            <div class="text-content">
-                                <h4 class="title2 wow bounceInLeft mb-16" data-wow-duration="2s" data-wow-delay="0s">Especial Material Escritório</h4>
-                                <h1 class="title1 wow bounceInRight mb-16" data-wow-duration="2s" data-wow-delay="1s">Agendas <br> Blocos e Canetas </h1>
-                                <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
-                                    <a class="button slider-btn" href="#">Ver Mais</a>                    
+                @foreach($bannerline[0] as $key => $item)
+                    <div id="slider-1-caption{{$key}}" class="nivo-html-caption nivo-caption">
+                        <div class="text-content-wrapper">
+                            <div class="container text-right">
+                                <div class="text-content">
+                                    <h4 class="title2 wow bounceInLeft mb-16" data-wow-duration="2s" data-wow-delay="0s">{{$item->titulo}}</h4>
+                                    <h1 class="title1 wow bounceInRight mb-16" data-wow-duration="2s" data-wow-delay="1s">{!! $item->descricao !!} </h1>
+                                    <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
+                                        <a class="button slider-btn" href="{{$item->link}}">Ver Mais</a>                    
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>  
-                <div id="slider-1-caption2" class="nivo-html-caption nivo-caption">
-                    <div class="text-content-wrapper">
-                        <div class="container">
-                            <div class="text-content slide-2">
-                                <h4 class="title2 wow bounceInLeft mb-16" data-wow-duration="1s" data-wow-delay="1s">Bonés e T-shrts</h4>
-                                <!--h1 class="title1 wow flipInX  mb-16" data-wow-duration="1s" data-wow-delay="2s">Hand Tools <br>Circular Saw & Power Saw</h1-->
-                                <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="1s" data-wow-delay="2s">
-                                    <a class="button slider-btn" href="#">Ver Mais</a>                    
-                                </div>
-                            </div>
-                        </div>       
-                    </div>
-                </div>                  
+                    </div>  
+                 @endforeach                  
             </div>
-        </div>
-        <!-- Slider Area End --> 
-        <!-- Banner Start -->
-        <!--div class="upper-banner banner pb-60">
-            <div class="container">
-               <div class="row">
-
-                   <div class="col-sm-4">
-                        <div class="single-banner zoom">
-                            <a href="#"><img src="img/bone1.png" alt="slider-banner"></a>
-                        </div>
-                    </div>
-
-                   <div class="col-sm-4">
-                        <div class="single-banner zoom">
-                            <a href="#"><img src="img/mochila1.png" alt="slider-banner"></a>
-                        </div>
-                    </div>
-                   <div class="col-sm-4">
-                        <div class="single-banner zoom">
-                            <a href="#"><img src="img/saco1.png" alt="slider-banner"></a>
-                        </div>
-                    </div>
-
-               </div>
-
-            </div>
-
-        </div-->   
+        </div> 
+        
          <div class="best-seller-product pb-50 pb-sm-40">
             <div class="container">
                 <div class="group-title">
@@ -420,20 +379,13 @@
         <div class="upper-banner banner pb-60">
             <div class="container">
                <div class="row">
-                   <!-- Single Banner Start -->
+                   @foreach($bannerline[1] as $value)
                    <div class="col-sm-6">
                         <div class="single-banner zoom">
-                            <a href="{{route('produto')}}"><img src="img/pub1.png" alt="slider-banner"></a>
+                            <a href="{{$value->link}}"><img src="{{$value->path}}" alt="slider-banner"></a>
                         </div>
                     </div>
-                   <!-- Single Banner End -->
-                    <!-- Single Banner Start -->
-                   <div class="col-sm-6">
-                        <div class="single-banner zoom">
-                            <a href="{{route('produto')}}"><img src="img/pub2.png" alt="slider-banner"></a>
-                        </div>
-                    </div>
-                   <!-- Single Banner End -->
+                    @endforeach
                </div>
                <!-- Row End -->
             </div>
@@ -915,65 +867,23 @@
                 </div>
 
             </div>
-            <!-- Container End -->
         </div>
-        <!-- New Products End -->
-        <!-- Company Policy Start -->
         <div class="company-policy pb-60 pb-sm-25">
             <div class="container">
                 <div class="row">
-                    <!-- Single Policy Start -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single-policy">
-                            <div class="icone-img">
-                                <img src="img/icon/1.png" alt="">
+                    @foreach($bannerline[2] as $value)
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="single-policy">
+                                    <div class="icone-img">
+                                        <img src="{{ $value->path}}" alt="">
+                                    </div>
+                                    <div class="policy-desc">
+                                        <h3>{{ $value->titulo}}</h3>
+                                        <p>{!! $value->descricao !!}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="policy-desc">
-                                <h3>Entregas Gratis</h3>
-                                <p>Entregas Gratis para valores superiores a 100€</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Policy End -->
-                    <!-- Single Policy Start -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single-policy">
-                            <div class="icone-img">
-                                <img src="img/icon/2.png" alt="">
-                            </div>
-                            <div class="policy-desc">
-                                <h3>Suporte Online</h3>
-                                <p>Support online</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Policy End -->
-                    <!-- Single Policy Start -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single-policy">
-                            <div class="icone-img">
-                                <img src="img/icon/3.png" alt="">
-                            </div>
-                            <div class="policy-desc">
-                                <h3>Garantia</h3>
-                                <p>Todos os produtos possuem uma garantia de 15 dias</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Policy End -->
-                    <!-- Single Policy Start -->
-                    <div class="col-lg-3 col-sm-6">
-                        <div class="single-policy">
-                            <div class="icone-img">
-                                <img src="img/icon/4.png" alt="">
-                            </div>
-                              <div class="policy-desc">
-                                <h3>Desconto Quantidades</h3>
-                                <p>Descontos de 10% em quantidades superios a 1000 peças</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Single Policy End -->
+                    @endforeach
                 </div>
             </div>
         </div>

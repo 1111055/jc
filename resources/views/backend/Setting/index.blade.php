@@ -19,7 +19,7 @@
           overflow-x: auto;
         }
 
-    </style>>
+    </style>
 
               <!-- Content Wrapper. Contains page content -->
               <div class="content-wrapper">
@@ -90,9 +90,9 @@
                                                     @if(session('path'))
                                                         <img src="{{ session('path') }}" />
                                                     @endif
-													@if(file_exists('logotipo/CROP/logotipo.png'))
-														<img src="logotipo/CROP/logotipo.png" />
-													@endif
+                          													@if(file_exists('logotipo/CROP/logotipo.png'))
+                          														<img src="logotipo/CROP/logotipo.png" />
+                          													@endif
                                                </div> 
                                               </div>
                                                

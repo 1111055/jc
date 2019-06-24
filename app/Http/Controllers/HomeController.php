@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Menu;
+use App\BannerLine;
+use App\PageBanner;
+use App\Banner;
 Use Session;
 
 class HomeController extends Controller
@@ -15,10 +18,24 @@ class HomeController extends Controller
      */
     public function index()
     {
-                
-       // dd(Session::get('menu'));
 
-        return view('frontend.index');
+      $banner = PageBanner::getBannerFormPage(1);
+
+                
+      foreach ($banner as $key => $value) {
+
+                $_banner = Banner::find($value->id);
+               
+                if($_banner->activo == 1){
+
+                  $bannerline[] = BannerLine::getBannerHome($value->id);
+
+                   
+                }
+      }
+      
+
+        return view('frontend.index',compact('bannerline'));
     }
 
 

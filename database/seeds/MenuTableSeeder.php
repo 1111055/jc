@@ -85,6 +85,41 @@ class MenuTableSeeder extends Seeder
         ]);
 
 
+        DB::table('menus')->insert([
+            'menu' => 'Termos e Condições',
+            'descricao' => 'Termos e Condições.',
+            'submenu' => '11',
+            'ordem' => '001',
+            'link' => '#',
+            'path' => 'terms',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+
+        DB::table('menus')->insert([
+            'menu' => 'Politica de Privacidade',
+            'descricao' => 'Politica de Privacidade',
+            'submenu' => '11',
+            'ordem' => '002',
+            'link' => '#',
+            'path' => 'policy',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+
+        DB::table('menus')->insert([
+            'menu' => 'Perguntas Frequentes',
+            'descricao' => 'Perguntas Frequentes',
+            'submenu' => '11',
+            'ordem' => '003',
+            'link' => '#',
+            'path' => 'question',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+
+
+
 
 
       

@@ -31,5 +31,15 @@ class PaginasTableSeeder extends Seeder
             'nome'   => 'Termos e Condições',
             'titulo' => 'titulo Termos e Condições'
         ]);
+
+        DB::table('paginas')->insert([
+            'nome'   => 'Politica de Privacidade',
+            'titulo' => 'titulo Politica de Privacidade'
+        ]);
+
+        DB::table('paginas')->insert([
+            'nome'   => 'Perguntas Ferquentes',
+            'titulo' => ' Titulo Perguntas Ferquentes'
+        ]);
     }
 }

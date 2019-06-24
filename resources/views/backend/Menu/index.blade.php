@@ -3,6 +3,21 @@
 @section('content')
 
 
+         @if(session('sucess'))
+         <!--Alerta de sucess-->
+            <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+              {{session('sucess')}}
+          </div>
+          @endif
+           @if ($errors->any())
+                <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
 
               <!-- Content Wrapper. Contains page content -->
               <div class="content-wrapper">
@@ -30,7 +45,7 @@
                          <div class="panel panel-default">
                             <div class="panel-body">
                             <!-- Horizontal Form -->
-                              <div class="col-xs-10">
+                              <div class="col-xs-12">
                                 <div class="box box-info">
                                   {!! Form::open(['url' => 'menu','class' => 'form-horizontal']) !!}
                                         <div class="box-body">

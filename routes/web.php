@@ -46,6 +46,14 @@ Route::get('shop', 'ShopController@index')->name('shop');
 Route::get('terms', 'TermsController@index');
 Route::get('terms', 'TermsController@index')->name('terms');
 
+//Politica e Privacidade
+Route::get('policy', 'PolicyController@index');
+Route::get('policy', 'PolicyController@index')->name('policy');
+
+//Politica e Privacidade
+Route::get('ask', 'QuestionController@index');
+Route::get('ask', 'QuestionController@index')->name('ask');
+
 
 
 // Backend
@@ -96,4 +104,22 @@ Route::delete('prazo/destroy/{id}',     ['as' => 'prazo.destroy', 'uses' => 'Pra
 Route::post('prazo', 'PrazosController@store');
 
 
+//Banner
+Route::get('banner', 'BannerController@index')->name('banner');
+Route::get('banner/edit/{id}',           ['as' => 'banner.edit',    'uses' => 'BannerController@edit']); 
+Route::put('banner/update/{id}',         ['as' => 'banner.update',  'uses' => 'BannerController@update']);
+Route::delete('banner/destroy/{id}',     ['as' => 'banner.destroy', 'uses' => 'BannerController@destroy']);
+Route::post('banner', 'BannerController@store');
+
+
+//BannerLines
+Route::get('bannerlines', 'BannerLinesController@index')->name('bannerlines');
+Route::get('bannerlines/edit/{id}',           ['as' => 'bannerlines.edit',    'uses' => 'BannerLinesController@edit']); 
+Route::put('bannerlines/update/{id}',         ['as' => 'bannerlines.update',  'uses' => 'BannerLinesController@update']);
+Route::delete('bannerlines/destroy/{id}',     ['as' => 'bannerlines.destroy', 'uses' => 'BannerLinesController@destroy']);
+Route::post('bannerlines', 'BannerLinesController@store');
+
+
+//PageBanner
+Route::post('pagebanner', 'PageBannerController@store');
 

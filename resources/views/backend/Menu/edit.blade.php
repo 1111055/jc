@@ -2,9 +2,22 @@
 
 @section('content')
 
-    @if(session('sucess'))
-        <div style="background-color:green;color:#FFF;padding:15px;width: 100%;">{{session('sucess')}}</div>
-    @endif
+         @if(session('sucess'))
+         <!--Alerta de sucess-->
+            <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+              {{session('sucess')}}
+          </div>
+          @endif
+           @if ($errors->any())
+                <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
+
               <!-- Content Wrapper. Contains page content -->
               <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
@@ -46,7 +59,7 @@
                                       <div class="form-group">
                                            {!! Form::label('* Descricao:',null, ['class' => 'col-sm-2 control-label']) !!}
                                         <div class="col-sm-8">
-                                           {!! Form::text('descricao',$menu->descricao,['class' => 'form-control']) !!}
+                                           {!! Form::textarea('descricao',$menu->descricao,['class' => 'form-control']) !!}
                                         </div>
                                       </div>
                                        <div class="form-group">
@@ -65,6 +78,12 @@
                                            {!! Form::label('* Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
                                          <div class="col-sm-8">
                                            {!! Form::text('ordem',$menu->ordem,['class' => 'form-control']) !!}
+                                         </div>
+                                      </div>
+                                       <div class="form-group">
+                                           {!! Form::label('Path:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                         <div class="col-sm-8">
+                                           {!! Form::text('path',$menu->path,['class' => 'form-control']) !!}
                                          </div>
                                       </div>
 

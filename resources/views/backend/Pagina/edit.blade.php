@@ -144,6 +144,11 @@
                                           <div class="hidden-xs">Imagens</div>
                                       </button>
                                   </div>
+                                  <div class="btn-group" role="group">
+                                      <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="fa fa-plus-square" aria-hidden="true"></span>
+                                          <div class="hidden-xs">Plugins</div>
+                                      </button>
+                                  </div>
                               </div>
 
                              <div class="well">
@@ -298,6 +303,42 @@
                                   <div class="tab-pane fade in" id="tab3">
                                      <div class="box box-info">
                                       <div class="box-body">
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="tab-pane fade in" id="tab4">
+                                     <div class="box box-info">
+                                      <div class="box-body">
+                                          <div class="row col-xs-12">
+                                            <h3>Banners</h3>
+                                                {!! Form::open(['url' => 'pagebanner','class' => 'form-horizontal']) !!}
+
+                                                <div class="form-group">
+                                                {!! Form::hidden('idpage',$pagina->id,null) !!}
+                                                {!! Form::label('Banner Home Top:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  
+                                                  <div class="col-sm-8">
+                                                     {!! Form::select('idbanner', $banners,1,['class' => 'form-horizontal']) !!}
+                                                  </div>
+                                                </div>
+                                                
+                                                 <div class="form-group">
+                                                    {!! Form::label('Banner Home Meio:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-8">
+                                                     {!! Form::select('bannermidle', $banners,11,['class' => 'form-horizontal']) !!}
+                                                  </div>
+                                                </div>
+                                                 <div class="form-group">
+                                                    {!! Form::label('Banner Home Fundo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-8">
+                                                     {!! Form::select('bannerdown', $banners,21,['class' => 'form-horizontal']) !!}
+                                                  </div>
+                                                </div>
+
+                                                 {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
+                                                {!! Form::close() !!}
+                                          </div>
+                                          <hr>
                                       </div>
                                     </div>
                                   </div>

@@ -46,7 +46,8 @@ class DescRequest extends FormRequest
             'titulo'       => request()->titulo,
             'descricao'    => request()->descricaodesc,
             'path'         => request()->path,
-            'ordem'         => request()->ordem
+            'ordem'        => request()->ordem,
+            'activo'       => request()->activo
         ]);
     }
 }

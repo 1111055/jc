@@ -17,7 +17,7 @@ class CreateMenusTable extends Migration
             $table->increments('id');
             $table->string('menu');
             $table->integer('submenu')->nullable();
-            $table->string('descricao')->nullable();
+            $table->text('descricao')->nullable();
             $table->string('link')->nullable();
             $table->string('ordem')->default(0);
             $table->string('path')->nullable();
