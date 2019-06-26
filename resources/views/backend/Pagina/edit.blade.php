@@ -154,7 +154,7 @@
                                                   'method' => 'PUT',
                                                   'route' => ['pagina.update', $pagina->id],
                                                   'class' => 'form-horizontal',
-                                                  'file' => true
+                                                   'files' => true
                                              ]) !!}
                                             <div class="box-body">
                                               <div class="form-group">
@@ -228,7 +228,7 @@
                                              <div class="form-group col-xs-12">
                                                      <p><div id="fileDisplayArea"></div></p>
                                                      <div class="col-xs-2">
-                                                          <img src="" style="max-width: 200%;" />
+                                                          <img src="{{$pagina->pathimg}}" style="max-width: 200%;" />
                                                     </div>
                                             </div>
                                             </div>

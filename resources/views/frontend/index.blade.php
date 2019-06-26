@@ -859,7 +859,7 @@
                             </div>
                             <!-- Tab-Content End -->
                             <div class="single-banner zoom mt-30 ">
-                            <a href="#"><img src="img/flash.png" alt="slider-banner"></a>
+                            <a href="#"><img src="{{$pagina->pathimg}}" alt="slider-banner"></a>
                         </div>
                         </div>
                         <!-- New Pro Content End -->                        

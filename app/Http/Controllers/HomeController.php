@@ -7,6 +7,7 @@ use App\Menu;
 use App\BannerLine;
 use App\Pagebanner;
 use App\Banner;
+use App\Pagina;
 Use Session;
 
 class HomeController extends Controller
@@ -20,6 +21,7 @@ class HomeController extends Controller
     {
 
       $banner = PageBanner::getBannerFormPage(1);
+      $pagina = Pagina::find(1);
 
                 
       foreach ($banner as $key => $value) {
@@ -35,7 +37,7 @@ class HomeController extends Controller
       }
       
 
-        return view('frontend.index',compact('bannerline'));
+        return view('frontend.index',compact('pagina','bannerline'));
     }
 
 
