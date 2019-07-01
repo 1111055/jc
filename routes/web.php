@@ -163,5 +163,12 @@ Route::put('subfamilia/update/{id}',         ['as' => 'subfamilia.update',  'use
 Route::delete('subfamilia/destroy/{id}',     ['as' => 'subfamilia.destroy', 'uses' => 'SubfamiliaController@destroy']);
 Route::post('subfamilia', 'SubfamiliaController@store');
 
+//Produto 
+Route::get('produto', 'ProdutoController@index')->name('produto');
+Route::get('produto/edit/{id}',           ['as' => 'produto.edit',    'uses' => 'ProdutoController@edit']); 
+Route::put('produto/update/{id}',         ['as' => 'produto.update',  'uses' => 'ProdutoController@update']);
+Route::delete('produto/destroy/{id}',     ['as' => 'produto.destroy', 'uses' => 'ProdutoController@destroy']);
+Route::post('produto', 'ProdutoController@store');
+
 //Tabelas associativas. 
 Route::post('pagebanner', 'PageBannerController@store');

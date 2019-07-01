@@ -24,11 +24,11 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                   <h1>
-                  Tamanhos
+                  Categoria
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('size')}}"><i class="fa fa-paint-brush"></i> Tamanhos</a></li>
+                    <li class="active"><a href="{{route('size')}}"><i class="fa fa-circle-o"></i> Categoria</a></li>
                   </ol>
                 </section>
 
@@ -46,7 +46,7 @@
                             <!-- Horizontal Form -->
                               <div class="col-xs-12">
                                 <div class="box box-info">
-                                  {!! Form::open(['url' => 'social','class' => 'form-horizontal']) !!}
+                                  {!! Form::open(['url' => 'produto','class' => 'form-horizontal']) !!}
                                         <div class="box-body">
                                           <div class="form-group">
                                             {!! Form::label('* Titulo:',null, ['class' => 'col-sm-2 control-label']) !!}
@@ -83,35 +83,33 @@
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
-                              <th>#</th>
+                              <th class="col-xs-2">#</th>
                               <th>Titulo</th>
                               <th>Subtitulo</th>
-                              <th>Tamanhos</th>
                               <th>Ordem</th>
                               <th class="text-center">Active</th>
                               <th>#</th>
                             </tr>
-                            @foreach($size as $item)
+                            @foreach($produto as $item)
                               <tr>
-                                <td>#</td>
-                                <td>{{ $item->titulo }}</td>
-                                <td>{{ $item->subtitulo }}</td>
-                                <td>{{ $item->tamanho }}</td>
-                                <td>{{ $item->ordem }}</td>
-                                @if ($item->activo === 1)
-                                    <td class="text-center"><i class="fa fa-check-circle"></i></td>
-                                @else                       
-                                <td class="text-center"><i class="fa fa-times-circle"></i></td>
-                                @endif   
-                                <td><a href="{{route('size.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
+                                  <td class="col-xs-2"><img src="{{ $item->path }}" class="img-thumbnail"></td>
+                                  <td>{{ $item->titulo }}</td>
+                                  <td>{{ $item->subtitulo }}</td>
+                                  <td>{{ $item->ordem }}</td>
+                                  @if ($item->activo === 1)
+                                      <td class="text-center"><i class="fa fa-check-circle"></i></td>
+                                  @else                       
+                                  <td class="text-center"><i class="fa fa-times-circle"></i></td>
+                                  @endif   
+                                  <td><a href="{{route('produto.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
 
-                                    {{ Form::open(['route' => ['size.destroy', $item->id], 'method' => 'delete']) }}
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                                    {{ Form::close() }}
+                                      {{ Form::open(['route' => ['produto.destroy', $item->id], 'method' => 'delete']) }}
+                                         <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                      {{ Form::close() }}
 
-                                </td>
+                                  </td>
                               </tr>
-                              @endforeach
+                             @endforeach
                           </table>
                         </div>
                         <!-- /.box-body -->

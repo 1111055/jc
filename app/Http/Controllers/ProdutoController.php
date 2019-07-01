@@ -3,6 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Produto;
+use App\Categoria;
+use App\Subcategoria;
+use App\Familia;
+use App\Subfamilia;
+use App\Color;
+use App\Size;
+use App\Prazos;
+use App\Http\Request\ProdutoRequest;
+use Image;
+use File;
+
 
 class ProdutoController extends Controller
 {
@@ -13,8 +25,10 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        
-        return view('frontend.produto');
+
+        $produto = Produto::orderBy('ordem','asc')->get();
+        return view('backend.Produto.index',compact('produto'));
+
     }
 
     /**
@@ -33,9 +47,11 @@ class ProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProdutoRequest $request)
     {
-        //
+        $request->persist();
+
+        return redirect()->route('produto')->with('sucess','Criado com sucesso.');
     }
 
     /**
@@ -57,7 +73,18 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        //
+
+         $selcat    = Categoria::getSelection();
+         $selsubcat = Subcategoria::getSelection();
+         $selfam    = Familia::getSelection();
+         $selsubfam = Subfamilia::getSelection();
+         $selcor    = Color::getSelection();
+         $selsize   = Size::getSelection();
+         $selprazo  = Prazos::getSelection();
+
+
+         $produto = Produto::find($id);
+         return view('backend.Produto.edit', compact('produto','selcat','selsubcat','selfam','selsubfam','selcor','selsize','selprazo'));
     }
 
     /**
@@ -69,7 +96,122 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $produto = Produto::findOrFail($id);
+
+        $_path = $produto->path;
+  
+        if($request->hasFile('prodimg')) {
+
+                $photo = $request->file('prodimg');
+               
+                //Nome Do Ficheiro
+                $filenamewithextension = $request->file('prodimg')->getClientOriginalName();
+         
+                //Nome Sem Extensão 
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+         
+                //Extenção do ficheiro
+                $extension = $request->file('prodimg')->getClientOriginalExtension();
+         
+                //Novo nome do ficheiro
+                $imagename = "prod_".$request->id.'.'.$photo->getClientOriginalExtension(); 
+
+                $data = getimagesize($photo);
+                $width = $data[0];
+                $height = $data[1];
+
+                $namepng = "prod_".$request->id.'.png';
+                $namejgp = "prod_".$request->id.'.jpg';
+                $namegif = "prod_".$request->id.'.gif';
+                $nametiff = "prod_".$request->id.'.tiff';
+
+         
+                if(file_exists(public_path('/img/Produtos/'.$namepng))){
+
+                      unlink(public_path('/img/Produtos/'.$namepng));
+
+                }
+               if(file_exists(public_path('/img/Produtos/'.$namejgp))){
+
+                      unlink(public_path('/img/Produtos/'.$namejgp));
+
+                }
+                if(file_exists(public_path('/img/Produtos/'.$namegif))){
+
+                      unlink(public_path('/img/Produtos/'.$namegif));
+
+                }
+                if(file_exists(public_path('/img/Produtos/'.$nametiff))){
+
+                      unlink(public_path('/img/Produtos/'.$nametiff));
+
+                }
+
+
+                //Upload File                     
+                $file = $request->file('prodimg')->storeAs('Produtos', $imagename, 'upload');
+                
+                
+               // crop image
+
+                $destinationPath = public_path('/img/Produtos/CROP');
+                $thumb_img = Image::make($photo->getRealPath());
+            
+                if(file_exists(public_path('/img/Produtos/CROP/'.$imagename))){
+
+                      unlink(public_path('/img/Produtos/CROP/'.$imagename));
+
+                }
+
+                $altura =   $height;
+                $comprimento = $width;
+
+                $divisaoalt = 210 / $altura; 
+                $divisaocom = 270 / $comprimento;
+
+                if($divisaoalt < $divisaocom){
+                    $altfinal = $altura * $divisaoalt;
+                    $cmpfinal = $comprimento * $divisaoalt;
+                }else{
+                    $altfinal = $altura * $divisaocom;
+                    $cmpfinal = $comprimento * $divisaocom;
+
+                }
+                $_path = $request->root().'/img/Produtos/CROP/'.$imagename;
+                // Resized image
+                $thumb_img->resize($cmpfinal, $altfinal, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                // Canvas image
+                $canvas = Image::canvas(270, 210);
+                $canvas->insert($thumb_img, 'center');
+                $canvas->save($destinationPath.'/'.$imagename,50);
+                            
+       }
+
+
+        $produto->titulo           = $request->titulo;
+        $produto->subtitulo        = $request->subtitulo;
+        $produto->descricao        = $request->descricao;
+        $produto->categoria_id     = $request->categoria_id;
+        $produto->subcategoria_id  = $request->subcategoria_id;
+        $produto->familia_id       = $request->familia_id;
+        $produto->subfamilia_id    = $request->subfamilia_id;
+        $produto->prazos_id        = $request->prazos_id;
+        $produto->color_id         = $request->color_id;
+        $produto->size_id          = $request->size_id;
+        $produto->quantidade       = $request->quantidade;
+        $produto->lote             = $request->lote;
+        $produto->obs              = $request->obs;
+        $produto->link             = $request->link;
+        $produto->path             = $_path;
+        $produto->ordem            = $request->ordem;
+        $produto->activo           = ($request->activo !== '' && $request->activo !== null) ? 1 : 0;
+
+        $produto->save();
+
+       
+         return redirect()->route('produto.edit', compact('produto'))->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -80,6 +222,8 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        //
+         Produto::destroy($id);
+
+         return redirect()->route('produto')->with('sucess','Removido com sucesso.');
     }
 }

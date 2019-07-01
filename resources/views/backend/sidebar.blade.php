@@ -59,7 +59,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#"><i class="fa fa-product-hunt"></i> Produtos</a></li>
+            <li><a href="{{ route('produto')}}"><i class="fa fa-product-hunt"></i> Produtos</a></li>
             <li class="treeview">
               <a href="#"><i class="fa fa-circle-o"></i> Configurador
                 <span class="pull-right-container">

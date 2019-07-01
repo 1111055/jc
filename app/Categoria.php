@@ -22,4 +22,19 @@ class Categoria extends Model
 
     	 return $this->hasMany('App\Subcategoria');
     }
+
+    public static function getSelection(){
+
+       $categoria = Categoria::
+                 where('titulo', '!=', '')
+                 ->orderBy('ordem','asc')->get();
+
+
+       $selcat = $categoria->pluck('titulo','id');
+
+       
+       $selcat->prepend('-- Escolha uma Categoria -- ',0);
+
+        return $selcat;
+    }
 }

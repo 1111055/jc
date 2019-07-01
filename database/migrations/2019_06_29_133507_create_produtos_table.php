@@ -15,6 +15,24 @@ class CreateProdutosTable extends Migration
     {
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('titulo');
+            $table->string('sku')->nullable();
+            $table->string('subtitulo')->nullable();
+            $table->text('descricao')->nullable();
+            $table->text('obs')->nullable();
+            $table->integer('categoria_id')->nullable();
+            $table->integer('subcategoria_id')->nullable();
+            $table->integer('familia_id')->nullable();
+            $table->integer('subfamilia_id')->nullable();
+            $table->integer('prazos_id')->nullable();
+            $table->integer('color_id')->nullable();
+            $table->integer('size_id')->nullable();
+            $table->integer('quantidade')->nullable();
+            $table->string('lote')->nullable();
+            $table->string('link')->nullable();
+            $table->string('path')->nullable();
+            $table->string('ordem')->nullable();
+            $table->integer('activo')->default(1);
             $table->timestamps();
         });
     }

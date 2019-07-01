@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subcategoria extends Model
 {
      protected $fillable = [
-        'titulo', 'subtitulo','idcategoria','ordem','activo'
+        'titulo', 'subtitulo','categoria_id','ordem','activo'
     ];
     
 
@@ -22,5 +22,20 @@ class Subcategoria extends Model
     public function categoria(){
 
     	return $this->belongsTo('App\Categoria');
+    }
+
+    public static function getSelection(){
+
+       $item = Subcategoria::
+                 where('titulo', '!=', '')
+                 ->orderBy('ordem','asc')->get();
+
+
+       $itemtmp = $item->pluck('titulo','id');
+
+       
+       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+
+       return $itemtmp;
     }
 }

@@ -94,13 +94,13 @@
                                                 <div class="form-group col-sm-6">
                                                     <label>Imagem ({{$width}}x{{$height}})</label>
                                                      <input type="file" name="banerimg" id="exampleInputImage" class="image"> 
-                                                    </div>
-                                                    <div class="col-xs-12">
-                                                     <p><div id="fileDisplayArea"></div></p>
-                                                     <div class="col-xs-2">
+                                                </div>
+                                                <div class="col-xs-12">
+                                                <p><div id="fileDisplayArea"></div></p>
+                                                    <div class="col-xs-2">
                                                           <img src="{{$bannerlines->path}}" style="max-width: 200%;" />
-                                                      </div>
-                                                 </div>
+                                                    </div>
+                                                </div>
                                               </div>
                                                 
                                             </div>

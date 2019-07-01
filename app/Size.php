@@ -18,4 +18,19 @@ class Size extends Model
 
         return $valty;
     }
+
+    public static function getSelection(){
+
+       $item = Size::
+                 where('titulo', '!=', '')
+                 ->orderBy('ordem','asc')->get();
+
+
+       $itemtmp = $item->pluck('tamanho','id');
+
+       
+       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+
+       return $itemtmp;
+    }
 }

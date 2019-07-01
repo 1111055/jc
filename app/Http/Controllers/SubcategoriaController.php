@@ -69,15 +69,7 @@ class SubcategoriaController extends Controller
 
          $subcategoria = Subcategoria::find($id);
 
-      $categoria = Categoria::
-                 where('titulo', '!=', '')
-                 ->orderBy('ordem','asc')->get();
-
-
-       $selcat = $categoria->pluck('titulo','id');
-
-       
-       $selcat->prepend('-- Escolha uma Categoria -- ',0);
+         $selcat = Categoria::getSelection();
 
 
          return view('backend.Subcategoria.edit', compact('subcategoria','selcat'));

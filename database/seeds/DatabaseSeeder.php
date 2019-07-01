@@ -25,7 +25,8 @@ class DatabaseSeeder extends Seeder
         CategoriaTableSeeder::class,
         SubcategoriaTableSeeder::class,
         FamiliaTableSeeder::class,
-        SubfamiliaTableSeeder::class
+        SubfamiliaTableSeeder::class,
+        ProdutoTableSeeder::class
        ]);
     }
 }

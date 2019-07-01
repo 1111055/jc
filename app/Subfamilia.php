@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Subfamilia extends Model
 {
     protected $fillable = [
-        'titulo', 'subtitulo','idfamilia', 'ordem','activo'
+        'titulo', 'subtitulo','familia_id', 'ordem','activo'
     ];
     
 
@@ -21,6 +21,21 @@ class Subfamilia extends Model
 
     public function familia(){
 
-    	return $this->belongsTo('App\familia');
+    	return $this->belongsTo('App\Familia');
+    }
+
+    public static function getSelection(){
+
+       $item = Subfamilia::
+                 where('titulo', '!=', '')
+                 ->orderBy('ordem','asc')->get();
+
+
+       $itemtmp = $item->pluck('titulo','id');
+
+       
+       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+
+        return $itemtmp;
     }
 }

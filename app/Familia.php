@@ -23,4 +23,19 @@ class Familia extends Model
 
     	return $this->hasMany('App\Subfamilia');
     }
+
+    public static function getSelection(){
+
+       $item = Familia::
+                 where('titulo', '!=', '')
+                 ->orderBy('ordem','asc')->get();
+
+
+       $itemtmp = $item->pluck('titulo','id');
+
+       
+       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+
+       return $itemtmp;
+    }
 }

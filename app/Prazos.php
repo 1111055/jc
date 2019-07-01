@@ -19,4 +19,19 @@ class Prazos extends Model
 
         return $valty;
     }
+
+    public static function getSelection(){
+
+       $item = Prazos::
+                 where('titulo', '!=', '')
+                 ->orderBy('ordem','asc')->get();
+
+
+       $itemtmp = $item->pluck('titulo','id');
+
+       
+       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+
+       return $itemtmp;
+    }
 }
