@@ -19,8 +19,13 @@ class DatabaseSeeder extends Seeder
         PaginasTableSeeder::class,
         PrazoTableSeeder::class,
         BannerTableSeeder::class,
-        PageBannerTableSeeder::class
-
+        PageBannerTableSeeder::class,
+        SizesTableSeeder::class,
+        ColorsTableSeeder::class,
+        CategoriaTableSeeder::class,
+        SubcategoriaTableSeeder::class,
+        FamiliaTableSeeder::class,
+        SubfamiliaTableSeeder::class
        ]);
     }
 }

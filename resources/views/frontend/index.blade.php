@@ -5,10 +5,13 @@
         <div class="slider-area pb-60">
             <div class="slider-wrapper theme-default  nivo2">
                 <div id="slider" class="nivoSlider">
+                  @isset($bannerline[0])
                      @foreach($bannerline[0] as $key => $item)
                            <a href="{{$item->link}}"><img src="{{$item->path}}"  alt="" title="#slider-1-caption{{$key}}" /></a>
                      @endforeach
+                 @endisset
                 </div>
+            @isset($bannerline[0])
                 @foreach($bannerline[0] as $key => $item)
                     <div id="slider-1-caption{{$key}}" class="nivo-html-caption nivo-caption">
                         <div class="text-content-wrapper">
@@ -23,7 +26,8 @@
                             </div>
                         </div>
                     </div>  
-                 @endforeach                  
+                 @endforeach  
+            @endisset                
             </div>
         </div> 
         
@@ -379,13 +383,15 @@
         <div class="upper-banner banner pb-60">
             <div class="container">
                <div class="row">
-                   @foreach($bannerline[1] as $value)
-                   <div class="col-sm-6">
-                        <div class="single-banner zoom">
-                            <a href="{{$value->link}}"><img src="{{$value->path}}" alt="slider-banner"></a>
+                   @isset($bannerline[1])
+                       @foreach($bannerline[1] as $value)
+                       <div class="col-sm-6">
+                            <div class="single-banner zoom">
+                                <a href="{{$value->link}}"><img src="{{$value->path}}" alt="slider-banner"></a>
+                            </div>
                         </div>
-                    </div>
-                    @endforeach
+                        @endforeach
+                    @endisset
                </div>
                <!-- Row End -->
             </div>
@@ -871,19 +877,21 @@
         <div class="company-policy pb-60 pb-sm-25">
             <div class="container">
                 <div class="row">
-                    @foreach($bannerline[2] as $value)
-                            <div class="col-lg-3 col-sm-6">
-                                <div class="single-policy">
-                                    <div class="icone-img">
-                                        <img src="{{ $value->path}}" alt="">
+                    @isset($bannerline[2])
+                            @foreach($bannerline[2] as $value)
+                                    <div class="col-lg-3 col-sm-6">
+                                        <div class="single-policy">
+                                            <div class="icone-img">
+                                                <img src="{{ $value->path}}" alt="">
+                                            </div>
+                                            <div class="policy-desc">
+                                                <h3>{{ $value->titulo}}</h3>
+                                                <p>{!! $value->descricao !!}</p>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="policy-desc">
-                                        <h3>{{ $value->titulo}}</h3>
-                                        <p>{!! $value->descricao !!}</p>
-                                    </div>
-                                </div>
-                            </div>
-                    @endforeach
+                            @endforeach
+                    @endisset
                 </div>
             </div>
         </div>

@@ -120,6 +120,48 @@ Route::delete('bannerlines/destroy/{id}',     ['as' => 'bannerlines.destroy', 'u
 Route::post('bannerlines', 'BannerLinesController@store');
 
 
-//PageBanner
-Route::post('pagebanner', 'PageBannerController@store');
+//caracteristicas do produto (Cor)
+Route::get('color', 'ColorController@index')->name('color');
+Route::get('color/edit/{id}',           ['as' => 'color.edit',    'uses' => 'ColorController@edit']); 
+Route::put('color/update/{id}',         ['as' => 'color.update',  'uses' => 'ColorController@update']);
+Route::delete('color/destroy/{id}',     ['as' => 'color.destroy', 'uses' => 'ColorController@destroy']);
+Route::post('color', 'ColorController@store');
 
+//caracteristicas do produto (Tamanhos)
+Route::get('size', 'SizeController@index')->name('size');
+Route::get('size/edit/{id}',           ['as' => 'size.edit',    'uses' => 'SizeController@edit']); 
+Route::put('size/update/{id}',         ['as' => 'size.update',  'uses' => 'SizeController@update']);
+Route::delete('size/destroy/{id}',     ['as' => 'size.destroy', 'uses' => 'SizeController@destroy']);
+Route::post('size', 'SizeController@store');
+
+
+//caracteristicas do produto (Categoria)
+Route::get('categoria', 'CategoriaController@index')->name('categoria');
+Route::get('categoria/edit/{id}',           ['as' => 'categoria.edit',    'uses' => 'CategoriaController@edit']); 
+Route::put('categoria/update/{id}',         ['as' => 'categoria.update',  'uses' => 'CategoriaController@update']);
+Route::delete('categoria/destroy/{id}',     ['as' => 'categoria.destroy', 'uses' => 'CategoriaController@destroy']);
+Route::post('categoria', 'CategoriaController@store');
+
+//caracteristicas do produto (Tamanhos)
+Route::get('subcategoria', 'SubcategoriaController@index')->name('subcategoria');
+Route::get('subcategoria/edit/{id}',           ['as' => 'subcategoria.edit',    'uses' => 'SubcategoriaController@edit']); 
+Route::put('subcategoria/update/{id}',         ['as' => 'subcategoria.update',  'uses' => 'SubcategoriaController@update']);
+Route::delete('subcategoria/destroy/{id}',     ['as' => 'subcategoria.destroy', 'uses' => 'SubcategoriaController@destroy']);
+Route::post('subcategoria', 'SubcategoriaController@store');
+
+//caracteristicas do produto (Tamanhos)
+Route::get('familia', 'FamiliaController@index')->name('familia');
+Route::get('familia/edit/{id}',           ['as' => 'familia.edit',    'uses' => 'FamiliaController@edit']); 
+Route::put('familia/update/{id}',         ['as' => 'familia.update',  'uses' => 'FamiliaController@update']);
+Route::delete('familia/destroy/{id}',     ['as' => 'familia.destroy', 'uses' => 'FamiliaController@destroy']);
+Route::post('familia', 'FamiliaController@store');
+
+//caracteristicas do produto (Tamanhos)
+Route::get('subfamilia', 'SubfamiliaController@index')->name('subfamilia');
+Route::get('subfamilia/edit/{id}',           ['as' => 'subfamilia.edit',    'uses' => 'SubfamiliaController@edit']); 
+Route::put('subfamilia/update/{id}',         ['as' => 'subfamilia.update',  'uses' => 'SubfamiliaController@update']);
+Route::delete('subfamilia/destroy/{id}',     ['as' => 'subfamilia.destroy', 'uses' => 'SubfamiliaController@destroy']);
+Route::post('subfamilia', 'SubfamiliaController@store');
+
+//Tabelas associativas. 
+Route::post('pagebanner', 'PageBannerController@store');

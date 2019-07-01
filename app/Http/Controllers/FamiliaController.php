@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Menu;
-use App\BannerLine;
-use App\Pagebanner;
-use App\Banner;
-use App\Pagina;
-Use Session;
+use App\Familia;
+use App\Http\Requests\FamiliaRequest;
 
-class HomeController extends Controller
+class FamiliaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,30 +15,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+         $familia= Familia::
+                 orderBy('ordem','asc')->get();
 
-      $banner = PageBanner::getBannerFormPage(1);
-      $pagina = Pagina::find(1);
 
-                
-      foreach ($banner as $key => $value) {
-
-                $_banner = Banner::find($value->id);
-               
-               if($_banner != null){
-                    if($_banner->activo == 1){
-
-                      $bannerline[] = BannerLine::getBannerHome($value->id);
-
-                       
-                    }
-                
-               }
-      }
-      
-
-        return view('frontend.index',compact('pagina','bannerline'));
+        return view('backend.Familia.index', compact('familia'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -60,9 +38,11 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FamiliaRequest $request)
     {
-        //
+        $request->persist();
+
+        return redirect()->route('familia')->with('sucess','Criado com sucesso.');
     }
 
     /**
@@ -84,7 +64,8 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+         $familia = Familia::find($id);
+         return view('backend.Familia.edit', compact('familia'));
     }
 
     /**
@@ -96,7 +77,19 @@ class HomeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $familia = Familia::findOrFail($id);
+
+
+        //dd($request->all());
+        $familia->titulo      = $request->titulo;
+        $familia->subtitulo   = $request->subtitulo;
+        $familia->ordem       = $request->ordem;
+        $familia->activo      = ($request->activo !== '' && $request->activo !== null ) ? 1 : 0;
+
+        $familia->save();
+
+       
+         return redirect()->route('familia.edit', compact('familia'))->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -107,6 +100,8 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+         Familia::destroy($id);
+
+         return redirect()->route('familia')->with('sucess','Removido com sucesso.');
     }
 }

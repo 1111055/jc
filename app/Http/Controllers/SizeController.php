@@ -3,14 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Menu;
-use App\BannerLine;
-use App\Pagebanner;
-use App\Banner;
-use App\Pagina;
-Use Session;
+use App\Size;
+use App\Http\Requests\SizeRequest;
 
-class HomeController extends Controller
+
+class SizeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,30 +16,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $size = Size::
+                 orderBy('ordem','asc')->get();
 
-      $banner = PageBanner::getBannerFormPage(1);
-      $pagina = Pagina::find(1);
 
-                
-      foreach ($banner as $key => $value) {
-
-                $_banner = Banner::find($value->id);
-               
-               if($_banner != null){
-                    if($_banner->activo == 1){
-
-                      $bannerline[] = BannerLine::getBannerHome($value->id);
-
-                       
-                    }
-                
-               }
-      }
-      
-
-        return view('frontend.index',compact('pagina','bannerline'));
+        return view('backend.Size.index', compact('size'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -60,9 +39,11 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SizeRequest $request)
     {
-        //
+         $request->persist();
+
+        return redirect()->route('size')->with('sucess','Criado com sucesso.');
     }
 
     /**
@@ -73,7 +54,7 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -84,7 +65,8 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+         $size = Size::find($id);
+         return view('backend.Size.edit', compact('size'));
     }
 
     /**
@@ -94,9 +76,20 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SizeRequest $request, $id)
     {
-        //
+         $size = Size::findOrFail($id);
+
+        $size->titulo      = $request->titulo;
+        $size->subtitulo   = $request->subtitulo;
+        $size->tamanho     = $request->tamanho;
+        $size->ordem       = $request->ordem;
+        $size->activo       = ($request->size !== '' && $request->activo != null)  ? 1 : 0;
+
+        $size->save();
+
+       
+         return redirect()->route('size.edit', compact('size'))->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -107,6 +100,8 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+          Size::destroy($id);
+
+         return redirect()->route('size')->with('sucess','Removido com sucesso.');
     }
 }

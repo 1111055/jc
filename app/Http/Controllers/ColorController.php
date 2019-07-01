@@ -3,14 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Menu;
-use App\BannerLine;
-use App\Pagebanner;
-use App\Banner;
-use App\Pagina;
-Use Session;
-
-class HomeController extends Controller
+use App\Color;
+use App\Http\Requests\ColorRequest;
+class ColorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,30 +14,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $color = Color::
+                 orderBy('ordem','asc')->get();
 
-      $banner = PageBanner::getBannerFormPage(1);
-      $pagina = Pagina::find(1);
 
-                
-      foreach ($banner as $key => $value) {
-
-                $_banner = Banner::find($value->id);
-               
-               if($_banner != null){
-                    if($_banner->activo == 1){
-
-                      $bannerline[] = BannerLine::getBannerHome($value->id);
-
-                       
-                    }
-                
-               }
-      }
-      
-
-        return view('frontend.index',compact('pagina','bannerline'));
+        return view('backend.Color.index', compact('color'));
+        
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -60,9 +38,11 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ColorRequest $request)
     {
-        //
+        $request->persist();
+
+        return redirect()->route('color')->with('sucess','Criado com sucesso.');
     }
 
     /**
@@ -84,7 +64,8 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+         $color = Color::find($id);
+         return view('backend.Color.edit', compact('color'));
     }
 
     /**
@@ -94,9 +75,23 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ColorRequest $request, $id)
     {
-        //
+
+        $color = Color::findOrFail($id);
+
+
+      // dd($request->activo);
+        $color->titulo      = $request->titulo;
+        $color->subtitulo   = $request->subtitulo;
+        $color->cor         = $request->cor;
+        $color->ordem       = $request->ordem;
+        $color->activo      = ($request->activo !== '' && $request->activo != null)  ? 1 : 0;
+
+        $color->save();
+
+       
+         return redirect()->route('color.edit', compact('color'))->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -107,6 +102,8 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+         Color::destroy($id);
+
+         return redirect()->route('color')->with('sucess','Removido com sucesso.');
     }
 }

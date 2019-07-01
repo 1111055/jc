@@ -51,8 +51,35 @@
             <li><a href="#">Videos</a></li>
           </ul>
         </li>
+        <li class="treeview">
+          <a href="#">
+            <i class="fa fa-product-hunt"></i> <span>Produtos</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="#"><i class="fa fa-product-hunt"></i> Produtos</a></li>
+            <li class="treeview">
+              <a href="#"><i class="fa fa-circle-o"></i> Configurador
+                <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                  <li><a href="{{route('color')}}"><i class="fa fa-paint-brush"></i> Cores</a></li>
+                  <li><a href="{{route('size')}}"><i class="fa fa-circle-o"></i> Tamanhos</a></li>
+                  <li><a href="{{route('familia')}}"><i class="fa fa-circle-o"></i> Familias</a></li>
+                  <li><a href="{{route('subfamilia')}}"><i class="fa fa-circle-o"></i> Sub Familias</a></li>
+                  <li><a href="{{route('categoria')}}"><i class="fa fa-circle-o"></i> Categoria</a></li>
+                  <li><a href="{{route('subcategoria')}}"><i class="fa fa-circle-o"></i> Sub Categorias</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+    
 
-        <li><a href="#"><i class="fa fa-shopping-cart"></i> <span>Produtos</span></a></li>
+
         <li><a href="{{route('menu')}}"><i class="fa fa-align-justify"></i> <span>Menus</span></a></li>
         <li class="treeview">
           <a href="#"><i class="fa fa-align-justify"></i> <span>Páginas</span>

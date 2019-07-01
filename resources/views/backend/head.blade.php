@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="{{ asset('backend/dist/css/skins/skin-blue.css') }}">
   <link rel="stylesheet" href="{{ asset('css/imgareaselect.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('backend/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}">
 
 
   <link rel="stylesheet"

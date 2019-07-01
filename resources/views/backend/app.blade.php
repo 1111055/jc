@@ -28,6 +28,7 @@
 
     <script src="{{ asset('backend/bower_components/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('backend/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
+    <script src="{{ asset('backend/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
     <script>
       $(function () {
         // Replace the <textarea id="editor1"> with a CKEditor
@@ -57,6 +58,12 @@
 
 
         });
+
+
+    //Colorpicker
+    $('.my-colorpicker1').colorpicker()
+    //color picker with addon
+    $('.my-colorpicker2').colorpicker()
     </script>
 
     </body>

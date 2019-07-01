@@ -3,14 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Menu;
-use App\BannerLine;
-use App\Pagebanner;
-use App\Banner;
-use App\Pagina;
-Use Session;
+Use App\Categoria;
+use App\Http\Requests\CategoriaRequest;
 
-class HomeController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,30 +15,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $categoria= Categoria::
+                 orderBy('ordem','asc')->get();
 
-      $banner = PageBanner::getBannerFormPage(1);
-      $pagina = Pagina::find(1);
 
-                
-      foreach ($banner as $key => $value) {
-
-                $_banner = Banner::find($value->id);
-               
-               if($_banner != null){
-                    if($_banner->activo == 1){
-
-                      $bannerline[] = BannerLine::getBannerHome($value->id);
-
-                       
-                    }
-                
-               }
-      }
-      
-
-        return view('frontend.index',compact('pagina','bannerline'));
+        return view('backend.Categoria.index', compact('categoria'));
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -60,9 +38,11 @@ class HomeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriaRequest $request)
     {
-        //
+        $request->persist();
+
+        return redirect()->route('categoria')->with('sucess','Criado com sucesso.');
     }
 
     /**
@@ -84,7 +64,8 @@ class HomeController extends Controller
      */
     public function edit($id)
     {
-        //
+         $categoria = Categoria::find($id);
+         return view('backend.Categoria.edit', compact('categoria'));
     }
 
     /**
@@ -94,9 +75,21 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CategoriaRequest $request, $id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+
+
+        //dd($request->all());
+        $categoria->titulo      = $request->titulo;
+        $categoria->subtitulo   = $request->subtitulo;
+        $categoria->ordem       = $request->ordem;
+        $categoria->activo      = ($request->activo !== '' && $request->activo !== null ) ? 1 : 0;
+
+        $categoria->save();
+
+       
+         return redirect()->route('categoria.edit', compact('categoria'))->with('sucess','Guardado com sucesso.');
     }
 
     /**
@@ -107,6 +100,8 @@ class HomeController extends Controller
      */
     public function destroy($id)
     {
-        //
+         Categoria::destroy($id);
+
+         return redirect()->route('categoria')->with('sucess','Removido com sucesso.');
     }
 }
