@@ -305,7 +305,7 @@ img {
                                                 <div class="form-group">
                                                     {!! Form::label('Destacar:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                   <div class="col-sm-4">
-                                                  
+                                                     {!! Form::checkbox('destacar',1,true) !!}
                                                   </div>
                                                 </div>
 
