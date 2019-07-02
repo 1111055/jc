@@ -284,7 +284,31 @@ img {
 
                                              {!! Form::open(['url' => 'produtoimagem','class' => 'form-horizontal', 'files' => true ]) !!}
 
-                                                 
+                                                 {!! Form::hidden('idprod',$produto->id,['class' => 'form-control']) !!}
+                                                <div class="form-group">
+                                                    {!! Form::label('Tamanho:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-8">
+                                                    {!! Form::select('size_id', $selsize,null,['class' => 'form-horizontal']) !!}
+                                                  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    {!! Form::label('Cor:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-8">
+                                                    {!! Form::select('color_id', $selcor,null,['class' => 'form-horizontal']) !!}
+                                                  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    {!! Form::label('Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                <div class="col-sm-4">
+                                                     {!! Form::text('ordem',null,['class' => 'form-control']) !!}
+                                                </div>
+                                                <div class="form-group">
+                                                    {!! Form::label('Destacar:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-4">
+                                                  
+                                                  </div>
+                                                </div>
+
                                                 <div class="col-xs-2">
                                                 </div>
                                                 <div class="col-xs-4">
