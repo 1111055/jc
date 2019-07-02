@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ProdutoImagenRequest;
 
 class ProdutoImagemController extends Controller
 {
@@ -32,9 +33,11 @@ class ProdutoImagemController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProdutoImagenRequest $request)
     {
-        //
+                
+        $request->persist();
+        return redirect()->route('produto')->with('sucess','Criado com sucesso.');
     }
 
     /**

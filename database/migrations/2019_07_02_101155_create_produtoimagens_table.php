@@ -16,6 +16,8 @@ class CreateProdutoimagensTable extends Migration
         Schema::create('produtoimagens', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('produto_id');
+            $table->integer('color_id');
+            $table->integer('size_id');
             $table->integer('cont');
             $table->string('path');
             $table->string('ordem')->nullable();

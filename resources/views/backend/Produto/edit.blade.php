@@ -239,18 +239,6 @@ img {
                                                   </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    {!! Form::label('Tamanho:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                  <div class="col-sm-8">
-                                                    {!! Form::select('size_id', $selsize,$produto->size_id,['class' => 'form-horizontal']) !!}
-                                                  </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    {!! Form::label('Cor:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                  <div class="col-sm-8">
-                                                    {!! Form::select('color_id', $selcor,$produto->color_id,['class' => 'form-horizontal']) !!}
-                                                  </div>
-                                                </div>
-                                                <div class="form-group">
                                                     {!! Form::label('Quantidade:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                   <div class="col-sm-8">
                                                      {!! Form::text('quantidade',$produto->quantidade,['class' => 'form-control']) !!}
@@ -294,19 +282,15 @@ img {
                                      <div class="panel-body">
                                         <div class="box box-info">
 
-                                             {!! Form::open(['url' => 'banner','class' => 'form-horizontal'], 'files' => true) !!}
-                                                <div class="form-group">
-                                                    {!! Form::label('Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                <div class="col-sm-8">
-                                                     {!! Form::text('ordem',$produto->ordem,['class' => 'form-control']) !!}
-                                                </div>
+                                             {!! Form::open(['url' => 'produtoimagem','class' => 'form-horizontal', 'files' => true ]) !!}
 
+                                                 
                                                 <div class="col-xs-2">
                                                 </div>
                                                 <div class="col-xs-4">
                                                 <p><div id="fileDisplayArea"></div></p>
                                                     <div class="col-xs-8">
-                                                          <img src="{{$produto->path}}"  />
+                                                          <img src="#"  />
                                                     </div>
                                                 </div>
                                                <div class="form-group col-sm-6">
