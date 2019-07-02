@@ -48,4 +48,12 @@ class Produto extends Model
 
         return $this->belongsTo('App\Subfamilia');
     }
+
+    public static function getProduto($id)
+    {
+
+        $valty = Produto::findOrFail($id);
+
+        return $valty;
+    }
 }

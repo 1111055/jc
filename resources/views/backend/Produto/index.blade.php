@@ -83,7 +83,7 @@
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
-                              <th class="col-xs-2">#</th>
+                              <th class="col-xs-1">#</th>
                               <th>Titulo</th>
                               <th>Subtitulo</th>
                               <th>Ordem</th>
@@ -92,7 +92,7 @@
                             </tr>
                             @foreach($produto as $item)
                               <tr>
-                                  <td class="col-xs-2"><img src="{{ $item->path }}" class="img-thumbnail"></td>
+                                  <td class="col-xs-1"><img src="{{ $item->path }}" class="img-thumbnail"></td>
                                   <td>{{ $item->titulo }}</td>
                                   <td>{{ $item->subtitulo }}</td>
                                   <td>{{ $item->ordem }}</td>

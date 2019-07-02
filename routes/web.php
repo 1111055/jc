@@ -34,8 +34,9 @@ Route::get('wish', 'WishController@index');
 Route::get('wish', 'WishController@index')->name('wish');
 
 //detail produto
-Route::get('produto', 'ProdutoController@index');
-Route::get('produto', 'ProdutoController@index')->name('produto');
+Route::get('detail', 'DetailController@index');
+Route::get('detail', 'DetailController@index')->name('detail');
+Route::get('detail/show/{id}', ['as' => 'detail.edit',    'uses' => 'DetailController@show']); 
 
 
 //show produtos
@@ -168,7 +169,10 @@ Route::get('produto', 'ProdutoController@index')->name('produto');
 Route::get('produto/edit/{id}',           ['as' => 'produto.edit',    'uses' => 'ProdutoController@edit']); 
 Route::put('produto/update/{id}',         ['as' => 'produto.update',  'uses' => 'ProdutoController@update']);
 Route::delete('produto/destroy/{id}',     ['as' => 'produto.destroy', 'uses' => 'ProdutoController@destroy']);
+Route::get('produto/show/{id}',           ['as' => 'produto.show',    'uses' => 'ProdutoController@show']); 
 Route::post('produto', 'ProdutoController@store');
 
 //Tabelas associativas. 
 Route::post('pagebanner', 'PageBannerController@store');
+//Tabelas associativas. 
+Route::post('produtoimagem', 'ProdutoImagemController@store');

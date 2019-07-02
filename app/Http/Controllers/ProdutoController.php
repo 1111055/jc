@@ -62,7 +62,11 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $prod =  Produto::getProduto($id);
+
+        
+        return view('frontend.produto', compact('prod'));
     }
 
     /**

@@ -17,7 +17,7 @@ class CreateProdutosTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('sku')->nullable();
-            $table->string('subtitulo')->nullable();
+            $table->text('subtitulo')->nullable();
             $table->text('descricao')->nullable();
             $table->text('obs')->nullable();
             $table->integer('categoria_id')->nullable();

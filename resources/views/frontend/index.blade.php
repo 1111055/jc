@@ -43,7 +43,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="#">Bone</a></h4>
@@ -55,7 +55,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="#">Bone 25</a></h4>
@@ -72,7 +72,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="#">Bone</a></h4>
@@ -84,7 +84,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="#">Bone</a></h4>
@@ -100,7 +100,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="">Bone</a></h4>
@@ -112,7 +112,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="#"></a></h4>
@@ -128,7 +128,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="">Bone</a></h4>
@@ -156,7 +156,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
 
@@ -185,7 +185,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
                                 <h4><a href="#">Mochila</a></h4>
@@ -197,7 +197,7 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
 
@@ -227,7 +227,7 @@
                     <div class="single-product">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="{{route('produto')}}">
+                            <a href="{{route('produto.show',1)}}">
                                 <img class="primary-img" src="img/pen1.png" alt="single-product">
                                 <img class="secondary-img" src="img/pen1.png" alt="single-product">
                             </a>
@@ -251,7 +251,7 @@
                     <div class="single-product">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="{{route('produto')}}">
+                            <a href="{{route('produto.show',1)}}">
                                 <img class="primary-img" src="img/caneta1.png" alt="single-product">
                                 <img class="secondary-img" src="img/caneta1.png" alt="single-product">
                             </a>
@@ -277,7 +277,7 @@
                     <div class="single-product">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="{{route('produto')}}">
+                            <a href="{{route('produto.show',1)}}">
                                 <img class="primary-img" src="img/caneta2.png" alt="single-product">
                                 <img class="secondary-img" src="img/caneta2.png" alt="single-product">
                             </a>
@@ -301,7 +301,7 @@
                     <div class="single-product">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="{{route('produto')}}">
+                            <a href="{{route('produto.show',1)}}">
                                 <img class="primary-img" src="img/caneta1.png" alt="single-product">
                                 <img class="secondary-img" src="img/caneta1.png" alt="single-product">
                             </a>
@@ -309,7 +309,7 @@
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
                         <div class="pro-content">                               
-                            <h4><a href="{{route('produto')}}">Caneta XPTO</a></h4>
+                            <h4><a href="{{route('produto.show',1)}}">Caneta XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
                                 <div class="actions-secondary">
@@ -327,7 +327,7 @@
                     <div class="single-product">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="{{route('produto')}}">
+                            <a href="{{route('produto.show',1)}}">
                                 <img class="primary-img" src="img/mochila2.png" alt="single-product">
                                 <img class="secondary-img" src="img/mochila2.png" alt="single-product">
                             </a>
@@ -335,7 +335,7 @@
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
                         <div class="pro-content">                            
-                            <h4><a href="{{route('produto')}}">Mochila XPTO</a></h4>
+                            <h4><a href="{{route('produto.show',1)}}">Mochila XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
                                 <div class="actions-secondary">
@@ -353,7 +353,7 @@
                     <div class="single-product">
                         <!-- Product Image Start -->
                         <div class="pro-img">
-                            <a href="{{route('produto')}}">
+                            <a href="{{route('produto.show',1)}}">
                                 <img class="primary-img" src="https://fakeimg.pl/270x380/" alt="single-product">
                                 <img class="secondary-img" src="https://fakeimg.pl/270x380/" alt="single-product">
                             </a>
@@ -361,7 +361,7 @@
                         <!-- Product Image End -->
                         <!-- Product Content Start -->
                         <div class="pro-content">                            
-                            <h4><a href="{{route('produto')}}">Bloco XPTO</a></h4>
+                            <h4><a href="{{route('produto.show',1)}}">Bloco XPTO</a></h4>
                             <p><span class="price"> </span><del class="prev-price"> </del></p-->
                             <div class="pro-actions">
                                 <div class="actions-secondary">
@@ -414,10 +414,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Caneta</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Caneta</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -425,10 +425,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Bloco</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Bloco</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -436,10 +436,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Boné Rapaz Azul</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Boné Rapaz Azul</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -447,10 +447,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">T-Shirt Rosa Menina</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">T-Shirt Rosa Menina</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -458,10 +458,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Pen 5Gb</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Pen 5Gb</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -472,10 +472,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Caneta v2</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Caneta v2</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -483,10 +483,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Bloco v2</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Bloco v2</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -494,10 +494,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Boné Menina Rosa</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Boné Menina Rosa</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -505,10 +505,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">T-Shirt Azul Menina</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">T-Shirt Azul Menina</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -516,10 +516,10 @@
                                     <!-- Single Product Start -->
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto')}}">Pen 10Gb</a></h4>
+                                            <h4><a href="{{route('produto.show',1)}}">Pen 10Gb</a></h4>
                                             <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                                         </div>
                                     </div>
@@ -549,7 +549,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/mochila2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/mochila2.png" alt="single-product">
                                                 </a>
@@ -557,7 +557,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                             
-                                                <h4><a href="{{route('produto')}}">Pen 80GB</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Pen 80GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -574,7 +574,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/caneta2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/caneta2.png" alt="single-product">
                                                 </a>
@@ -583,7 +583,7 @@
                                             <!-- Product Content Start -->
                                             <div class="pro-content">
                               
-                                                <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -601,7 +601,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/mochila2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/mochila2.png" alt="single-product">
                                                 </a>
@@ -609,7 +609,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                              
-                                                <h4><a href="{{route('produto')}}">Pen 40GB</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Pen 40GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -626,7 +626,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/caneta2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/caneta2.png" alt="single-product">
                                                 </a>
@@ -635,7 +635,7 @@
                                             <!-- Product Content Start -->
                                             <div class="pro-content">
                               
-                                                <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -653,7 +653,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/mochila2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/mochila2.png" alt="single-product">
                                                 </a>
@@ -661,7 +661,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                             
-                                                    <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
+                                                    <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
                                                     <p><span class="price"></span><del class="prev-price"></del></p>
                                                     <div class="pro-actions">
                                                         <div class="actions-secondary">
@@ -678,7 +678,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/caneta2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/caneta2.png" alt="single-product">
                                                 </a>
@@ -686,7 +686,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                                
-                                                <h4><a href="{{route('produto')}}">Pen 60GB</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
                                                 <p><span class="price"></span><del class="prev-price"></del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -711,7 +711,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/mochila2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/mochila2.png" alt="single-product">
                                                 </a>
@@ -719,7 +719,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                            
-                                                <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -736,7 +736,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/products/3.jpg" alt="single-product">
                                                     <img class="secondary-img" src="img/products/2.jpg" alt="single-product">
                                                 </a>
@@ -744,7 +744,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                             
-                                                <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -762,7 +762,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/mochila2.png" alt="single-product">
                                                     <img class="secondary-img" src="img/mochila2.png" alt="single-product">
                                                 </a>
@@ -770,7 +770,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                               
-                                                <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -787,7 +787,7 @@
                                         <div class="single-product">
                                             <!-- Product Image Start -->
                                             <div class="pro-img">
-                                                <a href="{{route('produto')}}">
+                                                <a href="{{route('produto.show',1)}}">
                                                     <img class="primary-img" src="img/products/1.jpg" alt="single-product">
                                                     <img class="secondary-img" src="img/products/2.jpg" alt="single-product">
                                                 </a>
@@ -795,7 +795,7 @@
                                             <!-- Product Image End -->
                                             <!-- Product Content Start -->
                                             <div class="pro-content">                               
-                                                <h4><a href="{{route('produto')}}">Products Name Here</a></h4>
+                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
                                                 <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -909,10 +909,10 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto')}}">Bone</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
                         </div>
@@ -920,10 +920,10 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto')}}">Bone</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
                         </div>
@@ -935,10 +935,10 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto')}}">Bone</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
                         </div>
@@ -946,10 +946,10 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto')}}">Bone</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
                         </div>
@@ -961,10 +961,10 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto')}}">Bone</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
                         </div>
@@ -972,11 +972,11 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
 
-                                <h4><a href="{{route('produto')}}"></a></h4>
+                                <h4><a href="{{route('produto.show',1)}}"></a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
                         </div>
@@ -988,11 +988,11 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
 
-                                <h4><a href="{{route('produto')}}">Bone</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
                         </div>
@@ -1000,10 +1000,10 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto')}}">Pen</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Pen</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
                         </div>
@@ -1015,11 +1015,11 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
 
-                                <h4><a href="{{route('produto')}}">Mochila</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
                         </div>
@@ -1027,11 +1027,11 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
 
-                                <h4><a href="{{route('produto')}}">Mochila</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
                         </div>
@@ -1043,11 +1043,11 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
 
-                                <h4><a href="{{route('produto')}}">Mochila</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
                                 <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
                             </div>
                         </div>
@@ -1055,10 +1055,10 @@
                         <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto')}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto')}}">Mochila</a></h4>
+                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
                                 <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
                             </div>
                         </div>

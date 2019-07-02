@@ -293,21 +293,44 @@ img {
                                   <div class="tab-pane fade in" id="tab3">
                                      <div class="panel-body">
                                         <div class="box box-info">
-                                          
+
+                                             {!! Form::open(['url' => 'banner','class' => 'form-horizontal'], 'files' => true) !!}
+                                                <div class="form-group">
+                                                    {!! Form::label('Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                <div class="col-sm-8">
+                                                     {!! Form::text('ordem',$produto->ordem,['class' => 'form-control']) !!}
+                                                </div>
+
+                                                <div class="col-xs-2">
+                                                </div>
+                                                <div class="col-xs-4">
+                                                <p><div id="fileDisplayArea"></div></p>
+                                                    <div class="col-xs-8">
+                                                          <img src="{{$produto->path}}"  />
+                                                    </div>
+                                                </div>
+                                               <div class="form-group col-sm-6">
+                                                    <label>Imagens Produto</label>
+                                                    <input type="file" name="prodimg" id="exampleInputImage" class="image"> 
+                                                </div>
+                                                </div>
+                                            <div class="box-footer">
+                                                {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
+                                            </div>
+                                             {!! Form::close() !!}
                                           </div>
                                         <div class="box-body table-responsive no-padding">
                                               <table class="table table-hover">
                                                 <tr>
                                                   <th>#</th>
                                                   <th class="col-xs-2">Imagem</th>
-                                                  <th>Titulo</th>
-                                                  <th>Descricao</th>
+                                                  <th>Destacar</th>
                                                   <th>Ordem</th>
-                                                  <th>Link</th>
+                                                  <th class="text-center">Active</th>
                                                   <th class="text-center">Active</th>
                                                 </tr>
                                               </table>
-                                            </div>
+                                        </div>
                                       </div>
                                  </div>
                                 </div>
