@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
 class ProdutoRequest extends FormRequest
 {
      /**
@@ -49,9 +50,6 @@ class ProdutoRequest extends FormRequest
             'familia_id'      => request()->familia_id,
             'subfamilia_id'   => request()->subfamilia_id,
             'prazos_id'       => request()->prazos_id,
-            'color_id'        => request()->color_id,
-            'size_id'         => request()->size_id,
-            'quantidade'      => request()->quantidade,
             'lote'            => request()->lote,
             'link'            => request()->link,
             'path'            => request()->link,

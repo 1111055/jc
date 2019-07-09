@@ -11,6 +11,8 @@
   <link rel="stylesheet" href="{{ asset('css/imgareaselect.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
   <link rel="stylesheet" href="{{ asset('backend/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.min.css')}}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+ 
 
 
   <link rel="stylesheet"

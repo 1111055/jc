@@ -19,6 +19,14 @@ class Color extends Model
         return $valty;
     }
 
+        public static function getAllColors()
+    {
+
+        $valty = Color::where('cor','!=',' ')->orderBy('ordem','asc')->get();
+
+        return $valty;
+    }
+
     public static function getSelection(){
 
        $item = Color::
@@ -29,7 +37,7 @@ class Color extends Model
        $itemtmp = $item->pluck('titulo','id');
 
        
-       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+       $itemtmp->prepend('-- Escolha uma Cor -- ',0);
 
        return $itemtmp;
     }

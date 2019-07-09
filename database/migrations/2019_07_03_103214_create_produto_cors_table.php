@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProdutoimagensTable extends Migration
+class CreateProdutoCorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateProdutoimagensTable extends Migration
      */
     public function up()
     {
-        Schema::create('produtoimagens', function (Blueprint $table) {
+        Schema::create('produto_cors', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('produto_id');
-            $table->integer('cont');
-            $table->string('path');
+            $table->integer('color_id');
             $table->string('ordem')->nullable();
-            $table->integer('activo')->nullable()->default(1);
-            $table->integer('destacar')->default(0);
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateProdutoimagensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('produtoimagens');
+        Schema::dropIfExists('produto_cors');
     }
 }

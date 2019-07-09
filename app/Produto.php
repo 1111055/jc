@@ -8,10 +8,21 @@ class Produto extends Model
 {
     protected $fillable = [
        'sku', 'titulo', 'subtitulo', 'descricao', 'obs', 'categoria_id', 'subcategoria_id','familia_id','subfamilia_id',
-       'prazos_id', 'color_id', 'size_id', 'quantidade', 'lote', 'link', 'path', 'ordem', 'activo'
+       'prazos_id', 'lote', 'link', 'path', 'ordem', 'activo','visualizado','requisitado'
     ];
     
+    public function imagensproduto(){
 
+         return $this->hasMany('App\Produtoimagen');
+    }
+    public function produtocor(){
+
+         return $this->hasMany('App\ProdutoCor');
+    }
+   public function produtosize(){
+
+         return $this->hasMany('App\ProdutoSize');
+    }
     public static function getProdutos()
     {
 

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Produto;
+use App\ProdutoCor;
+use App\ProdutoSize;
 use App\Categoria;
 use App\Subcategoria;
 use App\Familia;
@@ -63,9 +65,19 @@ class ProdutoController extends Controller
     public function show($id)
     {
 
-        $prod =  Produto::getProduto($id);
+     $prod =  Produto::getProduto($id);
+       
+     $firstname = explode('/', trim($prod->path));
 
-        
+     if($prod->path != null){
+        if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
+
+                 $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
+         }
+      }else{
+                 $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
+      }
+
         return view('frontend.produto', compact('prod'));
     }
 
@@ -87,8 +99,35 @@ class ProdutoController extends Controller
          $selprazo  = Prazos::getSelection();
 
 
-         $produto = Produto::find($id);
-         return view('backend.Produto.edit', compact('produto','selcat','selsubcat','selfam','selsubfam','selcor','selsize','selprazo'));
+         $produto   = Produto::find($id);
+
+         $tamanhos  = Size::getAllSizes();
+         $colors    = Color::getAllColors();
+
+         $prodcor   = ProdutoCor::select('color_id')->Where('produto_id','=',$id)->get();
+
+         $arry = array('0');
+
+         foreach ($prodcor as $key => $value) {
+            
+             array_push($arry,$value->color_id);
+
+         }
+
+
+         $prodsize   = ProdutoSize::select('size_id')->Where('produto_id','=',$id)->get();
+
+         $arrys = array('0');
+
+         foreach ($prodsize as $key => $value) {
+            
+             array_push($arrys,$value->size_id);
+
+         }
+ 
+    
+
+         return view('backend.Produto.edit', compact('produto','selcat','selsubcat','selfam','selsubfam','selcor','selsize','selprazo','tamanhos','colors','arry','arrys'));
     }
 
     /**
@@ -103,7 +142,30 @@ class ProdutoController extends Controller
         $produto = Produto::findOrFail($id);
 
         $_path = $produto->path;
-  
+
+      //  dd($request->cores);
+        ProdutoCor::where('produto_id', $id)->delete();
+        
+        
+        foreach ($request->cores as $key => $value) {
+              
+                   ProdutoCor::create([
+                        'produto_id' => $id,
+                        'color_id'   => $value,
+                    ]);
+        }
+
+        ProdutoSize::where('produto_id', $id)->delete();
+
+        foreach ($request->sizes as $key => $value) {
+              
+                   ProdutoSize::create([
+                        'produto_id' => $id,
+                        'size_id'   => $value,
+                    ]);
+        }
+
+
         if($request->hasFile('prodimg')) {
 
                 $photo = $request->file('prodimg');
@@ -202,9 +264,6 @@ class ProdutoController extends Controller
         $produto->familia_id       = $request->familia_id;
         $produto->subfamilia_id    = $request->subfamilia_id;
         $produto->prazos_id        = $request->prazos_id;
-        $produto->color_id         = $request->color_id;
-        $produto->size_id          = $request->size_id;
-        $produto->quantidade       = $request->quantidade;
         $produto->lote             = $request->lote;
         $produto->obs              = $request->obs;
         $produto->link             = $request->link;

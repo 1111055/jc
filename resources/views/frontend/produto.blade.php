@@ -14,7 +14,7 @@
  
 .color-choose input[type=radio] {
   display: none;
-   text-align: center;
+  text-align: center;
 }
 .color-choose input[type=radio] + label span {
   display: inline-block;
@@ -67,19 +67,11 @@
     width: 32px;
     border-radius:4px;
 }
-.exemplo input[type="radio"]#campo-radio1 + label:before {
-    background-color: #F44336 !important;
+@foreach($prod->produtocor as $key => $item)
+.exemplo input[type="radio"]#campo-radio{{$key}} + label:before {
+    background-color: {{$item->cor->cor}} !important;
 }
-.exemplo input[type="radio"]#campo-radio2 + label:before {
-    background-color: #0d9bef !important;
-}
-.exemplo input[type="radio"]#campo-radio3 + label:before {
-    background-color: #0def14 !important;
-}
-.exemplo input[type="radio"]#campo-radio4 + label:before {
-    background-color: #ffeb3b !important;
-}
-
+@endforeach
 
  
 .exemplo input[type="radio"]:checked + label:before {
@@ -116,26 +108,22 @@
                 <div class="row">
                     <div class="col-lg-5">
                         <div class="tab-content">
-                            <div id="thumb1" class="tab-pane active">
+                            <div id="thumb" class="tab-pane active">
                                 <a data-fancybox="images" href="#"><img src="{{ $prod->path }}" alt="product-view"></a>
                             </div>
-                            <div id="thumb2" class="tab-pane">
-                                <a data-fancybox="images" href="#"><img src="img/caneta2.png" alt="product-view"></a>
-                            </div>
-                            <div id="thumb3" class="tab-pane">
-                                <a data-fancybox="images" href="#"><img src="img/pen1.png" alt="product-view"></a>
-                            </div>
-                            <div id="thumb4" class="tab-pane">
-                                <a data-fancybox="images" href="#"><img src="img/pen1.png" alt="product-view"></a>
-                            </div>
+                            @foreach($prod->imagensproduto as $key => $item)
+                                <div id="thumb{{$key}}" class="tab-pane">
+                                    <a data-fancybox="images" href="{{ $item->link }}"><img src="{{ $item->path }}" alt="{{ $prod->titulo }}"></a>
+                                </div>
+                            @endforeach
                         </div>
 
                         <div class="product-thumbnail">
                             <div class="thumb-menu nav">
-                                <a class="active" data-toggle="tab" href="#thumb1"> <img src="{{ $prod->path }}" alt="product-thumbnail"></a>
-                                <a data-toggle="tab" href="#thumb2"> <img src="img/pen1.png" alt="product-thumbnail"></a>
-                                <a data-toggle="tab" href="#thumb3"> <img src="img/pen1.png" alt="product-thumbnail"></a>
-                                <a data-toggle="tab" href="#thumb4"> <img src="img/pen1.png" alt="product-thumbnail"></a>
+                                <a class="active" data-toggle="tab" href="#thumb"> <img src="{{ $prod->path }}" alt="{{ $prod->titulo }}"></a>
+                                 @foreach($prod->imagensproduto as $key => $item)
+                                     <a data-toggle="tab" href="#thumb{{$key}}"> <img src="{{ $item->path }}" alt="{{ $prod->titulo }}"></a>
+                                 @endforeach
                             </div>
                         </div>
                     </div>
@@ -154,30 +142,20 @@
                                               <span>Tamanhos</span>
                                               <div class="product-color">
                                                 <div class="color-choose">
-                                                  <div>
-                                                    <input data-image="red" type="radio" id="red" name="color" value="red" checked>
-                                                    <label for="red"><span>M</span></label>
-                                                  </div>
-                                                  <div>
-                                                    <input data-image="blue" type="radio" id="blue" name="color" value="blue">
-                                                    <label for="blue"><span>L</span></label>
-                                                  </div>
-                                                  <div>
-                                                    <input data-image="black" type="radio" id="black" name="color" value="black">
-                                                    <label for="black"><span>XL</span></label>
-                                                  </div>
+                                                   @foreach($prod->produtosize as $key => $item)
+                                                      <div>
+                                                        <input data-image="red{{$key}}" type="radio" id="red{{$key}}" name="size">
+                                                        <label for="red{{$key}}"><span>{{$item->size->tamanho}}</span></label>
+                                                      </div>
+                                                   @endforeach
                                                 </div>
                                               </div>
                                                 <span>Cor</span>
                                                 <div class="exemplo">
-                                                    <input type="radio" value="0" name="campo-radio" id="campo-radio1"/>
-                                                    <label for="campo-radio1"></label>
-                                                    <input type="radio" value="0" name="campo-radio" id="campo-radio2" />
-                                                    <label for="campo-radio2"></label>
-                                                    <input type="radio" value="0" name="campo-radio" id="campo-radio3" />
-                                                    <label for="campo-radio3"></label>
-                                                    <input type="radio" value="0" name="campo-radio" id="campo-radio4" />
-                                                    <label for="campo-radio4"></label>
+                                                    @foreach($prod->produtocor as $key => $item)
+                                                        <input type="radio" value="0" name="campo-radio" id="campo-radio{{$key}}"/>
+                                                        <label for="campo-radio{{$key}}"></label>
+                                                    @endforeach
                                                 </div>
  
                                               <input class="number" id="numeric" type="number" min="1" value="1">

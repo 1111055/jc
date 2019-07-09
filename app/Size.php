@@ -14,10 +14,20 @@ class Size extends Model
     public static function getSizes()
     {
 
-        $valty = Color::where('activo','=','1')->orderBy('ordem','asc')->get();
+        $valty = Size::where('activo','=','1')->orderBy('ordem','asc')->get();
 
         return $valty;
     }
+
+
+    public static function getAllSizes()
+    {
+
+        $valty = Size::where('tamanho','!=',' ')->orderBy('ordem','asc')->get();
+
+        return $valty;
+    }
+
 
     public static function getSelection(){
 
@@ -29,7 +39,7 @@ class Size extends Model
        $itemtmp = $item->pluck('tamanho','id');
 
        
-       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+       $itemtmp->prepend('-- Escolha um Tamanho -- ',0);
 
        return $itemtmp;
     }

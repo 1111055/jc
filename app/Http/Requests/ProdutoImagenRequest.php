@@ -4,6 +4,9 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use App\Produtoimagen;
+use Image;
+use File;
+
 
 class ProdutoImagenRequest extends FormRequest
 {
@@ -22,7 +25,14 @@ class ProdutoImagenRequest extends FormRequest
      *
      * @return array
      */
-   
+     public function rules()
+    {
+        return [
+
+        
+        ];
+
+    }
    public function messages()
     {
         return [
@@ -36,30 +46,30 @@ class ProdutoImagenRequest extends FormRequest
 
          $idprod = request()->idprod;
        
-         if($request->hasFile('prodimg')) {
+         if(request()->hasFile('prodimg')) {
 
-                $photo = $request->file('prodimg');
+                $photo = request()->file('prodimg');
                
                 //Nome Do Ficheiro
-                $filenamewithextension = $request->file('prodimg')->getClientOriginalName();
+                $filenamewithextension = request()->file('prodimg')->getClientOriginalName();
          
                 //Nome Sem Extensão 
                 $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
          
                 //Extenção do ficheiro
-                $extension = $request->file('prodimg')->getClientOriginalExtension();
+                $extension = request()->file('prodimg')->getClientOriginalExtension();
          
                 //Novo nome do ficheiro
-                $imagename = "prod_".$request->id.'.'.$photo->getClientOriginalExtension(); 
+                $imagename = "prod_".$idprod.'_'.request()->id.'.'.$photo->getClientOriginalExtension(); 
 
                 $data = getimagesize($photo);
                 $width = $data[0];
                 $height = $data[1];
 
-                $namepng = "prod_".$request->id.'.png';
-                $namejgp = "prod_".$request->id.'.jpg';
-                $namegif = "prod_".$request->id.'.gif';
-                $nametiff = "prod_".$request->id.'.tiff';
+                $namepng = "prod_".request()->id.'.png';
+                $namejgp = "prod_".request()->id.'.jpg';
+                $namegif = "prod_".request()->id.'.gif';
+                $nametiff = "prod_".request()->id.'.tiff';
 
          
                 if(file_exists(public_path('/img/Produtos/'.$namepng))){
@@ -85,7 +95,7 @@ class ProdutoImagenRequest extends FormRequest
 
 
                 //Upload File                     
-                $file = $request->file('prodimg')->storeAs('Produtos', $imagename, 'upload');
+                $file = request()->file('prodimg')->storeAs('Produtos', $imagename, 'upload');
                 
                 
                // crop image
@@ -113,7 +123,7 @@ class ProdutoImagenRequest extends FormRequest
                     $cmpfinal = $comprimento * $divisaocom;
 
                 }
-                $_path = $request->root().'/img/Produtos/CROP/'.$imagename;
+                $_path = request()->root().'/img/Produtos/CROP/'.$imagename;
                 // Resized image
                 $thumb_img->resize($cmpfinal, $altfinal, function ($constraint) {
                     $constraint->aspectRatio();
@@ -125,14 +135,18 @@ class ProdutoImagenRequest extends FormRequest
                             
        }
 
+     if(isset($prod) && $prod->cont > 0){
+
+        $contador = $prod->cont+1;
+     }else{
+        $contador = 1;
+     }
 
 
        Produtoimagen::create([
-            'produto_id' => request()->produto_id,
-            'cont'       => $prod->cont > 0 ? $prod->cont + 1 : 1,
+            'produto_id' => $idprod,
+            'cont'       => $contador,
             'path'       => $_path,
-            'color_id'   => request()->color_id,
-            'size_id'    => request()->size_id,
             'ordem'      => request()->ordem,
             'activo'     => request()->activo,
             'destacar'   => request()->destacar

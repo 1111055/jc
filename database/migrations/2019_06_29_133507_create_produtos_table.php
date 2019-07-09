@@ -16,6 +16,7 @@ class CreateProdutosTable extends Migration
         Schema::create('produtos', function (Blueprint $table) {
             $table->increments('id');
             $table->string('titulo');
+            $table->string('cod_art')->unique()->nullable();
             $table->string('sku')->nullable();
             $table->text('subtitulo')->nullable();
             $table->text('descricao')->nullable();
@@ -25,14 +26,13 @@ class CreateProdutosTable extends Migration
             $table->integer('familia_id')->nullable();
             $table->integer('subfamilia_id')->nullable();
             $table->integer('prazos_id')->nullable();
-            $table->integer('color_id')->nullable();
-            $table->integer('size_id')->nullable();
-            $table->integer('quantidade')->nullable();
             $table->string('lote')->nullable();
             $table->string('link')->nullable();
             $table->string('path')->nullable();
             $table->string('ordem')->nullable();
             $table->integer('activo')->default(1);
+            $table->integer('visualizado')->nullable();
+            $table->integer('requisitado')->nullable();
             $table->timestamps();
         });
     }

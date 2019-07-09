@@ -172,7 +172,13 @@ Route::delete('produto/destroy/{id}',     ['as' => 'produto.destroy', 'uses' => 
 Route::get('produto/show/{id}',           ['as' => 'produto.show',    'uses' => 'ProdutoController@show']); 
 Route::post('produto', 'ProdutoController@store');
 
+
+
+
 //Tabelas associativas. 
 Route::post('pagebanner', 'PageBannerController@store');
-//Tabelas associativas. 
 Route::post('produtoimagem', 'ProdutoImagemController@store');
+
+//Produto Cor
+Route::delete('produtocor/destroy/{id}',     ['as' => 'produtocor.destroy', 'uses' => 'ProdutoCorController@destroy']);
+Route::post('produtocor', 'ProdutoCorController@store');

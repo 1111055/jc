@@ -902,329 +902,40 @@
                 <div class="group-title">
                     <h2>Produtos mais vistos!</h2>
                 </div>
-                <!-- Best Product Activation Start -->
                 <div class="best-seller-pro-active  owl-carousel slider-right-content">
-                    <!-- Double Product Start -->
+                    @foreach($moreview->take(4) as $item)
                     <div class="double-pro">
-                        <!-- Single Product Start -->
                         <div class="single-product">
                             <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
+                                <a href="{{route('produto.show',$item->id)}}"><img class="img" src="{{$item->path}}" alt="product-image"></a>
                             </div>
                             <div class="pro-content">
-                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
+                                <h4><a href="{{route('produto.show',$item->id)}}">{{$item->titulo}}</a></h4>
                             </div>
                         </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
                     </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-
-                                <h4><a href="{{route('produto.show',1)}}"></a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-
-                                <h4><a href="{{route('produto.show',1)}}">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="{{route('produto.show',1)}}">Pen</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-
-                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-
-                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-
-                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="{{route('produto.show',1)}}">Mochila</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
+                  @endforeach
                 </div>
-                <!-- Best Product Activation End -->
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- Best Product End -->             
-        <!-- Blog Page Start -->
-        <!--div class="blog-area pb-60">
-            <div class="container">
-                <div class="group-title">
-                    <h2>From The Blog</h2>
+                @if($moreview->count() > 4)
+                 <div class="best-seller-pro-active  owl-carousel slider-right-content">
+                  @foreach($moreview as $key => $item)
+                    @if($key > 3)
+                        <div class="double-pro">
+                            <div class="single-product">
+                                <div class="pro-img">
+                                    <a href="{{route('produto.show',$item->id)}}"><img class="img" src="{{$item->path}}" alt="product-image"></a>
+                                </div>
+                                <div class="pro-content">
+                                    <h4><a href="{{route('produto.show',$item->id)}}">{{$item->titulo}}</a></h4>
+                                </div>
+                            </div>
+                        </div>
+                     @endif
+                    @endforeach
+                   @endif
                 </div>
-                 <div class="blog-active owl-carousel">
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="img/blog/1.jpg" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By: </span> <a href="#">Jantrik,</a></li>
-                                    <li><span>On: </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="img/blog/2.jpg" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="img/blog/3.jpg" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="img/blog/1.jpg" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="img/blog/2.jpg" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-blog">
-                        <div class="blog-img">
-                            <a href="blog-details.html"><img src="img/blog/3.jpg" alt="blog-image"></a>
-                        </div>
-                        <div class="blog-content">
-                                <h4 class="blog-title"><a href="blog-details.html">Lorem ipsum dolor sit amet, consectl adip elit, sed do eiusmod tempor</a></h4>
-                            <div class="blog-meta">
-                                <ul>
-                                    <li><span>By </span> <a href="#">Jantrik, </a></li>
-                                    <li><span>On </span> <a href="#">05 Nov, 2018</a></li>
-                                </ul>
-                            </div>
-                            <div class="readmore">
-                                <a href="blog-details.html">Read More.....</a>
-                            </div>
-                        </div>
-                    </div>
-                 </div>
             </div>
         </div>
-        <!-- Blog Page End -->
-        <!-- Brand Logo Start -->
-        <!--div class="brand-area pb-60">
-
-            <div class="container">
-                <div class="group-title">
-                   <h2>Representamos as seguintes marcas</h2>
-                </div>
-                <div class="brand-banner owl-carousel ">
-                    <div class="single-brand">
-                        <a href="#"><img class="img" src="img/brand/1.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/2.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/3.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/4.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/5.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img class="img" src="img/brand/1.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/2.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/3.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/4.png" alt="brand-image"></a>
-                    </div>
-                    <div class="single-brand">
-                        <a href="#"><img src="img/brand/5.png" alt="brand-image"></a>
-                    </div>
-                </div>               
-            </div>
-        </div-->
 
 
 @stop

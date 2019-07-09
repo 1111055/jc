@@ -4,6 +4,7 @@
 
 
 <style>
+
 /* USER PROFILE PAGE */
  .card {
     margin-top: 20px;
@@ -97,7 +98,12 @@ img {
     overflow-x: auto;
   }
 
-
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
 
 </style>
            @if(session('sucess'))
@@ -207,50 +213,80 @@ img {
                                                 </div>
                                             </div>
                                              <div class="box-body">
-                                              <h3>Caracteristicas</h3>
-                                              <div class="form-group">
-                                                  {!! Form::label('Categoria:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                <div class="col-sm-8">
-                                                   {!! Form::select('categoria_id', $selcat,$produto->categoria_id,['class' => 'form-horizontal']) !!}
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                  {!! Form::label('Sub Categoria:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                <div class="col-sm-8">
-                                                   {!! Form::select('subcategoria_id', $selsubcat,$produto->subcategoria_id,['class' => 'form-horizontal']) !!}
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                  {!! Form::label('Familia:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                <div class="col-sm-8">
-                                                   {!! Form::select('familia_id', $selfam,$produto->familia_id,['class' => 'form-horizontal']) !!}
-                                                </div>
-                                              </div>
-                                              <div class="form-group">
-                                                  {!! Form::label('Sub Familia:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                <div class="col-sm-8">
-                                                   {!! Form::select('subfamilia_id', $selsubcat,$produto->subfamilia_id,['class' => 'form-horizontal']) !!}
-                                                </div>
-                                              </div>
+                                                <h3>Caracteristicas</h3>
                                                 <div class="form-group">
-                                                     {!! Form::label('Prazos:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                    {!! Form::label('Categoria:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                   <div class="col-sm-8">
-                                                    {!! Form::select('prazos_id', $selprazo,$produto->prazos_id,['class' => 'form-horizontal']) !!}
+                                                     {!! Form::select('categoria_id', $selcat,$produto->categoria_id,['class' => 'form-horizontal']) !!}
                                                   </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    {!! Form::label('Quantidade:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                    {!! Form::label('Sub Categoria:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                   <div class="col-sm-8">
-                                                     {!! Form::text('quantidade',$produto->quantidade,['class' => 'form-control']) !!}
+                                                     {!! Form::select('subcategoria_id', $selsubcat,$produto->subcategoria_id,['class' => 'form-horizontal']) !!}
                                                   </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    {!! Form::label('Activo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                    {!! Form::label('Familia:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                   <div class="col-sm-8">
-                                                     {!! Form::checkbox('activo',1,$produto->activo) !!}
+                                                     {!! Form::select('familia_id', $selfam,$produto->familia_id,['class' => 'form-horizontal']) !!}
                                                   </div>
                                                 </div>
+                                                <div class="form-group">
+                                                    {!! Form::label('Sub Familia:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-8">
+                                                     {!! Form::select('subfamilia_id', $selsubcat,$produto->subfamilia_id,['class' => 'form-horizontal']) !!}
+                                                  </div>
+                                                </div>
+                                                <div class="form-group">
+                                                       {!! Form::label('Prazos:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                    <div class="col-sm-8">
+                                                      {!! Form::select('prazos_id', $selprazo,$produto->prazos_id,['class' => 'form-horizontal']) !!}
+                                                    </div>
+                                                  </div>
                                             </div>
+                                            <div class="box-body">
+                                                
+                                               <div class="row">
+                                                  <div class="col-md-4 offset-md-3">
+                                                      <h3>Tamanhos </h3>
+     
+                                                        <!-- add class p-switch -->
+                                                          @foreach($tamanhos as $item)
+                                                              <div class="pretty p-switch">
+                                                                   @if(in_array($item->id,$arrys))
+                                                                    {!! Form::checkbox('sizes[]',$item->id,true) !!}  
+                                                                   @else
+                                                                    {!! Form::checkbox('sizes[]',$item->id,false) !!}  
+                                                                   @endif
+                                                                  <div class="state">
+                                                                       <label>{{ $item->tamanho }} </label>
+                                                                  </div>
+                                                              </div>
+                                                          @endforeach
+                                                   
+                                                  </div>  
+                                                 
+                                                  <div class="col-md-6 offset-md-3">
+                                                         <h3>Cores </h3>
+                                                          @foreach($colors as $item)
+                                                            <div class="pretty p-switch">
+                                                               
+                                                                @if(in_array($item->id,$arry))
+                                                                  {!! Form::checkbox('cores[]',$item->id,true) !!}  
+                                                                @else
+                                                                  {!! Form::checkbox('cores[]',$item->id,false) !!}  
+                                                                @endif  
+                                                                <div class="state">
+                                                                      <label> <span class="dot" style="background-color: {{$item->cor}};"></span></label>
+                                                                </div>
+                                                            </div>
+                                                          @endforeach
+                                                  </div> 
+                                               </div> 
+                                            </div>                                                   
+                                      
+
                                             <div class="box-body">
                                                 <h3>Outros</h3>
                                                 <div class="form-group">
@@ -286,26 +322,20 @@ img {
 
                                                  {!! Form::hidden('idprod',$produto->id,['class' => 'form-control']) !!}
                                                 <div class="form-group">
-                                                    {!! Form::label('Tamanho:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                  <div class="col-sm-8">
-                                                    {!! Form::select('size_id', $selsize,null,['class' => 'form-horizontal']) !!}
-                                                  </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    {!! Form::label('Cor:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                  <div class="col-sm-8">
-                                                    {!! Form::select('color_id', $selcor,null,['class' => 'form-horizontal']) !!}
-                                                  </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    {!! Form::label('Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                <div class="col-sm-4">
+                                                    {!! Form::label('Ordem:',null, ['class' => 'col-sm-1 control-label']) !!}
+                                                <div class="col-sm-2">
                                                      {!! Form::text('ordem',null,['class' => 'form-control']) !!}
                                                 </div>
                                                 <div class="form-group">
-                                                    {!! Form::label('Destacar:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                  <div class="col-sm-4">
+                                                    {!! Form::label('Destacar:',null, ['class' => 'col-sm-1 control-label']) !!}
+                                                  <div class="col-sm-1">
                                                      {!! Form::checkbox('destacar',1,true) !!}
+                                                  </div>
+                                                </div>
+                                               <div class="form-group">
+                                                    {!! Form::label('Activo:',null, ['class' => 'col-sm-1 control-label']) !!}
+                                                  <div class="col-sm-1">
+                                                     {!! Form::checkbox('activo',1,true) !!}
                                                   </div>
                                                 </div>
 
@@ -328,16 +358,41 @@ img {
                                              {!! Form::close() !!}
                                           </div>
                                         <div class="box-body table-responsive no-padding">
+                                          <div class="box box-info">
                                               <table class="table table-hover">
                                                 <tr>
-                                                  <th>#</th>
-                                                  <th class="col-xs-2">Imagem</th>
-                                                  <th>Destacar</th>
+                                                  <th class="col-xs-1">#</th>
                                                   <th>Ordem</th>
+                                                  <th class="text-center">Destacar</th>
                                                   <th class="text-center">Active</th>
-                                                  <th class="text-center">Active</th>
+                                                  <th>#</th>
+                                                </tr>
+                                                <tr>
+                                                
+                                                @foreach($produto->imagensproduto as $item)
+                                                  <td class="col-xs-1"> <img src="{{ $item->path }}"  /></td>
+                                                  <td>{{ $item->ordem }}</td>
+                                                   @if ($item->destacar === 1)
+                                                  <td class="text-center"><i class="fa fa-check-circle"></i></td>
+                                                  @else                       
+                                                  <td class="text-center"><i class="fa fa-times-circle"></i></td>
+                                                  @endif  
+                                                  @if ($item->activo === 1)
+                                                  <td class="text-center"><i class="fa fa-check-circle"></i></td>
+                                                  @else                       
+                                                  <td class="text-center"><i class="fa fa-times-circle"></i></td>
+                                                  @endif   
+                                                  <td><a href="{{route('banner.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
+
+                                                  {{ Form::open(['route' => ['banner.destroy', $item->id], 'method' => 'delete']) }}
+                                                  <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                                  {{ Form::close() }}
+
+                                                  </td>
+                                                @endforeach
                                                 </tr>
                                               </table>
+                                           </div>
                                         </div>
                                       </div>
                                  </div>
