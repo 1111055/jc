@@ -49,10 +49,14 @@ class ProdutoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ProdutoRequest $request)
+    public function store(Request $request)
     {
-        $request->persist();
 
+         Produto::create([
+            'titulo'          => request()->titulo,
+            'ordem'           => request()->ordem
+        ]);
+       
         return redirect()->route('produto')->with('sucess','Criado com sucesso.');
     }
 

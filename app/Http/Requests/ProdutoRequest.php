@@ -40,21 +40,8 @@ class ProdutoRequest extends FormRequest
     public function persist(){
    
        Produto::create([
-            'sku'             => request()->sku,
             'titulo'          => request()->titulo,
-            'subtitulo'       => request()->descricao,
-            'descricao'       => request()->descricao,
-            'obs'             => request()->obs,
-            'categoria_id'    => request()->categoria_id,
-            'subcategoria_id' => request()->subcategoria_id,
-            'familia_id'      => request()->familia_id,
-            'subfamilia_id'   => request()->subfamilia_id,
-            'prazos_id'       => request()->prazos_id,
-            'lote'            => request()->lote,
-            'link'            => request()->link,
-            'path'            => request()->link,
-            'ordem'           => request()->ordem,
-            'activo'          => request()->activo
+            'ordem'           => request()->ordem
         ]);
     }
                

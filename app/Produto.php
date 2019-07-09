@@ -8,7 +8,7 @@ class Produto extends Model
 {
     protected $fillable = [
        'sku', 'titulo', 'subtitulo', 'descricao', 'obs', 'categoria_id', 'subcategoria_id','familia_id','subfamilia_id',
-       'prazos_id', 'lote', 'link', 'path', 'ordem', 'activo','visualizado','requisitado'
+       'prazos_id', 'lote', 'link', 'path', 'ordem', 'activo','visualizado','requisitado','sexo'
     ];
     
     public function imagensproduto(){
