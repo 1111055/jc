@@ -240,8 +240,7 @@
                             <div class="pro-actions">
                                 <div class="actions-secondary">
                                     <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="#" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                    <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -264,8 +263,7 @@
                             <div class="pro-actions">
                                 <div class="actions-secondary">
                                     <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="#" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                    <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -290,8 +288,7 @@
                             <div class="pro-actions">
                                 <div class="actions-secondary">
                                     <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="#" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                    <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -314,8 +311,7 @@
                             <div class="pro-actions">
                                 <div class="actions-secondary">
                                     <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="#" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                    <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -340,8 +336,7 @@
                             <div class="pro-actions">
                                 <div class="actions-secondary">
                                     <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="#" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                    <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -366,8 +361,7 @@
                             <div class="pro-actions">
                                 <div class="actions-secondary">
                                     <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="#" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                    <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -405,128 +399,22 @@
                     <div class="col-xl-3 col-lg-4 order-2">
                         <div class="side-product-list">
                             <div class="group-title">
-                                <h2>Mais Vendidos</h2>
+                                <h2>Mais Pedidos</h2>
                             </div>
-                            <!-- Deal Pro Activation Start -->
                             <div class="slider-right-content side-product-list-active owl-carousel">
-                                <!-- Double Product Start -->
                                 <div class="double-pro">
-                                    <!-- Single Product Start -->
+                                    @foreach($requisitado as $item)
                                     <div class="single-product">
                                         <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
+                                            <a href="{{route('produto.show',$item->id)}}"><img class="img" src="{{$item->path}}" alt="product-image"></a>
                                         </div>
                                         <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Caneta</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
+                                            <h4><a href="{{route('produto.show',$item->id)}}">{{$item->titulo}}</a></h4>
                                         </div>
                                     </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Bloco</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Boné Rapaz Azul</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">T-Shirt Rosa Menina</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Pen 5Gb</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                </div>
-
-                                <div class="double-pro">
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Caneta v2</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Bloco v2</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Boné Menina Rosa</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">T-Shirt Azul Menina</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                    <!-- Single Product Start -->
-                                    <div class="single-product">
-                                        <div class="pro-img">
-                                            <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                                        </div>
-                                        <div class="pro-content">
-                                            <h4><a href="{{route('produto.show',1)}}">Pen 10Gb</a></h4>
-                                            <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                                        </div>
-                                    </div>
-                                    <!-- Single Product End -->
-                                </div>                               
+                                    @endforeach
+                                </div>                  
                             </div>
-                            <!-- Deal Pro Activation End -->
                         </div>
                     </div>
                     <div class="col-xl-9 col-lg-8  order-lg-2">
@@ -562,8 +450,7 @@
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
                                                         <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="#" data-toggle="tooltip" title="Add to Cart"><i class="fa fa-shopping-basket"></i></a>
-                                                        <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -588,9 +475,7 @@
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
                                                         <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="#" data-toggle="tooltip" title="Add to Cart"><i class="fa fa-shopping-basket"></i></a>
-                                                        <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
-                                                    </div>
+                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                                 </div>
                                             </div>
                                             <!-- Product Content End -->
@@ -614,9 +499,7 @@
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
                                                         <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="#" data-toggle="tooltip" title="Add to Cart"><i class="fa fa-shopping-basket"></i></a>
-                                                        <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
-                                                    </div>
+                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                                 </div>
                                             </div>
                                             <!-- Product Content End -->
@@ -640,8 +523,7 @@
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
                                                         <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="#" data-toggle="tooltip" title="Add to Cart"><i class="fa fa-shopping-basket"></i></a>
-                                                        <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -666,8 +548,7 @@
                                                     <div class="pro-actions">
                                                         <div class="actions-secondary">
                                                             <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                            <a href="#" data-toggle="tooltip" title="Add to Cart"><i class="fa fa-shopping-basket"></i></a>
-                                                            <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                                            <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                                         </div>
                                                     </div>
                                             </div>
@@ -691,8 +572,7 @@
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
                                                         <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="#" data-toggle="tooltip" title="Add to Cart"><i class="fa fa-shopping-basket"></i></a>
-                                                        <!--a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a-->
+                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                                     </div>
                                                 </div>
                                             </div>

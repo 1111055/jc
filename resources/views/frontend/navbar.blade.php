@@ -150,33 +150,25 @@
                                             <li><a href="register.html">Register</a></li>
                                             <li><a href="account.html">Account</a></li>                                            
                                         </ul>
-                                    </li-->                                    
+                                    </li--> 
+
                                     <li><a href="{{route('wish')}}"><i class="fa fa-heart-o"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-shopping-basket"></i><span class="cart-counter">2</span></a>
+                                    <li><a href="#"><i class="fa fa-shopping-basket"></i>@if(Session::has('bagone'))<span class="cart-counter">{{count(Session::get('bagone'))}}</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
-
+                                                @foreach(Session::get('bagone') as $item)
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="{{route('produto')}}"><img src="img/pen1.png" alt="cart-image"></a>
+                                                        <a href="{{route('produto.show',$item->id)}}"><img class="img" src="{{$item->path}}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="{{route('produto')}}">Toalha</a></h6>
-                                                        <span>100</span>
+                                                        <h6><a href="{{route('produto')}}">{{$item->titulo}}</a></h6>
+                                                        <span>{{$item->cod_art}}</span>
                                                     </div>
-                                                    <a class="del-icone" href="{{route('produto')}}"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href="{{route('produto.removebag',$item->id)}}"><i class="fa fa-window-close-o"></i></a>
                                                 </div>
+                                                @endforeach()
 
-                                                <div class="single-cart-box">
-                                                    <div class="cart-img">
-                                                        <a href="{{route('produto')}}"><img src="img/caneta1.png" alt="cart-image"></a>
-                                                    </div>
-                                                    <div class="cart-content">
-                                                        <h6><a href="{{route('produto')}}">Fitas Top</a></h6>
-                                                        <span>200</span>
-                                                    </div>
-                                                    <a class="del-icone" href=""><i class="fa fa-window-close-o"></i></a>
-                                                </div>
 
                                                 <div class="cart-footer fix">
                                                     <div class="cart-actions">
@@ -186,6 +178,7 @@
 
                                             </li>
                                         </ul>
+                                        @endif
                                     </li>
                                 </ul>
                             </div>

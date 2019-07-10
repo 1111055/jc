@@ -26,6 +26,11 @@ class HomeController extends Controller
       $moreview = Produto::where('activo','=','1')->orderby("visualizado","desc")
       ->take(8)->get();
 
+
+      $requisitado = Produto::where('activo','=','1')->orderby("requisitado","desc")
+      ->take(5)->get();
+
+
       foreach ($moreview as $key => $value) {
           if($value->path != null){
              $firstname = explode('/', trim($value->path));
@@ -37,6 +42,20 @@ class HomeController extends Controller
                      $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
           }
       }
+
+
+      foreach ($requisitado as $key => $value) {
+          if($value->path != null){
+             $firstname = explode('/', trim($value->path));
+            if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
+
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+             }
+          }else{
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+          }
+      }
+
 
       
 
@@ -58,7 +77,7 @@ class HomeController extends Controller
       }
       
 
-        return view('frontend.index',compact('pagina','bannerline','moreview'));
+        return view('frontend.index',compact('pagina','bannerline','moreview','requisitado'));
     }
 
 

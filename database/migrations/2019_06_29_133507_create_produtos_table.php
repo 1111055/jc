@@ -34,6 +34,7 @@ class CreateProdutosTable extends Migration
             $table->integer('visualizado')->nullable();
             $table->integer('requisitado')->nullable();
             $table->integer('sexo')->nullable();
+            $table->integer('desconto')->nullable();
             $table->timestamps();
         });
     }

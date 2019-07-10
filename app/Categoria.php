@@ -33,7 +33,7 @@ class Categoria extends Model
        $selcat = $categoria->pluck('titulo','id');
 
        
-       $selcat->prepend('-- Escolha uma Categoria -- ',0);
+       $selcat->prepend('-- Escolha uma opção -- ',0);
 
         return $selcat;
     }

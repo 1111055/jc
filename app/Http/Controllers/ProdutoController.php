@@ -16,6 +16,7 @@ use App\Prazos;
 use App\Http\Request\ProdutoRequest;
 use Image;
 use File;
+use Illuminate\Support\Arr;
 
 
 class ProdutoController extends Controller
@@ -41,6 +42,57 @@ class ProdutoController extends Controller
     public function create()
     {
         //
+    }
+
+    public function bag($id)
+    {
+
+       
+        $array = [];
+        $existe = true;
+        $prod = Produto::find($id);
+
+        if(session()->has('bagone'))
+        {
+            $array = session('bagone');
+        }
+
+        foreach ($array as $key => $value) {
+            if($value->id == $id){
+                $existe = false;
+            }
+        }
+
+        if($existe == true){
+           $array = Arr::prepend($array, $prod);
+        }
+
+       session(['bagone' => $array]);
+       return back();
+    }
+
+    public function removebag($id)
+    {
+
+        $array = [];
+
+        if(session()->has('bagone'))
+        {
+            $array = session('bagone');
+        }
+
+        foreach ($array as $key => $value) {
+            if($value->id == $id){
+               unset($array[$key]);
+            }
+        }
+
+      
+
+       session(['bagone' => $array]);
+   
+
+       return back();
     }
 
     /**
@@ -70,18 +122,25 @@ class ProdutoController extends Controller
     {
 
      $prod =  Produto::getProduto($id);
-       
-     $firstname = explode('/', trim($prod->path));
 
-     if($prod->path != null){
-        if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
 
-                 $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
-         }
-      }else{
-                 $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
-      }
+     if($prod != null){
 
+
+             $prod->visualizado  = $prod->visualizado + 1;
+             $prod->save();
+
+             $firstname = explode('/', trim($prod->path));
+
+             if($prod->path != null){
+                if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
+
+                         $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                 }
+              }else{
+                         $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
+              }
+     }
         return view('frontend.produto', compact('prod'));
     }
 
@@ -118,7 +177,7 @@ class ProdutoController extends Controller
 
          }
 
-
+           
          $prodsize   = ProdutoSize::select('size_id')->Where('produto_id','=',$id)->get();
 
          $arrys = array('0');
@@ -128,6 +187,8 @@ class ProdutoController extends Controller
              array_push($arrys,$value->size_id);
 
          }
+    
+        
  
     
 
@@ -148,25 +209,30 @@ class ProdutoController extends Controller
         $_path = $produto->path;
 
       //  dd($request->cores);
-        ProdutoCor::where('produto_id', $id)->delete();
+         ProdutoCor::where('produto_id', $id)->delete();
+         ProdutoSize::where('produto_id', $id)->delete();
+
         
-        
-        foreach ($request->cores as $key => $value) {
-              
-                   ProdutoCor::create([
-                        'produto_id' => $id,
-                        'color_id'   => $value,
-                    ]);
+       if($request->has('cores')){
+               
+                foreach ($request->cores as $key => $value) {
+                      
+                           ProdutoCor::create([
+                                'produto_id' => $id,
+                                'color_id'   => $value,
+                            ]);
+                }
         }
 
-        ProdutoSize::where('produto_id', $id)->delete();
-
-        foreach ($request->sizes as $key => $value) {
-              
-                   ProdutoSize::create([
-                        'produto_id' => $id,
-                        'size_id'   => $value,
-                    ]);
+        if($request->has('sizes')){
+             
+                foreach ($request->sizes as $key => $value) {
+                      
+                           ProdutoSize::create([
+                                'produto_id' => $id,
+                                'size_id'   => $value,
+                            ]);
+                }
         }
 
 
@@ -236,8 +302,8 @@ class ProdutoController extends Controller
                 $altura =   $height;
                 $comprimento = $width;
 
-                $divisaoalt = 210 / $altura; 
                 $divisaocom = 270 / $comprimento;
+                $divisaoalt = 380 / $altura; 
 
                 if($divisaoalt < $divisaocom){
                     $altfinal = $altura * $divisaoalt;
@@ -253,13 +319,13 @@ class ProdutoController extends Controller
                     $constraint->aspectRatio();
                 });
                 // Canvas image
-                $canvas = Image::canvas(270, 210);
+                $canvas = Image::canvas(270, 380);
                 $canvas->insert($thumb_img, 'center');
                 $canvas->save($destinationPath.'/'.$imagename,50);
                             
        }
 
-
+        
         $produto->titulo           = $request->titulo;
         $produto->subtitulo        = $request->subtitulo;
         $produto->descricao        = $request->descricao;
@@ -273,6 +339,7 @@ class ProdutoController extends Controller
         $produto->link             = $request->link;
         $produto->path             = $_path;
         $produto->ordem            = $request->ordem;
+        $produto->sexo             = $request->sexo;
         $produto->activo           = ($request->activo !== '' && $request->activo !== null) ? 1 : 0;
 
         $produto->save();

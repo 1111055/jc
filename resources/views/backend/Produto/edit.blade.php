@@ -244,6 +244,22 @@ img {
                                                       {!! Form::select('prazos_id', $selprazo,$produto->prazos_id,['class' => 'form-horizontal']) !!}
                                                     </div>
                                                   </div>
+                                                  <div class="form-group">
+                                                       {!! Form::label('Sexo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                    <div class="col-sm-8">
+                                                       <select class="form-horizontal" name="sexo" id="sexo">
+                                                            <option value="0">-- Escolha uma opção --</option>
+                                                            <option value="1" @if($produto->sexo == 1)SELECTED @endif>Masculino</option>
+                                                            <option value="2" @if($produto->sexo == 2)SELECTED @endif>Feminino</option>
+                                                       </select>
+                                                    </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                    {!! Form::label('Desconto Comercial (%):',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-8">
+                                                      {!! Form::text('desconto',$produto->desconto,['class' => 'form-control']) !!}
+                                                  </div>
+                                                </div>
                                             </div>
                                             <div class="box-body">
                                                 
@@ -268,19 +284,20 @@ img {
                                                   </div>  
                                                  
                                                   <div class="col-md-6 offset-md-3">
-                                                         <h3>Cores </h3>
-                                                          @foreach($colors as $item)
-                                                            <div class="pretty p-switch">
-                                                               
-                                                                @if(in_array($item->id,$arry))
-                                                                  {!! Form::checkbox('cores[]',$item->id,true) !!}  
-                                                                @else
-                                                                  {!! Form::checkbox('cores[]',$item->id,false) !!}  
-                                                                @endif  
-                                                                <div class="state">
-                                                                      <label> <span class="dot" style="background-color: {{$item->cor}};"></span></label>
-                                                                </div>
-                                                            </div>
+                                                         <h3 style="margin-bottom: 3%;">Cores </h3>
+                                                          @foreach($colors as $key => $item)
+                                                          @if($key > 0)
+                                                              <div class="pretty p-switch">
+                                                                  @if(in_array($item->id,$arry))
+                                                                    {!! Form::checkbox('cores[]',$item->id,true) !!}  
+                                                                  @else
+                                                                    {!! Form::checkbox('cores[]',$item->id,false) !!}  
+                                                                  @endif  
+                                                                  <div class="state">
+                                                                        <label style="text-indent: 3.5em !important;"> <span class="dot" style="background-color: {{$item->cor}};"></span></label>
+                                                                  </div>
+                                                              </div>
+                                                            @endif
                                                           @endforeach
                                                   </div> 
                                                </div> 

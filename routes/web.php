@@ -166,10 +166,12 @@ Route::post('subfamilia', 'SubfamiliaController@store');
 
 //Produto 
 Route::get('produto', 'ProdutoController@index')->name('produto');
-Route::get('produto/edit/{id}',           ['as' => 'produto.edit',    'uses' => 'ProdutoController@edit']); 
-Route::put('produto/update/{id}',         ['as' => 'produto.update',  'uses' => 'ProdutoController@update']);
-Route::delete('produto/destroy/{id}',     ['as' => 'produto.destroy', 'uses' => 'ProdutoController@destroy']);
-Route::get('produto/show/{id}',           ['as' => 'produto.show',    'uses' => 'ProdutoController@show']); 
+Route::get('produto/edit/{id}',           ['as' => 'produto.edit',     'uses' => 'ProdutoController@edit']); 
+Route::put('produto/update/{id}',         ['as' => 'produto.update',   'uses' => 'ProdutoController@update']);
+Route::delete('produto/destroy/{id}',     ['as' => 'produto.destroy',  'uses' => 'ProdutoController@destroy']);
+Route::get('produto/show/{id}',           ['as' => 'produto.show',     'uses' => 'ProdutoController@show']); 
+Route::get('produto/bag/{id}',            ['as' => 'produto.bag',      'uses' => 'ProdutoController@bag']); 
+Route::get('produto/removebag/{id}',      ['as' => 'produto.removebag','uses' => 'ProdutoController@removebag']); 
 Route::post('produto', 'ProdutoController@store');
 
 

@@ -34,7 +34,7 @@ class Subfamilia extends Model
        $itemtmp = $item->pluck('titulo','id');
 
        
-       $itemtmp->prepend('-- Escolha uma Categoria -- ',0);
+       $itemtmp->prepend('-- Escolha uma opção -- ',0);
 
         return $itemtmp;
     }
