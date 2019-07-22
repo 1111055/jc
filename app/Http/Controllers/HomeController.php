@@ -9,6 +9,7 @@ use App\Pagebanner;
 use App\Banner;
 use App\Pagina;
 use App\Produto;
+use App\Bannerproduto;
 Use Session;
 
 class HomeController extends Controller
@@ -30,6 +31,48 @@ class HomeController extends Controller
       $requisitado = Produto::where('activo','=','1')->orderby("requisitado","desc")
       ->take(5)->get();
 
+      $ultimasentradas = Produto::where('activo','=','1')->orderby("created_at","desc")
+      ->take(10)->get();
+
+
+      $prodtmp = Bannerproduto::all();
+
+     // dd($prodtmp);
+      $collection = Bannerproduto::where('banner_id','>','0')->orderBy('banner_id','asc')->get()->groupBy('banner_id');
+     
+       foreach ($collection as $key => $value) {
+              foreach ($value as $key => $item) {
+                 if($item->produto_id != null){
+                  if($item->produto->path != null){
+                    $firstname = explode('/', trim($item->produto->path));
+                    if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))){
+                           $item->produto->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                    }
+                    }else{
+                           $item->produto->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                    }
+                  }
+                  if ($item->categoria_id != null) {
+                    if($item->categoria->id != null){
+                        foreach ($item->categoria->produtos as $key => $item) {
+
+                           if($item->path != null){
+                            $firstname = explode('/', trim($item->path));
+                            if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))){
+                                   $item->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                            }
+                            }else{
+                                   $item->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                            }
+
+                          }
+
+                    }
+                  }
+              }
+       }
+
+  //dd($collection);
 
       foreach ($moreview as $key => $value) {
           if($value->path != null){
@@ -56,6 +99,19 @@ class HomeController extends Controller
           }
       }
 
+      foreach ($ultimasentradas as $key => $value) {
+          if($value->path != null){
+             $firstname = explode('/', trim($value->path));
+            if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
+
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+             }
+          }else{
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+          }
+       }
+
+
 
       
 
@@ -76,8 +132,7 @@ class HomeController extends Controller
                }
       }
       
-
-        return view('frontend.index',compact('pagina','bannerline','moreview','requisitado'));
+        return view('frontend.index',compact('pagina','bannerline','moreview','requisitado','ultimasentradas','collection'));
     }
 
 

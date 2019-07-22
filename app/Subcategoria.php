@@ -24,6 +24,13 @@ class Subcategoria extends Model
     	return $this->belongsTo('App\Categoria');
     }
 
+
+    public function produtos(){
+
+       return $this->hasMany('App\Produto');
+    }
+
+
     public static function getSelection(){
 
        $item = Subcategoria::

@@ -14,10 +14,36 @@ class Categoria extends Model
     public static function getCategorias()
     {
 
+
+
         $valty = Categoria::where('activo','=','1')->orderBy('ordem','asc')->get();
 
-        return $valty;
+                $cart = array();
+
+
+                foreach ($valty as $key => $variable) 
+                {
+
+                      $cart2 = array();
+
+                      if(count($variable->produtos) > 0){
+                       
+                            foreach ($variable->subcategoria as $key => $variabletmp)
+                            {
+                                $cart2[] = array('menu' => $variabletmp['titulo'], 'id' => $variabletmp['id']);
+                            }
+
+                      }
+
+                      $cart[] = array('menu' => $variable['titulo'], 'id' => $variable['id'], 'produtos' => $cart2);
+
+                            
+                }
+
+                return $cart;
+
     }
+
     public function subcategoria(){
 
     	 return $this->hasMany('App\Subcategoria');
@@ -36,5 +62,10 @@ class Categoria extends Model
        $selcat->prepend('-- Escolha uma opção -- ',0);
 
         return $selcat;
+    }
+
+    public function produtos(){
+
+         return $this->hasMany('App\Produto');
     }
 }

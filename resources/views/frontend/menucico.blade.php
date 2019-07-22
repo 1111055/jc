@@ -2,7 +2,6 @@
        
           @foreach($menutmp as $sub)
                     @if(Route::getRoutes()->hasNamedRoute(strtolower($sub['path'])))
-                       {{$sub['path']}} {{$sub['menu']}}
                       <li> <a href="{{route(strtolower($sub['path']))}}">{{$sub['menu']}} </a>
                           @isset($sub['submenutmp'])
                             @if(count($sub['submenutmp']) > 0){

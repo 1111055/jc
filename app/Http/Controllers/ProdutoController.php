@@ -10,9 +10,11 @@ use App\Categoria;
 use App\Subcategoria;
 use App\Familia;
 use App\Subfamilia;
+use App\Banner;
 use App\Color;
 use App\Size;
 use App\Prazos;
+use App\Bannerproduto;
 use App\Http\Request\ProdutoRequest;
 use Image;
 use File;
@@ -95,6 +97,56 @@ class ProdutoController extends Controller
        return back();
     }
 
+    public function wish($id)
+    {
+
+       
+        $array = [];
+        $existe = true;
+        $prod = Produto::find($id);
+
+        if(session()->has('wish'))
+        {
+            $array = session('wish');
+        }
+
+        foreach ($array as $key => $value) {
+            if($value->id == $id){
+                $existe = false;
+            }
+        }
+
+        if($existe == true){
+           $array = Arr::prepend($array, $prod);
+        }
+
+       session(['wish' => $array]);
+       return back();
+    }
+
+    public function removewish($id)
+    {
+
+        $array = [];
+
+        if(session()->has('wish'))
+        {
+            $array = session('wish');
+        }
+
+        foreach ($array as $key => $value) {
+            if($value->id == $id){
+               unset($array[$key]);
+            }
+        }
+        
+       session(['wish' => $array]);
+   
+
+       return back();
+    }
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -111,6 +163,19 @@ class ProdutoController extends Controller
        
         return redirect()->route('produto')->with('sucess','Criado com sucesso.');
     }
+
+      public function storebanner(Request $request)
+    {
+         Bannerproduto::create([
+            'produto_id'      => request()->produto_id,
+            'banner_id'       => request()->idbannner,
+            'categoria_id'    => request()->categoria_id
+        ]);
+       
+        return back();
+    }
+
+    
 
     /**
      * Display the specified resource.
@@ -142,6 +207,21 @@ class ProdutoController extends Controller
               }
      }
         return view('frontend.produto', compact('prod'));
+    }
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function banner()
+    {
+
+        $banner = Banner::where('produto','=','1')->
+                 orderBy('ordem','asc')->get();
+        
+        return view('backend.Produto.banner',compact('banner'));
     }
 
     /**

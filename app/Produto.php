@@ -70,4 +70,9 @@ class Produto extends Model
 
         return $valty;
     }
+    public static function getBannerProduto($id)
+    {
+     return $this->belongsToMany('App\Bannerproduto');
+    }
+
 }

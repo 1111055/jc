@@ -34,5 +34,19 @@ class CategoriaTableSeeder extends Seeder
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
+        DB::table('categorias')->insert([
+            'titulo'   => 'Teste 1',
+            'subtitulo' => 'Teste 1',
+            'ordem' => '004',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'titulo'   => 'Teste 2',
+            'subtitulo' => 'Teste 2',
+            'ordem' => '005',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
     }
 }

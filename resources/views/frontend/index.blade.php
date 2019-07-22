@@ -33,347 +33,98 @@
         
          <div class="best-seller-product pb-50 pb-sm-40">
             <div class="container">
-                <div class="group-title">
-                    <h2>Descoto 1000 Quantidades!</h2>
-                </div>
-                <!-- Best Product Activation Start -->
-                <div class="best-seller-pro-active  owl-carousel slider-right-content">
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-40%</span>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#">Bone 25</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
+                @foreach($collection as $key => $value) 
+                     @if ($loop->first)
 
-                            </div>
-                            <span class="sticker-new">-30%</span>
+                        <div class="group-title">
+                             @foreach($value as $item)
+                                  @if($item->banner_id > 0 && $loop->first && !empty($item->banner->titulo))
+                                     <h2>{{$item->banner->titulo}}</h2>
+                                  @endif
+                              @endforeach
                         </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-25%</span>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#">Bone</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-35%</span>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-60%</span>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#"></a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-15%</span>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="">Bone</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-10%</span>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="E"><img class="img" src="img/pen1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#">Pen</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-5%</span>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/caneta1.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
 
-                                <h4><a href="#">Mochila</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-30%</span>
+                        <div class="best-seller-pro-active  owl-carousel slider-right-content">
+                                @foreach($value->take(4) as $item)
+                                     @if($item->produto_id > 0)
+                                            <div class="double-pro">
+                                                <div class="single-product">
+                                                    <div class="pro-img">
+                                                        <a href="{{route('produto.show',$item->produto->id)}}"><img class="img" src="{{$item->produto->path}}" alt="product-image"></a>
+                                                    </div>
+                                                    <div class="pro-content">
+                                                        <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    @endif
+                              @endforeach
                         </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="#"><img class="img" src="img/caneta2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#">Mochila</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-30%</span>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                    <!-- Double Product Start -->
-                    <div class="double-pro">
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-                                <h4><a href="#">Mochila</a></h4>
-                                <!--p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-30%</span>
-                        </div>
-                        <!-- Single Product End -->
-                        <!-- Single Product Start -->
-                        <div class="single-product">
-                            <div class="pro-img">
-                                <a href="{{route('produto.show',1)}}"><img class="img" src="img/mochila2.png" alt="product-image"></a>
-                            </div>
-                            <div class="pro-content">
-
-                                <h4><a href="#">Mochila</a></h4>
-                                <!--p><span class="price">$150.00</span><del class="prev-price">$200.00</del></p-->
-                            </div>
-                            <span class="sticker-new">-30%</span>
-                        </div>
-                        <!-- Single Product End -->
-                    </div>
-                    <!-- Double Product End -->
-                </div>
-                <!-- Best Product Activation End -->
+                            @if($value->count() > 4)
+                                 @if($item->produto_id > 0)
+                                     <div class="best-seller-pro-active  owl-carousel slider-right-content">
+                                      @foreach($value as $key => $item)
+                                        @if($key > 3)
+                                            <div class="double-pro">
+                                                <div class="single-product">
+                                                    <div class="pro-img">
+                                                        <a href="{{route('produto.show',$item->produto->id)}}"><img class="img" src="{{$item->produto->path}}" alt="product-image"></a>
+                                                    </div>
+                                                    <div class="pro-content">
+                                                        <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                          @endif
+                                        @endforeach
+                                     </div>
+                                @endif
+                           @endif
+                    @endif    
+              @endforeach
             </div>
-            <!-- Container End -->
         </div>                             
-        <!-- Banner End -->
-        <!-- Best Products Start -->
-        <div class="best-seller-product pb-30">
-            <div class="container">
-                <div class="group-title">
-                    <h2>Material Escritório</h2>
-                </div>
-                <!-- Best Product Activation Start -->
-                <div class="hand-tool-active owl-carousel">
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="{{route('produto.show',1)}}">
-                                <img class="primary-img" src="img/pen1.png" alt="single-product">
-                                <img class="secondary-img" src="img/pen1.png" alt="single-product">
-                            </a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">                               
-                            <h4><a href="#">Pen XPTO</a></h4>
-                            <p><span class="price"> </span><del class="prev-price"> </del></p-->
-                            <div class="pro-actions">
-                                <div class="actions-secondary">
-                                    <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
+            @foreach($collection as $key => $value) 
+                 @if($loop->iteration == 2)
+                        <div class="best-seller-product pb-30">
+                            <div class="container">
+                                <div class="group-title">
+                                    @foreach($value as $item)
+                                      @if($item->banner_id > 0 && $loop->first && !empty($item->banner->titulo))
+                                         <h2>{{$item->banner->titulo}}</h2>
+                                      @endif
+                                    @endforeach
+                                </div>
+
+                                <div class="hand-tool-active owl-carousel">
+
+                                    @foreach($value as $item)
+                                      @if($item->produto_id > 0)
+                                        <div class="single-product">
+                                            <div class="pro-img">
+                                                <a href="{{route('produto.show',$item->produto->id)}}">
+                                                    <img class="primary-img" src="{{$item->produto->path}}" alt="single-product">
+                                                    <img class="secondary-img" src="{{$item->produto->path}}" alt="single-product">
+                                                </a>
+                                            </div>
+                                            <div class="pro-content">                               
+                                                <h4><a href="#">{{$item->produto->titulo}}</a></h4>
+                                                <p><span class="price"> </span><del class="prev-price"> </del></p-->
+                                                <div class="pro-actions">
+                                                    <div class="actions-secondary">
+                                                        <a href="{{route('produto.wish',$item->produto->id)}}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                        <a href="{{route('produto.bag',$item->produto->id)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                      @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                    </div>                                        
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="{{route('produto.show',1)}}">
-                                <img class="primary-img" src="img/caneta1.png" alt="single-product">
-                                <img class="secondary-img" src="img/caneta1.png" alt="single-product">
-                            </a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">                           
-                            <h4><a href="#">Caneta XPTO</a></h4>
-                            <p><span class="price"> </span><del class="prev-price"> </del></p-->
-                            <div class="pro-actions">
-                                <div class="actions-secondary">
-                                    <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                        <span class="sticker-new">-30%</span>
-                    </div>                                        
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="{{route('produto.show',1)}}">
-                                <img class="primary-img" src="img/caneta2.png" alt="single-product">
-                                <img class="secondary-img" src="img/caneta2.png" alt="single-product">
-                            </a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">                             
-                            <h4><a href="#">Caneta XPTO</a></h4>
-                            <p><span class="price"> </span><del class="prev-price"> </del></p-->
-                            <div class="pro-actions">
-                                <div class="actions-secondary">
-                                    <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                                        
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="{{route('produto.show',1)}}">
-                                <img class="primary-img" src="img/caneta1.png" alt="single-product">
-                                <img class="secondary-img" src="img/caneta1.png" alt="single-product">
-                            </a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">                               
-                            <h4><a href="{{route('produto.show',1)}}">Caneta XPTO</a></h4>
-                            <p><span class="price"> </span><del class="prev-price"> </del></p-->
-                            <div class="pro-actions">
-                                <div class="actions-secondary">
-                                    <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                        <span class="sticker-new">-20%</span>
-                    </div>                                        
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="{{route('produto.show',1)}}">
-                                <img class="primary-img" src="img/mochila2.png" alt="single-product">
-                                <img class="secondary-img" src="img/mochila2.png" alt="single-product">
-                            </a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">                            
-                            <h4><a href="{{route('produto.show',1)}}">Mochila XPTO</a></h4>
-                            <p><span class="price"> </span><del class="prev-price"> </del></p-->
-                            <div class="pro-actions">
-                                <div class="actions-secondary">
-                                    <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Product Content End -->
-                        <span class="sticker-new">-10%</span>
-                    </div>                                     
-                    <!-- Single Product End -->
-                    <!-- Single Product Start -->
-                    <div class="single-product">
-                        <!-- Product Image Start -->
-                        <div class="pro-img">
-                            <a href="{{route('produto.show',1)}}">
-                                <img class="primary-img" src="https://fakeimg.pl/270x380/" alt="single-product">
-                                <img class="secondary-img" src="https://fakeimg.pl/270x380/" alt="single-product">
-                            </a>
-                        </div>
-                        <!-- Product Image End -->
-                        <!-- Product Content Start -->
-                        <div class="pro-content">                            
-                            <h4><a href="{{route('produto.show',1)}}">Bloco XPTO</a></h4>
-                            <p><span class="price"> </span><del class="prev-price"> </del></p-->
-                            <div class="pro-actions">
-                                <div class="actions-secondary">
-                                    <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                    <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>                                        
-                    <!-- Single Product End -->
-                </div>
-                <!-- Best Product Activation End -->
-            </div>
-            <!-- Container End -->
-        </div>
-        <!-- Best Product End -->  
-        <!-- Banner Start -->
+                 @endif    
+            @endforeach
         <div class="upper-banner banner pb-60">
             <div class="container">
                <div class="row">
@@ -387,12 +138,8 @@
                         @endforeach
                     @endisset
                </div>
-               <!-- Row End -->
             </div>
-            <!-- Container End -->
         </div>                                
-        <!-- Banner End -->
-        <!-- New Products Start -->
         <div class="new-products pb-60">
             <div class="container">
                 <div class="row">
@@ -421,334 +168,79 @@
                         <!-- New Pro Content End -->
                         <div class="new-pro-content">
                             <div class="pro-tab-title border-line">
-                                <!-- Featured Product List Item Start -->
                                 <ul class=" nav  product-list product-tab-list mb-30">
                                     <li><a  class="active" data-toggle="tab" href="#new-arrival">Novos</a></li>
-                                    <!--li><a data-toggle="tab" href="#toprated">Featured</a></li-->
-                                    <li><a data-toggle="tab" href="#new-arrival">Melhores Classificados</a></li>
+                                    @foreach($collection as $key => $value) 
+                                      @if($loop->iteration == 3)
+                                         @foreach($value as $item)
+                                           @if($item->banner_id > 0 && $loop->first && !empty($item->banner->titulo))
+                                             <li><a data-toggle="tab" href="#toprated">{{$item->banner->titulo}}</a></li>
+                                           @endif    
+                                         @endforeach
+                                      @endif    
+                                  @endforeach
                                 </ul>
-                                <!-- Featured Product List Item End -->
                             </div>
                             <div class="tab-content product-tab-content jump">
                                 <div id="new-arrival" class="tab-pane active">
-                                    <!-- New Products Activation Start -->
                                     <div class="new-pro-active owl-carousel">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/mochila2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/mochila2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                             
-                                                <h4><a href="{{route('produto.show',1)}}">Pen 80GB</a></h4>
-                                                <p><span class="price"></span><del class="prev-price"></del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                                    </div>
+                                        @foreach($ultimasentradas as $item)
+                                            <div class="single-product">
+                                                <div class="pro-img">
+                                                    <a href="{{route('produto.show',$item->id)}}">
+                                                        <img class="primary-img" src="{{$item->path}}" alt="single-product">
+                                                        <img class="secondary-img" src="{{$item->path}}" alt="single-product">
+                                                    </a>
                                                 </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/caneta2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/caneta2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">
-                              
-                                                <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
-                                                <p><span class="price"></span><del class="prev-price"></del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                            <span class="sticker-new">-30%</span>
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/mochila2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/mochila2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                              
-                                                <h4><a href="{{route('produto.show',1)}}">Pen 40GB</a></h4>
-                                                <p><span class="price"></span><del class="prev-price"></del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/caneta2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/caneta2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">
-                              
-                                                <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
-                                                <p><span class="price"></span><del class="prev-price"></del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                            <span class="sticker-new">-30%</span>
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/mochila2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/mochila2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                             
-                                                    <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
-                                                    <p><span class="price"></span><del class="prev-price"></del></p>
+                                                <div class="pro-content">                             
+                                                    <h4><a href="{{route('produto.show',$item->id)}}">{{$item->titulo}}</a></h4>
+                                                    <p><span class="price">{{$item->cod_art}}</span><del class="prev-price"></del></p>
                                                     <div class="pro-actions">
-                                                        <div class="actions-secondary">
-                                                            <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                            <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
-                                                        </div>
-                                                    </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/caneta2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/caneta2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                                
-                                                <h4><a href="{{route('produto.show',1)}}">Pen 60GB</a></h4>
-                                                <p><span class="price"></span><del class="prev-price"></del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a href="{{route('produto.bag',1)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
+                                                      <div class="actions-secondary">
+                                                        <a href="{{route('produto.wish',$item->id)}}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                        <a href="{{route('produto.bag',$item->id)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
+                                                      </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                            <span class="sticker-new">-30%</span>
-                                        </div>                                        
-                                        <!-- Single Product End -->
+                                            </div>                                        
+                                        @endforeach                                     
                                     </div>
-                                    <!-- New Products Activation End -->
                                 </div>
-                                <!-- New Products End -->
-                                <div id="toprated" class="tab-pane">
-                                    <!-- New Products Activation Start -->
-                                    <div class="new-pro-active owl-carousel">
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/mochila2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/mochila2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                            
-                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
-                                                <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a class="add-cart" href="#" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
-                                                    </div>
+                                  @foreach($collection as $key => $value) 
+                                      @if($loop->iteration == 3)
+                                            <div id="toprated" class="tab-pane">
+                                                <div class="new-pro-active owl-carousel">
+                                                    @foreach($value as $item)
+                                                      @if($item->produto_id > 0)    
+                                                        <div class="single-product">
+                                                            <div class="pro-img">
+                                                                <a href="{{route('produto.show',$item->produto->id)}}">
+                                                                    <img class="primary-img" src="{{$item->produto->path}}" alt="single-product">
+                                                                    <img class="secondary-img" src="{{$item->produto->path}}" alt="single-product">
+                                                                </a>
+                                                            </div>
+                                                            <div class="pro-content">                             
+                                                                <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                                <p><span class="price">{{$item->produto->cod_art}}</span><del class="prev-price"></del></p>
+                                                                <div class="pro-actions">
+                                                                  <div class="actions-secondary">
+                                                                    <a href="{{route('produto.wish',$item->produto->id)}}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                                    <a href="{{route('produto.bag',$item->produto->id)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>  
+                                                       @endif    
+                                                    @endforeach
                                                 </div>
                                             </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/products/3.jpg" alt="single-product">
-                                                    <img class="secondary-img" src="img/products/2.jpg" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                             
-                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
-                                                <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a class="add-cart" href="#" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                            <span class="sticker-new">-30%</span>
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/mochila2.png" alt="single-product">
-                                                    <img class="secondary-img" src="img/mochila2.png" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                               
-                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
-                                                <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a class="add-cart" href="#" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="{{route('produto.show',1)}}">
-                                                    <img class="primary-img" src="img/products/1.jpg" alt="single-product">
-                                                    <img class="secondary-img" src="img/products/2.jpg" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                               
-                                                <h4><a href="{{route('produto.show',1)}}">Products Name Here</a></h4>
-                                                <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a class="add-cart" href="#" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="#">
-                                                    <img class="primary-img" src="img/products/2.jpg" alt="single-product">
-                                                    <img class="secondary-img" src="img/products/3.jpg" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">
-                                   
-                                                <h4><a href="#">Products Name Here</a></h4>
-                                                <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a class="add-cart" href="#" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                                        <a href="compare.html" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                        <!-- Single Product Start -->
-                                        <div class="single-product">
-                                            <!-- Product Image Start -->
-                                            <div class="pro-img">
-                                                <a href="#">
-                                                    <img class="primary-img" src="img/products/3.jpg" alt="single-product">
-                                                    <img class="secondary-img" src="img/products/4.jpg" alt="single-product">
-                                                </a>
-                                            </div>
-                                            <!-- Product Image End -->
-                                            <!-- Product Content Start -->
-                                            <div class="pro-content">                           
-                                                <h4><a href="#">Products Name Here</a></h4>
-                                                <p><span class="price">$30.00</span><del class="prev-price">$32.00</del></p>
-                                                <div class="pro-actions">
-                                                    <div class="actions-secondary">
-                                                        <a href="#" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                        <a class="add-cart" href="#" data-toggle="tooltip" title="Add to Cart">Add To Cart</a>
-                                                        <a href="#" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-signal"></i></a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- Product Content End -->
-                                        </div>                                        
-                                        <!-- Single Product End -->
-                                    </div>
-                                    <!-- New Products Activation End -->
-                                </div>
+                                      @endif    
+                                  @endforeach
                             </div>
-                            <!-- Tab-Content End -->
                             <div class="single-banner zoom mt-30 ">
                             <a href="#"><img src="{{$pagina->pathimg}}" alt="slider-banner"></a>
                         </div>
-                        </div>
-                        <!-- New Pro Content End -->                        
+                        </div>                     
                     </div>
                 </div>
 
@@ -775,8 +267,6 @@
                 </div>
             </div>
         </div>
-        <!-- Company Policy End -->   
-        <!-- Best Products Start -->
         <div class="best-seller-product pb-50 pb-sm-40">
             <div class="container">
                 <div class="group-title">
@@ -816,6 +306,4 @@
                 </div>
             </div>
         </div>
-
-
 @stop

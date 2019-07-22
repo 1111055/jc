@@ -27,37 +27,34 @@
                         <!-- Form Start -->
                         <form action="#">
                             <!-- Table Content Start -->
+                            @if(count(Session::get('wish')) > 0)
                             <div class="table-content table-responsive">
                                 <table>
                                     <thead>
                                         <tr>
                                             <th class="product-remove">Remover</th>
                                             <th class="product-thumbnail">Imagem</th>
-                                            <th class="product-name">Produto</th>
-                                            <th class="product-subtotal">Acidionar ao Carrinho</th>
+                                            <th class="product-thumbnail">Artigo</th>
+                                            <th class="product-name">Titulo</th>
+                                            <th class="product-subtotal">#</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                      @foreach(Session::get('wish') as $item)
                                         <tr>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                            <td class="product-remove"> <a href="{{route('produto.removewish',$item->id)}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                             <td class="product-thumbnail">
-                                                <a href="#"><img src="img/pen1.png" alt="cart-image" style="width: 20% !important;" /></a>
+                                                <a href="#"><img src="{{$item->path}}" alt="cart-image" style="width: 20% !important;" /></a>
                                             </td>
-                                            <td class="product-name"><a href="#">Pen vermelha</a></td>
-                                            <td class="product-add-to-cart"><a href="#"><i class="fa fa-shopping-basket"></i></a></td>
+                                            <td class="product-name"><a href="{{route('produto.show',$item->id)}}">{{$item->cod_art}}</a>
+                                            <td class="product-name"><a href="{{route('produto.show',$item->id)}}">{{$item->titulo}}</a></td>
+                                            <td class="product-add-to-cart"><a href="{{route('produto.bag',$item->id)}}"><i class="fa fa-shopping-basket"></i></a></td>
                                         </tr>
-                                        <tr>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                            <td class="product-thumbnail">
-                                               <a href="#"><img src="img/caneta1.png" alt="cart-image" style="width: 20% !important;" /></a>
-                                            </td>
-                                            <td class="product-name"><a href="#">Caneta azul</a></td>
-                                            <td class="product-add-to-cart"><a href="#"><i class="fa fa-shopping-basket"></i></a></td>
-                                        </tr>
+                                       @endforeach 
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- Table Content Start -->
+                            @endif
                         </form>
                         <!-- Form End -->
                     </div>

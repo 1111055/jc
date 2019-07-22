@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Banner;
 use App\BannerLine;
+use App\Categoria;
 use App\Http\Requests\BannerRequest;
 class BannerController extends Controller
 {
@@ -15,7 +16,7 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $banner = Banner::
+        $banner = Banner::where('produto','=','0')->
                  orderBy('ordem','asc')->get();
 
 
@@ -67,8 +68,11 @@ class BannerController extends Controller
     {
          $banner = Banner::find($id);
           $bannerLine = BannerLine::where('idbannner','=',$id)->orderBy('ordem','desc')->get();
+ 
+          $selcat    = Categoria::getSelection();
 
-         return view('backend.Banner.edit', compact('banner','bannerLine'));
+
+         return view('backend.Banner.edit', compact('banner','bannerLine','selcat'));
     }
 
     /**

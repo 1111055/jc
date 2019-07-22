@@ -19,45 +19,49 @@
                 </div>
             @endif
 
-              <!-- Content Wrapper. Contains page content -->
               <div class="content-wrapper">
-                <!-- Content Header (Page header) -->
                 <section class="content-header">
-                  <h1>
-                  Produtos
-                  </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('size')}}"><i class="fa fa-circle-o"></i> Produtos</a></li>
+                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Banners</a></li>
                   </ol>
                 </section>
 
+                <!-- Main content -->
                 <section class="content container-fluid">             
+            <!-- /.row -->
                   <div class="row">
                     <div class="col-xs-12">
                       <div class="box">
                         <div class="box-header">
+                          <h3 class="box-title">Banners</h3>
+                        </div>
                          <div class="panel panel-default">
                             <div class="panel-body">
+                            <!-- Horizontal Form -->
                               <div class="col-xs-12">
                                 <div class="box box-info">
-                                  {!! Form::open(['url' => 'produto','class' => 'form-horizontal']) !!}
+                                     {!! Form::open(['url' => 'banner','class' => 'form-horizontal']) !!}
                                         <div class="box-body">
-                                          <div class="form-group">
-                                            {!! Form::label('* Titulo:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-4">
-                                               {!! Form::text('titulo',null,['class' => 'form-control']) !!}
-                                            </div>
-                                              {!! Form::label('Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-4">
-                                               {!! Form::text('ordem',null,['class' => 'form-control']) !!}
-                                            </div>
-                                          </div>
+                                              <div class="col-xs-8">
+                                                 <div class="form-group col-xs-10">
+                                                   {!! Form::label('* Titulo ') !!}
+                                                   {!! Form::hidden('produto',1,['class' => 'form-control']) !!}
+                                                   {!! Form::text('titulo',null,['class' => 'form-control']) !!}
+                                                 </div>
+                                              </div>
+                                             <div class="col-xs-4">
+                                                <div class="form-group col-xs-6">
+                                                  {!! Form::label('Ordem:')!!}
+                                                  {!! Form::text('ordem',null,['class' => 'form-control']) !!}
+                                                </div>
+                                             </div>
+
                                         </div>
                                         <div class="box-footer">
                                             {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
                                         </div>
-                                {!! Form::close() !!}
+                                      {!! Form::close() !!}
                                   </div>
                                 </div>
                               </div>
@@ -78,39 +82,42 @@
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
-                              <th class="col-xs-1">#</th>
+                              <th>#</th>
                               <th>Titulo</th>
-                              <th>Subtitulo</th>
                               <th>Ordem</th>
                               <th class="text-center">Active</th>
-                              <th>#</th>
                             </tr>
-                            @foreach($produto as $item)
+                             @foreach($banner as $item)
                               <tr>
-                                  <td class="col-xs-1"><img src="{{ $item->path }}" class="img-thumbnail"></td>
-                                  <td>{{ $item->titulo }}</td>
-                                  <td>{{ $item->subtitulo }}</td>
-                                  <td>{{ $item->ordem }}</td>
-                                  @if ($item->activo === 1)
-                                      <td class="text-center"><i class="fa fa-check-circle"></i></td>
-                                  @else                       
-                                  <td class="text-center"><i class="fa fa-times-circle"></i></td>
-                                  @endif   
-                                  <td><a href="{{route('produto.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
+                                <td>#</td>
+                                <td>{{ $item->titulo }}</td>
+                                <td>{{ $item->descricao }}</td>
+                                <td>{{ $item->ordem }}</td>
+                                @if ($item->activo === 1)
+                                    <td class="text-center"><i class="fa fa-check-circle"></i></td>
+                                @else                       
+                                <td class="text-center"><i class="fa fa-times-circle"></i></td>
+                                @endif   
+                                <td><a href="{{route('banner.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
 
-                                      {{ Form::open(['route' => ['produto.destroy', $item->id], 'method' => 'delete']) }}
-                                         <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                                      {{ Form::close() }}
+                                {{ Form::open(['route' => ['banner.destroy', $item->id], 'method' => 'delete']) }}
+                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                {{ Form::close() }}
 
-                                  </td>
+                                </td>
                               </tr>
-                             @endforeach
+                              @endforeach
                           </table>
                         </div>
+                        <!-- /.box-body -->
                       </div>
+                      <!-- /.box -->
                     </div>
                   </div>
+
                 </section>
+                <!-- /.content -->
               </div>
+              <!-- /.content-wrapper -->
 
 @stop

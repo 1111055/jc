@@ -13,6 +13,7 @@ class WishController extends Controller
      */
     public function index()
     {
+
         return view('frontend.wish');
     }
 

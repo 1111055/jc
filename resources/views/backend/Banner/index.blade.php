@@ -47,6 +47,7 @@
                                               <div class="col-xs-8">
                                                  <div class="form-group col-xs-10">
                                                    {!! Form::label('* Titulo ') !!}
+                                                   {!! Form::hidden('produto',0,['class' => 'form-control']) !!}
                                                    {!! Form::text('titulo',null,['class' => 'form-control']) !!}
                                                  </div>
                                               </div>

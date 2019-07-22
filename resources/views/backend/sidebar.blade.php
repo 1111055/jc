@@ -60,20 +60,22 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('produto')}}"><i class="fa fa-product-hunt"></i> Produtos</a></li>
+            <li><a href="{{route('produto.banner')}}"><i class="fa fa-circle-o"></i> Banners Produtos</a></li>
             <li class="treeview">
-              <a href="#"><i class="fa fa-circle-o"></i> Configurador
+                <a href="#"><i class="fa fa-circle-o"></i> Configurador
                 <span class="pull-right-container">
                   <i class="fa fa-angle-left pull-right"></i>
                 </span>
-              </a>
-              <ul class="treeview-menu">
+                </a>
+                <ul class="treeview-menu">
                   <li><a href="{{route('color')}}"><i class="fa fa-paint-brush"></i> Cores</a></li>
                   <li><a href="{{route('size')}}"><i class="fa fa-circle-o"></i> Tamanhos</a></li>
                   <li><a href="{{route('familia')}}"><i class="fa fa-circle-o"></i> Familias</a></li>
                   <li><a href="{{route('subfamilia')}}"><i class="fa fa-circle-o"></i> Sub Familias</a></li>
                   <li><a href="{{route('categoria')}}"><i class="fa fa-circle-o"></i> Categoria</a></li>
                   <li><a href="{{route('subcategoria')}}"><i class="fa fa-circle-o"></i> Sub Categorias</a></li>
-              </ul>
+                </ul>
+            
             </li>
           </ul>
         </li>

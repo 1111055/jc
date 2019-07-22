@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Banner extends Model
 {
     protected $fillable = [
-        'titulo', 'descricao', 'ordem', 'activo', 'width', 'height'
+        'titulo', 'descricao', 'ordem', 'activo', 'width', 'height','produto'
     ];
     
 
@@ -18,5 +18,10 @@ class Banner extends Model
         $valty = Banner::where('id','=','1')->orderBy('ordem','asc')->get();
 
         return $valty;
+    }
+
+    public function getBannerProdutoCategoria()
+    {
+       return $this->hasMany('App\Bannerproduto');
     }
 }

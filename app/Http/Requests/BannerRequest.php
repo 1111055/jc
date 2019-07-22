@@ -43,6 +43,7 @@ class BannerRequest extends FormRequest
             'descricao'  => request()->descricao,
             'ordem'      => request()->ordem,
             'activo'     => request()->activo,
+            'produto'    => request()->produto,
             'width'      => request()->width,
             'height'     => request()->height
         ]);

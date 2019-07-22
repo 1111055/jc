@@ -19,6 +19,7 @@ class CreateBannersTable extends Migration
             $table->text('descricao')->nullable();
             $table->string('ordem')->nullable();
             $table->integer('activo')->nullable();
+            $table->integer('produto')->nullable();
             $table->integer('width')->nullable();
             $table->integer('height')->nullable();
             $table->timestamps();
