@@ -11,6 +11,7 @@ use App\Setting;
 use App\Pagina;
 use App\Prazos;
 use App\Social;
+use App\Categoria;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,17 +27,33 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-        $menus = Menu::getAllMenu();
-        $prazos = Prazos::getPrazos();
-        $menuf = Menu::getMenuFooter();
-        $setting = Setting::getAllSettings();
-        $page = Pagina::getPagina();
-        $social = Social::getSocial();
+        $menus     = Menu::getAllMenu();
+        $prazos    = Prazos::getPrazos();
+        $menuf     = Menu::getMenuFooter();
+        $setting   = Setting::getAllSettings();
+        $page      = Pagina::getPagina();
+        $social    = Social::getSocial();
+        $categoria = Categoria::getCategorias();    
 
 
-                 
 
-      // dd($menus);
+       if(session()->has('wish')){
+
+            foreach (session()->get('wish') as $key => $value) {
+                if($value->path != null){
+                     $firstname = explode('/', trim($value->path));
+                    if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
+
+                             $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                     }
+               }else{
+                         $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+               }
+            }
+        }
+
+
+      // dd($categoria);
 
        // Session::put('menu', $cart); 
 
@@ -46,6 +63,7 @@ class AppServiceProvider extends ServiceProvider
          View::share('paginas', $page);
          View::share('prazos', $prazos);
          View::share('socials', $social);
+         View::share('categoriasmenu', $categoria);
     }
 
     /**
