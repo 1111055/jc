@@ -29,41 +29,49 @@
                         <div class="sidebar white-bg">
                             <div class="single-sidebar">
                             {!! Form::open(['url' => 'shop','class' => 'form-horizontal']) !!}
-                                <div class="single-sidebar">
-                                    <div class="group-title">
-
-                                        <h2>{{$subcat->titulo}}</h2>
-                                    </div>
-                                    <input type="hidden" id="subcategoria" name="subcategoria" value="{{$subcat->id}}"> 
-                                    <ul>
-                                        @foreach($familia as $item)
-                                            <input type="checkbox" id="familia" name="familia[]" value="{{$item['id']}}"> {{$item['titulo']}}
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="single-sidebar">
-                                    <div class="group-title">
-                                        <h2>Cor</h2>
-                                    </div>
-                                    <ul class="color-option">
-                                        @foreach($cores as $item)
-                                         <li>
-                                              <input type="checkbox" id="colors" name="colors[]" value="{{$item['id']}}"> <a href="#" style="background-color: {{$item['cor']}} "></a>
-                                         </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="single-sidebar">
-                                    <div class="group-title">
-                                        <h2>Tamanhos</h2>
-                                    </div>
-                                    <ul class="manufactures-list">
-                                          @foreach($tamanhos as $item)
-                                              <input type="checkbox" id="sizes" name="sizes[]" value="{{$item['id']}}"> {{$item['size']}}
-                                          @endforeach
-                                    </ul>
-                                </div>
-                                {!! Form::submit('Filtrar',['class' => 'btn btn-info pull-right']) !!}
+                                       <input type="hidden" id="subcategoria" name="subcategoria" value="{{$subcat->id}}"> 
+                                      @if(Session::has('filter'))
+                                            @if(count(Session::get('filter')[2])>0)
+                                                <div class="single-sidebar">
+                                                    <div class="group-title">
+                                                        <h2>{{$subcat->titulo}}</h2>
+                                                    </div>
+                                                   
+                                                    <ul>
+                                                        @foreach(Session::get('filter')[2] as $item)
+                                                            <input type="checkbox" id="familia" name="familia[]" value="{{$item['id']}}" @if($item['checked'] == true) checked @endif> {{$item['titulo']}}
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            @if(count(Session::get('filter')[1])>0)
+                                                <div class="single-sidebar">
+                                                    <div class="group-title">
+                                                        <h2>Cor</h2>
+                                                    </div>
+                                                    <ul class="color-option">
+                                                        @foreach(Session::get('filter')[1] as $item)
+                                                         <li>
+                                                              <input type="checkbox" id="colors" name="colors[]" value="{{$item['id']}}"  @if($item['checked'] == true) checked @endif> <a href="#" style="background-color: {{$item['cor']}} "></a>
+                                                         </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                            @if(count(Session::get('filter')[0])>0)
+                                                <div class="single-sidebar">
+                                                    <div class="group-title">
+                                                        <h2>Tamanhos</h2>
+                                                    </div>
+                                                    <ul class="manufactures-list">
+                                                          @foreach(Session::get('filter')[0] as $item)
+                                                              <input type="checkbox" id="sizes" name="sizes[]" value="{{$item['id']}}"  @if($item['checked'] == true) checked @endif> {{$item['size']}}
+                                                          @endforeach
+                                                    </ul>
+                                                </div>
+                                            @endif
+                                       @endif
+                                       {!! Form::submit('Filtrar',['class' => 'btn btn-info pull-right']) !!}
                             {!! Form::close() !!}
                             </div>
                             @if(count(Session::get('wish')) > 0)

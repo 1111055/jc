@@ -40,7 +40,7 @@ Route::get('detail/show/{id}', ['as' => 'detail.edit',    'uses' => 'DetailContr
 
 
 //show produtos
-
+Route::get('shop', 'ShopController@index');
 Route::get('shop/{id}',   ['as' => 'shop.list','uses' =>'ShopController@list']);
 Route::post('shop', 'ShopController@store');
 

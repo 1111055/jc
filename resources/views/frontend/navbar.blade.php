@@ -35,49 +35,63 @@
                             <div class="middle-menu pull-right">
                                 <nav>
                                     <ul class="middle-menu-list">
-
-
-                                @foreach($menu as $test) 
-                                    @if(Route::getRoutes()->hasNamedRoute(strtolower($test['path']))) 
-                                         @if(count($test['submenutmp']) < 1 && ($loop->iteration != 2) )
-                                            <li> <a href="{{route(strtolower($test['path']))}}">{{$test['menu']}}</i></a>
-                                         @else
-                                            <li> <a href="{{route(strtolower($test['path']))}}">{{$test['menu']}} <i class="fa fa-angle-down"></i></a>
-                                            <ul class="ht-dropdown dropdown-style-two" >
-                                             @if($loop->iteration != 2)   
-                                               @include('frontend.menucico', ['menutmp' => $test['submenutmp']]) 
-                                             @else
-                                                  @foreach($categoriasmenu as $sub)
-                                                       
-                                                          <li> <a href="#">{{$sub['menu']}} </a>
-                                                              @isset($sub['produtos'])
-                                                                @if(count($sub['produtos']) > 0)
-                                                                     <ul class="ht-dropdown dropdown-style-two sub-menu">
-                                                                       @foreach($sub['produtos'] as $subtmp)
-                                                                             <li> <a href="{{route('shop.list',$subtmp['id'])}}">{{$subtmp['menu']}} </a></li>
-                                                                       @endforeach
-                                                                     </ul>
+                                            @foreach($menu as $test) 
+                                                @if(Route::getRoutes()->hasNamedRoute(strtolower($test['path']))) 
+                                                     @if(count($test['submenutmp']) < 1 && ($loop->iteration != 2) )
+                                                        <li> <a href="{{route(strtolower($test['path']))}}">{{$test['menu']}}</i></a>
+                                                     @else
+                                                        <li> <a href="{{route(strtolower($test['path']))}}">{{$test['menu']}} <i class="fa fa-angle-down"></i></a>
+                                                        <ul class="ht-dropdown dropdown-style-two" >
+                                                         @if($loop->iteration != 2)   
+                                                           @include('frontend.menucico', ['menutmp' => $test['submenutmp']]) 
+                                                         @else
+                                                              @foreach($categoriasmenu as $sub)
+                                                                   
+                                                                      <li> <a href="#">{{$sub['menu']}} </a>
+                                                                          @isset($sub['produtos'])
+                                                                            @if(count($sub['produtos']) > 0)
+                                                                                 <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                                                   @foreach($sub['produtos'] as $subtmp)
+                                                                                         <li> <a href="{{route('shop.list',$subtmp['id'])}}">{{$subtmp['menu']}} </a></li>
+                                                                                   @endforeach
+                                                                                 </ul>
+                                                                             @endif
+                                                                          @endisset
+                                                                       </li>
+                                                                 
+                                                              @endforeach
+                                                         @endif
+                                                        </ul>
+                                                     @endif 
+                                                @else
+                                                     @if(count($test['submenutmp']) < 1  && ($loop->iteration != 2)) 
+                                                        <li> <a href="#">{{$test['menu']}}</i></a>
+                                                     @else
+                                                        <li> <a href="#">{{$test['menu']}} <i class="fa fa-angle-down"></i></a> 
+                                                            <ul class="ht-dropdown dropdown-style-two" >
+                                                                 @if($loop->iteration != 2)  
+                                                                   @include('frontend.menucico', ['menutmp' => $test['submenutmp']]) 
+                                                                 @else
+                                                                          @foreach($categoriasmenu as $sub)
+                                                                               
+                                                                              <li> <a href="#">{{$sub['menu']}} </a>
+                                                                                  @isset($sub['produtos'])
+                                                                                    @if(count($sub['produtos']) > 0)
+                                                                                         <ul class="ht-dropdown dropdown-style-two sub-menu">
+                                                                                           @foreach($sub['produtos'] as $subtmp)
+                                                                                                 <li> <a href="{{route('shop.list',$subtmp['id'])}}">{{$subtmp['menu']}} </a></li>
+                                                                                           @endforeach
+                                                                                         </ul>
+                                                                                     @endif
+                                                                                  @endisset
+                                                                               </li>
+                                                                             
+                                                                          @endforeach
                                                                  @endif
-                                                              @endisset
-                                                           </li>
-                                                     
-                                                  @endforeach
-                                             @endif
-                                            </ul>
-                                         @endif 
-                                    @else
-                                         @if(count($test['submenutmp']) < 1 ) 
-                                            <li> <a href="#">{{$test['menu']}}</i></a>
-                                         @else
-                                            <li> <a href="#">{{$test['menu']}} <i class="fa fa-angle-down"></i></a> 
-                                                <ul class="ht-dropdown dropdown-style-two" >
-                                                    @include('frontend.menucico', ['menutmp' => $test['submenutmp']]) 
-                                                </ul>
-                                         @endif  
-                                    @endif 
-                                @endforeach
-
-                                        
+                                                            </ul>
+                                                     @endif  
+                                                @endif 
+                                            @endforeach
                                     </ul>
                                 </nav>
                             </div>
@@ -88,7 +102,10 @@
                             <div class="cart-box text-right">
                                 <ul>
 
-                                    <li><a href="{{route('wish')}}"><i class="fa fa-heart-o"></i></a></li>
+                                    <li><a href="{{route('wish')}}" @if(count(Session::get('wish')) > 0 ) style="color: #f1ac06;" @endif>
+                                            <i class="fa fa-heart-o"></i>
+                                        </a>
+                                    </li>
                                     <li><a href="#"><i class="fa fa-shopping-basket"></i>@if(Session::has('bagone'))<span class="cart-counter">{{count(Session::get('bagone'))}}</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
