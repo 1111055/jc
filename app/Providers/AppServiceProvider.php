@@ -37,23 +37,9 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-       if(session()->has('wish')){
-
-            foreach (session()->get('wish') as $key => $value) {
-                if($value->path != null){
-                     $firstname = explode('/', trim($value->path));
-                    if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
-
-                             $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
-                     }
-               }else{
-                         $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
-               }
-            }
-        }
 
 
-      // dd($categoria);
+       //dd($categoria);
 
        // Session::put('menu', $cart); 
 
