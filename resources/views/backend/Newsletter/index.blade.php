@@ -55,7 +55,7 @@
                               <th>Data</th>
                               <th class="text-center">Active</th>
                             </tr>
-                            @foreach($orcamentos as $item)
+                            @foreach($newsletter as $item)
                               <tr>
                                 <td>#</td>
                                 <td>{{ $item->email }}</td>

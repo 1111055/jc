@@ -115,6 +115,14 @@
                                             <textarea id="obs" name="obs" cols="30" rows="10" placeholder="Notas Especiais"></textarea>
                                         </div>
                                     </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list">
+                                            <label>Upload Ficheiro</label>
+                                            <input type="file" name="fileToUpload" id="fileToUpload">
+                                        </div>
+                                    </div>
+
+                                   
                                 </div>
                                 <div class="order-button-payment">
                                         <input type="submit" id="orcametosubmit" value="Pedir Orçamento" />

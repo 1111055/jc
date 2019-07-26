@@ -44,7 +44,8 @@ class OrcamentoRequest extends FormRequest
             'telemovel'  => request()->telemovel,
             'email'      => request()->email,
             'empresa'    => request()->empresa,
-            'obs'        => request()->obs
+            'obs'        => request()->obs,
+         //   'pathfile'   => $pt
         ]);
 
        return $data;

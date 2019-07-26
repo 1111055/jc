@@ -20,6 +20,7 @@ class CreateOrcamentosTable extends Migration
             $table->text('email')->nullable();
             $table->text('empresa')->nullable();
             $table->text('obs')->nullable();
+            $table->string('pathfile')->nullable();
             $table->timestamps();
         });
     }

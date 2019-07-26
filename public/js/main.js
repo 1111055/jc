@@ -569,11 +569,18 @@ $( "#orcamentosend" ).submit(function( event ) {
     empresa   = $form.find( "input[name='empresa']" ).val(),
     obs       = $form.find( "input[name='obs']" ).val(),
     crf       = $form.find( "input[name='crf']" ).val(),
-    url       = "orcamento";
+    url       = "orcamentos";
     obs = $("#obs").val();
 
-   console.log( $(this).find( "input[name='prod[]']" ));
-  
+    var files = $("#fileToUpload").get(0).files;
+
+        if (files.length > 0) {
+            for (var i = 0; i < files.length; i++) {
+
+                formtmp.append("UploadedImage" , files[i]);
+            }
+    }
+
     erro = false;
 
    if(nome === ""){
@@ -613,51 +620,43 @@ $( "#orcamentosend" ).submit(function( event ) {
 
    if(erro == false){
 
+        var formData = new FormData(this);
 
-         $.ajax({
-           type: "POST",
-           url: url,
-           data: formtmp.serialize(), // serializes the form's elements.
-           success: function(data)
-           {
-               if(data['done'] == 1){
-                $("#loaderorca").fadeOut();
-                $("#enviosucesso").fadeIn();
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: formData,
+            success: function(data) {
+                if(data['done'] == 1){
+                    $("#loaderorca").fadeOut();
+                    $("#enviosucesso").fadeIn();
 
-                $("#enviosucesso").html("<p> Submetido com sucesso. </p>");
-                setTimeout(function(){
-                   $("#enviosucesso").fadeOut();
-                   $("#orcametosubmit").fadeIn();
-                }, 3000);
+                    $("#enviosucesso").html("<p> Submetido com sucesso. </p>");
+                    setTimeout(function(){
+                       $("#enviosucesso").fadeOut();
+                       $("#orcametosubmit").fadeIn();
+                    }, 3000);
 
-                    $form.find( "input[name='nome']" ).val("");
-                    $form.find( "input[name='telemovel']" ).val("");
-                    $form.find( "input[name='email']" ).val("");
-                    $form.find( "input[name='empresa']" ).val("");
-                   $("#obs").val("");
+                        $form.find( "input[name='nome']" ).val("");
+                        $form.find( "input[name='telemovel']" ).val("");
+                        $form.find( "input[name='email']" ).val("");
+                        $form.find( "input[name='empresa']" ).val("");
+                       $("#obs").val("");
+                }
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            xhr: function() { // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                    myXhr.upload.addEventListener('progress', function() {
+                        /* faz alguma coisa durante o progresso do upload */
+                    }, false);
+                }
+                return myXhr;
             }
-           }
-         });
-
-        /* var posting = $.post( url, { nome: nome, telemovel: telemovel, email: email, empresa: empresa, obs: obs, _token: crf } );
-          posting.done(function( data ) {
-            if(data['done'] == 1){
-                $("#loaderorca").fadeOut();
-                $("#enviosucesso").fadeIn();
-
-                $("#enviosucesso").html("<p> Submetido com sucesso. </p>");
-                setTimeout(function(){
-                   $("#enviosucesso").fadeOut();
-                   $("#orcametosubmit").fadeIn();
-                }, 3000);
-
-                    $form.find( "input[name='nome']" ).val("");
-                    $form.find( "input[name='telemovel']" ).val("");
-                    $form.find( "input[name='email']" ).val("");
-                    $form.find( "input[name='empresa']" ).val("");
-                   $("#obs").val("");
-            }
-        });*/
+        });
     }
    
 });

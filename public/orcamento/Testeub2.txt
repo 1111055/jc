@@ -1,0 +1,58 @@
+WITH
+
+/* Nao conformidades */
+
+nc(Id,TipoOrdem, Ordem) AS (
+    SELECT Id,
+         TipoOrdem
+		,Ordem        
+    FROM   NaoConformidades AS O WITH (nolock)
+    GROUP  BY
+        TipoOrdem,
+         Ordem,Id
+),
+
+ncline(Id,numero,totalnc) AS (
+    SELECT Id, numero,
+         sum(quant_nc) as totalnc
+      
+    FROM   NaoConformidadesLinhas AS O WITH (nolock)
+	LEFT JOIN  nc as nc1 WITH (nolock)
+	 on nc1.Id = numero
+
+    GROUP  BY
+        id,numero,quant_nc
+)
+
+SELECT distinct
+    -- Informação da encomenda
+     O.num_enc
+    ,O.linha_enc
+	,O.tipo_reg
+    ,O.numero
+	,O.cod_art
+	,A.des_art
+	,O.qtd_pedida
+	,O.qtd_entregue
+	,ncline.totalnc
+
+    ,IsNull(O.urgente,'N') urgente
+    ,O.prazo
+    ,O.prazo_firme
+    ,O.prazo_plan_ant
+    ,O.data_ajusta_ec
+    ,O.data_criacao
+	,O.sit_linha
+    ,O.ocor
+    ,O.obs
+
+FROM
+    sgn_ordfab AS O WITH (nolock) -- Estas são todas as ordens
+    LEFT JOIN sgn_artigos AS A WITH (nolock) -- Vamos buscar o artigo
+        ON A.cod_art = O.cod_art
+
+   LEFT JOIN nc WITH (nolock)
+		on  O.numero = nc.Ordem 
+		and O.tipo_reg = nc.TipoOrdem 
+   LEFT JOIN ncline WITH (nolock)
+       on nc.Id = ncline.numero

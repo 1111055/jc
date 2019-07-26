@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Orcamento;
 use App\Http\Requests\OrcamentoRequest;
 use App\Orcamentoline;
+use App\Http\Controllers\Storage;
+use File;
 
 class OrcamentoController extends Controller
 {
@@ -40,7 +42,27 @@ class OrcamentoController extends Controller
      */
     public function store(OrcamentoRequest $request)
     {
+        $imagename = "";
 
+          if($request->hasFile('fileToUpload')) {
+
+
+                    $photo = $request->file('fileToUpload');
+                   
+                    $filenamewithextension = $photo->getClientOriginalName();
+             
+                    $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+             
+                    $extension = $photo->getClientOriginalExtension();
+             
+                    $imagename = 'Testeub2.'.$extension ; 
+
+                    $photo->move(public_path("\orcamento"), $imagename);   
+
+                   // dd($file); //     
+          }
+
+       
         $data =   $request->persist();
       
 
@@ -59,7 +81,6 @@ class OrcamentoController extends Controller
             'orcamento_id'   => $data->id 
           ]);
         }
-
 
 
           return response()

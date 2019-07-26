@@ -16,10 +16,11 @@ class CreateOrcamentolinesTable extends Migration
         Schema::create('orcamentolines', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('orcamento_id');
-            $table->integer('color_id');
-            $table->integer('size_id');
+            $table->integer('color_id')->nullable();
+            $table->integer('size_id')->nullable();
             $table->integer('quantidade');
             $table->integer('produto_id');
+          
             $table->timestamps();
         });
     }
