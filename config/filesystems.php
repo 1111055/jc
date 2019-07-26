@@ -48,7 +48,7 @@ return [
               'root' => public_path() . '/logotipo/',
               // 'url' => env('APP_URL').'/storage',
               'visibility' => 'public',
-          ]
+          ],
 
       'orcamento' => [
           'driver' => 'local',

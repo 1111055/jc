@@ -553,8 +553,7 @@ $( "#searchForm" ).submit(function( event ) {
 // Attach a submit handler to the form
 $( "#orcamentosend" ).submit(function( event ) {
       
-     $("#orcametosubmit").fadeOut();
-     $("#loaderorca").fadeIn();  
+ 
 
   // Stop form from submitting normally
   event.preventDefault();
@@ -619,6 +618,9 @@ $( "#orcamentosend" ).submit(function( event ) {
 
 
    if(erro == false){
+
+       $("#orcametosubmit").fadeOut();
+       $("#loaderorca").fadeIn(); 
 
         var formData = new FormData(this);
 
