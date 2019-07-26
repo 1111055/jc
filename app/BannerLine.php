@@ -25,4 +25,6 @@ class BannerLine extends Model
 
     	return BannerLine::where('titulo', '!=', '')->orderBy('id', 'desc')->first();
     }
+
+    
 }

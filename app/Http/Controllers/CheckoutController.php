@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\ProdutoCor;
+use App\ProdutoSize;
 class CheckoutController extends Controller
 {
     /**
@@ -13,7 +14,45 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('frontend.checkout');
+       $cart = array();
+       if(session()->has('bagone')){
+
+            foreach (session()->get('bagone') as $key => $value) {
+
+                    $color = array();
+                    $size  = array();
+
+                    $colorproduto = ProdutoCor::
+                             where('produto_id', '=', $value['id'])->orderBy('ordem','asc')->get();
+
+                    if(count($colorproduto) > 0){
+                         foreach ($colorproduto as $key => $variabletmp) {
+
+                                     $color[] = array('id' => $variabletmp->cor->id, 'cor' => $variabletmp->cor->cor);         
+                         }
+                    }
+
+                     $sizeproduto = ProdutoSize::
+                             where('produto_id', '=', $value['id'])->orderBy('ordem','asc')->get();
+
+                    if(count($sizeproduto) > 0){
+                         foreach ($sizeproduto as $key => $variabletmp) {
+
+                                     $size[] = array('id' => $variabletmp->size->id, 'size' => $variabletmp->size->tamanho);         
+                         }
+                    }
+               $cart[] = array('produto' => $value, 'colors' => $color, 'sizes' =>  $size);
+
+            }
+        }
+
+
+               
+                         
+    //   dd($cart);
+
+        return view('frontend.checkout',compact('cart'));
+         
     }
 
     /**

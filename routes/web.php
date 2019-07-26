@@ -165,6 +165,22 @@ Route::put('subfamilia/update/{id}',         ['as' => 'subfamilia.update',  'use
 Route::delete('subfamilia/destroy/{id}',     ['as' => 'subfamilia.destroy', 'uses' => 'SubfamiliaController@destroy']);
 Route::post('subfamilia', 'SubfamiliaController@store');
 
+//Newsletter
+Route::get('newsletter', 'NewsletterController@index')->name('newsletter');
+Route::get('newsletter/edit/{id}',           ['as' => 'newsletter.edit',    'uses' => 'NewsletterController@edit']); 
+Route::put('newsletter/update/{id}',         ['as' => 'newsletter.update',  'uses' => 'NewsletterController@update']);
+Route::delete('newsletter/destroy/{id}',     ['as' => 'newsletter.destroy', 'uses' => 'NewsletterController@destroy']);
+Route::post('newsletter/teste',              ['as' => 'newsletter.teste', 'uses' => 'NewsletterController@teste']);
+Route::post('newsletter', 'NewsletterController@store');
+
+//Orçamentos
+Route::get('orcamento', 'OrcamentoController@index')->name('orcamento');
+Route::get('orcamento/edit/{id}',           ['as' => 'orcamento.edit',    'uses' => 'OrcamentoController@edit']); 
+Route::put('orcamento/update/{id}',         ['as' => 'orcamento.update',  'uses' => 'OrcamentoController@update']);
+Route::delete('orcamento/destroy/{id}',     ['as' => 'orcamento.destroy', 'uses' => 'OrcamentoController@destroy']);
+Route::get('orcamento/show/{id}',           ['as' => 'orcamento.show',    'uses' => 'OrcamentoController@show']); 
+Route::post('orcamento', 'OrcamentoController@store');
+
 //Produto 
 Route::get('produto', 'ProdutoController@index')->name('produto');
 Route::get('produto/edit/{id}',           ['as' => 'produto.edit',       'uses' => 'ProdutoController@edit']); 

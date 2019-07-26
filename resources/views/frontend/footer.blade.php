@@ -12,10 +12,14 @@
                                      </div>
                                 </div>
                                 <div class="newsletter-box">
-                                    <form action="#">
+                                   <form action="newsletter/teste" id="searchForm">
+                                        <input name="crf" id="crf" type="hidden" value="{{csrf_token()}}">
                                         <input class="subscribe" placeholder="Email" name="email" id="subscribe" type="text">
                                         <button type="submit" class="submit">Subscrever</button>
-                                    </form>
+                                   </form>
+                                   <div class="alert alert-danger" role="alert" id="alerterro" style="display: none;">
+                                    
+                                    </div>
                                 </div>
                              </div>                            
                         </div>

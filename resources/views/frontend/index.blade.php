@@ -50,10 +50,14 @@
                                             <div class="double-pro">
                                                 <div class="single-product">
                                                     <div class="pro-img">
+                                                      @if($item->produto != null)
                                                         <a href="{{route('produto.show',$item->produto->id)}}"><img class="img" src="{{$item->produto->path}}" alt="product-image"></a>
+                                                      @endif
                                                     </div>
                                                     <div class="pro-content">
-                                                        <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                        @if($item->produto != null)
+                                                           <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>

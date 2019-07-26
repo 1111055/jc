@@ -510,5 +510,183 @@ $('.brand-banner').on('changed.owl.carousel initialized.owl.carousel', function 
         }
     })
      
-    
+
+// Attach a submit handler to the form
+$( "#searchForm" ).submit(function( event ) {
+ 
+  // Stop form from submitting normally
+  event.preventDefault();
+ 
+  // Get some values from elements on the page:
+  var $form = $( this ),
+    term = $form.find( "input[name='email']" ).val(),
+    crf = $form.find( "input[name='crf']" ).val(),
+    url = $form.attr( "action" );
+     
+   if(isEmail(term)){
+          var posting = $.post( url, { email: term, _token: crf } );
+
+          posting.done(function( data ) {
+            if(data['done'] == 1){
+                $('#alerterro').removeClass('alert alert-danger').addClass('alert alert-success');
+                $("#alerterro").fadeIn();
+                $("#alerterro").html("<p> Submetido com sucesso. </p>");
+                setTimeout(function(){
+                   $("#alerterro").fadeOut();
+                }, 2000);
+            }else{
+                $("input[name='email']").focus();
+                $("#alerterro").fadeIn();
+                $("#alerterro").html("<p> Erro - Email já existente. </p>");
+            }
+          });
+
+    }else{
+
+        $("input[name='email']").focus();
+        $("#alerterro").fadeIn();
+        $("#alerterro").html("<p> Erro - Formato incorrecto de email. </p>");
+       
+    }
+});
+
+// Attach a submit handler to the form
+$( "#orcamentosend" ).submit(function( event ) {
+      
+     $("#orcametosubmit").fadeOut();
+     $("#loaderorca").fadeIn();  
+
+  // Stop form from submitting normally
+  event.preventDefault();
+
+  // Get some values from elements on the page:
+  var formtmp = $(this);
+   var $form   = $( this ),
+    prod      = $form.find( "input[name='prod[]']" ).val(),
+    nome      = $form.find( "input[name='nome']" ).val(),
+    telemovel = $form.find( "input[name='telemovel']" ).val(),
+    email     = $form.find( "input[name='email']" ).val(),
+    empresa   = $form.find( "input[name='empresa']" ).val(),
+    obs       = $form.find( "input[name='obs']" ).val(),
+    crf       = $form.find( "input[name='crf']" ).val(),
+    url       = "orcamento";
+    obs = $("#obs").val();
+
+   console.log( $(this).find( "input[name='prod[]']" ));
+  
+    erro = false;
+
+   if(nome === ""){
+
+      erro = true;
+      $form.find( "input[name='nome']" ).focus();
+      $("#erronome").fadeIn();
+      $("#erronome").html("<p> Erro - Campo Obrigatório </p>");
+
+      setTimeout(function(){
+          $("#erronome").fadeOut();
+      }, 2000);
+
+   } 
+
+   if(email === "" && erro == false){
+      erro = true;
+      $form.find( "input[name='email']" ).focus();
+      $("#erroemail").fadeIn();
+      $("#erroemail").html("<p> Erro - Campo Obrigatório </p>");
+
+      setTimeout(function(){
+              $("#erroemail").fadeOut();
+            }, 2000);
+   }
+
+  if(!isEmail(email) && erro == false){
+      $form.find( "input[name='email']" ).focus();
+      $("#erroemail").fadeIn();
+      $("#erroemail").html("<p> Erro - Formato incorrecto de email. </p>");
+
+       setTimeout(function(){
+              $("#erroemail").fadeOut();
+            }, 2000);
+   }
+
+
+   if(erro == false){
+
+
+         $.ajax({
+           type: "POST",
+           url: url,
+           data: formtmp.serialize(), // serializes the form's elements.
+           success: function(data)
+           {
+               if(data['done'] == 1){
+                $("#loaderorca").fadeOut();
+                $("#enviosucesso").fadeIn();
+
+                $("#enviosucesso").html("<p> Submetido com sucesso. </p>");
+                setTimeout(function(){
+                   $("#enviosucesso").fadeOut();
+                   $("#orcametosubmit").fadeIn();
+                }, 3000);
+
+                    $form.find( "input[name='nome']" ).val("");
+                    $form.find( "input[name='telemovel']" ).val("");
+                    $form.find( "input[name='email']" ).val("");
+                    $form.find( "input[name='empresa']" ).val("");
+                   $("#obs").val("");
+            }
+           }
+         });
+
+        /* var posting = $.post( url, { nome: nome, telemovel: telemovel, email: email, empresa: empresa, obs: obs, _token: crf } );
+          posting.done(function( data ) {
+            if(data['done'] == 1){
+                $("#loaderorca").fadeOut();
+                $("#enviosucesso").fadeIn();
+
+                $("#enviosucesso").html("<p> Submetido com sucesso. </p>");
+                setTimeout(function(){
+                   $("#enviosucesso").fadeOut();
+                   $("#orcametosubmit").fadeIn();
+                }, 3000);
+
+                    $form.find( "input[name='nome']" ).val("");
+                    $form.find( "input[name='telemovel']" ).val("");
+                    $form.find( "input[name='email']" ).val("");
+                    $form.find( "input[name='empresa']" ).val("");
+                   $("#obs").val("");
+            }
+        });*/
+    }
+   
+});
+
+
+function isEmail(email) {
+  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+  return regex.test(email);
+}
+
+
+$(function() {
+  $("#orcamentosend").submit(function(e) {
+    e.preventDefault();
+    console.log("Hi!!!")
+  });
+
+  // You should probably put the rest of your Javascript in here too, so it doesn't run until the DOM is fully ready.
+});
+
+
+    $(function() {
+        $("#selcororc").change(function(){
+            var option = $('option:selected', this).attr('cor');
+            $("#selcororc").css("background-color", option);
+            
+        });
+    });
+
+
 })(jQuery);
+

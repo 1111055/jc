@@ -27,7 +27,9 @@ class DatabaseSeeder extends Seeder
         FamiliaTableSeeder::class,
         SubfamiliaTableSeeder::class,
         ProdutoTableSeeder::class,
-        BannerProdutoTableSeeder::class
+        BannerProdutoTableSeeder::class,
+        NewsletterSeeder::class,
+        OrcamentoTableSeeder::class,
        ]);
     }
 }

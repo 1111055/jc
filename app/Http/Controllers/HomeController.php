@@ -42,7 +42,7 @@ class HomeController extends Controller
      
        foreach ($collection as $key => $value) {
               foreach ($value as $key => $item) {
-                 if($item->produto_id != null){
+                 if($item->produto != null){
                   if($item->produto->path != null){
                     $firstname = explode('/', trim($item->produto->path));
                     if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))){

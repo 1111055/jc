@@ -2,6 +2,15 @@
 
 @section('content')
 
+<style>
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
+</style>
+
         <div class="breadcrumb-area pt-60 pb-55 pt-sm-30 pb-sm-20">
             <div class="container">
                 <div class="breadcrumb">
@@ -18,96 +27,106 @@
         <div class="cart-main-area pb-80 pb-sm-50">
             <div class="container">
                <h2 class="text-capitalize sub-heading">Checkout</h2>
+                <form  id="orcamentosend">
+                <input name="_token" id="_token" type="hidden" value="{{csrf_token()}}">
                 <div class="row">
                     <div class="col-md-8">
                         <!-- Form Start -->
-                        <form action="#">
-                            <!-- Table Content Start -->
-                            <div class="table-content table-responsive mb-50">
-                                <table>
-                                    <thead>
-                                        <tr>
-                                            <th class="product-thumbnail">Image</th>
-                                            <th class="product-name">Product</th>
-                                            <th class="product-quantity">Quantity</th>
-                                            <th class="product-remove">Remove</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <a href="#"><img src="img/pen1.png" alt="cart-image" style="max-width: 30%;" /></a>
-                                            </td>
-                                            <td class="product-name"><a href="#">Fitas Top</a></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="product-thumbnail">
-                                                <a href="#"><img src="img/caneta1.png" alt="cart-image" style="max-width: 30%;" /></a>
-                                            </td>
-                                            <td class="product-name"><a href="#">Caneta Top</a></td>
-                                            <td class="product-quantity"><input type="number" value="1" /></td>
-                                            <td class="product-remove"> <a href="#"><i class="fa fa-times" aria-hidden="true"></i></a></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- Table Content Start -->
-                            <div class="row">
-                               <!-- Cart Button Start -->
-                                <div class="col-lg-8 col-md-7">
-                                    <div class="buttons-cart">
-                                        <a href="#">Voltar ao Produtos</a>
-                                    </div>
+                        
+                            @if(Session::has('bagone'))
+                                <div class="table-content table-responsive mb-50">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th class="product-thumbnail">#</th>
+                                                <th class="product-name">Produto</th>
+                                                <th class="col-xs-4"> Cores </th>
+                                                <th>Tamanho</th>
+                                                <th class="product-quantity">Quantidade</th>
+                                                <th class="product-remove">Remover</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($cart as $item)
+                                                <tr>
+                                                    <td class="product-thumbnail">
+                                                        <a href="{{route('produto.show',$item['produto']->id)}}"><img src="{{$item['produto']->path}}" alt="cart-image" style="max-width: 30%;" /></a>
+                                                    </td>
+
+                                                    <td class="product-name"><a href="{{route('produto.show',$item['produto']->id)}}">{{$item['produto']->titulo}}</a></td>
+                                                    
+                                                    <td class="col-xs-4"><select name="cor[]" id="selcororc">
+                                                            @foreach($item['colors'] as $itemcor)
+                                                              <option value="{{$itemcor['id']}}" cor="{{$itemcor['cor']}}" style="background-color: {{$itemcor['cor']}}"></option> 
+                                                            @endforeach()  
+                                                        </select>
+                                                    </td>
+                                                    <td><select name="size[]">
+                                                           @foreach($item['sizes'] as $itemsize)
+                                                             <option value="{{$itemcor['id']}}">{{strtoupper($itemsize['size'])}}</option> 
+                                                           @endforeach() 
+                                                        </select>
+                                                    </td>
+                                                    <input type="hidden" name="prod[]" value="{{$item['produto']->id}}" />
+                                                    <td class="product-quantity"><input type="number" name="quantidade[]" value="1" /></td>
+                                                    <td class="product-remove"> <a href="{{route('produto.removebag',$item['produto']->id)}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                                </tr>
+                                            @endforeach()
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
-                            <!-- Row End -->
-                        </form>
-                        <!-- Form End -->
+                            @endif
+
                     </div>
                     <div class="col-lg-4 col-md-6">
+                      
+                           
                             <div class="checkbox-form">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="checkout-form-list mb-30">
                                             <label>Nome <span class="required">*</span></label>
-                                            <input type="text" placeholder="" />
+                                            <input type="text" name="nome" placeholder="" />
+                                            <div class="alert alert-danger" role="alert" id="erronome" style="display: none;"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout-form-list mb-30">
                                             <label>Email <span class="required">*</span></label>
-                                            <input type="email" placeholder="" />
+                                            <input type="text" name="email" placeholder="" />
+                                            <div class="alert alert-danger" role="alert" id="erroemail" style="display: none;"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout-form-list mb-30">
-                                            <label>Empresa <span class="required">*</span></label>
-                                            <input type="text" placeholder="" />
+                                            <label>Empresa </label>
+                                            <input type="text" name="empresa" placeholder="" />
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout-form-list mb-30">
                                             <label>Tlm/ Tlf  </label>
-                                            <input type="text" placeholder="Contacto Telemovel ou Telefone" />
+                                            <input type="text" name="telemovel" placeholder="Contacto Telemovel ou Telefone" />
                                         </div>
                                     </div>
-
-
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
                                             <label>Observações</label>
-                                            <textarea id="checkout-mess" cols="30" rows="10" placeholder="Notas Especiais"></textarea>
+                                            <textarea id="obs" name="obs" cols="30" rows="10" placeholder="Notas Especiais"></textarea>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="order-button-payment">
-                                        <input type="submit" value="Pedir Orçamento" />
+                                        <input type="submit" id="orcametosubmit" value="Pedir Orçamento" />
+                                        <div class="fa-3x" style="display: none;" id="loaderorca">
+                                            <i class="fa fa-spinner fa-pulse" style="margin-left: 50%;"></i>
+                                        </div>
+                                        <div class="alert alert-success" role="alert" id="enviosucesso" style="display: none;"></div>
                                 </div>
                             </div>
-                    </div>
-
+                         
+                       </div>
+                    </form>
                 </div>
                  <!-- Row End -->
             </div>
