@@ -101,11 +101,17 @@
                         <div class="col-lg-3 col-sm-7 col-7">
                             <div class="cart-box text-right">
                                 <ul>
-
+                                    @if(Session::get('wish'))
                                     <li><a href="{{route('wish')}}" @if(count(Session::get('wish')) > 0 ) style="color: #f1ac06;" @endif>
                                             <i class="fa fa-heart-o"></i>
                                         </a>
                                     </li>
+                                    @else
+                                    <li><a href="{{route('wish')}}">
+                                            <i class="fa fa-heart-o"></i>
+                                        </a>
+                                    </li>
+                                    @endif
                                     <li><a href="#"><i class="fa fa-shopping-basket"></i>@if(Session::has('bagone'))<span class="cart-counter">{{count(Session::get('bagone'))}}</span></a>
                                         <ul class="ht-dropdown main-cart-box">
                                             <li>
