@@ -8,6 +8,7 @@ use App\Http\Requests\OrcamentoRequest;
 use App\Orcamentoline;
 use App\Http\Controllers\Storage;
 use File;
+use Carbon\Carbon;
 
 class OrcamentoController extends Controller
 {
@@ -55,11 +56,11 @@ class OrcamentoController extends Controller
              
                     $extension = $photo->getClientOriginalExtension();
              
-                    $imagename = 'Testeub2.'.$extension ; 
+                    $imagename = Carbon::now().'.'.$extension ; 
 
                     $photo->move(public_path("\orcamento"), $imagename);   
 
-                   // dd($file); //     
+                    dd($photo);     
           }
 
        
