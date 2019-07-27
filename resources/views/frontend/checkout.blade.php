@@ -27,7 +27,7 @@
         <div class="cart-main-area pb-80 pb-sm-50">
             <div class="container">
                <h2 class="text-capitalize sub-heading">Checkout</h2>
-                <form  id="orcamentosend">
+                <form   id="orcamentosend">
                 <input name="_token" id="_token" type="hidden" value="{{csrf_token()}}">
                 <div class="row">
                     <div class="col-md-8">

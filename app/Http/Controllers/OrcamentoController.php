@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Orcamento;
 use App\Http\Requests\OrcamentoRequest;
-use App\Orcamentoline;
-use App\Http\Controllers\Storage;
+use Illuminate\Support\Facades\Storage;
 use File;
 use Carbon\Carbon;
 
@@ -45,6 +44,15 @@ class OrcamentoController extends Controller
     {
         $imagename = "";
 
+
+            $uploadPath = public_path('orcamento');
+            $thumbPath = public_path(env('UPLOAD_PATH').'/thumb');
+            if (! file_exists($uploadPath)) {
+                mkdir($uploadPath, 0775);
+                mkdir($thumbPath, 0775);
+            }
+
+
           if($request->hasFile('fileToUpload')) {
 
 
@@ -60,13 +68,18 @@ class OrcamentoController extends Controller
 
                    // $photo->move(public_path("\orcamento"), $imagename);   
 
-                    $path = $photo->store('public');
-
-                   // dd($path);     
+                 // $photo->storeAs(null, $imagename, 'upload');
+                    //Storage::disk('orcamento')->put("orcamento", $photo);
+                  //  $path = $photo->store('orcamento');
+                    $filename = time() . '-' . $photo->getClientOriginalName();
+                    $photo->move($uploadPath, $filename);
+  
           }
 
+
+                
        
-        $data =   $request->persist($path);
+        $data =   $request->persist($filename);
       
 
         $produto = $request->prod;
