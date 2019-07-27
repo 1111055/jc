@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Orcamento;
+use App\Orcamentoline;
 use App\Http\Requests\OrcamentoRequest;
 use Illuminate\Support\Facades\Storage;
 use File;
