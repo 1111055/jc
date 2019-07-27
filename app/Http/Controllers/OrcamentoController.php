@@ -60,7 +60,7 @@ class OrcamentoController extends Controller
 
                    // $photo->move(public_path("\orcamento"), $imagename);   
 
-                    $path = $photo->store('orcamento');
+                    $path = $photo->store('public');
 
                    // dd($path);     
           }
