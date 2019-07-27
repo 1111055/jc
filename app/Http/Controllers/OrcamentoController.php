@@ -58,13 +58,15 @@ class OrcamentoController extends Controller
              
                     $imagename = Carbon::now().'.'.$extension ; 
 
-                    $photo->move(public_path("\orcamento"), $imagename);   
+                   // $photo->move(public_path("\orcamento"), $imagename);   
 
-                  //  dd($photo);     
+                    $path = $photo->store('orcamento');
+
+                   // dd($path);     
           }
 
        
-        $data =   $request->persist();
+        $data =   $request->persist($path);
       
 
         $produto = $request->prod;
@@ -73,14 +75,18 @@ class OrcamentoController extends Controller
         $qtd     = $request->quantidade;
         $qtd     = $request->quantidade;
 
-        foreach ($produto as $key => $value) {
-          Orcamentoline::create([
-            'produto_id'     => $value,
-            'color_id'       => $cor[$key],
-            'size_id'        => $size[$key],
-            'quantidade'     => $qtd[$key],
-            'orcamento_id'   => $data->id 
-          ]);
+        if(count($produto) > 0){
+
+            foreach ($produto as $key => $value) {
+              Orcamentoline::create([
+                'produto_id'     => $value,
+                'color_id'       => $cor[$key],
+                'size_id'        => $size[$key],
+                'quantidade'     => $qtd[$key],
+                'orcamento_id'   => $data->id 
+              ]);
+            }
+
         }
 
 
@@ -121,7 +127,7 @@ class OrcamentoController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for e diting the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response

@@ -37,7 +37,7 @@ class OrcamentoRequest extends FormRequest
         ];
     }
     
-    public function persist(){
+    public function persist($path){
    
        $data = Orcamento::create([
             'nome'       => request()->nome,
@@ -45,7 +45,7 @@ class OrcamentoRequest extends FormRequest
             'email'      => request()->email,
             'empresa'    => request()->empresa,
             'obs'        => request()->obs,
-         //   'pathfile'   => $pt
+            'pathfile'   => $path
         ]);
 
        return $data;
