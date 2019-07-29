@@ -92,6 +92,10 @@ class SettingController extends Controller
 			
 			
 				    	$photo = $request->file('profile_image');
+
+                        $data = getimagesize($photo);
+                        $width = $data[0];
+                        $height = $data[1];
 						
                         //Nome Do Ficheiro
                         $filenamewithextension = $request->file('profile_image')->getClientOriginalName();
@@ -126,14 +130,30 @@ class SettingController extends Controller
 
 						}
 						// Resized image
-						$thumb_img->resize(90, 95, function ($constraint) {
-							$constraint->aspectRatio();
-						});
-						// Canvas image
-						$canvas = Image::canvas(110, 110);
-						$canvas->insert($thumb_img, 'center');
-						$canvas->save($destinationPath.'/'.$imagename,50);
-										
+
+                        $altura =   $height;
+                        $comprimento = $width;
+
+                        $divisaocom = 90 / $comprimento;
+                        $divisaoalt = 95 / $altura; 
+
+                        if($divisaoalt < $divisaocom){
+                            $altfinal = $altura * $divisaoalt;
+                            $cmpfinal = $comprimento * $divisaoalt;
+                        }else{
+                            $altfinal = $altura * $divisaocom;
+                            $cmpfinal = $comprimento * $divisaocom;
+
+                        }
+
+                        $thumb_img->resize($cmpfinal, $altfinal, function ($constraint) {
+                            $constraint->aspectRatio();
+                        });
+                        // Canvas image
+                        $canvas = Image::canvas(110, 110);
+                        $canvas->insert($thumb_img, 'center');
+                        $canvas->save($destinationPath.'/'.$imagename,50);
+            										
 
            return redirect()->route('setting')->with(['success' => "Guardado com sucesso."]);
       }   else{

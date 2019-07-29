@@ -175,11 +175,12 @@ Route::post('newsletter', 'NewsletterController@store');
 
 //Orçamentos
 Route::get('orcamentos', 'OrcamentoController@index')->name('orcamento');
-Route::get('orcamentos/edit/{id}',           ['as' => 'orcamento.edit',    'uses' => 'OrcamentoController@edit']); 
-Route::put('orcamentos/update/{id}',         ['as' => 'orcamento.update',  'uses' => 'OrcamentoController@update']);
-Route::delete('orcamentos/destroy/{id}',     ['as' => 'orcamento.destroy', 'uses' => 'OrcamentoController@destroy']);
-Route::get('orcamentos/show/{id}',           ['as' => 'orcamento.show',    'uses' => 'OrcamentoController@show']); 
+Route::get('orcamentos/edit/{id}',                     ['as' => 'orcamento.edit',    'uses' => 'OrcamentoController@edit']); 
+Route::put('orcamentos/update/{id}',                   ['as' => 'orcamento.update',  'uses' => 'OrcamentoController@update']);
+Route::delete('orcamentos/destroy/{id}',               ['as' => 'orcamento.destroy', 'uses' => 'OrcamentoController@destroy']);
+Route::get('orcamentos/show/{id}',                     ['as' => 'orcamento.show',    'uses' => 'OrcamentoController@show']); 
 Route::post('orcamentos', 'OrcamentoController@store');
+Route::get('orcamentos/download/{namefile}/{id}',      ['as' => 'orcamento.download',    'uses' => 'OrcamentoController@getDownload']);
 
 //Produto 
 Route::get('produto', 'ProdutoController@index')->name('produto');

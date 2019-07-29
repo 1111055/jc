@@ -9,6 +9,7 @@ use App\Http\Requests\OrcamentoRequest;
 use Illuminate\Support\Facades\Storage;
 use File;
 use Carbon\Carbon;
+use Response;
 
 class OrcamentoController extends Controller
 {
@@ -47,10 +48,10 @@ class OrcamentoController extends Controller
 
 
             $uploadPath = public_path('orcamento');
-            $thumbPath = public_path(env('UPLOAD_PATH').'/thumb');
+           
             if (! file_exists($uploadPath)) {
                 mkdir($uploadPath, 0775);
-                mkdir($thumbPath, 0775);
+              
             }
 
 
@@ -73,8 +74,8 @@ class OrcamentoController extends Controller
                     //Storage::disk('orcamento')->put("orcamento", $photo);
                   //  $path = $photo->store('orcamento');
                     $filename = time() . '-' . $photo->getClientOriginalName();
-                    $photo->move($uploadPath, $filename);
-  
+                   // $photo->move($uploadPath, $filename);
+                    $file = $request->file('fileToUpload')->storeAs('orcamento', $filename, 'upload');
           }
 
 
@@ -161,6 +162,18 @@ class OrcamentoController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function getDownload($namefile,$id)
+    {
+        //PDF file is stored under project/public/download/info.pdf
+        $file= public_path(). "/logotipo/orcamento/".$namefile;
+
+        $headers = array(
+                  'Content-Type: application/pdf',
+                );
+
+        return Response::download($file, 'orcamento_'.$id.'.pdf', $headers);
     }
 
     /**

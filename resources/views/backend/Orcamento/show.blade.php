@@ -69,6 +69,11 @@
                                 <li class="list-group-item">Cotacto: {{ $orcamento->telemovel}}</li>
                                 <li class="list-group-item">Data: {{ $orcamento->created_at}}</li>
                                 <li class="list-group-item">Observações: {{ $orcamento->obs}}</li>
+                                <li class="list-group-item">Download Ficheiro: 
+                                    @if(file_exists(public_path().'/logotipo/orcamento/'.$orcamento->pathfile) &&  !empty($orcamento->pathfile))
+
+                                        <a target="_blank" href="{{ (route('orcamento.download',[$orcamento->pathfile, $orcamento->id])) }}"> Link </a></li>  
+                                    @endif    
                               </ul>
                              <div>
                             </div>
@@ -93,8 +98,9 @@
                                 <td><a href="{{route('produto.show',$item->produto->id)}}" target="_black"><img src="{{ $item->produto->path }}" class="img-thumbnail" style="width: 18%; height: 30%;"></a></td>
                                 <td>{{ $item->produto->titulo }}</td>
                                 <td>{{ $item->produto->cod_art }}</td>
-                                <td>{{ $item->cor->titulo}}</td>
-                                <td>{{ $item->tamanho->titulo}}</td>
+
+                                <td> @if($item->color_id > 0 && $item->cor != null){{ $item->cor->titulo}} @endif</td>
+                                <td> @if($item->size_id > 0 && $item->tamanho != null){{ $item->tamanho->titulo}} @endif</td>
                                 <td>{{ $item->quantidade }}</td>
                               </tr>
                               @endforeach

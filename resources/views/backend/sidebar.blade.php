@@ -46,9 +46,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="#">Imagens</a></li>
             <li><a href="{{ route('banner')}}">Banners</a></li>
-            <li><a href="#">Videos</a></li>
           </ul>
         </li>
         <li class="treeview">

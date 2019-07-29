@@ -33,24 +33,31 @@
                 </section>
 
                 <!-- Main content -->
-                <section class="content container-fluid">             
-            <!-- /.row -->
-                  <div class="row">
-                    <div class="col-xs-12">
-                      <div class="box">
-                        <div class="box-header">
+                <section class="content container-fluid">     
 
-                          <div class="box-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                   <div class="container">
+                       <div class="panel panel-default">
+                          <div class="panel-heading">Filtros</div>
+                           <div class="panel-body">
+                            <div class="box-header">
 
-                              <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                              <div class="box-tools">
+                                <div class="input-group input-group-sm" style="width: 150px;">
+                                  <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+
+                                  <div class="input-group-btn">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
+                                  </div>
+                                </div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <!-- /.box-header -->
+                  </div>        
+            <!-- /.row -->
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="box">
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
@@ -60,6 +67,7 @@
                               <th>Telefone</th>
                               <th>Empresa</th>
                               <th>Data</th>
+                              <th>Ficheiro</th>
                               <th>Obs</th>
                             </tr>
                             @foreach($orcamento as $item)
@@ -70,14 +78,19 @@
                                 <td>{{ $item->telemovel }}</td>
                                 <td>{{ $item->empresa }}</td>
                                 <td>{{ $item->created_at }}</td>
+                                <td> 
+                                    
+                                    @if(file_exists(public_path().'/logotipo/orcamento/'.$item->pathfile) &&  !empty($item->pathfile))
+
+                                      <a href="{{ (route('orcamento.download',[$item->pathfile,$item->id])) }}" target="_blank"> Link </a>
+                                    @endif
+                                </td>
                                 <td>{{ $item->obs }}</td>
                               </tr>
                               @endforeach
                           </table>
                         </div>
-                        <!-- /.box-body -->
                       </div>
-                      <!-- /.box -->
                     </div>
                   </div>
 

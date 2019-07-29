@@ -21,6 +21,9 @@
 
               <div class="content-wrapper">
                 <section class="content-header">
+                  <h1>
+                    Banners
+                  </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Banners</a></li>
@@ -34,8 +37,6 @@
                     <div class="col-xs-12">
                       <div class="box">
                         <div class="box-header">
-                          <h3 class="box-title">Banners</h3>
-                        </div>
                          <div class="panel panel-default">
                             <div class="panel-body">
                             <!-- Horizontal Form -->
@@ -59,7 +60,7 @@
 
                                         </div>
                                         <div class="box-footer">
-                                            {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
+                                            {!! Form::submit('Novo',['class' => 'btn btn-info pull-right']) !!}
                                         </div>
                                       {!! Form::close() !!}
                                   </div>
@@ -67,23 +68,14 @@
                               </div>
                           <!-- /.box-body -->
                         </div>
-                        <!-- /.box -->
-                          <div class="box-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                              <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
                               <th>#</th>
                               <th>Titulo</th>
+                              <th>Descrição</th>
+                              <th>Width</th>
+                              <th>Height</th>
                               <th>Ordem</th>
                               <th class="text-center">Active</th>
                             </tr>
@@ -92,6 +84,8 @@
                                 <td>#</td>
                                 <td>{{ $item->titulo }}</td>
                                 <td>{{ $item->descricao }}</td>
+                                <td>{{ $item->width }}</td>
+                                <td>{{ $item->height }}</td>
                                 <td>{{ $item->ordem }}</td>
                                 @if ($item->activo === 1)
                                     <td class="text-center"><i class="fa fa-check-circle"></i></td>
