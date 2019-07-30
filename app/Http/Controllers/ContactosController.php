@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Pagina;
 use App\Contacto;
 use App\Http\Requests\ContactoRequest;
+use Mail;
+use App\Mail\NovoContacto;
 class ContactosController extends Controller
 {
     /**
@@ -42,7 +44,7 @@ class ContactosController extends Controller
 
 
           $request->persist();
-      
+          Mail::to($request->email)->cc("marcomendes0202@hotmail.com")->send(new NovoContacto($request));
           return response()
             ->json(['done' => '1']);
     }

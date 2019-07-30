@@ -522,12 +522,53 @@ $( "#searchForm" ).submit(function( event ) {
     term = $form.find( "input[name='email']" ).val(),
     crf = $form.find( "input[name='crf']" ).val(),
     url = $form.attr( "action" );
+
+   erro=false;
+
+   if(term === "" && erro == false){
+      erro = true;
+      $form.find( "input[name='email']" ).focus();
+      $("#alerterro").fadeIn();
+      $("#alerterro").html("<p> Erro - Campo Obrigatório </p>");
+
+      setTimeout(function(){
+              $("#alerterro").fadeOut();
+            }, 2000);
+   }
+
+  if(!isEmail(term) && erro == false){
+      erro = true;
+      $form.find( "input[name='email']" ).focus();
+      $("#alerterro").fadeIn();
+      $("#alerterro").html("<p> Erro - Formato incorrecto de email. </p>");
+
+       setTimeout(function(){
+              $("#alerterro").fadeOut();
+            }, 2000);
+   }
+
+   if(!$('#politica').is(':checked') && erro == false){
+
+      erro=true;
+      $('#politica').focus();
+      $("#alerterro").fadeIn();
+      $("#alerterro").html("<p> Erro - Obrigatório aceitar a poticia e privacidade da empresa. </p>");
+
+
+           setTimeout(function(){
+              $("#alerterro").fadeOut();
+            }, 2000);
+   }
+
+
+
      
-   if(isEmail(term)){
+   if(erro == false){
           var posting = $.post( url, { email: term, _token: crf } );
 
           posting.done(function( data ) {
             if(data['done'] == 1){
+                $("#searchForm")[0].reset();
                 $('#alerterro').removeClass('alert alert-danger').addClass('alert alert-success');
                 $("#alerterro").fadeIn();
                 $("#alerterro").html("<p> Submetido com sucesso. </p>");
@@ -541,12 +582,6 @@ $( "#searchForm" ).submit(function( event ) {
             }
           });
 
-    }else{
-
-        $("input[name='email']").focus();
-        $("#alerterro").fadeIn();
-        $("#alerterro").html("<p> Erro - Formato incorrecto de email. </p>");
-       
     }
 });
 
@@ -585,7 +620,7 @@ $( "#orcamentosend" ).submit(function( event ) {
       $("#erroemail").fadeIn();
       $("#erroemail").html("<p> Erro - Campo Obrigatório </p>");
 
-      setTimeout(function(){
+           setTimeout(function(){
               $("#erroemail").fadeOut();
             }, 2000);
    }
@@ -600,6 +635,20 @@ $( "#orcamentosend" ).submit(function( event ) {
               $("#erroemail").fadeOut();
             }, 2000);
    }
+
+   if(!$('#termos').is(':checked') && erro == false){
+
+      erro=true;
+      $('#termos').focus();
+      $("#errotermos").fadeIn();
+      $("#errotermos").html("<p> Erro - Obrigatório aceitar os termos e condições. </p>");
+
+
+      setTimeout(function(){
+              $("#errotermos").fadeOut();
+            }, 2000);
+   }
+
 
 
    if(erro == false){
@@ -709,6 +758,19 @@ $( "#contact-form" ).submit(function( event ) {
       }, 2000);
 
    } 
+
+   if(!$('#termos').is(':checked') && erro == false){
+
+      erro=true;
+      $('#termos').focus();
+      $("#errotermos").fadeIn();
+      $("#errotermos").html("<p> Erro - Obrigatório aceitar os termos e condições. </p>");
+
+
+           setTimeout(function(){
+              $("#errotermos").fadeOut();
+            }, 2000);
+   }
 
 
    if(erro == false){

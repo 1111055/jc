@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Storage;
 use File;
 use Carbon\Carbon;
 use Response;
+use Mail;
+use App\Mail\PedidoOrcamento;
 
 class OrcamentoController extends Controller
 {
@@ -104,7 +106,8 @@ class OrcamentoController extends Controller
 
         }
 
-
+          Mail::to($request->email)->cc("marcomendes0202@hotmail.com")->send(new PedidoOrcamento($request));
+          
           return response()
             ->json(['done' => '1']);
 

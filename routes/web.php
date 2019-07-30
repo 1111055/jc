@@ -10,6 +10,17 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+//teste email..
+use Illuminate\Mail\Markdown;
+
+Route::get('home/mailthanks', function () {
+    $markdown = new Markdown(view(), config('mail.markdown'));
+
+    return $markdown->render('backend.Emails.thanks');
+});
+
+
 //FrontEnd
 // Home Page
 Route::get('/', 'HomeController@index');

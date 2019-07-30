@@ -17,7 +17,15 @@
                                         <input class="subscribe" placeholder="Email" name="email" id="subscribe" type="text">
                                         <button type="submit" class="submit">Subscrever</button>
                                    </form>
-                                   <div class="alert alert-danger" role="alert" id="alerterro" style="display: none;">
+
+                                   <div class="form-check">
+                                          <input class="form-check-input" type="checkbox" value="" id="politica" name="politica">
+                                          <label class="form-check-label" for="defaultCheck1">
+                                            Confirmo que li e aceito a <a target="_blank" href="{{route('policy')}}"><strong>politica e privacidade</strong></a>, imposto pela empresa Ibero Brindes.
+                                          </label>
+                                    </div>
+          
+                                     <div class="alert alert-danger" role="alert" id="alerterro" style="display: none;">
                                     
                                     </div>
                                 </div>

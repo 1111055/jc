@@ -122,6 +122,15 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-check">
+                                      <input class="form-check-input" type="checkbox" value="" id="termos" name="termos">
+                                      <label class="form-check-label" for="defaultCheck1">
+                                        Confirmo que li e aceito os <a target="_blank" href="{{route('terms')}}"><strong>termos e condições</strong></a>, impostos pela empresa Ibero Brindes.
+                                      </label>
+                                   </div>
+
+                                  <div class="alert alert-danger" role="alert" id="errotermos" style="display: none;"></div>
+
                                    
                                 </div>
                                 <p class="form-message ml-15">* Campo Obrigatório.</p>
