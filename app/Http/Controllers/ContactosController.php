@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Pagina;
+use App\Contacto;
+use App\Http\Requests\ContactoRequest;
 class ContactosController extends Controller
 {
     /**
@@ -35,9 +37,14 @@ class ContactosController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ContactoRequest $request)
     {
-        //
+
+
+          $request->persist();
+      
+          return response()
+            ->json(['done' => '1']);
     }
 
     /**

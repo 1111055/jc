@@ -124,6 +124,8 @@
 
                                    
                                 </div>
+                                <p class="form-message ml-15">* Campo Obrigatório.</p>
+
                                 <div class="order-button-payment">
                                         <input type="submit" id="orcametosubmit" value="Pedir Orçamento" />
                                         <div class="fa-3x" style="display: none;" id="loaderorca">

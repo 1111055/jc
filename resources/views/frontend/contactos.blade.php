@@ -34,28 +34,44 @@
                         <div class="descbody" style="margin-top: 2%;">
                            {!! $contact->descricao !!}
                         </div>        
-                        <form id="contact-form" class="contact-form" action="mail.php" method="post">
+                        <form id="contact-form" class="contact-form">
+                            <input name="_token" id="_token" type="hidden" value="{{csrf_token()}}">
                             <div class="address-wrapper">
                                 <div class="row">    
                                     <div class="col-md-12">
                                         <div class="address-fname">
-                                            <input type="text" name="name" placeholder="Nome">
+                                            <input type="text" name="nome" placeholder="Nome *">
                                         </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                       <div class="col-md-4">
+                                         <div class="alert alert-danger" role="alert" id="erronome" style="display: none;"></div>
+                                       </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="address-email">
-                                            <input type="email" name="email" placeholder="Email">
+                                            <input type="text" name="email" placeholder="Email *">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="address-web">
-                                            <input type="text" name="website" placeholder="Website">
+                                            <input type="text" name="telefone" placeholder="Telefone / Telemovel">
                                         </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                       <div class="col-md-4">
+                                          <div class="alert alert-danger" role="alert" id="erroemail" style="display: none;"></div>
+                                       </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="address-subject">
-                                            <input type="text" name="subject" placeholder="Assunto">
+                                            <input type="text" name="subject" placeholder="Assunto *">
                                         </div>
+                                    </div>
+                                     <div class="col-md-12">
+                                       <div class="col-md-4">
+                                         <div class="alert alert-danger" role="alert" id="erroassunto" style="display: none;"></div>
+                                       </div>
                                     </div>
                                     <div class="col-sm-12">
                                         <div class="address-textarea">
@@ -64,10 +80,15 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="form-message ml-15"></p>
+                            <p class="form-message ml-15">* Campo Obrigatório.</p>
+
                             <div class="col-xs-12 footer-content mail-content">
                                 <div class="send-email">
-                                    <input type="submit" value="Enviar" class="submit">
+                                    <input type="submit" value="Enviar" id="sendcontact" class="submit">
+                                    <div class="fa-3x" style="display: none;" id="loaderorca">
+                                        <i class="fa fa-spinner fa-pulse" style="margin-left: 50%;"></i>
+                                    </div>
+                                    <div class="alert alert-success" role="alert" id="enviosucesso" style="display: none;"></div>
                                 </div>
                             </div>
                         </form>

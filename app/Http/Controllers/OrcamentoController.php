@@ -44,8 +44,8 @@ class OrcamentoController extends Controller
      */
     public function store(OrcamentoRequest $request)
     {
-        $imagename = "";
-
+ 
+        $filename = "";
 
             $uploadPath = public_path('orcamento');
            

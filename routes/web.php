@@ -23,6 +23,7 @@ Route::get('about', 'AboutController@index')->name('about');
 //Contactos Company
 Route::get('contactos', 'ContactosController@index');
 Route::get('contactos', 'ContactosController@index')->name('contactos');
+Route::post('contactos', 'ContactosController@store');
 
 //Checkout Products
 Route::get('checkout', 'CheckoutController@index');

@@ -559,26 +559,10 @@ $( "#orcamentosend" ).submit(function( event ) {
   event.preventDefault();
 
   // Get some values from elements on the page:
-  var formtmp = $(this);
    var $form   = $( this ),
-    prod      = $form.find( "input[name='prod[]']" ).val(),
     nome      = $form.find( "input[name='nome']" ).val(),
-    telemovel = $form.find( "input[name='telemovel']" ).val(),
     email     = $form.find( "input[name='email']" ).val(),
-    empresa   = $form.find( "input[name='empresa']" ).val(),
-    obs       = $form.find( "input[name='obs']" ).val(),
-    crf       = $form.find( "input[name='crf']" ).val(),
     url       = "orcamentos";
-    obs = $("#obs").val();
-
-    var files = $("#fileToUpload").get(0).files;
-
-        if (files.length > 0) {
-            for (var i = 0; i < files.length; i++) {
-
-                formtmp.append("UploadedImage" , files[i]);
-            }
-    }
 
     erro = false;
 
@@ -607,6 +591,7 @@ $( "#orcamentosend" ).submit(function( event ) {
    }
 
   if(!isEmail(email) && erro == false){
+      erro = true;
       $form.find( "input[name='email']" ).focus();
       $("#erroemail").fadeIn();
       $("#erroemail").html("<p> Erro - Formato incorrecto de email. </p>");
@@ -634,16 +619,12 @@ $( "#orcamentosend" ).submit(function( event ) {
                     $("#enviosucesso").fadeIn();
 
                     $("#enviosucesso").html("<p> Submetido com sucesso. </p>");
+                     $("#orcamentosend")[0].reset();
                     setTimeout(function(){
                        $("#enviosucesso").fadeOut();
                        $("#orcametosubmit").fadeIn();
                     }, 3000);
 
-                        $form.find( "input[name='nome']" ).val("");
-                        $form.find( "input[name='telemovel']" ).val("");
-                        $form.find( "input[name='email']" ).val("");
-                        $form.find( "input[name='empresa']" ).val("");
-                       $("#obs").val("");
                 }
             },
             cache: false,
@@ -662,6 +643,118 @@ $( "#orcamentosend" ).submit(function( event ) {
     }
    
 });
+
+
+$( "#contact-form" ).submit(function( event ) {
+      
+ 
+
+  // Stop form from submitting normally
+  event.preventDefault();
+
+
+   var $form   = $( this ),
+
+    nome      = $form.find( "input[name='nome']" ).val(),
+    email     = $form.find( "input[name='email']" ).val(),
+    assunto   = $form.find( "input[name='subject']" ).val(),
+    url       = "contactos";
+    
+    erro = false;
+
+   if(nome === ""){
+
+      erro = true;
+      $form.find( "input[name='nome']" ).focus();
+      $("#erronome").fadeIn();
+      $("#erronome").html("<p> Erro - Campo Obrigatório </p>");
+
+      setTimeout(function(){
+          $("#erronome").fadeOut();
+      }, 2000);
+
+   } 
+
+   if(email === "" && erro == false){
+      erro = true;
+      $form.find( "input[name='email']" ).focus();
+      $("#erroemail").fadeIn();
+      $("#erroemail").html("<p> Erro - Campo Obrigatório </p>");
+
+      setTimeout(function(){
+              $("#erroemail").fadeOut();
+            }, 2000);
+   }
+
+  if(!isEmail(email) && erro == false){
+      erro = true;
+      $form.find( "input[name='email']" ).focus();
+      $("#erroemail").fadeIn();
+      $("#erroemail").html("<p> Erro - Formato incorrecto de email. </p>");
+
+       setTimeout(function(){
+              $("#erroemail").fadeOut();
+            }, 2000);
+   }
+
+   if(nome === "" && erro == false){
+
+      erro = true;
+      $form.find( "input[name='subject']" ).focus();
+      $("#erroassunto").fadeIn();
+      $("#erroassunto").html("<p> Erro - Campo Obrigatório </p>");
+
+      setTimeout(function(){
+          $("#erroassunto").fadeOut();
+      }, 2000);
+
+   } 
+
+
+   if(erro == false){
+
+       $("#sendcontact").fadeOut();
+       $("#loaderorca").fadeIn(); 
+
+        var formData = new FormData(this);
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: formData,
+            success: function(data) {
+                if(data['done'] == 1){
+                    $("#loaderorca").fadeOut();
+                    $("#enviosucesso").fadeIn();
+
+                    $("#enviosucesso").html("<p> Submetido com sucesso. </p>");
+                    $("#contact-form")[0].reset();
+                    setTimeout(function(){
+                       $("#enviosucesso").fadeOut();
+                       $("#sendcontact").fadeIn();
+                       
+                    }, 3000);
+
+                        
+                }
+            },
+            cache: false,
+            contentType: false,
+            processData: false,
+            xhr: function() { // Custom XMLHttpRequest
+                var myXhr = $.ajaxSettings.xhr();
+                if (myXhr.upload) { // Avalia se tem suporte a propriedade upload
+                    myXhr.upload.addEventListener('progress', function() {
+                        /* faz alguma coisa durante o progresso do upload */
+                    }, false);
+                }
+                return myXhr;
+            }
+        });
+    }
+   
+});
+
 
 
 function isEmail(email) {

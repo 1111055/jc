@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         BannerProdutoTableSeeder::class,
         NewsletterSeeder::class,
         OrcamentoTableSeeder::class,
-       ]);
+        ContactoTableSeed::class
+     ]);
     }
 }

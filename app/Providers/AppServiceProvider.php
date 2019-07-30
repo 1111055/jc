@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        URL::forceScheme('https');
+        //URL::forceScheme('https');
 
 
 
@@ -39,9 +39,9 @@ class AppServiceProvider extends ServiceProvider
 
 
 
-       //dd($categoria);
+         //dd($categoria);
 
-       // Session::put('menu', $cart); 
+         //Session::put('menu', $cart); 
 
          View::share('menu', $menus);
          View::share('menufooter', $menuf);
