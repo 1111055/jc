@@ -149,7 +149,7 @@
                 <div class="row">
                     <div class="col-xl-3 col-lg-4 order-2">
                         <div class="side-product-list">
-                            <div class="group-title">
+                            <div class="group-titlewish">
                                 <h2>Mais Pedidos</h2>
                             </div>
                             <div class="slider-right-content side-product-list-active owl-carousel">
@@ -242,7 +242,12 @@
                                   @endforeach
                             </div>
                             <div class="single-banner zoom mt-30 ">
-                            <a href="#"><img src="{{$pagina->pathimg}}" alt="slider-banner"></a>
+                              @if(file_exists(public_path('img/CROP/banner_home.jpg')) || file_exists(public_path('img/CROP/banner_home.png')) )
+
+                                <a href="#"><img src="{{$pagina->pathimg}}" alt="slider-banner"></a>
+
+                              @endif
+                           
                         </div>
                         </div>                     
                     </div>

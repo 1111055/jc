@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Produto extends Model
 {
     protected $fillable = [
-       'sku', 'titulo', 'subtitulo', 'descricao', 'obs', 'categoria_id', 'subcategoria_id','familia_id','subfamilia_id',
-       'prazos_id', 'lote', 'link', 'path', 'ordem', 'activo','visualizado','requisitado','sexo','desconto'
+       'id','sku','cod_art', 'titulo', 'subtitulo', 'descricao', 'obs', 'categoria_id', 'subcategoria_id','familia_id','subfamilia_id',
+       'prazos_id', 'lote', 'link', 'path','pathbig', 'ordem', 'activo','visualizado','requisitado','sexo','desconto'
     ];
     
 

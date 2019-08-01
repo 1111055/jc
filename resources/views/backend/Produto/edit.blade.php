@@ -321,7 +321,7 @@ img {
                                                     </div>
                                                 </div>
                                                <div class="form-group col-sm-6">
-                                                    <label>Imagem Principal (x)</label>
+                                                    <label>Imagem Principal (468x659)</label>
                                                      <input type="file" name="prodimg" id="exampleInputImage" class="image"> 
                                                 </div>
                                             </div>

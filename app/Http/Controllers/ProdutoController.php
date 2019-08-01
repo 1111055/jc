@@ -330,7 +330,8 @@ class ProdutoController extends Controller
                 $extension = $request->file('prodimg')->getClientOriginalExtension();
          
                 //Novo nome do ficheiro
-                $imagename = "prod_".$request->id.'.'.$photo->getClientOriginalExtension(); 
+                $imagename    = "prod_".$request->id.'.'.$photo->getClientOriginalExtension(); 
+                $imagenamebig = "prod_big".$request->id.'.'.$photo->getClientOriginalExtension();
 
                 $data = getimagesize($photo);
                 $width = $data[0];
@@ -393,6 +394,19 @@ class ProdutoController extends Controller
                     $cmpfinal = $comprimento * $divisaocom;
 
                 }
+
+                //imagem big do artigo
+                $divisaocom = 468 / $comprimento;
+                $divisaoalt = 659 / $altura; 
+
+                if($divisaoalt < $divisaocom){
+                    $altfinalbig = $altura * $divisaoalt;
+                    $cmpfinalbig = $comprimento * $divisaoalt;
+                }else{
+                    $altfinalbig = $altura * $divisaocom;
+                    $cmpfinalbig = $comprimento * $divisaocom;
+
+                }
                 $_path = $request->root().'/img/Produtos/CROP/'.$imagename;
                 // Resized image
                 $thumb_img->resize($cmpfinal, $altfinal, function ($constraint) {
@@ -402,6 +416,17 @@ class ProdutoController extends Controller
                 $canvas = Image::canvas(270, 380);
                 $canvas->insert($thumb_img, 'center');
                 $canvas->save($destinationPath.'/'.$imagename,50);
+
+                //imagem big
+                 $_pathbig = $request->root().'/img/Produtos/CROP/'.$imagenamebig;
+                // Resized image
+                $thumb_img->resize($cmpfinalbig, $altfinalbig, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                // Canvas image
+                $canvas = Image::canvas(468, 659);
+                $canvas->insert($thumb_img, 'center');
+                $canvas->save($destinationPath.'/'.$imagenamebig,50);
                             
        }
 
@@ -418,6 +443,7 @@ class ProdutoController extends Controller
         $produto->obs              = $request->obs;
         $produto->link             = $request->link;
         $produto->path             = $_path;
+        $produto->pathbig          = $_pathbig;
         $produto->ordem            = $request->ordem;
         $produto->sexo             = $request->sexo;
         $produto->activo           = ($request->activo !== '' && $request->activo !== null) ? 1 : 0;

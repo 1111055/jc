@@ -29,6 +29,7 @@ class CreateProdutosTable extends Migration
             $table->string('lote')->nullable();
             $table->string('link')->nullable();
             $table->string('path')->nullable();
+            $table->string('pathbig')->nullable();
             $table->string('ordem')->nullable();
             $table->integer('activo')->default(1);
             $table->integer('visualizado')->nullable();

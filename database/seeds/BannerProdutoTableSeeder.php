@@ -20,7 +20,7 @@ class BannerProdutoTableSeeder extends Seeder
         ]);
     	DB::table('bannerprodutos')->insert([
             'banner_id'  => '41',
-            'produto_id' => '31',
+            'produto_id' => '21',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);

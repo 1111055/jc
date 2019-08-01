@@ -109,7 +109,7 @@
                     <div class="col-lg-5">
                         <div class="tab-content">
                             <div id="thumb" class="tab-pane active">
-                                <a data-fancybox="images" href="#"><img src="{{ $prod->path }}" alt="product-view"></a>
+                                <a data-fancybox="images" href="#"><img src="{{ $prod->pathbig }}" alt="product-view"></a>
                             </div>
                             @foreach($prod->imagensproduto as $key => $item)
                                 <div id="thumb{{$key}}" class="tab-pane">

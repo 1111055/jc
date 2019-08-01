@@ -16,7 +16,6 @@ class ContactoTableSeed extends Seeder
             'nome'       => 'Marco Mendes',
             'email'      => 'Teste@teste.pt',
             'telefone'   => '963258741',
-            'contact'    => '963258741',
             'assunto'    => 'Teste Assunto',
             'message'    => 'Teste Mensagem',
             'created_at' =>  Carbon::now(),
