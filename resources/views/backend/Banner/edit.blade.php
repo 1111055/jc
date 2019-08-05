@@ -4,6 +4,7 @@
 
 
 <style>
+
 /* USER PROFILE PAGE */
  .card {
     margin-top: 20px;
@@ -97,24 +98,28 @@ img {
     overflow-x: auto;
   }
 
-
+.dot {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+}
 
 </style>
- @if(session('sucess'))
-                                     <!--Alerta de sucess-->
-    <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
-      {{session('sucess')}}
-  </div>
-  @endif
-   @if ($errors->any())
-        <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+           @if(session('sucess'))
+              <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+                {{session('sucess')}}
+            </div>
+            @endif
+             @if ($errors->any())
+                  <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+                      <ul>
+                          @foreach ($errors->all() as $error)
+                              <li>{{ $error }}</li>
+                          @endforeach
+                      </ul>
+                  </div>
+              @endif
 
 
 
@@ -123,11 +128,11 @@ img {
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                   <h1>
-                   Editar Banner
+                   Editar Produto
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Banner</a></li>
+                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Editar Produto</a></li>
                   </ol>
                 </section>
 
@@ -164,7 +169,7 @@ img {
                                 <div class="tab-content">
                                   <div class="tab-pane fade in active" id="tab1">
                                       <div class="box box-info">
-                                             {!! Form::model($banner, [
+                                            {!! Form::model($banner, [
                                                   'method' => 'PUT',
                                                   'route' => ['banner.update', $banner->id],
                                                   'class' => 'form-horizontal'
@@ -216,11 +221,11 @@ img {
                                           {!! Form::close() !!}
                                       </div>
                                   </div>
-                                   @if($banner->produto == 0)
-                                        <div class="tab-pane fade in" id="tab3">
-                                           <div class="panel-body">
-                                              <div class="box box-info">
-                                                {!! Form::open(['url' => 'bannerlines','class' => 'form-horizontal',  'files' => true]) !!}
+                                  <div class="tab-pane fade in" id="tab3">
+                                     <div class="panel-body">
+                                        <div class="box box-info">
+                                           @if($banner->produto == 0)
+                                                    {!! Form::open(['url' => 'bannerlines','class' => 'form-horizontal',  'files' => true]) !!}
                                                       <div class="box-body">
                                                         <div class="form-group">
                                                           {!! Form::hidden('idbannner',$banner->id) !!}
@@ -246,128 +251,93 @@ img {
                                                           {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
                                                       </div>
                                                     {!! Form::close() !!}
-                                                </div>
-                                              <div class="box-body table-responsive no-padding">
-                                                    <table class="table table-hover">
-                                                      <tr>
-                                                        <th>#</th>
-                                                        <th class="col-xs-2">Imagem</th>
-                                                        <th>Titulo</th>
-                                                        <th>Descricao</th>
-                                                        <th>Ordem</th>
-                                                        <th>Link</th>
-                                                        <th class="text-center">Active</th>
-                                                      </tr>
-                                                      
-                                                        @foreach($bannerLine as $item)
-                                                        <tr>
-                                                          <td>#</td>
-                                                          <td class="col-xs-2"><img src="{{ $item->path }}" class="img-thumbnail"></td>
-                                                          <td>{{ $item->titulo }}</td>
-                                                          <td>{{ $item->descricao }}</td>
-                                                          <td>{{ $item->ordem }}</td>
-                                                          <td>{{ $item->link }}</td>
-                                                          @if ($item->activo === 1)
-                                                              <td class="text-center"><i class="fa fa-check-circle"></i></td>
-                                                          @else                       
-                                                          <td class="text-center"><i class="fa fa-times-circle"></i></td>
-                                                          @endif   
-                                                          <td><a href="{{route('bannerlines.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
-
-                                                          {{ Form::open(['route' => ['bannerlines.destroy', $item->id], 'method' => 'delete']) }}
-                                                          <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                                                          {{ Form::close() }}
-
-                                                          </td>
-                                                          </tr>
-                                                        @endforeach
-                                                      
-                                                    </table>
-                                                  </div>
-                                            </div>
-                                        </div>
-                                     @endif
-                                     @if($banner->produto == 1)
-                                        <div class="tab-pane fade in" id="tab3">
-                                           <div class="panel-body">
-                                              <div class="box box-info">
-                                                {!! Form::open(['url' => 'produtobannerlines','class' => 'form-horizontal',  'files' => true]) !!}
-                                                      <div class="box-body">
-                                                        <div class="form-group">
-                                                             {!! Form::hidden('idbannner',$banner->id) !!}
-                                                             {!! Form::label('Produto:',null, ['class' => 'col-sm-1 control-label']) !!}
-                                                          <div class="col-sm-2">
-                                                             {!! Form::text('produto_id',null,['class' => 'form-control']) !!}
-                                                          </div>
-                                                             {!! Form::label('Categoria:',null, ['class' => 'col-sm-1 control-label']) !!}
-                                                          <div class="col-sm-2">
-                                                             {!! Form::select('categoria_id', $selcat,null,['class' => 'form-horizontal']) !!}
-                                                          </div>
-                                                        </div>
+                                           @endif
+                                           @if($banner->produto == 1)
+                                                    <div class="box box-info">
+                                                      {!! Form::open(['url' => 'produtobannerlines','class' => 'form-horizontal',  'files' => true]) !!}
+                                                            <div class="box-body">
+                                                              <div class="form-group">
+                                                                   {!! Form::hidden('idbannner',$banner->id) !!}
+                                                                   {!! Form::label('Produto:',null, ['class' => 'col-sm-1 control-label']) !!}
+                                                                <div class="col-sm-2">
+                                                                   {!! Form::text('produto_id',null,['class' => 'form-control']) !!}
+                                                                </div>
+                                                                   {!! Form::label('Categoria:',null, ['class' => 'col-sm-1 control-label']) !!}
+                                                                <div class="col-sm-2">
+                                                                   {!! Form::select('categoria_id', $selcat,null,['class' => 'form-horizontal']) !!}
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="box-footer">
+                                                                {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
+                                                            </div>
+                                                          {!! Form::close() !!}
                                                       </div>
-                                                      <div class="box-footer">
-                                                          {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
-                                                      </div>
-                                                    {!! Form::close() !!}
-                                                </div>
-                                              <h3>Produtos</h3>
-                                              <div class="box-body table-responsive no-padding">
-                                                    <table class="table table-hover">
-                                                       <tr>
-                                                          <th>#</th>
-                                                          <th class="col-xs-2">Imagem</th>
-                                                          <th>Codigo Artigo</th>
-                                                          <th>Titulo</th>
-                                                          <th>#</th>
-                                                       </tr>
-                                                      @if(count($banner->getBannerProdutoCategoria) > 0)
-                                                        @foreach($banner->getBannerProdutoCategoria as $item)
-                                                          @if(!empty($item->produto_id))
+                                                    <h3>Produtos</h3>
+                                                    <div class="box-body table-responsive no-padding">
+                                                          <table class="table table-hover">
+                                                             <tr>
+                                                                <th>#</th>
+                                                                <th class="col-xs-2">Imagem</th>
+                                                                <th>Codigo Artigo</th>
+                                                                <th>Titulo</th>
+                                                                <th>#</th>
+                                                             </tr>
+                                                            @if(count($banner->getBannerProdutoCategoria) > 0)
+                                                              @foreach($banner->getBannerProdutoCategoria as $item)
+                                                                @if(!empty($item->produto_id))
+                                                                    <tr>
+                                                                      <td>#</td>
+                                                                      <td>{{ $item->produto->path }}</td>
+                                                                      <td>{{ $item->produto->cod_art }}</td>
+                                                                      <td>{{ $item->produto->titulo }}</td>
+                                                                      <td> {{ Form::open(['route' => ['produto.destroyline', $item->id], 'method' => 'delete']) }}
+                                                                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                                                           {{ Form::close() }}
+                                                                      </td>
+                                                                    </tr>
+                                                                @endif
+                                                              @endforeach
+                                                            @endif
+                                                          </table>
+                                                    </div>
+                                                    <h3>Categorias</h3>
+                                                    <div class="box-body table-responsive no-padding">
+                                                          <table class="table table-hover">
                                                               <tr>
-                                                                <td>#</th>
-                                                                <td>{{ $item->produto->path }}</th>
-                                                                <td>{{ $item->produto->cod_art }}</th>
-                                                                <td>{{ $item->produto->titulo }}</th>
-                                                                <td>#</th>
+                                                                <th>#</th>
+                                                                <th>Categoria</th>
+                                                                <th>#</th>
                                                               </tr>
-                                                          @endif
-                                                        @endforeach
-                                                      @endif
-                                                    </table>
-                                              </div>
-                                              <h3>Categorias</h3>
-                                              <div class="box-body table-responsive no-padding">
-                                                    <table class="table table-hover">
-                                                        <tr>
-                                                          <th>#</th>
-                                                          <th>Categoria</th>
-                                                          <th>#</th>
-                                                        </tr>
-                                                      @if(count($banner->getBannerProdutoCategoria) > 0)
-                                                        @foreach($banner->getBannerProdutoCategoria as $item)
-                                                          @if(!empty($item->categoria_id))
-                                                              <tr>
-                                                                <td>#</th>
-                                                                <td>{{ $item->categoria->titulo }}</th>
-                                                                <td>#</th>
-                                                              </tr>
-                                                           @endif
-                                                        @endforeach
-                                                      @endif
-                                                    </table>
-                                              </div>
-                                            </div>
+                                                            @if(count($banner->getBannerProdutoCategoria) > 0)
+                                                              @foreach($banner->getBannerProdutoCategoria as $item)
+                                                                @if(!empty($item->categoria_id))
+                                                                    <tr>
+                                                                      <td>#</td>
+                                                                      <td>{{ $item->categoria->titulo }}</td>
+                                                                      <td>
+                                                                         {{ Form::open(['route' => ['produto.destroyline', $item->id], 'method' => 'delete']) }}
+                                                                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                                                         {{ Form::close() }}
+                                                                      </td>
+                                                                    </tr>
+                                                                 @endif
+                                                              @endforeach
+                                                            @endif
+                                                          </table>
+                                                    </div>
+                                            @endif
                                         </div>
-                                     @endif
+                                    </div>
+                                 </div>
                                 </div>
                               </div>
-                         </div>
+                            </div>
+                          </div>
                         </div>
-                        <!-- /.box -->
                       </div>
-                     </div>
+                    </div>
                   </div>
-
                 </section>
                 <!-- /.content -->
               </div>

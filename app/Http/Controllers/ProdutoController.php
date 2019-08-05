@@ -287,6 +287,7 @@ class ProdutoController extends Controller
         $produto = Produto::findOrFail($id);
 
         $_path = $produto->path;
+         $_pathbig = $produto->pathbig;
 
       //  dd($request->cores);
          ProdutoCor::where('produto_id', $id)->delete();
@@ -465,5 +466,11 @@ class ProdutoController extends Controller
          Produto::destroy($id);
 
          return redirect()->route('produto')->with('sucess','Removido com sucesso.');
+    }
+   public function destroyline($id)
+    {
+         Bannerproduto::destroy($id);
+
+           return back()->with('sucess','Removido com sucesso.');
     }
 }

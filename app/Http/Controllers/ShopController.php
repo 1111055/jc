@@ -35,12 +35,18 @@ class ShopController extends Controller
                $cores    = array();
                $tamanhos = array();
 
-               $produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id)->orderBy('ordem','asc')->get();
+               if(!request()->sort){
+                    $produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id)->orderBy('ordem','asc')->paginate(25);
+                }else{
+                    $produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id)->orderBy('titulo','desc')->paginate(25);
+                }
+
+               $_produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id)->orderBy('ordem','asc')->get();
                
 
                //dd($produtos);
 
-                foreach ($produtos as $key => $variable) 
+                foreach ($_produtos as $key => $variable) 
                 {
                    
                   if(count($variable) > 0){
@@ -61,15 +67,14 @@ class ShopController extends Controller
 
                         $array = [];
 
-                        if(count($familia) > 0){
+                        
                            $array = Arr::prepend($array, $familia);
-                        }
-                        if(count($cores) > 0){
+                        
+                      
                            $array = Arr::prepend($array, $cores);
-                        }
-                        if(count($tamanhos) > 0){
+                        
                            $array = Arr::prepend($array, $tamanhos);
-                        }
+                    
 
                         // dd($array);
                        session(['filter' => $array]);

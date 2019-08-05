@@ -207,6 +207,7 @@ Route::get('produto/removebag/{id}',      ['as' => 'produto.removebag',  'uses' 
 Route::get('produto/banner',              ['as' => 'produto.banner',     'uses' => 'ProdutoController@banner']); 
 Route::post('produto', 'ProdutoController@store');
 Route::post('produtobannerlines', 'ProdutoController@storebanner');
+Route::delete('produtobannerlines/destroy/{id}',     ['as' => 'produto.destroyline',    'uses' => 'ProdutoController@destroyline']);
 
 
 

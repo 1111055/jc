@@ -2776,16 +2776,16 @@ p.checkout-coupon input[type="submit"] {
     margin-bottom: 30px;
 }
 /* blog pagination css */
-.blog-pagination {
+.pagination {
     display: inline-block;
 }
 
-.blog-pagination li {
+.pagination li {
     display: inline-block;
     margin-right: 1px;
 }
 
-.blog-pagination li a {
+.pagination li a {
     display: block;
     font-size: 16px;
     color: 808080;
@@ -2797,8 +2797,8 @@ p.checkout-coupon input[type="submit"] {
     background: #fff;
 }
 
-.blog-pagination li.active a,
-.blog-pagination li a:hover {
+.pagination li.active a,
+.pagination li a:hover {
     background: #f1ac06;
     color: #fff;
 }
@@ -3126,7 +3126,7 @@ p.checkout-coupon input[type="submit"] {
     color: #f1ac06;
 }
 
-.blog-pagination {
+.pagination {
     display: inline-block;
 }
 

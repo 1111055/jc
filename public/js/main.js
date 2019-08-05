@@ -843,6 +843,13 @@ $(function() {
         });
     });
 
+$('#sort').change(function(){
+    var val = $(this).val();
+
+    alert(val);
+    
+      window.location.href = '/public/shop/1?sort='+val;
+});
 
 })(jQuery);
 

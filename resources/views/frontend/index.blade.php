@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="best-seller-pro-active  owl-carousel slider-right-content">
-                                @foreach($value->take(4) as $item)
+                                @foreach($value as $item)
                                      @if($item->produto_id > 0)
                                             <div class="double-pro">
                                                 <div class="single-product">
@@ -63,27 +63,27 @@
                                             </div>
                                     @endif
                               @endforeach
-                        </div>
-                            @if($value->count() > 4)
-                                 @if($item->produto_id > 0)
-                                     <div class="best-seller-pro-active  owl-carousel slider-right-content">
-                                      @foreach($value as $key => $item)
-                                        @if($key > 3)
+                              @foreach($value as $item)
+                                     @if($item->categoria_id > 0)
+                                          @foreach($item->categoria->produtos as $prd)
                                             <div class="double-pro">
                                                 <div class="single-product">
                                                     <div class="pro-img">
-                                                        <a href="{{route('produto.show',$item->produto->id)}}"><img class="img" src="{{$item->produto->path}}" alt="product-image"></a>
+                                                      @if($prd != null)
+                                                        <a href="{{route('produto.show',$prd->id)}}"><img class="img" src="{{$prd->path}}" alt="product-image"></a>
+                                                      @endif
                                                     </div>
                                                     <div class="pro-content">
-                                                        <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                        @if($prd != null)
+                                                           <h4><a href="{{route('produto.show',$prd->id)}}">{{$prd->titulo}}</a></h4>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </div>
-                                          @endif
-                                        @endforeach
-                                     </div>
-                                @endif
-                           @endif
+                                          @endforeach
+                                    @endif
+                              @endforeach
+                        </div>
                     @endif    
               @endforeach
             </div>
@@ -104,6 +104,7 @@
 
                                     @foreach($value as $item)
                                       @if($item->produto_id > 0)
+                                       
                                         <div class="single-product">
                                             <div class="pro-img">
                                                 <a href="{{route('produto.show',$item->produto->id)}}">
@@ -122,6 +123,32 @@
                                                 </div>
                                             </div>
                                         </div>
+                                       
+                                      @endif
+                                    @endforeach
+
+                                    @foreach($value as $item)
+                                      @if($item->categoria_id > 0)
+                                       @foreach($item->categoria->produtos as $prd)
+                                            <div class="single-product">
+                                                <div class="pro-img">
+                                                    <a href="{{route('produto.show',$item->produto->id)}}">
+                                                        <img class="primary-img" src="{{$item->produto->path}}" alt="single-product">
+                                                        <img class="secondary-img" src="{{$item->produto->path}}" alt="single-product">
+                                                    </a>
+                                                </div>
+                                                <div class="pro-content">                               
+                                                    <h4><a href="#">{{$item->produto->titulo}}</a></h4>
+                                                    <p><span class="price"> </span><del class="prev-price"> </del></p-->
+                                                    <div class="pro-actions">
+                                                        <div class="actions-secondary">
+                                                            <a href="{{route('produto.wish',$item->produto->id)}}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                            <a href="{{route('produto.bag',$item->produto->id)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         @endforeach
                                       @endif
                                     @endforeach
                                 </div>

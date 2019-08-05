@@ -31,44 +31,49 @@
                             {!! Form::open(['url' => 'shop','class' => 'form-horizontal']) !!}
                                        <input type="hidden" id="subcategoria" name="subcategoria" value="{{$subcat->id}}"> 
                                       @if(Session::has('filter'))
-                                            @if(count(Session::get('filter')[2])>0)
-                                                <div class="single-sidebar">
-                                                    <div class="group-title">
-                                                        <h2>{{$subcat->titulo}}</h2>
+
+                                                @if(count(Session::get('filter')[2])>0)
+                                                    <div class="single-sidebar">
+                                                        <div class="group-titlewish">
+                                                            <h2>{{$subcat->titulo}}</h2>
+                                                        </div>
+                                                       
+                                                        <ul>
+                                                            @foreach(Session::get('filter')[2] as $item)
+                                                                <input type="checkbox" id="familia" name="familia[]" value="{{$item['id']}}" > {{$item['titulo']}}
+                                                            @endforeach
+                                                        </ul>
                                                     </div>
-                                                   
-                                                    <ul>
-                                                        @foreach(Session::get('filter')[2] as $item)
-                                                            <input type="checkbox" id="familia" name="familia[]" value="{{$item['id']}}" @if($item['checked'] == true) checked @endif> {{$item['titulo']}}
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            @endif
-                                            @if(count(Session::get('filter')[1])>0)
-                                                <div class="single-sidebar">
-                                                    <div class="group-title">
-                                                        <h2>Cor</h2>
+                                                @endif
+                                            
+                                        
+                                                @if(count(Session::get('filter')[1])>0)
+                                                    <div class="single-sidebar">
+                                                        <div class="group-titlewish">
+                                                            <h2>Cor</h2>
+                                                        </div>
+                                                        <ul class="color-option">
+                                                            @foreach(Session::get('filter')[1] as $item)
+                                                             <li>
+                                                                  <input type="checkbox" id="colors" name="colors[]" value="{{$item['id']}}"> <a href="#" style="background-color: {{$item['cor']}} "></a>
+                                                             </li>
+                                                            @endforeach
+                                                        </ul>
                                                     </div>
-                                                    <ul class="color-option">
-                                                        @foreach(Session::get('filter')[1] as $item)
-                                                         <li>
-                                                              <input type="checkbox" id="colors" name="colors[]" value="{{$item['id']}}"  @if($item['checked'] == true) checked @endif> <a href="#" style="background-color: {{$item['cor']}} "></a>
-                                                         </li>
-                                                        @endforeach
-                                                    </ul>
-                                                </div>
-                                            @endif
+                                                @endif
+                                            
                                             @if(count(Session::get('filter')[0])>0)
                                                 <div class="single-sidebar">
-                                                    <div class="group-title">
+                                                    <div class="group-titlewish">
                                                         <h2>Tamanhos</h2>
                                                     </div>
                                                     <ul class="manufactures-list">
                                                           @foreach(Session::get('filter')[0] as $item)
-                                                              <input type="checkbox" id="sizes" name="sizes[]" value="{{$item['id']}}"  @if($item['checked'] == true) checked @endif> {{$item['size']}}
+                                                              <input type="checkbox" id="sizes" name="sizes[]" value="{{$item['id']}}" > {{$item['size']}}
                                                           @endforeach
                                                     </ul>
                                                 </div>
+                                                
                                             @endif
                                        @endif
                                        {!! Form::submit('Filtrar',['class' => 'btn btn-info pull-right']) !!}
@@ -113,8 +118,9 @@
                             <div class="main-toolbar-sorter f-right">
                                 <div class="toolbar-sorter">
                                     <label>Ordernar Por</label>
-                                    <select class="sorter" name="sorter">
-                                        <option value="Product Name">Nome</option>
+                                    <select class="sorter" name="sorter" id="sort">
+                                        <option value="asc"> Nome ASC</option>
+                                        <option value="desc">Nome DESC</option>
                                     </select>
                                     <span><a href="#"><i class="fa fa-arrow-up"></i></a></span>
                                 </div>
@@ -185,20 +191,7 @@
                             </div>
                         </div>
                         <div class="pagination-box fix">
-                            <ul class="blog-pagination ">
-                                <li><a href="#">1</a></li>
-                                <li class="active"><a href="#">2</a></li>
-                                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                            </ul>
-                            <div class="toolbar-sorter-footer">
-                                <label>Mostrar</label>
-                                <select class="sorter" name="sorter">
-                                    <option value="Position" selected="selected">12</option>
-                                    <option value="Product Name">15</option>
-                                    <option value="Price">30</option>
-                                </select>
-                                <span>por página</span>
-                            </div>
+                            {!! $produtos->links();!!}
                         </div>
                     </div>
                 </div>
