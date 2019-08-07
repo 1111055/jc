@@ -210,6 +210,16 @@ Route::post('produtobannerlines', 'ProdutoController@storebanner');
 Route::delete('produtobannerlines/destroy/{id}',     ['as' => 'produto.destroyline',    'uses' => 'ProdutoController@destroyline']);
 
 
+//Utilizadores
+Route::get('user', 'UserController@index')->name('user');
+Route::get('user/edit/{id}',                     ['as' => 'user.edit',    'uses' => 'UserController@edit']); 
+Route::put('user/update/{id}',                   ['as' => 'user.update',  'uses' => 'UserController@update']);
+Route::delete('user/destroy/{id}',               ['as' => 'user.destroy', 'uses' => 'UserController@destroy']);
+Route::get('user/show/{id}',                     ['as' => 'user.show',    'uses' => 'UserController@show']);
+Route::get('userexiste',                         ['as' => 'user.existe',  'uses' => 'UserController@getUser']);  
+Route::post('user', 'UserController@store');
+
+
 
 
 //Tabelas associativas. 
@@ -219,3 +229,7 @@ Route::post('produtoimagem', 'ProdutoImagemController@store');
 //Produto Cor
 Route::delete('produtocor/destroy/{id}',     ['as' => 'produtocor.destroy', 'uses' => 'ProdutoCorController@destroy']);
 Route::post('produtocor', 'ProdutoCorController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

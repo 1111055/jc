@@ -4,18 +4,6 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
 
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel">
-        <div class="pull-left image">
-          <img src="https://fakeimg.pl/160x160/" class="img-circle" alt="User Image">
-        </div>
-        <div class="pull-left info">
-          <p>Marco Mendes</p>
-          <!-- Status -->
-          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-        </div>
-      </div>
-
       <!-- search form (Optional) -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
@@ -30,8 +18,6 @@
 
       <!-- Sidebar Menu -->
       <ul class="sidebar-menu" data-widget="tree">
-
-        <li class="header">HEADER</li>
 
         <li class="active"><a href="{{route('dash')}}"><i class="fa fa-home"></i> <span>Home</span></a></li>
 
@@ -102,6 +88,7 @@
          <li><a href="{{route('prazo')}}"><i class="fa fa-truck"></i> <span>Prazos Transporte</span></a></li>
          <li><a href="{{route('newsletter')}}"><i class="fa fa-newspaper-o"></i> <span>Newsletters</span></a></li>
          <li><a href="{{route('orcamento')}}"><i class="fa fa-newspaper-o"></i> <span>Pedidos Orçamentos</span></a></li>
+         <li><a href="{{route('user')}}"><i class="fa fa-users"></i> <span>Utilizadores</span></a></li>
        
       </ul>
       <!-- /.sidebar-menu -->

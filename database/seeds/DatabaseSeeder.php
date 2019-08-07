@@ -30,7 +30,9 @@ class DatabaseSeeder extends Seeder
         BannerProdutoTableSeeder::class,
         NewsletterSeeder::class,
         OrcamentoTableSeeder::class,
-        ContactoTableSeed::class
+        ContactoTableSeed::class,
+        RoleTableSeeder::class,
+        UserTableSeeder::class
      ]);
     }
 }

@@ -851,5 +851,7 @@ $('#sort').change(function(){
       window.location.href = '/public/shop/1?sort='+val;
 });
 
+
+
 })(jQuery);
 
