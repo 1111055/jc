@@ -8,6 +8,13 @@ use App\Desc;
 
 class QuestionController extends Controller
 {
+
+   public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +22,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $pageask = Pagina::find(51);
+        $pageask = Pagina::find(6);
 
-        $desc =  Desc::where('page_id','=','51')->orderBy('ordem','asc')->get();
+        $desc =  Desc::where('page_id','=','6')->orderBy('ordem','asc')->get();
 
         return view('frontend.ask', compact('pageask','desc'));
     }

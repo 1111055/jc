@@ -24,7 +24,7 @@ class SubfamiliaTableSeeder extends Seeder
         DB::table('subfamilias')->insert([
             'titulo'   => 'Polos',
             'subtitulo' => 'Polos de homem',
-            'familia_id' => 11,
+            'familia_id' => 2,
             'ordem' => '002',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
@@ -32,7 +32,7 @@ class SubfamiliaTableSeeder extends Seeder
         DB::table('subfamilias')->insert([
             'titulo'   => 'Criança',
             'subtitulo' => 'Polos de Criança',
-            'familia_id' => 21,
+            'familia_id' => 3,
             'ordem' => '003',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()

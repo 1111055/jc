@@ -25,14 +25,23 @@
             <!-- Menu Toggle Button -->
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <!-- The user image in the navbar-->
-              <img src="{{ Auth::user()->path }}" class="user-image" alt="User Image">
+
+                @if(Auth::user()->path !== null)
+                   <img src="{{ Auth::user()->path }}" class="user-image" alt="User Image">
+               @else
+                   <img src="https://fakeimg.pl/160x160/" class="user-image" alt="User Image">
+                @endif
               <!-- hidden-xs hides the username on small devices so only the image appears. -->
               <span class="hidden-xs">{{ Auth::user()->name }}</span>
             </a>
             <ul class="dropdown-menu">
               <!-- The user image in the menu -->
               <li class="user-header">
-                <img src="{{ Auth::user()->path }}" class="img-circle" alt="User Image">
+                @if(Auth::user()->path !== null)
+                   <img src="{{ Auth::user()->path }}" class="img-circle" alt="User Image">
+                @else
+                   <img src="https://fakeimg.pl/160x160/" class="img-circle" alt="User Image">
+                @endif
 
                 <p>
                   {{ Auth::user()->name }}
@@ -40,7 +49,7 @@
               </li>
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="{{ route('user.edit', Auth::user()->id )}}" class="btn btn-default btn-flat">Conta</a>
+                  <a href="{{ route('user.edit', Auth::user()->id )}}" class="btn btn-default btn-flat">Feel Me</a>
                 </div>
                 <div class="pull-right">
                

@@ -68,7 +68,7 @@ class Menu extends Model
         public static function getMenuFooter(){
 
         $menusf = Menu::
-                 where('submenu', '=', '11')
+                 where('submenu', '=', '2')
                  ->orderBy('ordem','asc')->get();
 
 

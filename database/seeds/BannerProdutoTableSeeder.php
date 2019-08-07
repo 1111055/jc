@@ -12,15 +12,27 @@ class BannerProdutoTableSeeder extends Seeder
      */
     public function run()
     {
-    	DB::table('bannerprodutos')->insert([
-            'banner_id'  => '41',
-            'produto_id' => '11',
+        DB::table('bannerprodutos')->insert([
+            'banner_id'  => '1',
+            'produto_id' => '2',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+        DB::table('bannerprodutos')->insert([
+            'banner_id'  => '1',
+            'produto_id' => '3',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
     	DB::table('bannerprodutos')->insert([
-            'banner_id'  => '41',
-            'produto_id' => '21',
+            'banner_id'  => '2',
+            'produto_id' => '1',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+    	DB::table('bannerprodutos')->insert([
+            'banner_id'  => '2',
+            'produto_id' => '2',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);

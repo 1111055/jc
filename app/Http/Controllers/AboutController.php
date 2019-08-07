@@ -8,6 +8,7 @@ use App\Desc;
 
 class AboutController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -16,9 +17,9 @@ class AboutController extends Controller
     public function index()
     {
 
-        $pageabout = Pagina::find(11);
+        $pageabout = Pagina::find(2);
 
-        $desc =  Desc::where('page_id','=','11')->orderBy('ordem','asc')->get();
+        $desc =  Desc::where('page_id','=','2')->orderBy('ordem','asc')->get();
 
         return view('frontend.about', compact('pageabout','desc'));
     }

@@ -7,6 +7,11 @@ use App\Color;
 use App\Http\Requests\ColorRequest;
 class ColorController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

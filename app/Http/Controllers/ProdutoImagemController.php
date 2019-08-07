@@ -8,6 +8,11 @@ use App\Http\Requests\ProdutoImagenRequest;
 
 class ProdutoImagemController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

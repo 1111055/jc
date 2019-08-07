@@ -21,7 +21,7 @@ class DashController extends Controller
     {
         $user = Auth::user();
         
-        $user->authorizeRoles(['employee', 'manager']);
+        $user->authorizeRoles(['master', 'supermaster']);
         return view('backend.index');
     }
 

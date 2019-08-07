@@ -39,36 +39,36 @@
                     <div class="col-xs-12">
                       <div class="box">
                         <div class="box-header">
-                          <h3 class="box-title">Páginas</h3>
+                        
+                              @if(Auth::user()->isinrule(['supermaster']))
+                                <!-- /.adicionar um novo -->
+                               <div class="panel panel-default">
+                                  <div class="panel-body">
+                                  <!-- Horizontal Form -->
+                                    <div class="col-xs-12">
+                                      <div class="box box-info">
+                                        {!! Form::open(['url' => 'pagina','class' => 'form-horizontal']) !!}
+                                              <div class="box-body">
+                                               <div class="form-group">
+                                                       {!! Form::label('* Nome ') !!}
+                                                       {!! Form::text('nome',null,['class' => 'form-control']) !!}
+                                                    </div>
+                                                    <div class="form-group">
+                                                      {!! Form::label('Titulo:')!!}
+                                                      {!! Form::text('titulo',null,['class' => 'form-control']) !!}
+                                                    </div>
 
-                          <!-- /.adicionar um novo -->
-                         <div class="panel panel-default">
-                            <div class="panel-body">
-                            <!-- Horizontal Form -->
-                              <div class="col-xs-12">
-                                <div class="box box-info">
-                                  {!! Form::open(['url' => 'pagina','class' => 'form-horizontal']) !!}
-                                        <div class="box-body">
-                                         <div class="form-group">
-                                                 {!! Form::label('* Nome ') !!}
-                                                 {!! Form::text('nome',null,['class' => 'form-control']) !!}
                                               </div>
-                                              <div class="form-group">
-                                                {!! Form::label('Titulo:')!!}
-                                                {!! Form::text('titulo',null,['class' => 'form-control']) !!}
+                                              <div class="box-footer">
+                                                  {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
                                               </div>
-
+                                            {!! Form::close() !!}
                                         </div>
-                                        <div class="box-footer">
-                                            {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
-                                        </div>
-                                      {!! Form::close() !!}
-                                  </div>
-                                </div>
-                              </div>
-                          <!-- /.box-body -->
-                        </div>
-                        <!-- /.box -->
+                                      </div>
+                                    </div>
+                                <!-- /.box-body -->
+                               </div>
+                              @endif
                           <div class="box-tools">
                             <div class="input-group input-group-sm" style="width: 150px;">
                               <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">

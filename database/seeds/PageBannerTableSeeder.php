@@ -22,13 +22,13 @@ class PageBannerTableSeeder extends Seeder
         ]);
          DB::table('pagebanners')->insert([
             'idpage' => '1',
-            'idbanner' => '11',
+            'idbanner' => '2',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
          DB::table('pagebanners')->insert([
             'idpage' => '1',
-            'idbanner' => '21',
+            'idbanner' => '3',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);

@@ -88,7 +88,7 @@ class MenuTableSeeder extends Seeder
         DB::table('menus')->insert([
             'menu' => 'Termos e Condições',
             'descricao' => 'Termos e Condições.',
-            'submenu' => '11',
+            'submenu' => '2',
             'ordem' => '001',
             'link' => '#',
             'path' => 'terms',
@@ -99,7 +99,7 @@ class MenuTableSeeder extends Seeder
         DB::table('menus')->insert([
             'menu' => 'Politica de Privacidade',
             'descricao' => 'Politica de Privacidade',
-            'submenu' => '11',
+            'submenu' => '2',
             'ordem' => '002',
             'link' => '#',
             'path' => 'policy',
@@ -110,7 +110,7 @@ class MenuTableSeeder extends Seeder
         DB::table('menus')->insert([
             'menu' => 'Perguntas Frequentes',
             'descricao' => 'Perguntas Frequentes',
-            'submenu' => '11',
+            'submenu' => '2',
             'ordem' => '003',
             'link' => '#',
             'path' => 'question',

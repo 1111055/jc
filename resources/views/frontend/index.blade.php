@@ -30,12 +30,11 @@
             @endisset                
             </div>
         </div> 
-        
-         <div class="best-seller-product pb-50 pb-sm-40">
-            <div class="container">
-                @foreach($collection as $key => $value) 
-                     @if ($loop->first)
-
+        @foreach($collection as $key => $value) 
+         @if ($loop->first)
+           @if( count($value) > 0 )
+             <div class="best-seller-product pb-50 pb-sm-40">
+                <div class="container">
                         <div class="group-title">
                              @foreach($value as $item)
                                   @if($item->banner_id > 0 && $loop->first && !empty($item->banner->titulo))
@@ -43,53 +42,57 @@
                                   @endif
                               @endforeach
                         </div>
-
-                        <div class="best-seller-pro-active  owl-carousel slider-right-content">
-                                @foreach($value as $item)
-                                     @if($item->produto_id > 0)
-                                            <div class="double-pro">
-                                                <div class="single-product">
-                                                    <div class="pro-img">
-                                                      @if($item->produto != null)
-                                                        <a href="{{route('produto.show',$item->produto->id)}}"><img class="img" src="{{$item->produto->path}}" alt="product-image"></a>
-                                                      @endif
-                                                    </div>
-                                                    <div class="pro-content">
+                        
+                          <div class="best-seller-pro-active  owl-carousel slider-right-content">
+                                  @foreach($value as $item)
+                                       @if($item->produto_id > 0)
+                                              <div class="double-pro">
+                                                  <div class="single-product">
+                                                      <div class="pro-img">
                                                         @if($item->produto != null)
-                                                           <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                          <a href="{{route('produto.show',$item->produto->id)}}"><img class="img" src="{{$item->produto->path}}" alt="product-image"></a>
                                                         @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                    @endif
-                              @endforeach
-                              @foreach($value as $item)
-                                     @if($item->categoria_id > 0)
-                                          @foreach($item->categoria->produtos as $prd)
-                                            <div class="double-pro">
-                                                <div class="single-product">
-                                                    <div class="pro-img">
-                                                      @if($prd != null)
-                                                        <a href="{{route('produto.show',$prd->id)}}"><img class="img" src="{{$prd->path}}" alt="product-image"></a>
-                                                      @endif
-                                                    </div>
-                                                    <div class="pro-content">
+                                                      </div>
+                                                      <div class="pro-content">
+                                                          @if($item->produto != null)
+                                                             <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                          @endif
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                      @endif
+                                @endforeach
+                                @foreach($value as $item)
+                                       @if($item->categoria_id > 0)
+                                            @foreach($item->categoria->produtos as $prd)
+                                              <div class="double-pro">
+                                                  <div class="single-product">
+                                                      <div class="pro-img">
                                                         @if($prd != null)
-                                                           <h4><a href="{{route('produto.show',$prd->id)}}">{{$prd->titulo}}</a></h4>
+                                                          <a href="{{route('produto.show',$prd->id)}}"><img class="img" src="{{$prd->path}}" alt="product-image"></a>
                                                         @endif
-                                                    </div>
-                                                </div>
-                                            </div>
-                                          @endforeach
-                                    @endif
-                              @endforeach
+                                                      </div>
+                                                      <div class="pro-content">
+                                                          @if($prd != null)
+                                                             <h4><a href="{{route('produto.show',$prd->id)}}">{{$prd->titulo}}</a></h4>
+                                                          @endif
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                            @endforeach
+                                      @endif
+                                @endforeach
+                          </div>
+                          
                         </div>
-                    @endif    
-              @endforeach
-            </div>
-        </div>                             
+                    </div> 
+                   @endif 
+                @endif    
+             @endforeach                 
             @foreach($collection as $key => $value) 
                  @if($loop->iteration == 2)
+                  {{count($value)}} 
+                   @if( count($value) > 0 )
                         <div class="best-seller-product pb-30">
                             <div class="container">
                                 <div class="group-title">
@@ -154,6 +157,9 @@
                                 </div>
                             </div>
                         </div>
+                      @endif  
+                  }
+                  }
                  @endif    
             @endforeach
         <div class="upper-banner banner pb-60">
@@ -269,7 +275,8 @@
                                   @endforeach
                             </div>
                             <div class="single-banner zoom mt-30 ">
-                              @if(file_exists(public_path('img/CROP/banner_home.jpg')) || file_exists(public_path('img/CROP/banner_home.png')) )
+                              
+                              @if(((file_exists(public_path('img/CROP/banner_home.jpg')) || file_exists(public_path('img/CROP/banner_home.png'))) && $pagina->pathimg !== null  ))
 
                                 <a href="#"><img src="{{$pagina->pathimg}}" alt="slider-banner"></a>
 

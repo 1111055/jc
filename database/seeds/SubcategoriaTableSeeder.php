@@ -24,7 +24,7 @@ class SubcategoriaTableSeeder extends Seeder
         DB::table('subcategorias')->insert([
             'titulo'   => 'Canetas',
             'subtitulo' => 'Canetas',
-            'categoria_id' => 11,
+            'categoria_id' => 2,
             'ordem' => '002',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
@@ -32,7 +32,7 @@ class SubcategoriaTableSeeder extends Seeder
         DB::table('subcategorias')->insert([
             'titulo'   => 'Pulseiras',
             'subtitulo' => 'Pulseiras',
-            'categoria_id' => 21,
+            'categoria_id' => 3,
             'ordem' => '003',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()

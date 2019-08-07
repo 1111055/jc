@@ -18,7 +18,7 @@ class ContactosController extends Controller
     public function index()
     {
 
-       $contact = Pagina::find(21);
+       $contact = Pagina::find(3);
 
         return view('frontend.contactos', compact('contact'));
     }

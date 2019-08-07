@@ -8,6 +8,13 @@ use App\Desc;
 
 class TermsController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -15,9 +22,9 @@ class TermsController extends Controller
      */
     public function index()
     {
-        $pageterms = Pagina::find(31);
+        $pageterms = Pagina::find(4);
 
-        $desc =  Desc::where('page_id','=','31')->orderBy('ordem','asc')->get();
+        $desc =  Desc::where('page_id','=','4')->orderBy('ordem','asc')->get();
 
         return view('frontend.terms', compact('pageterms','desc'));
     }
