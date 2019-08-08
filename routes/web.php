@@ -222,10 +222,11 @@ Route::post('user', 'UserController@store');
 
 //Roles
 Route::get('role', 'RoleController@index')->name('role');
-Route::get('role/edit/{id}',                     ['as' => 'role.edit',    'uses' => 'RoleController@edit']); 
-Route::put('role/update/{id}',                   ['as' => 'role.update',  'uses' => 'RoleController@update']);
-Route::delete('role/destroy/{id}',               ['as' => 'role.destroy', 'uses' => 'RoleController@destroy']);
-Route::get('role/show/{id}',                     ['as' => 'role.show',    'uses' => 'RoleController@show']);
+Route::get('role/edit/{id}',                          ['as' => 'role.edit',    'uses' => 'RoleController@edit']); 
+Route::put('role/update/{id}',                        ['as' => 'role.update',  'uses' => 'RoleController@update']);
+Route::delete('role/destroy/{id}',                    ['as' => 'role.destroy', 'uses' => 'RoleController@destroy']);
+Route::delete('role/removerole/{role_id}/{user_id}',  ['as' => 'role.removerole', 'uses' => 'RoleController@removerole']);
+Route::get('role/show/{id}',                          ['as' => 'role.show',    'uses' => 'RoleController@show']);
 Route::post('role', 'RoleController@store');
 
 

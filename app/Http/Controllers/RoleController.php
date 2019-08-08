@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Role;
 use App\Http\Requests\RoleRequest;
+use App\RuleUser;
 
 class RoleController extends Controller
 {
@@ -62,13 +63,15 @@ class RoleController extends Controller
     public function show($id)
     {
          $role =  Role::find($id);
-
+         //dd($role->users);
 
          foreach ($role->users  as $key => $valuetmp) {
 
                   if($valuetmp->path != null){
-                    if (!file_exists(public_path('/logotipo/User/user_'.$valuetmp->id))) {
-
+                    $jpgimg = public_path('/logotipo/User/user_'.$valuetmp->id.'.jpg');
+                    $pngimg = public_path('/logotipo/User/user_'.$valuetmp->id.'.png');
+                    if (!file_exists($jpgimg) & !file_exists($pngimg)) {
+                       
                              $valuetmp->path = request()->root().'/img/Produtos/CROP/noimage.png';
                      }
                   }else{
@@ -117,5 +120,34 @@ class RoleController extends Controller
          Role::destroy($id);
 
          return redirect()->route('role')->with('sucess','Removido com sucesso.');
+    }
+
+    public function removerole($role,$user)
+    {
+        
+        $rrr = RuleUser::where('role_id','=',$role)->where('user_id','=',$user)->first();
+      //  dd( $rrr );
+        if($rrr !== null){
+            RuleUser::destroy($rrr->id);
+        }
+
+        $role = Role::find($role);
+
+        foreach ($role->users  as $key => $valuetmp) {
+
+                  if($valuetmp->path != null){
+                    $jpgimg = public_path('/logotipo/User/user_'.$valuetmp->id.'.jpg');
+                    $pngimg = public_path('/logotipo/User/user_'.$valuetmp->id.'.png');
+                    if (!file_exists($jpgimg) & !file_exists($pngimg)) {
+                       
+                             $valuetmp->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                     }
+                  }else{
+                             $valuetmp->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                  }
+        
+        }
+
+        return view('backend.Role.show', compact('role'));
     }
 }

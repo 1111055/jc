@@ -63,13 +63,20 @@
                                   <th>#</th>
                                   <th>Nome</th>
                                   <th>Email</th>
+                                  <th>#</th>
                                 </tr>
                                 @if(count($role->users) > 0 )
+
                                  @foreach($role->users as $itemtmp)
                                   <tr>
-                                    <td><a href="{{route('user.show',$itemtmp->user->id)}}" target="_black"><img src="{{ $itemtmp->user->path }}" class="img-thumbnail"></a></td>
-                                    <td>{{ $itemtmp->user->name }}</td>
-                                    <td>{{ $itemtmp->user->cod_art }}</td>
+                                    <td><a href="{{route('user.show',$itemtmp->id)}}" target="_black"><img src="{{ $itemtmp->path }}" class="img-thumbnail" style="max-width: 15%;"></a></td>
+                                    <td>{{ $itemtmp->name }}</td>
+                                    <td>{{ $itemtmp->email }}</td>
+                                    <td>
+                                      {{ Form::open(['route' => ['role.removerole', $role->id,$itemtmp->id], 'method' => 'delete']) }}
+                                           <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                      {{ Form::close() }}
+                                    </td>
                                   </tr>
                                   @endforeach
                                 @endif    
