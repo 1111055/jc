@@ -88,8 +88,18 @@
          <li><a href="{{route('prazo')}}"><i class="fa fa-truck"></i> <span>Prazos Transporte</span></a></li>
          <li><a href="{{route('newsletter')}}"><i class="fa fa-newspaper-o"></i> <span>Newsletters</span></a></li>
          <li><a href="{{route('orcamento')}}"><i class="fa fa-newspaper-o"></i> <span>Pedidos Orçamentos</span></a></li>
-         <li><a href="{{route('user')}}"><i class="fa fa-users"></i> <span>Utilizadores</span></a></li>
-       
+         <li class="treeview">
+            <a href="#"><i class="fa fa-users"></i> <span>Utilizadores</span>
+              <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{route('user')}}"><i class="fa fa-users"></i><span>Utilizadores</span></a></li>
+               <li><a href="{{route('role')}}"><i class="fa fa-gavel"></i> <span>Regras</span></a></li> 
+            </ul>
+          </li>
+         
       </ul>
       <!-- /.sidebar-menu -->
     </section>
