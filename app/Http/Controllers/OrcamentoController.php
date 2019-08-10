@@ -110,8 +110,15 @@ class OrcamentoController extends Controller
             }
 
         }
+          
+         //  Mail::to($request->email)->cc("marcomendes0202@hotmail.com")->send(new PedidoOrcamento($request));
 
-          Mail::to($request->email)->cc("marcomendes0202@hotmail.com")->send(new PedidoOrcamento($request));
+           //dd($request->email);
+
+
+         Mail::to($request->email)->send(new PedidoOrcamento($request));
+         Mail::to('marcomendes999@gmail.com')->send(new PedidoOrcamento($request));
+
           
           return response()
             ->json(['done' => '1']);

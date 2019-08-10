@@ -27,6 +27,7 @@
     <script src="{{ asset('js/jquery.imgareaselect.min.js') }}"></script>
 
     <script src="{{ asset('backend/bower_components/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('js/multiselect2.js') }}"></script>
     <script src="{{ asset('backend/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
     <script src="{{ asset('backend/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js') }}"></script>
     <script>
@@ -306,6 +307,11 @@ function isEmail(email) {
   var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
   return regex.test(email);
 }
+
+
+    $(document).ready(function () {
+        $('.multiplePicker').multiselect();
+    });
 
     </script>
 

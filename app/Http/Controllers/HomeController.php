@@ -11,6 +11,7 @@ use App\Pagina;
 use App\Produto;
 use App\Bannerproduto;
 Use Session;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -199,6 +200,17 @@ class HomeController extends Controller
     {
         //
     }
+
+
+      public function testMail()
+    {
+        Mail::send('backend.Emails.test', array('key' => 'value'), function ($message)
+        {
+            $message->from('marketing@iberobrinde.com');
+            $message->to('marco.mendes@sroque.pt', 'John Smith')->subject('Wewwee45lcome!');
+        });
+    }
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -20,6 +20,7 @@ Route::get('home/mailthanks', function () {
     return $markdown->render('backend.Emails.thanks');
 });
 
+Route::get('testMail','HomeController@testMail');
 
 //FrontEnd
 // Home Page

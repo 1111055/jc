@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Http\Requests\UserRequest;
+use Illuminate\Support\Facades\DB;
 use Image;
 use File;
+use App\RuleUser;
+use App\Role;
 
 class UserController extends Controller
 {
@@ -77,8 +80,15 @@ class UserController extends Controller
     {
           $user = User::find($id);
 
-        //  dd($user);
-          return view('backend.User.edit', compact('user'));
+          $roles = RuleUser::
+                 where('user_id', '=', $id)->get();
+
+
+          $role = Role::all();
+
+          $selrole  = $role->pluck('name','id');
+          $selroles = $roles->pluck('role_id');
+          return view('backend.User.edit', compact('user','selrole','selroles'));
     }
 
     /**
@@ -187,7 +197,22 @@ class UserController extends Controller
                                     
       }
 
+        if(count($request->acessos) > 0){
 
+              $roles = RuleUser::
+                 where('user_id', '=', $id)->get();
+                 
+                  DB::table('role_user')->where('user_id', $id)->delete(); 
+
+                 //dd($request->acessos);
+                 foreach ($request->acessos as $key => $value) {
+
+                       $role_manager  = Role::where('id', $value)->first();
+                       $user->roles()->attach($role_manager);
+                    
+                 } 
+
+        }
         //dd($request->all());
         $user->name        = $request->name;
         $user->path        = $_path;
