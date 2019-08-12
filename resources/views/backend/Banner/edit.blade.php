@@ -128,12 +128,13 @@ img {
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                   <h1>
-                   Editar Produto
+                   Editar Banner
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Editar Produto</a></li>
-                  </ol>
+                    <li><a href="{{route('banner')}}"><i class="fa fa fa-sliders"></i> Banners</a></li>
+                    <li class="active"><a href="{{route('banner.edit',$banner->id)}}"><i class="fa fa-sliders"></i> Editar Banner</a></li>
+                  </ol> 
                 </section>
 
                 <!-- Main content -->

@@ -103,11 +103,11 @@
                                 <td class="text-center"><i class="fa fa-times-circle"></i></td>
                                 @endif   
                                 <td><a href="{{route('pagina.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
-
-                                {{ Form::open(['route' => ['pagina.destroy', $item->id], 'method' => 'delete']) }}
-                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                                {{ Form::close() }}
-
+                                @if(Auth::user()->isinrule(['supermaster']))    
+                                    {{ Form::open(['route' => ['pagina.destroy', $item->id], 'method' => 'delete']) }}
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                    {{ Form::close() }}
+                                @endif      
                                 </td>
                               </tr>
                               @endforeach

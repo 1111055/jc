@@ -24,7 +24,8 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('social')}}"><i class="fa fa-facebook-square"></i> Prazos</a></li>
+                    <li><a href="{{route('prazo')}}"><i class="fa fa-truck"></i> Prazos</a></li>
+                    <li class="active"><a href="{{route('prazo.edit',$prazos->id)}}"><i class="fa fa-truck"></i>Editar Prazo</a></li>
                   </ol>
                 </section>
 
@@ -34,15 +35,8 @@
                   <div class="row">
                       <div class="col-xs-12">
                         <div class="box">
-                          <div class="box-header">
-                            <h3 class="box-title">Edit Prazo Transporte</h3>
-
-                          </div>
-                          <!-- /.box-header -->
                          <div class="panel panel-default">
                             <div class="panel-body">
-                            <!-- Horizontal Form -->
-                            <!-- Horizontal Form -->
                             <div class="box box-info">
                                      {!! Form::model($prazos, [
                                           'method' => 'PUT',
@@ -75,6 +69,13 @@
                                            {!! Form::text('ordem',$prazos->ordem,['class' => 'form-control']) !!}
                                         </div>
                                       </div>
+                                      <div class="form-group">
+                                          {!! Form::label('Activo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                        <div class="col-sm-4">
+                                           {!! Form::checkbox('activo',1,$prazos->activo) !!}
+                                        </div>
+                                      </div>
+
                                     </div>
                                     <div class="box-footer">
                                         {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}

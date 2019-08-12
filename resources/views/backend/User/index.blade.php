@@ -90,24 +90,26 @@
                               <th class="text-center">Active</th>
                             </tr>
                              @foreach($users as $item)
-                              <tr>
-                                <td>#</td>
-                                <td>{{ $item->nome }}</td>
-                                <td>{{ $item->email }}</td>
+                              @if(!$item->isinrule(['supermaster']))
+                                  <tr>
+                                    <td>#</td>
+                                    <td>{{ $item->nome }}</td>
+                                    <td>{{ $item->email }}</td>
 
-                                @if ($item->activo === 1)
-                                    <td class="text-center"><i class="fa fa-check-circle"></i></td>
-                                @else                       
-                                <td class="text-center"><i class="fa fa-times-circle"></i></td>
-                                @endif   
-                                <td><a href="{{route('user.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
+                                    @if ($item->activo === 1)
+                                        <td class="text-center"><i class="fa fa-check-circle"></i></td>
+                                    @else                       
+                                    <td class="text-center"><i class="fa fa-times-circle"></i></td>
+                                    @endif   
+                                    <td><a href="{{route('user.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
 
-                                {{ Form::open(['route' => ['user.destroy', $item->id], 'method' => 'delete']) }}
-                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                                {{ Form::close() }}
+                                    {{ Form::open(['route' => ['user.destroy', $item->id], 'method' => 'delete']) }}
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                    {{ Form::close() }}
 
-                                </td>
-                              </tr>
+                                    </td>
+                                  </tr>
+                               @endif   
                               @endforeach
                           </table>
                         </div>

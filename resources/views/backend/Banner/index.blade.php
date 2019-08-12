@@ -26,7 +26,7 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Banners</a></li>
+                    <li><a href="{{route('banner')}}"><i class="fa fa-sliders"></i> Banners</a></li>
                   </ol>
                 </section>
 
@@ -37,37 +37,39 @@
                     <div class="col-xs-12">
                       <div class="box">
                         <div class="box-header">
-                         <div class="panel panel-default">
-                            <div class="panel-body">
-                            <!-- Horizontal Form -->
-                              <div class="col-xs-12">
-                                <div class="box box-info">
-                                     {!! Form::open(['url' => 'banner','class' => 'form-horizontal']) !!}
-                                        <div class="box-body">
-                                              <div class="col-xs-8">
-                                                 <div class="form-group col-xs-10">
-                                                   {!! Form::label('* Titulo ') !!}
-                                                   {!! Form::hidden('produto',0,['class' => 'form-control']) !!}
-                                                   {!! Form::text('titulo',null,['class' => 'form-control']) !!}
-                                                 </div>
-                                              </div>
-                                             <div class="col-xs-4">
-                                                <div class="form-group col-xs-6">
-                                                  {!! Form::label('Ordem:')!!}
-                                                  {!! Form::text('ordem',null,['class' => 'form-control']) !!}
+                         @if(Auth::user()->isinrule(['supermaster']))
+                           <div class="panel panel-default">
+                              <div class="panel-body">
+                              <!-- Horizontal Form -->
+                                <div class="col-xs-12">
+                                  <div class="box box-info">
+                                       {!! Form::open(['url' => 'banner','class' => 'form-horizontal']) !!}
+                                          <div class="box-body">
+                                                <div class="col-xs-8">
+                                                   <div class="form-group col-xs-10">
+                                                     {!! Form::label('* Titulo ') !!}
+                                                     {!! Form::hidden('produto',0,['class' => 'form-control']) !!}
+                                                     {!! Form::text('titulo',null,['class' => 'form-control']) !!}
+                                                   </div>
                                                 </div>
-                                             </div>
+                                               <div class="col-xs-4">
+                                                  <div class="form-group col-xs-6">
+                                                    {!! Form::label('Ordem:')!!}
+                                                    {!! Form::text('ordem',null,['class' => 'form-control']) !!}
+                                                  </div>
+                                               </div>
 
-                                        </div>
-                                        <div class="box-footer">
-                                            {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
-                                        </div>
-                                      {!! Form::close() !!}
+                                          </div>
+                                          <div class="box-footer">
+                                              {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
+                                          </div>
+                                        {!! Form::close() !!}
+                                    </div>
                                   </div>
                                 </div>
-                              </div>
-                          <!-- /.box-body -->
+                            <!-- /.box-body -->
                         </div>
+                        @endif
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
@@ -93,11 +95,11 @@
                                 <td class="text-center"><i class="fa fa-times-circle"></i></td>
                                 @endif   
                                 <td><a href="{{route('banner.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
-
-                                {{ Form::open(['route' => ['banner.destroy', $item->id], 'method' => 'delete']) }}
-                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                                {{ Form::close() }}
-
+                                @if(Auth::user()->isinrule(['supermaster']))
+                                    {{ Form::open(['route' => ['banner.destroy', $item->id], 'method' => 'delete']) }}
+                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                    {{ Form::close() }}
+                                @endif
                                 </td>
                               </tr>
                               @endforeach

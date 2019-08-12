@@ -276,10 +276,12 @@ class ProdutoController extends Controller
          }
     
         
- 
+            
+          $seltamanhos  = $tamanhos->pluck('tamanho','id');
+          $selcores     = $colors->pluck('titulo','id');
     
 
-         return view('backend.Produto.edit', compact('produto','selcat','selsubcat','selfam','selsubfam','selcor','selsize','selprazo','tamanhos','colors','arry','arrys'));
+         return view('backend.Produto.edit', compact('produto','selcat','selsubcat','selfam','selsubfam','selcor','selsize','selprazo','colors','arry','arrys','seltamanhos','selcores'));
     }
 
     /**

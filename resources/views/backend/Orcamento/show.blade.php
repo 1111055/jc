@@ -28,7 +28,8 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('orcamento')}}"><i class="fa fa-paint-brush"></i> Pedidos Orçamentos</a></li>
+                    <li><a href="{{route('orcamento')}}"><i class="fa fa-newspaper-o"></i> Pedidos Orçamentos</a></li>
+                    <li class="active"><a href="{{route('orcamento.show',$orcamento->id)}}"><i class="fa fa-newspaper-o"></i> Detalhe Orçamento</a></li>
                   </ol>
                 </section>
 
@@ -51,7 +52,6 @@
                                 <li class="list-group-item">Observações: {{ $orcamento->obs}}</li>
                                 <li class="list-group-item">Download Ficheiro: 
                                     @if(file_exists(public_path().'/logotipo/orcamento/'.$orcamento->pathfile) &&  !empty($orcamento->pathfile))
-
                                         <a target="_blank" href="{{ (route('orcamento.download',[$orcamento->pathfile, $orcamento->id])) }}"> Link </a></li>  
                                     @endif    
                               </ul>

@@ -132,7 +132,8 @@ img {
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Editar Produto</a></li>
+                    <li><a href="{{route('produto')}}"><i class="fa fa-product-hunt"></i> Produtos</a></li>
+                    <li class="active"><a href="{{route('produto.edit', $produto->id)}}"><i class="fa fa-product-hunt"></i> Editar Produto</a></li>
                   </ol>
                 </section>
 
@@ -266,39 +267,21 @@ img {
                                                <div class="row">
                                                   <div class="col-md-4 offset-md-3">
                                                       <h3>Tamanhos </h3>
-     
-                                                        <!-- add class p-switch -->
-                                                          @foreach($tamanhos as $item)
-                                                              <div class="pretty p-switch">
-                                                                   @if(in_array($item->id,$arrys))
-                                                                    {!! Form::checkbox('sizes[]',$item->id,true) !!}  
-                                                                   @else
-                                                                    {!! Form::checkbox('sizes[]',$item->id,false) !!}  
-                                                                   @endif
-                                                                  <div class="state">
-                                                                       <label>{{ $item->tamanho }} </label>
-                                                                  </div>
-                                                              </div>
-                                                          @endforeach
+                                                          
+
+                                                           <div class="col-sm-4">
+                                                              {{Form::select('sizes[]', $seltamanhos,$arrys, ['class' => 'form-control input-sm multiplePicker', 'multiple'=>'multiple'])}} 
+                                                           </div>
+                                                       
                                                    
                                                   </div>  
                                                  
                                                   <div class="col-md-6 offset-md-3">
                                                          <h3 style="margin-bottom: 3%;">Cores </h3>
-                                                          @foreach($colors as $key => $item)
-                                                          @if($key > 0)
-                                                              <div class="pretty p-switch">
-                                                                  @if(in_array($item->id,$arry))
-                                                                    {!! Form::checkbox('cores[]',$item->id,true) !!}  
-                                                                  @else
-                                                                    {!! Form::checkbox('cores[]',$item->id,false) !!}  
-                                                                  @endif  
-                                                                  <div class="state">
-                                                                        <label style="text-indent: 3.5em !important;"> <span class="dot" style="background-color: {{$item->cor}};"></span></label>
-                                                                  </div>
-                                                              </div>
-                                                            @endif
-                                                          @endforeach
+                                                          <div class="col-sm-4">
+                                                              {{Form::select('cores[]', $selcores,$arry, ['class' => 'form-control input-sm multiplePicker', 'multiple'=>'multiple'])}} 
+                                                           </div>
+                                                       
                                                   </div> 
                                                </div> 
                                             </div>                                                   

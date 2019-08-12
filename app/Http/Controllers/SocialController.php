@@ -99,6 +99,7 @@ class SocialController extends Controller
         $social->link=$request->link;
         $social->menomonica=$request->menomonica;
         $social->ordem=$request->ordem;
+        $social->activo=$request->activo == null ? 0 : 1;
 
 
         $social->save();
@@ -106,7 +107,7 @@ class SocialController extends Controller
 
 
      
-        return redirect()->route('social');
+        return redirect()->route('social.edit',$id)->with('sucess','Guardado com sucesso.');;
     }
 
     /**

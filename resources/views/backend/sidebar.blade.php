@@ -32,7 +32,7 @@
               </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{ route('banner')}}">Banners</a></li>
+            <li><a href="{{ route('banner')}}"><i class="fa fa fa-sliders"></i> Banners</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -44,7 +44,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="{{ route('produto')}}"><i class="fa fa-product-hunt"></i> Produtos</a></li>
-            <li><a href="{{route('produto.banner')}}"><i class="fa fa-circle-o"></i> Banners Produtos</a></li>
+            <li><a href="{{route('produto.banner')}}"><i class="fa fa fa-sliders"></i> Banners Produtos</a></li>
             <li class="treeview">
                 <a href="#"><i class="fa fa-circle-o"></i> Configurador
                 <span class="pull-right-container">

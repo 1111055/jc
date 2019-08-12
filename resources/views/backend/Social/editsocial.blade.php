@@ -20,11 +20,12 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                   <h1>
-                   Social NetWork
+                  Redes Sociais
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('social')}}"><i class="fa fa-facebook-square"></i> Social Network</a></li>
+                    <li><a href="{{route('social')}}"><i class="fa fa-facebook-square"></i>  Redes Social</a></li>
+                    <li class="active"><a href="{{route('social.edit', $social->id)}}"><i class="fa fa-facebook-square"></i>  Editar Rede Social</a></li>
                   </ol>
                 </section>
 
@@ -34,15 +35,8 @@
                   <div class="row">
                       <div class="col-xs-12">
                         <div class="box">
-                          <div class="box-header">
-                            <h3 class="box-title">Edit Social NetWork</h3>
-
-                          </div>
-                          <!-- /.box-header -->
                          <div class="panel panel-default">
                             <div class="panel-body">
-                            <!-- Horizontal Form -->
-                            <!-- Horizontal Form -->
                             <div class="box box-info">
                                      {!! Form::model($social, [
                                           'method' => 'PUT',
@@ -80,6 +74,12 @@
                                          <div class="col-sm-8">
                                            {!! Form::text('class',$social->class,['class' => 'form-control']) !!}
                                          </div>
+                                      </div>
+                                      <div class="form-group">
+                                          {!! Form::label('Activo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                        <div class="col-sm-4">
+                                           {!! Form::checkbox('activo',1,$social->activo) !!}
+                                        </div>
                                       </div>
 
                                     </div>

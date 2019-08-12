@@ -24,11 +24,11 @@
                 <!-- Content Header (Page header) -->
                 <section class="content-header">
                   <h1>
-                   Menus List
+                   Menus
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('menu')}}"><i class="fa fa-align-justify"></i> Menus List</a></li>
+                    <li class="active"><a href="{{route('menu')}}"><i class="fa fa-align-justify"></i> Menus</a></li>
                   </ol>
                 </section>
 
@@ -38,48 +38,40 @@
                   <div class="row">
                     <div class="col-xs-12">
                       <div class="box">
-                        <div class="box-header">
-                          <h3 class="box-title">Menus List</h3>
+                         @if(Auth::user()->isinrule(['supermaster']))
+                            <div class="box-header">
+                            
+                                 <div class="panel panel-default">
+                                    <div class="panel-body">
+                                    <!-- Horizontal Form -->
+                                      <div class="col-xs-12">
+                                        <div class="box box-info">
+                                          {!! Form::open(['url' => 'menu','class' => 'form-horizontal']) !!}
+                                                <div class="box-body">
+                                                  <div class="form-group">
+                                                    {!! Form::label('* Menu:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                    <div class="col-sm-4">
+                                                       {!! Form::text('menu',null,['class' => 'form-control']) !!}
+                                                    </div>
+                                                       {!! Form::label('* Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                    <div class="col-sm-4">
+                                                       {!! Form::text('ordem',null,['class' => 'form-control']) !!}
+                                                    </div>
+                                                      
+                                                  </div>
 
-                          <!-- /.adicionar um novo -->
-                         <div class="panel panel-default">
-                            <div class="panel-body">
-                            <!-- Horizontal Form -->
-                              <div class="col-xs-12">
-                                <div class="box box-info">
-                                  {!! Form::open(['url' => 'menu','class' => 'form-horizontal']) !!}
-                                        <div class="box-body">
-                                          <div class="form-group">
-                                            {!! Form::label('* Menu:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-4">
-                                               {!! Form::text('menu',null,['class' => 'form-control']) !!}
-                                            </div>
-                                               {!! Form::label('* Ordem:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                            <div class="col-sm-4">
-                                               {!! Form::text('ordem',null,['class' => 'form-control']) !!}
-                                            </div>
-                                              
+                                                </div>
+                                                <div class="box-footer">
+                                                    {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
+                                                </div>
+                                              {!! Form::close() !!}
                                           </div>
-
                                         </div>
-                                        <div class="box-footer">
-                                            {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
-                                        </div>
-                                      {!! Form::close() !!}
+                                      </div>
                                   </div>
-                                </div>
+                               
                               </div>
-                        </div>
-                          <div class="box-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
-
-                              <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                          @endif 
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
@@ -103,11 +95,11 @@
                                 <td class="text-center"><i class="fa fa-times-circle"></i></td>
                                 @endif   
                                 <td><a href="{{route('menu.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
-
-                                    {{ Form::open(['route' => ['menu.destroy', $item->id], 'method' => 'delete']) }}
-                                    <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
-                                    {{ Form::close() }}
-
+                                     @if(Auth::user()->isinrule(['supermaster']))
+                                        {{ Form::open(['route' => ['menu.destroy', $item->id], 'method' => 'delete']) }}
+                                           <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                        {{ Form::close() }}
+                                     @endif   
                                 </td>
                               </tr>
                               @endforeach

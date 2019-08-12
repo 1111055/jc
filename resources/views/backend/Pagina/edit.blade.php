@@ -117,6 +117,7 @@
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
                     <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Paginas</a></li>
+                    <li><a href="{{route('pagina.edit', $pagina->id)}}"><i class="fa fa-align-justify"></i> Editar Pagina</a></li>
                   </ol>
                 </section>
 

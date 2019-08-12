@@ -26,7 +26,7 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Banners</a></li>
+                    <li><a href="{{route('banner')}}"><i class="fa fa-sliders"></i> Banners</a></li>
                   </ol>
                 </section>
 
@@ -37,37 +37,38 @@
                     <div class="col-xs-12">
                       <div class="box">
                         <div class="box-header">
-                         <div class="panel panel-default">
-                            <div class="panel-body">
-                            <!-- Horizontal Form -->
-                              <div class="col-xs-12">
-                                <div class="box box-info">
-                                     {!! Form::open(['url' => 'banner','class' => 'form-horizontal']) !!}
-                                        <div class="box-body">
-                                              <div class="col-xs-8">
-                                                 <div class="form-group col-xs-10">
-                                                   {!! Form::label('* Titulo ') !!}
-                                                   {!! Form::hidden('produto',1,['class' => 'form-control']) !!}
-                                                   {!! Form::text('titulo',null,['class' => 'form-control']) !!}
+                           @if(Auth::user()->isinrule(['supermaster']))
+                             <div class="panel panel-default">
+                                <div class="panel-body">
+                                <!-- Horizontal Form -->
+                                  <div class="col-xs-12">
+                                    <div class="box box-info">
+                                         {!! Form::open(['url' => 'banner','class' => 'form-horizontal']) !!}
+                                            <div class="box-body">
+                                                  <div class="col-xs-8">
+                                                     <div class="form-group col-xs-10">
+                                                       {!! Form::label('* Titulo ') !!}
+                                                       {!! Form::hidden('produto',1,['class' => 'form-control']) !!}
+                                                       {!! Form::text('titulo',null,['class' => 'form-control']) !!}
+                                                     </div>
+                                                  </div>
+                                                 <div class="col-xs-4">
+                                                    <div class="form-group col-xs-6">
+                                                      {!! Form::label('Ordem:')!!}
+                                                      {!! Form::text('ordem',null,['class' => 'form-control']) !!}
+                                                    </div>
                                                  </div>
-                                              </div>
-                                             <div class="col-xs-4">
-                                                <div class="form-group col-xs-6">
-                                                  {!! Form::label('Ordem:')!!}
-                                                  {!! Form::text('ordem',null,['class' => 'form-control']) !!}
-                                                </div>
-                                             </div>
 
-                                        </div>
-                                        <div class="box-footer">
-                                            {!! Form::submit('Novo',['class' => 'btn btn-info pull-right']) !!}
-                                        </div>
-                                      {!! Form::close() !!}
+                                            </div>
+                                            <div class="box-footer">
+                                                {!! Form::submit('Novo',['class' => 'btn btn-info pull-right']) !!}
+                                            </div>
+                                          {!! Form::close() !!}
+                                      </div>
+                                    </div>
                                   </div>
-                                </div>
                               </div>
-                          <!-- /.box-body -->
-                        </div>
+                          @endif
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>

@@ -28,7 +28,7 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('orcamento')}}"><i class="fa fa-paint-brush"></i> Pedidos Orçamentos</a></li>
+                    <li class="active"><a href="{{route('orcamento')}}"><i class="fa fa-newspaper-o"></i> Pedidos Orçamentos</a></li>
                   </ol>
                 </section>
 

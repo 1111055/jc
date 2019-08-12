@@ -28,7 +28,7 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('size')}}"><i class="fa fa-circle-o"></i> Produtos</a></li>
+                    <li class="active"><a href="{{route('produto')}}"><i class="fa fa-product-hunt"></i> Produtos</a></li>
                   </ol>
                 </section>
 

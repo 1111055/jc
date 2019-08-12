@@ -28,7 +28,7 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('prazo')}}"><i class="fa fa-facebook-square"></i> Prazos</a></li>
+                    <li class="active"><a href="{{route('prazo')}}"><i class="fa fa-truck"></i> Prazos</a></li>
                   </ol>
                 </section>
 
@@ -38,10 +38,7 @@
                   <div class="row">
                     <div class="col-xs-12">
                       <div class="box">
-                        <div class="box-header">
-                          <h3 class="box-title">Prazos de Entregas</h3>
 
-                          <!-- /.adicionar um novo -->
                          <div class="panel panel-default">
                             <div class="panel-body">
                             <!-- Horizontal Form -->
@@ -67,20 +64,9 @@
                                   </div>
                                 </div>
                               </div>
-                          <!-- /.box-body -->
-                        </div>
-                        <!-- /.box -->
-                          <div class="box-tools">
-                            <div class="input-group input-group-sm" style="width: 150px;">
-                              <input type="text" name="table_search" class="form-control pull-right" placeholder="Search">
+                         </div>
 
-                              <div class="input-group-btn">
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <!-- /.box-header -->
+                         
                         <div class="box-body table-responsive no-padding">
                           <table class="table table-hover">
                             <tr>
@@ -115,15 +101,11 @@
                               @endforeach
                           </table>
                         </div>
-                        <!-- /.box-body -->
                       </div>
-                      <!-- /.box -->
                     </div>
                   </div>
-
                 </section>
-                <!-- /.content -->
               </div>
-              <!-- /.content-wrapper -->
+
 
 @stop

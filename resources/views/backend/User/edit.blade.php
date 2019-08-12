@@ -68,10 +68,12 @@
                                                 <div class="col-sm-2">
                                                    {!! Form::checkbox('activo',1,$user->activo) !!}
                                                 </div>
-                                                {!! Form::label('Acessos:',null, ['class' => 'col-sm-2 control-label']) !!}
-                                                <div class="col-sm-4">
-                                                  {{Form::select('acessos[]', $selrole,$selroles, ['class' => 'form-control input-sm multiplePicker', 'multiple'=>'multiple'])}} 
-                                                </div>
+                                                @if(Auth::user()->isinrule(['supermaster']))
+                                                  {!! Form::label('Acessos:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  <div class="col-sm-4">
+                                                    {{Form::select('acessos[]', $selrole,$selroles, ['class' => 'form-control input-sm multiplePicker', 'multiple'=>'multiple'])}} 
+                                                  </div>
+                                                @endif
                                               </div>   
                                               <div class="form-group col-sm-6">
                                                     <label>Imagem (160x160)</label>
