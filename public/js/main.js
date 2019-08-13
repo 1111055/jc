@@ -845,10 +845,9 @@ $(function() {
 
 $('#sort').change(function(){
     var val = $(this).val();
+    var cat = $('#categoria').val();
 
-    alert(val);
-    
-      window.location.href = '/public/shop/1?sort='+val;
+    window.location.href = '/public/shop/'+cat+'?sort='+val;
 });
 
 

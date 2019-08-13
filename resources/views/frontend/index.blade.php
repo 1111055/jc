@@ -56,6 +56,7 @@
                                                       <div class="pro-content">
                                                           @if($item->produto != null)
                                                              <h4><a href="{{route('produto.show',$item->produto->id)}}">{{$item->produto->titulo}}</a></h4>
+                                                              <h6>Ref: {{$item->produto->cod_art}}</h6>
                                                           @endif
                                                       </div>
                                                   </div>
@@ -75,6 +76,7 @@
                                                       <div class="pro-content">
                                                           @if($prd != null)
                                                              <h4><a href="{{route('produto.show',$prd->id)}}">{{$prd->titulo}}</a></h4>
+                                                             <h6>Ref: {{$prd->cod_art}}</h6>
                                                           @endif
                                                       </div>
                                                   </div>
@@ -117,6 +119,7 @@
                                             </div>
                                             <div class="pro-content">                               
                                                 <h4><a href="#">{{$item->produto->titulo}}</a></h4>
+                                                 <h6>Ref: {{$item->produto->cod_art}}</h6>
                                                 <p><span class="price"> </span><del class="prev-price"> </del></p-->
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -187,7 +190,7 @@
                             </div>
                             <div class="slider-right-content side-product-list-active owl-carousel">
                                 <div class="double-pro">
-                                    @foreach($requisitado as $item)
+                                    @foreach($requisitado->take(4) as $item)
                                     <div class="single-product">
                                         <div class="pro-img">
                                             <a href="{{route('produto.show',$item->id)}}"><img class="img" src="{{$item->path}}" alt="product-image"></a>
@@ -316,7 +319,7 @@
                     <h2>Produtos mais vistos!</h2>
                 </div>
                 <div class="best-seller-pro-active  owl-carousel slider-right-content">
-                    @foreach($moreview->take(4) as $item)
+                    @foreach($moreview->take(10) as $item)
                     <div class="double-pro">
                         <div class="single-product">
                             <div class="pro-img">
@@ -328,24 +331,6 @@
                         </div>
                     </div>
                   @endforeach
-                </div>
-                @if($moreview->count() > 4)
-                 <div class="best-seller-pro-active  owl-carousel slider-right-content">
-                  @foreach($moreview as $key => $item)
-                    @if($key > 3)
-                        <div class="double-pro">
-                            <div class="single-product">
-                                <div class="pro-img">
-                                    <a href="{{route('produto.show',$item->id)}}"><img class="img" src="{{$item->path}}" alt="product-image"></a>
-                                </div>
-                                <div class="pro-content">
-                                    <h4><a href="{{route('produto.show',$item->id)}}">{{$item->titulo}}</a></h4>
-                                </div>
-                            </div>
-                        </div>
-                     @endif
-                    @endforeach
-                   @endif
                 </div>
             </div>
         </div>

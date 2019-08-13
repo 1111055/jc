@@ -189,7 +189,7 @@ img {
                                                    {!! Form::textarea('descricao',$banner->descricao,['class' => 'form-control', 'id' => 'descricao']) !!}
                                                 </div>
                                               </div>
-                                              @if($banner->produto == 0)
+                                              @if($banner->produto == 0 && Auth::user()->isinrule(['supermaster']))
                                                 <div class="form-group">
                                                      {!! Form::label('Width:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                   <div class="col-sm-8">
@@ -252,6 +252,34 @@ img {
                                                           {!! Form::submit('Guardar',['class' => 'btn btn-info pull-right']) !!}
                                                       </div>
                                                     {!! Form::close() !!}
+                                                    <h3>Imagens</h3>
+                                                    <div class="box-body table-responsive no-padding">
+                                                          <table class="table table-hover">
+                                                             <tr>
+                                                                <th>#</th>
+                                                                <th class="col-xs-2">Imagem</th>
+                                                                <th>Titulo</th>
+                                                                <th>Ordem</th>
+                                                                <th>#</th>
+                                                             </tr>
+                                                            @if(count($bannerLine) > 0)
+                                                              @foreach($bannerLine as $item)
+                                                                    <tr>
+                                                                      <td>#</td>
+                                                                      <td><img src="{{ $item->path }}" class="img-thumbnail"></td>
+                                                                      <td>{{ $item->titulo }}</td>
+                                                                      <td>{{ $item->ordem }}</td>
+                                                                      <td> 
+                                                                        <a href="{{route('bannerlines.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a>
+
+                                                                          {{ Form::open(['route' => ['bannerlines.destroy', $item->id], 'method' => 'delete']) }}
+                                                                                <button type="submit" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i></button>
+                                                                           {{ Form::close() }}</td>
+                                                                    </tr>     
+                                                              @endforeach
+                                                            @endif
+                                                          </table>
+                                                    </div>
                                            @endif
                                            @if($banner->produto == 1)
                                                     <div class="box box-info">
@@ -289,7 +317,7 @@ img {
                                                                 @if(!empty($item->produto_id))
                                                                     <tr>
                                                                       <td>#</td>
-                                                                      <td>{{ $item->produto->path }}</td>
+                                                                      <td class="col-xs-1"> <img src="{{$item->produto->path}}" style="max-width: 30%;" /></td>
                                                                       <td>{{ $item->produto->cod_art }}</td>
                                                                       <td>{{ $item->produto->titulo }}</td>
                                                                       <td> {{ Form::open(['route' => ['produto.destroyline', $item->id], 'method' => 'delete']) }}

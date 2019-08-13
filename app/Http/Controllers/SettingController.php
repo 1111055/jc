@@ -160,9 +160,9 @@ class SettingController extends Controller
                         $canvas->save($destinationPath.'/'.$imagename,50);
             										
 
-           return redirect()->route('setting')->with(['success' => "Guardado com sucesso."]);
+           return redirect()->route('setting')->with(['sucess' => "Guardado com sucesso."]);
       }   else{
-        return redirect()->route('setting')->with(['success' => "Guardado com sucesso."]);
+        return redirect()->route('setting')->with(['sucess' => "Guardado com sucesso."]);
       }
     }
 

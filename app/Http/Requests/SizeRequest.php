@@ -45,7 +45,7 @@ class SizeRequest extends FormRequest
             'subtitulo'  => request()->descricao,
             'tamanho'    => request()->cor,
             'ordem'      => request()->ordem,
-            'activo'     => request()->activo
+            'activo'     => 1
         ]);
     }
 }

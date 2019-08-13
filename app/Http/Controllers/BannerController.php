@@ -7,6 +7,7 @@ use App\Banner;
 use App\BannerLine;
 use App\Categoria;
 use App\Http\Requests\BannerRequest;
+
 class BannerController extends Controller
 {
 
@@ -73,7 +74,7 @@ class BannerController extends Controller
     public function edit($id)
     {
          $banner = Banner::find($id);
-          $bannerLine = BannerLine::where('idbannner','=',$id)->orderBy('ordem','desc')->get();
+         $bannerLine = BannerLine::where('idbannner','=',$id)->orderBy('ordem','asc')->get();
  
           $selcat    = Categoria::getSelection();
 
@@ -93,13 +94,15 @@ class BannerController extends Controller
         $banner = Banner::findOrFail($id);
 
 
-        //dd($request->all());
+     //   dd($request->all());
         $banner->titulo      = $request->titulo;
         $banner->descricao   = $request->descricao;
         $banner->ordem       = $request->ordem;
-        $banner->width       = $request->width;
-        $banner->height      = $request->height;
-        $banner->activo      = $request->activo !== '' ? 1 : 0;
+        if($request->has('width')){
+          $banner->width       = $request->width;
+          $banner->height      = $request->height;
+        }
+        $banner->activo      = $request->has('activo') && $request->activo !== '' ? 1 : 0;
 
         $banner->save();
 

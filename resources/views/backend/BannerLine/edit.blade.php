@@ -30,7 +30,9 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('pagina')}}"><i class="fa fa-align-justify"></i> Banner</a></li>
+                    <li><a href="{{route('banner')}}"><i class="fa fa-sliders"></i> Banner</a></li>
+                     <li><a href="{{route('banner.edit',$bannerlines->idbannner)}}"><i class="fa fa-sliders"></i>Editar  Banner</a></li>
+                    <li><a href="{{route('bannerlines.edit',$bannerlines->id)}}"><i class="fa fa-sliders"></i> Editar Imagens</a></li>
                   </ol>
                 </section>
 

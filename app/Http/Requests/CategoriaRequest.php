@@ -43,7 +43,7 @@ class CategoriaRequest extends FormRequest
             'titulo'     => request()->titulo,
             'subtitulo'  => request()->descricao,
             'ordem'      => request()->ordem,
-            'activo'     => request()->activo
+            'activo'     => 1
         ]);
     }
 }

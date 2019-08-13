@@ -43,10 +43,13 @@ class BannerLineRequest extends FormRequest
     public function persist(){
 
        $bn = Banner::find(request()->idbannner);
+       $imagename  = "";
+       //dd(request()->hasFile('banerimg'));
+       
+        if(request()->hasFile('banerimg')) {
 
-       //dd($bn);
-       $imagename = $this->saveImage(request()->file('banerimg'),request()->idbannner,$bn->width,$bn->height);
-
+           $imagename = request()->root().'/Banners/CROP/'.$this->saveImage(request()->file('banerimg'),request()->idbannner,$bn->width,$bn->height);
+        }
        
        BannerLine::create([
             'idbannner'  => request()->idbannner,
@@ -54,7 +57,7 @@ class BannerLineRequest extends FormRequest
             'subtitulo'  => request()->subtitulo,
             'descricao'  => request()->descricao,
             'link'       => request()->link,
-            'path'       => request()->root().'/Banners/CROP/'.$imagename,
+            'path'       => $imagename,
             'ordem'      => request()->ordem,
             'activo'     => request()->activo
         ]);
@@ -136,7 +139,7 @@ class BannerLineRequest extends FormRequest
                         $canvas->insert($thumb_img, 'center');
                         $canvas->save($destinationPath.'/'.$imagename,50);
                                     
-                        }
+                    }
 
    
 

@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Banner;
 
 class Bannerproduto extends Model
 {
@@ -14,7 +15,7 @@ class Bannerproduto extends Model
     public static function getBannerHome()
     {
 
-        $valty = Banner::where('id','=','1')->orderBy('ordem','asc')->get();
+        $valty = Banner::where('produto','=','1')->orderBy('ordem','asc')->get();
 
         return $valty;
     }

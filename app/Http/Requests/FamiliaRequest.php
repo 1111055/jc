@@ -3,7 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-
+use App\Familia;
 class FamiliaRequest extends FormRequest
 {
     /**
@@ -42,7 +42,7 @@ class FamiliaRequest extends FormRequest
             'titulo'      => request()->titulo,
             'subtitulo'   => request()->descricao,
             'ordem'       => request()->ordem,
-            'activo'      => request()->activo
+            'activo'      => 1
         ]);
     }
 }

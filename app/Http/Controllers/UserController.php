@@ -216,7 +216,7 @@ class UserController extends Controller
         //dd($request->all());
         $user->name        = $request->name;
         $user->path        = $_path;
-        $user->activo      = $request->activo !== '' ? 1 : 0;
+        $user->activo      = $request->has('activo') && $request->activo !== '' ? 1 : 0;
 
         $user->save();
 

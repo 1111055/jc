@@ -3,10 +3,10 @@
 @section('content')
 
             @if(session('sucess'))
-                <div style="background-color:green;color:#FFF;padding:15px;width: 40%;float:right;">{{session('sucess')}}</div>
+                <div  class="alert alert-success" id="showsucess" style="background-color:green;color:#FFF;padding:15px;width: 40%;float:right;">{{session('sucess')}}</div>
             @endif
            @if ($errors->any())
-                <div style="background-color:green;color:#FFF;padding:15px;width: 40%;float: right;">
+                <div  class="alert alert-danger" id="showsucess" style="background-color:green;color:#FFF;padding:15px;width: 40%;float: right;">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -24,7 +24,8 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li class="active"><a href="{{route('color')}}"><i class="fa fa-facebook-square"></i> Edit Color</a></li>
+                    <li ><a href="{{route('color')}}"><i class="fa fa-facebook-square"></i> Color</a></li>
+                     <li class="active"><a href="{{route('color.edit',  $color->id)}}"><i class="fa fa-facebook-square"></i> Edit Color</a></li>
                   </ol>
                 </section>
 

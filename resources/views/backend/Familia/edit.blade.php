@@ -10,7 +10,7 @@
   </div>
   @endif
    @if ($errors->any())
-        <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+        <div class="alert alert-danger" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -28,7 +28,8 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('familia')}}"><i class="fa fa-align-justify"></i> Editar Familia</a></li>
+                    <li><a href="{{route('familia')}}"><i class="fa fa-circle-o"></i> Familias</a></li>
+                    <li><a href="{{route('familia.edit', $familia->id)}}"><i class="fa fa-circle-o"></i> Editar Familia</a></li>
                   </ol>
                 </section>
 

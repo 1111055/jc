@@ -44,7 +44,7 @@ class ColorRequest extends FormRequest
             'subtitulo'  => request()->descricao,
             'cor'        => request()->cor,
             'ordem'      => request()->ordem,
-            'activo'     => request()->activo
+            'activo'     => 1
         ]);
     }
 }

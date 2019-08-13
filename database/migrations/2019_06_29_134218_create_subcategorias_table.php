@@ -19,7 +19,7 @@ class CreateSubcategoriasTable extends Migration
             $table->string('subtitulo')->nullable();
             $table->integer('categoria_id')->nullable();
             $table->string('ordem')->nullable();
-            $table->integer('activo')->default(1);
+            $table->integer('activo')->nullable()->default(1);
             $table->timestamps();
         });
     }

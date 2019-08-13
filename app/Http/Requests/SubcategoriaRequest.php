@@ -44,7 +44,7 @@ class SubcategoriaRequest extends FormRequest
             'subtitulo'   => request()->descricao,
             'idcategoria' => request()->idcategoria,
             'ordem'       => request()->ordem,
-            'activo'      => request()->activo
+            'activo'      => 1
         ]);
     }
 }

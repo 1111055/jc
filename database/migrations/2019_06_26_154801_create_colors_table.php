@@ -19,7 +19,7 @@ class CreateColorsTable extends Migration
             $table->string('subtitulo')->nullable();
             $table->string('cor')->nullable();
             $table->string('ordem')->nullable();
-            $table->integer('activo')->default(1);
+            $table->integer('activo')->nullable()->default(1);
             $table->timestamps();
         });
     }

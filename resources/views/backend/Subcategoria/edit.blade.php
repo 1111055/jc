@@ -10,7 +10,7 @@
   </div>
   @endif
    @if ($errors->any())
-        <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+        <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
             <ul>
                 @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
@@ -28,7 +28,8 @@
                   </h1>
                   <ol class="breadcrumb">
                     <li><a href="{{route('dash')}}"><i class="fa fa-dashboard"></i> Home</a></li>
-                    <li><a href="{{route('categoria')}}"><i class="fa fa-align-justify"></i> Editar Sub Categoria</a></li>
+                    <li><a href="{{route('subcategoria')}}"><i class="fa fa-circle-o"></i> Sub Categorias</a></li>
+                    <li><a href="{{route('subcategoria.edit',$subcategoria->id)}}"><i class="fa fa-circle-o"></i> Editar Sub Categoria</a></li>
                   </ol>
                 </section>
 
@@ -59,7 +60,7 @@
                                                       
                                                     </div>
                                                     <div class="form-group">
-                                                      {!! Form::label('* SubTitulo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                      {!! Form::label('SubTitulo:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                       <div class="col-sm-8">
                                                          {!! Form::text('subtitulo',$subcategoria->subtitulo,['class' => 'form-control']) !!}
                                                       </div>

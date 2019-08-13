@@ -28,8 +28,8 @@
                     <div class="col-lg-3  order-2">
                         <div class="sidebar white-bg">
                             <div class="single-sidebar">
-                            {!! Form::open(['url' => 'shop','class' => 'form-horizontal']) !!}
-                                       <input type="hidden" id="subcategoria" name="subcategoria" value="{{$subcat->id}}"> 
+                                <input type="hidden" value="{{$id}}" id="categoria" />
+                            {!! Form::open(['url' => ['shop',$id],'method' => 'GET','class' => 'form-horizontal']) !!}
                                       @if(Session::has('filter'))
 
                                                 @if(count(Session::get('filter')[2])>0)
@@ -40,7 +40,7 @@
                                                        
                                                         <ul>
                                                             @foreach(Session::get('filter')[2] as $item)
-                                                                <input type="checkbox" id="familia" name="familia[]" value="{{$item['id']}}" > {{$item['titulo']}}
+                                                                <input type="checkbox" id="familia" name="familia[]" value="{{$item['id']}}" @if($item['checked'] == 1) checked="true" @endif> {{$item['titulo']}}
                                                             @endforeach
                                                         </ul>
                                                     </div>
@@ -55,7 +55,7 @@
                                                         <ul class="color-option">
                                                             @foreach(Session::get('filter')[1] as $item)
                                                              <li>
-                                                                  <input type="checkbox" id="colors" name="colors[]" value="{{$item['id']}}"> <a href="#" style="background-color: {{$item['cor']}} "></a>
+                                                                  <input type="checkbox" id="colors" name="colors[]" value="{{$item['id']}}" @if($item['checked'] == 1) checked="true" @endif> <a href="#" style="background-color: {{$item['cor']}} "></a>
                                                              </li>
                                                             @endforeach
                                                         </ul>
@@ -69,7 +69,9 @@
                                                     </div>
                                                     <ul class="manufactures-list">
                                                           @foreach(Session::get('filter')[0] as $item)
-                                                              <input type="checkbox" id="sizes" name="sizes[]" value="{{$item['id']}}" > {{$item['size']}}
+
+                                                              <input type="checkbox" id="sizes" name="sizes[]" value="{{$item['id']}}"  @if($item['checked'] == 1) checked="true" @endif> {{$item['size']}}
+                                                             
                                                           @endforeach
                                                     </ul>
                                                 </div>
@@ -99,10 +101,13 @@
                                 </div>
                             </div>
                             @endif
-                            <div class="single-sidebar single-banner zoom pt-20">
-                                <a href="#" class="hidden-sm"><img src="img/pen1.png" class="rounded mx-auto d-block banner1" alt="slider-banner"></a>
-                                <a href="#" class="visible-sm"><img src="img/caneta2.png"  class="rounded mx-auto d-block banner1" alt="slider-banner"></a>
-                            </div>
+                            @if(Session::has('maisvistos'))
+                                <div class="single-sidebar single-banner zoom pt-20">
+                                     @foreach(Session::get('maisvistos')->take(4) as $item)
+                                       <a href="{{route('produto.show',$item->id)}}"><img src="{{$item->path}}" class="rounded mx-auto d-block banner1" alt="slider-banner"></a>
+                                     @endforeach   
+                                </div>
+                            @endif
                         </div>
                     </div>
 
@@ -119,10 +124,9 @@
                                 <div class="toolbar-sorter">
                                     <label>Ordernar Por</label>
                                     <select class="sorter" name="sorter" id="sort">
-                                        <option value="asc"> Nome ASC</option>
-                                        <option value="desc">Nome DESC</option>
+                                        <option value="asc" @if($order == '1') SELECTED @endif> Nome ASC</option>
+                                        <option value="desc" @if($order == '2') SELECTED @endif>Nome DESC</option>
                                     </select>
-                                    <span><a href="#"><i class="fa fa-arrow-up"></i></a></span>
                                 </div>
                             </div>
                         </div>
@@ -135,7 +139,7 @@
                                                 <div class="single-product">
                                                     <!-- Product Image Start -->
                                                     <div class="pro-img">
-                                                        <a href="{{route('produto')}}">
+                                                        <a target="_black"  href="{{route('produto.show', $item->id)}}">
                                                             @if($item->path == null) 
                                                                <img class="primary-img" src="{{ public_path('/img/Produtos/CROP/noimage.png') }}" alt="single-product">
                                                                <img class="secondary-img" src="{{ public_path('/img/Produtos/CROP/noimage.png') }}" alt="single-product">
@@ -146,7 +150,7 @@
                                                         </a>
                                                     </div>
                                                     <div class="pro-content">                                
-                                                        <h4><a href="{{route('produto')}}">{{$item->titulo}}</a></h4>
+                                                        <h4><a  target="_black" href="{{route('produto.show', $item->id)}}">{{$item->titulo}}</a></h4>
                                                         <div class="pro-actions">
                                                             <div class="actions-secondary">
                                                                 <a href="{{route('produto.wish',$item->id)}}" data-toggle="tooltip" title="Adicionar Wishlist"><i class="fa fa-heart"></i></a>
@@ -165,7 +169,7 @@
                                     @foreach($produtos as $item)              
                                         <div class="single-product">
                                             <div class="pro-img">
-                                                <a href="{{route('produto', $item->id)}}">
+                                                <a target="_black" href="{{route('produto.show', $item->id)}}">
                                                     @if($item->path == null) 
                                                        <img class="primary-img" src="{{ public_path('/img/Produtos/CROP/noimage.png') }}" alt="single-product">
                                                        <img class="secondary-img" src="{{ public_path('/img/Produtos/CROP/noimage.png') }}" alt="single-product">
@@ -176,7 +180,7 @@
                                                 </a>
                                             </div>
                                             <div class="pro-content">                               
-                                                <h4><a href="{{route('produto',$item->id)}}">{{$item->titulo}}</a></h4>
+                                                <h4><a target="_black" href="{{route('produto.show',$item->id)}}">{{$item->titulo}}</a></h4>
                                                  {{$item->descricao}}
                                                 <div class="pro-actions">
                                                     <div class="actions-secondary">
@@ -190,9 +194,11 @@
                                 </div>
                             </div>
                         </div>
+                        @if(count($produtos) > 25)
                         <div class="pagination-box fix">
                             {!! $produtos->links();!!}
                         </div>
+                        @endif
                     </div>
                 </div>
             </div>

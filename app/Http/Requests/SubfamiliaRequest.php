@@ -44,7 +44,7 @@ class SubfamiliaRequest extends FormRequest
             'subtitulo'   => request()->descricao,
             'idfamilia'   => request()->idfamilia,
             'ordem'       => request()->ordem,
-            'activo'      => request()->activo
+            'activo'      => 1
         ]);
     }
 }

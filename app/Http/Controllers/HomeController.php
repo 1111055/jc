@@ -32,6 +32,8 @@ class HomeController extends Controller
       $requisitado = Produto::where('activo','=','1')->orderby("requisitado","desc")
       ->take(5)->get();
 
+
+
       $ultimasentradas = Produto::where('activo','=','1')->orderby("created_at","desc")
       ->take(10)->get();
 
@@ -41,6 +43,10 @@ class HomeController extends Controller
      // dd($prodtmp);
       $collection = Bannerproduto::where('banner_id','>','0')->orderBy('banner_id','asc')->get()->groupBy('banner_id');
      
+
+    // dd( $collection);
+
+
        foreach ($collection as $key => $value) {
               foreach ($value as $key => $item) {
                  if($item->produto != null){
@@ -164,7 +170,22 @@ class HomeController extends Controller
                 
                }
       }
-      
+
+       // dd($collection);
+
+      //Mais Vistos
+
+
+
+        if(!session()->has('maisvistos'))
+        {
+          session(['maisvistos' => $moreview]);
+        }
+
+        
+
+     
+
         return view('frontend.index',compact('pagina','bannerline','moreview','requisitado','ultimasentradas','collection'));
     }
 
@@ -202,16 +223,7 @@ class HomeController extends Controller
     }
 
 
-      public function testMail()
-    {
-        Mail::send('backend.Emails.test', array('key' => 'value'), function ($message)
-        {
-            $message->from('marketing@iberobrinde.com');
-            $message->to('marco.mendes@sroque.pt', 'John Smith')->subject('Wewwee45lcome!');
-        });
-    }
     
-
     /**
      * Show the form for editing the specified resource.
      *

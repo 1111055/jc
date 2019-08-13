@@ -22,30 +22,21 @@ class ShopController extends Controller
         return view('frontend.shop');
     }
 
-    public function list($id)
+    public function list(Request $request,$id)
     {
 
 
-
-              $subcat = Subcategoria::find($id);
-
-              $subcategoria = $id;
-              
                $familia  = array();
                $cores    = array();
                $tamanhos = array();
 
-               if(!request()->sort){
-                    $produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id)->orderBy('ordem','asc')->paginate(25);
-                }else{
-                    $produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id)->orderBy('titulo','desc')->paginate(25);
-                }
+              // dd($request->colors);
 
+          $produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id);
+
+
+           if(!session()->has('filter')){
                $_produtos = Produto::Where('activo','=','1')->Where('subcategoria_id','=',$id)->orderBy('ordem','asc')->get();
-               
-
-               //dd($produtos);
-
                 foreach ($_produtos as $key => $variable) 
                 {
                    
@@ -64,20 +55,108 @@ class ShopController extends Controller
                   }     
                
                 }
+                   $array = [];
+                
+                   $array = Arr::prepend($array, $familia);                              
+                   $array = Arr::prepend($array, $cores);
+                   $array = Arr::prepend($array, $tamanhos);
 
-                        $array = [];
+                   session(['filter' => $array]);
 
+
+            }else if(count($request->familia) > 0 || count($request->colors) > 0 || count($request->sizes) > 0) {
+               //dd("tes");
+
+                    foreach(session()->get('filter')[2] as $item){
+
+                     
+                         if(count($request->familia) > 0){
+                             if(in_array($item['id'], $request->familia)){
+                               $familia[] = array('titulo' => $item['titulo'], 'id' => $item['id'], 'checked' => true);
+                               
+                             }else{
+                               $familia[] = array('titulo' => $item['titulo'], 'id' => $item['id'], 'checked' => false);
+                             }
+                         }else{
+                               $familia[] = array('titulo' => $item['titulo'], 'id' => $item['id'], 'checked' => false);
+                        }
                         
-                           $array = Arr::prepend($array, $familia);
+                    }
+                    foreach(session()->get('filter')[1] as $key => $item){
+                     
+                         if(count($request->colors) > 0){
+                             if(in_array($item['id'], $request->colors)){
+                               $cores[] = array('cor' =>  $item['cor'], 'id' => $item['id'], 'checked' => true);
+                               
+                             }else{
+                                $cores[] = array('cor' =>  $item['cor'], 'id' => $item['id'], 'checked' => false);
+                             }
+                         }else{
+                                $cores[] = array('cor' =>  $item['cor'], 'id' => $item['id'], 'checked' => false);
+                         }
                         
+                    }
+                     foreach(session()->get('filter')[0] as $item){
+                       //dd($item);
+                         if(count($request->sizes) > 0){
+                             if(in_array($item['id'], $request->sizes)){
+                                $tamanhos[] = array('size'  => $item['size'], 'id' => $item['id'], 'checked' => true);
+                               
+                             }else{
+                                 $tamanhos[] = array('size' => $item['size'], 'id' => $item['id'], 'checked' => false);
+                             }
+                         }else{
+                                 $tamanhos[] = array('size' => $item['size'], 'id' => $item['id'], 'checked' => false);
+                         }
+                        
+                        
+                    }
+
+
+
+                   $array = [];
+                
+                   $array = Arr::prepend($array, $familia);                              
+                   $array = Arr::prepend($array, $cores);
+                   $array = Arr::prepend($array, $tamanhos);
+
+                   $request->session()->forget('filter');
+
+                   session(['filter' => $array]);
+
+                   //dd(session()->get('filter')[0]);
+
+            }
+
+            
+
+                // dd($array);
+               
+
+             
+
+               if(!request()->sort){
+                    $produtos =  $produtos->orderBy('titulo','asc')->paginate(25);
+                }else{
+                    $produtos =  $produtos->orderBy('titulo',request()->sort)->paginate(25);
+                }
                       
-                           $array = Arr::prepend($array, $cores);
-                        
-                           $array = Arr::prepend($array, $tamanhos);
-                    
+                switch(request()->sort){
+                        case 'asc':
+                           $order = "1";
+                        break;
+                        case "desc":
+                           $order = "2";
+                        break;
 
-                        // dd($array);
-                       session(['filter' => $array]);
+                        default:
+                             $order = "1";
+                        break;
+                }
+
+
+         
+
 
 
                      // dd(session('filter'));
@@ -134,7 +213,7 @@ class ShopController extends Controller
 
       
        
-        return view('frontend.shop',compact('produtos','subcat'));
+        return view('frontend.shop',compact('produtos','id','order'));
     }
 
 

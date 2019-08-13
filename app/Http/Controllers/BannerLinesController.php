@@ -197,7 +197,7 @@ class BannerLinesController extends Controller
         $banner->link        = $request->link;
         $banner->ordem       = $request->ordem;
         $banner->path        = $_path;
-        $banner->activo      = $request->activo !== '' ? 1 : 0;
+        $banner->activo      = $request->has('activo') && $request->activo !== '' ? 1 : 0;
 
         $banner->save();
 
@@ -214,7 +214,7 @@ class BannerLinesController extends Controller
     public function destroy($id)
     {
         BannerLine::destroy($id);
-
-         return redirect()->route('bannerlines')->with('sucess','Removido com sucesso.');
+        return back()->with('sucess','Removido com sucesso.');
+        // return redirect()->route('bannerlines')->with('sucess','Removido com sucesso.');
     }
 }

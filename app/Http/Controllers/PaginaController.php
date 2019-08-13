@@ -104,8 +104,13 @@ class PaginaController extends Controller
         $pagina = Pagina::findOrFail($id);
 
 
+        $_path = $pagina->pathimg;
+
+      //  dd($request->file('banerimg'));
+
            if($request->hasFile('banerimg')) {
                       
+                   //  dd("entra");
             
                         $photo = $request->file('banerimg');
                        

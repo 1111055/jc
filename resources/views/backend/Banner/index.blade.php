@@ -85,7 +85,7 @@
                               <tr>
                                 <td>#</td>
                                 <td>{{ $item->titulo }}</td>
-                                <td>{{ $item->descricao }}</td>
+                                <td>{!! $item->descricao !!}</td>
                                 <td>{{ $item->width }}</td>
                                 <td>{{ $item->height }}</td>
                                 <td>{{ $item->ordem }}</td>
