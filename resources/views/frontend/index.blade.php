@@ -138,18 +138,18 @@
                                        @foreach($item->categoria->produtos as $prd)
                                             <div class="single-product">
                                                 <div class="pro-img">
-                                                    <a href="{{route('produto.show',$item->produto->id)}}">
-                                                        <img class="primary-img" src="{{$item->produto->path}}" alt="single-product">
-                                                        <img class="secondary-img" src="{{$item->produto->path}}" alt="single-product">
+                                                    <a href="{{route('produto.show',$prd->id)}}">
+                                                        <img class="primary-img" src="{{$prd->path}}" alt="single-product">
+                                                        <img class="secondary-img" src="{{$prd->path}}" alt="single-product">
                                                     </a>
                                                 </div>
                                                 <div class="pro-content">                               
-                                                    <h4><a href="#">{{$item->produto->titulo}}</a></h4>
+                                                    <h4><a href="#">{{$prd->titulo}}</a></h4>
                                                     <p><span class="price"> </span><del class="prev-price"> </del></p-->
                                                     <div class="pro-actions">
                                                         <div class="actions-secondary">
-                                                            <a href="{{route('produto.wish',$item->produto->id)}}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
-                                                            <a href="{{route('produto.bag',$item->produto->id)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
+                                                            <a href="{{route('produto.wish',$prd->id)}}" data-toggle="tooltip" title="Add to Wishlist"><i class="fa fa-heart"></i></a>
+                                                            <a href="{{route('produto.bag',$prd->id)}}" data-toggle="tooltip" title="Carrinho"><i class="fa fa-shopping-basket"></i></a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -316,7 +316,7 @@
         <div class="best-seller-product pb-50 pb-sm-40">
             <div class="container">
                 <div class="group-title">
-                    <h2>Produtos mais vistos!</h2>
+                    <h2>Produtos mais vistos.</h2>
                 </div>
                 <div class="best-seller-pro-active  owl-carousel slider-right-content">
                     @foreach($moreview->take(10) as $item)

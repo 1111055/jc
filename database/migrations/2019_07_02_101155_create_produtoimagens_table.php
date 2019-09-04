@@ -18,6 +18,7 @@ class CreateProdutoimagensTable extends Migration
             $table->integer('produto_id');
             $table->integer('cont');
             $table->string('path');
+            $table->string('pathbig')->nullable();
             $table->string('ordem')->nullable();
             $table->integer('activo')->nullable()->default(1);
             $table->integer('destacar')->default(0);

@@ -140,14 +140,14 @@ class HomeController extends Controller
        if(session()->has('bagone')){
 
             foreach (session()->get('bagone') as $key => $value) {
-                if($value->path != null){
-                     $firstname = explode('/', trim($value->path));
+                if($value['produto']->path != null){
+                     $firstname = explode('/', trim($value['produto']->path));
                     if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
 
-                             $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                             $value['produto']->path = request()->root().'/img/Produtos/CROP/noimage.png';
                      }
                }else{
-                         $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+                        $value['produto']->path = request()->root().'/img/Produtos/CROP/noimage.png';
                }
             }
         }

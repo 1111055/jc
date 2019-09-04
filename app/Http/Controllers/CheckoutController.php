@@ -22,8 +22,10 @@ class CheckoutController extends Controller
                     $color = array();
                     $size  = array();
 
+                   // dd($value['produto']->id);
+
                     $colorproduto = ProdutoCor::
-                             where('produto_id', '=', $value['id'])->orderBy('ordem','asc')->get();
+                             where('produto_id', '=', $value['produto']->id)->orderBy('ordem','asc')->get();
 
                     if(count($colorproduto) > 0){
                          foreach ($colorproduto as $key => $variabletmp) {
@@ -33,7 +35,7 @@ class CheckoutController extends Controller
                     }
 
                      $sizeproduto = ProdutoSize::
-                             where('produto_id', '=', $value['id'])->orderBy('ordem','asc')->get();
+                             where('produto_id', '=', $value['produto']->id)->orderBy('ordem','asc')->get();
 
                     if(count($sizeproduto) > 0){
                          foreach ($sizeproduto as $key => $variabletmp) {
@@ -49,7 +51,7 @@ class CheckoutController extends Controller
 
                
                          
-    //   dd($cart);
+       //dd($cart);
 
         return view('frontend.checkout',compact('cart'));
          

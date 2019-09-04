@@ -53,30 +53,35 @@ class ProdutoController extends Controller
         //
     }
 
-    public function bag($id)
+    public function bag(Request $request, $id)
     {
 
-       
-        $array = [];
+
+        $arrayfinal = array();
+
         $existe = true;
         $prod = Produto::find($id);
 
         if(session()->has('bagone'))
         {
-            $array = session('bagone');
+            $arrayfinal = session('bagone');
         }
 
-        foreach ($array as $key => $value) {
-            if($value->id == $id){
+        foreach ($arrayfinal as $key => $value) {
+            if($value['produto']->id == $id){
                 $existe = false;
             }
         }
 
         if($existe == true){
-           $array = Arr::prepend($array, $prod);
+           if($request != null){
+              $arrayfinal[] = array('produto' => $prod, 'quantidade' => 0, 'cor' =>  " ", 'size' =>  " ");
+           }
         }
+      
+        //dd($arrayfinal);
+       session(['bagone' => $arrayfinal]);
 
-       session(['bagone' => $array]);
        return back();
     }
 
@@ -195,6 +200,38 @@ class ProdutoController extends Controller
 
      $prod =  Produto::getProduto($id);
 
+      $moreview = Produto::where('activo','=','1')->orderby("visualizado","desc")
+      ->take(8)->get();
+
+      $relacionados = Produto::where('activo','=','1')->where('subcategoria_id','=',$prod->subcategoria_id)->orderby("ordem")
+      ->take(8)->get();
+
+     foreach ($moreview as $key => $value) {
+          if($value->path != null){
+             $firstname = explode('/', trim($value->path));
+            if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
+
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+             }
+          }else{
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+          }
+      }
+
+     foreach ($relacionados as $key => $value) {
+          if($value->path != null){
+             $firstname = explode('/', trim($value->path));
+            if (!file_exists(public_path('/img/Produtos/CROP/'.last($firstname)))) {
+
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+             }
+          }else{
+                     $value->path = request()->root().'/img/Produtos/CROP/noimage.png';
+          }
+      }
+     
+
+     
 
      if($prod != null){
 
@@ -213,7 +250,7 @@ class ProdutoController extends Controller
                          $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
               }
      }
-        return view('frontend.produto', compact('prod'));
+        return view('frontend.produto', compact('prod','moreview','relacionados'));
     }
 
         /**

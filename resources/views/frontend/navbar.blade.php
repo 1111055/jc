@@ -118,17 +118,15 @@
                                                 @foreach(Session::get('bagone') as $item)
                                                 <div class="single-cart-box">
                                                     <div class="cart-img">
-                                                        <a href="{{route('produto.show',$item->id)}}"><img class="img" src="{{$item->path}}" alt="cart-image"></a>
+                                                        <a href="{{route('produto.show',$item['produto']->id)}}"><img class="img" src="{{$item['produto']->path}}" alt="cart-image"></a>
                                                     </div>
                                                     <div class="cart-content">
-                                                        <h6><a href="{{route('produto')}}">{{$item->titulo}}</a></h6>
-                                                        <span>{{$item->cod_art}}</span>
+                                                        <h6><a href="{{route('produto')}}">{{$item['produto']->titulo}}</a></h6>
+                                                        <span>{{$item['produto']->cod_art}}</span>
                                                     </div>
-                                                    <a class="del-icone" href="{{route('produto.removebag',$item->id)}}"><i class="fa fa-window-close-o"></i></a>
+                                                    <a class="del-icone" href="{{route('produto.removebag',$item['produto']->id)}}"><i class="fa fa-window-close-o"></i></a>
                                                 </div>
                                                 @endforeach()
-
-
                                                 <div class="cart-footer fix">
                                                     <div class="cart-actions">
                                                         <a class="checkout" href="{{route('checkout')}}">Pedir Cotação</a>

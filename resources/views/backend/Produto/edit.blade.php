@@ -367,20 +367,21 @@ img {
                                                   <th class="text-center">Active</th>
                                                   <th>#</th>
                                                 </tr>
-                                                <tr>
+                                               
                                                 
                                                 @foreach($produto->imagensproduto as $item)
+                                                 <tr>
                                                   <td class="col-xs-1"> <img src="{{ $item->path }}"  /></td>
                                                   <td>{{ $item->ordem }}</td>
                                                    @if ($item->destacar === 1)
-                                                  <td class="text-center"><i class="fa fa-check-circle"></i></td>
+                                                    <td class="text-center"><i class="fa fa-check-circle"></i></td>
                                                   @else                       
-                                                  <td class="text-center"><i class="fa fa-times-circle"></i></td>
+                                                     <td class="text-center"><i class="fa fa-times-circle"></i></td>
                                                   @endif  
                                                   @if ($item->activo === 1)
-                                                  <td class="text-center"><i class="fa fa-check-circle"></i></td>
+                                                     <td class="text-center"><i class="fa fa-check-circle"></i></td>
                                                   @else                       
-                                                  <td class="text-center"><i class="fa fa-times-circle"></i></td>
+                                                    <td class="text-center"><i class="fa fa-times-circle"></i></td>
                                                   @endif   
                                                   <td><a href="{{route('banner.edit',$item->id)}}" class="btn btn-warning btn-xs"><i class="fa fa-edit"></i></a> 
 
@@ -389,8 +390,9 @@ img {
                                                   {{ Form::close() }}
 
                                                   </td>
+                                                   </tr>
                                                 @endforeach
-                                                </tr>
+                                               
                                               </table>
                                            </div>
                                         </div>

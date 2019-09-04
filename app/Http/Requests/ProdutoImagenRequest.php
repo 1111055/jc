@@ -6,6 +6,7 @@ use Illuminate\Foundation\Http\FormRequest;
 use App\Produtoimagen;
 use Image;
 use File;
+use Carbon\Carbon;
 
 
 class ProdutoImagenRequest extends FormRequest
@@ -43,6 +44,12 @@ class ProdutoImagenRequest extends FormRequest
     public function persist(){
 
          $prod = Produtoimagen::orderBy('id','desc')->first();
+   
+         if($prod != null){
+            $idpt = $prod->id+1;
+         }else{
+            $idpt = 1;
+         }
 
          $idprod = request()->idprod;
        
@@ -60,7 +67,8 @@ class ProdutoImagenRequest extends FormRequest
                 $extension = request()->file('prodimg')->getClientOriginalExtension();
          
                 //Novo nome do ficheiro
-                $imagename = "prod_".$idprod.'_'.request()->id.'.'.$photo->getClientOriginalExtension(); 
+                $imagename = "prod_".$idprod.'_'.$idpt.'.'.$photo->getClientOriginalExtension();
+                $imagenamebig = "prod_big_".$idprod.'_'.$idpt.'.'.$photo->getClientOriginalExtension();
 
                 $data = getimagesize($photo);
                 $width = $data[0];
@@ -112,8 +120,8 @@ class ProdutoImagenRequest extends FormRequest
                 $altura =   $height;
                 $comprimento = $width;
 
-                $divisaoalt = 210 / $altura; 
-                $divisaocom = 270 / $comprimento;
+                $divisaoalt = 270 / $altura; 
+                $divisaocom = 380 / $comprimento;
 
                 if($divisaoalt < $divisaocom){
                     $altfinal = $altura * $divisaoalt;
@@ -129,9 +137,32 @@ class ProdutoImagenRequest extends FormRequest
                     $constraint->aspectRatio();
                 });
                 // Canvas image
-                $canvas = Image::canvas(270, 210);
+                $canvas = Image::canvas(270, 380);
                 $canvas->insert($thumb_img, 'center');
                 $canvas->save($destinationPath.'/'.$imagename,50);
+
+                // imagebig
+
+                $divisaocom = 468 / $comprimento;
+                $divisaoalt = 659 / $altura; 
+
+                if($divisaoalt < $divisaocom){
+                    $altfinal = $altura * $divisaoalt;
+                    $cmpfinal = $comprimento * $divisaoalt;
+                }else{
+                    $altfinal = $altura * $divisaocom;
+                    $cmpfinal = $comprimento * $divisaocom;
+
+                }
+                $_pathbig = request()->root().'/img/Produtos/CROP/'.$imagenamebig;
+                // Resized image
+                $thumb_img->resize($cmpfinal, $altfinal, function ($constraint) {
+                    $constraint->aspectRatio();
+                });
+                // Canvas image
+                $canvas = Image::canvas(468, 659);
+                $canvas->insert($thumb_img, 'center');
+                $canvas->save($destinationPath.'/'.$imagenamebig,50);
                             
        }
 
@@ -142,11 +173,12 @@ class ProdutoImagenRequest extends FormRequest
         $contador = 1;
      }
 
-
+     // dd( $_pathbig);
        Produtoimagen::create([
             'produto_id' => $idprod,
             'cont'       => $contador,
             'path'       => $_path,
+            'pathbig'    =>  $_pathbig,
             'ordem'      => request()->ordem,
             'activo'     => request()->activo,
             'destacar'   => request()->destacar

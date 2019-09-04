@@ -48,28 +48,34 @@
                                         </thead>
                                         <tbody>
                                             @foreach($cart as $item)
+
+
+
                                                 <tr>
+
                                                     <td class="product-thumbnail">
-                                                        <a href="{{route('produto.show',$item['produto']->id)}}"><img src="{{$item['produto']->path}}" alt="cart-image" style="max-width: 30%;" /></a>
+                                                        <a href="{{route('produto.show',$item['produto']['produto']->id)}}"><img src="{{$item['produto']['produto']->path}}" alt="cart-image" style="max-width: 30%;" /></a>
                                                     </td>
 
-                                                    <td class="product-name"><a href="{{route('produto.show',$item['produto']->id)}}">{{$item['produto']->titulo}}</a></td>
+                                                    <td class="product-name"><a href="{{route('produto.show',$item['produto']['produto']->id)}}">{{$item['produto']['produto']->titulo}}</a></td>
                                                     
                                                     <td class="col-xs-4"><select name="cor[]" id="selcororc">
+                                                             <option value="0" cor="#FFFFFFF">--Cores--</option> 
                                                             @foreach($item['colors'] as $itemcor)
                                                               <option value="{{$itemcor['id']}}" cor="{{$itemcor['cor']}}" style="background-color: {{$itemcor['cor']}}"></option> 
                                                             @endforeach()  
                                                         </select>
                                                     </td>
                                                     <td><select name="size[]">
+                                                             <option value="0">--Tamanhos--</option> 
                                                            @foreach($item['sizes'] as $itemsize)
                                                              <option value="{{$itemcor['id']}}">{{strtoupper($itemsize['size'])}}</option> 
                                                            @endforeach() 
                                                         </select>
                                                     </td>
-                                                    <input type="hidden" name="prod[]" value="{{$item['produto']->id}}" />
+                                                    <input type="hidden" name="prod[]" value="{{$item['produto']['produto']->id}}" />
                                                     <td class="product-quantity"><input type="number" name="quantidade[]" value="1" /></td>
-                                                    <td class="product-remove"> <a href="{{route('produto.removebag',$item['produto']->id)}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
+                                                    <td class="product-remove"> <a href="{{route('produto.removebag',$item['produto']['produto']->id)}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                                 </tr>
                                             @endforeach()
                                         </tbody>
