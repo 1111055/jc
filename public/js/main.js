@@ -77,13 +77,13 @@
         effect: 'random',
         animSpeed: 300,
         pauseTime: 5000,
-        directionNav: false,
+        directionNav: true,
         manualAdvance: true,
         controlNavThumbs: false,
         pauseOnHover: true,
         controlNav: true,
-        prevText: "<i class='zmdi zmdi-chevron-left'></i>",
-        nextText: "<i class='zmdi zmdi-chevron-right'></i>"
+        prevText: "<img src='/public/img/left.png' style='max-width: 7%;'>",
+        nextText: "<img src='/public/img/right.png'  style='max-width: 7%;'>"
     });
 
     /*----------------------------------------------------

@@ -50,6 +50,12 @@
         // When the window has finished loading create our google map below
         google.maps.event.addDomListener(window, 'load', init);
 
+            //var long = {{ $setting->longitude }}
+           // var lat = {{ $setting->latitude }}
+
+
+            $('.descbody p').addClass('text-justify text-capitalize mb-40');
+
         function init() {
             // Basic options for a simple Google Map
             // For more options see: https://developers.google.com/maps/documentation/javascript/reference#MapOptions
@@ -145,27 +151,22 @@
                 ]
             };
 
-            var long = {{ $setting->longitude }}
-            var lat = {{ $setting->latitude }}
 
+            var long = -8.405879
+            var lat = 41.581237
 
-           // alert(long);
-
-            // Get the HTML DOM element that will contain your map 
-            // We are using a div with id="map" seen below in the <body>
             var mapElement = document.getElementById('map');
+            if(mapElement){
+                    var map = new google.maps.Map(mapElement, mapOptions);
 
-            // Create the Google Map using our element and options defined above
-            var map = new google.maps.Map(mapElement, mapOptions);
+                    var marker = new google.maps.Marker({
+                        position: new google.maps.LatLng(lat, long),
+                        map: map,
+                        title: 'Morada'
+                    });
+            }
 
-            // Let's also add a marker while we're at it
-            var marker = new google.maps.Marker({
-                position: new google.maps.LatLng(lat, long),
-                map: map,
-                title: 'Morada'
-            });
 
-            $('.descbody p').addClass('text-justify text-capitalize mb-40');
         }
     </script>
 

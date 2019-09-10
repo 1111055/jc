@@ -59,7 +59,7 @@ class BannerLineRequest extends FormRequest
             'link'       => request()->link,
             'path'       => $imagename,
             'ordem'      => request()->ordem,
-            'activo'     => request()->activo
+            'activo'     => 1
         ]);
     }
 

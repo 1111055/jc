@@ -62,19 +62,30 @@
                                                     <td class="col-xs-4"><select name="cor[]" id="selcororc">
                                                              <option value="0" cor="#FFFFFFF">--Cores--</option> 
                                                             @foreach($item['colors'] as $itemcor)
-                                                              <option value="{{$itemcor['id']}}" cor="{{$itemcor['cor']}}" style="background-color: {{$itemcor['cor']}}"></option> 
+                                                              <option value="{{$itemcor['id']}}"
+                                                                @if($item['produto']['cor'] == $itemcor['id'])
+                                                                     selected 
+                                                                @endif
+
+                                                              >{{strtoupper($itemcor['cor'])}}</option> 
                                                             @endforeach()  
                                                         </select>
                                                     </td>
                                                     <td><select name="size[]">
                                                              <option value="0">--Tamanhos--</option> 
                                                            @foreach($item['sizes'] as $itemsize)
-                                                             <option value="{{$itemcor['id']}}">{{strtoupper($itemsize['size'])}}</option> 
+                                                             <option value="{{$itemsize['id']}}"
+                                                                 @if($item['produto']['size'] == $itemsize['id'])
+                                                                    selected 
+                                                                 @endif
+
+
+                                                             >{{strtoupper($itemsize['size'])}}</option> 
                                                            @endforeach() 
                                                         </select>
                                                     </td>
                                                     <input type="hidden" name="prod[]" value="{{$item['produto']['produto']->id}}" />
-                                                    <td class="product-quantity"><input type="number" name="quantidade[]" value="1" /></td>
+                                                    <td class="product-quantity"><input type="number" name="quantidade[]" value="{{$item['produto']['quantidade']}}" /></td>
                                                     <td class="product-remove"> <a href="{{route('produto.removebag',$item['produto']['produto']->id)}}"><i class="fa fa-times" aria-hidden="true"></i></a></td>
                                                 </tr>
                                             @endforeach()

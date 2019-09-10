@@ -30,7 +30,7 @@ class CheckoutController extends Controller
                     if(count($colorproduto) > 0){
                          foreach ($colorproduto as $key => $variabletmp) {
 
-                                     $color[] = array('id' => $variabletmp->cor->id, 'cor' => $variabletmp->cor->cor);         
+                                     $color[] = array('id' => $variabletmp->cor->id, 'cor' => $variabletmp->cor->titulo);         
                          }
                     }
 
@@ -51,7 +51,7 @@ class CheckoutController extends Controller
 
                
                          
-       //dd($cart);
+     //  dd($cart);
 
         return view('frontend.checkout',compact('cart'));
          

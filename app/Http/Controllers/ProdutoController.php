@@ -26,7 +26,7 @@ class ProdutoController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['bag', 'wish', 'removewish', 'show', 'delete']]);
+        $this->middleware('auth', ['except' => ['bag', 'wish', 'removewish', 'show', 'delete','removebag']]);
     }
 
 
@@ -59,7 +59,7 @@ class ProdutoController extends Controller
 
         $arrayfinal = array();
 
-        $existe = true;
+
         $prod = Produto::find($id);
 
         if(session()->has('bagone'))
@@ -67,17 +67,11 @@ class ProdutoController extends Controller
             $arrayfinal = session('bagone');
         }
 
-        foreach ($arrayfinal as $key => $value) {
-            if($value['produto']->id == $id){
-                $existe = false;
-            }
-        }
-
-        if($existe == true){
-           if($request != null){
-              $arrayfinal[] = array('produto' => $prod, 'quantidade' => 0, 'cor' =>  " ", 'size' =>  " ");
-           }
-        }
+ 
+       if($request != null){
+          $arrayfinal[] = array('produto' => $prod, 'quantidade' => 0, 'cor' =>  " ", 'size' =>  " ");
+       }
+    
       
         //dd($arrayfinal);
        session(['bagone' => $arrayfinal]);
@@ -96,7 +90,7 @@ class ProdutoController extends Controller
         }
 
         foreach ($array as $key => $value) {
-            if($value->id == $id){
+            if($value['produto']->id == $id){
                unset($array[$key]);
             }
         }
@@ -197,8 +191,20 @@ class ProdutoController extends Controller
      */
     public function show($id)
     {
+         
 
-     $prod =  Produto::getProduto($id);
+        $arrwhi =  array();
+
+
+       if(session()->has('wish')){
+         foreach (session()->get('wish') as $key => $value) {
+                 $arrwhi = array_add($arrwhi,$key,$value->id);
+            }
+
+       }
+
+     
+      $prod =  Produto::getProduto($id);
 
       $moreview = Produto::where('activo','=','1')->orderby("visualizado","desc")
       ->take(8)->get();
@@ -231,8 +237,8 @@ class ProdutoController extends Controller
       }
      
 
-     
 
+     
      if($prod != null){
 
 
@@ -250,7 +256,9 @@ class ProdutoController extends Controller
                          $prod->path = request()->root().'/img/Produtos/CROP/noimage.png';
               }
      }
-        return view('frontend.produto', compact('prod','moreview','relacionados'));
+
+
+        return view('frontend.produto', compact('prod','moreview','relacionados','arrwhi'));
     }
 
         /**

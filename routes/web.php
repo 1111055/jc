@@ -13,6 +13,7 @@
 
 //teste email..
 use Illuminate\Mail\Markdown;
+use App\Produto;
 
 Route::get('home/mailthanks', function () {
     $markdown = new Markdown(view(), config('mail.markdown'));
@@ -208,6 +209,45 @@ Route::get('produto/removebag/{id}',      ['as' => 'produto.removebag',  'uses' 
 Route::get('produto/banner',              ['as' => 'produto.banner',     'uses' => 'ProdutoController@banner']); 
 Route::post('produto', 'ProdutoController@store');
 Route::post('produtobannerlines', 'ProdutoController@storebanner');
+Route::post('addtobag', function (Request $request) {
+
+
+
+        $id = request()->id;
+        $quantidade = 0;
+        $cor="";
+        $size = "";
+
+        if(request()->quantidade){
+        	$quantidade = request()->quantidade;
+        }
+        if(request()->cor){
+        	$cor = request()->cor;
+        }
+        if(request()->size){
+        	$size = request()->size;
+        }
+
+        $arrayfinal = array(); 
+
+      
+        $prod = Produto::find($id);
+
+        if(session()->has('bagone'))
+        {
+            $arrayfinal = session('bagone');
+        }
+
+        if($request != null){
+          $arrayfinal[] = array('produto' => $prod, 'quantidade' => $quantidade, 'cor' =>  $cor, 'size' =>  $size);
+        }
+        
+      
+        //dd($arrayfinal);
+       session(['bagone' => $arrayfinal]);
+
+       return back();
+});
 Route::delete('produtobannerlines/destroy/{id}',     ['as' => 'produto.destroyline',    'uses' => 'ProdutoController@destroyline']);
 
 

@@ -14,12 +14,7 @@
 	height:auto;
 	overflow: hidden;
 }
-.nivoSlider img {
-	position:absolute;
-	top:0px;
-	left:0px;
-	max-width: none;
-}
+
 .nivo-main-image {
 	display: block !important;
 	position: relative !important; 
@@ -95,10 +90,10 @@
 	cursor:pointer;
 }
 .nivo-prevNav {
-	left:0px;
+	left:3px;
 }
 .nivo-nextNav {
-	right:0px;
+	right: -903px;
 }
 /* Control nav styles (e.g. 1,2,3...) */
 .nivo-controlNav {

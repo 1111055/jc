@@ -1836,6 +1836,13 @@ ul.ht-dropdown.dropdown-style-two li {
     text-transform: capitalize;
     width: 117px;
 }
+.exist-whish {
+    background: #f1ac06 none repeat scroll 0 0 !important;
+    border-color: #f1ac06 !important;
+    color: #fff !important;
+}
+
+
 
 .add-cart:hover,.add-cart:focus {
     opacity: 0.8;
@@ -4031,3 +4038,4 @@ legend {
 .mobile-menu nav ul{
     display: none;
 }
+

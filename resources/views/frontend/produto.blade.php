@@ -138,35 +138,44 @@
                                 @endif
                             </div>
                             <div class="box-quantity">
-                                <form action="#">
-                                          <!-- Product Color -->
-                                              <span>Tamanhos</span>
-                                              <div class="product-color">
-                                                <div class="color-choose">
-                                                   @foreach($prod->produtosize as $key => $item)
-                                                      <div>
-                                                        <input data-image="red{{$key}}" type="radio" id="red{{$key}}" name="size">
-                                                        <label for="red{{$key}}"><span>{{$item->size->tamanho}}</span></label>
-                                                      </div>
-                                                   @endforeach
-                                                </div>
-                                              </div>
+                                {!! Form::open(['url' => 'addtobag']) !!}
+                               <!-- Product Color -->
+                                              @if(count($prod->produtosize) > 0)
+                                                  <span>Tamanhos</span>
+                                                  <div class="product-color">
+                                                    <div class="color-choose">
+                                                       @foreach($prod->produtosize as $key => $item)
+                                                          <div>
+                                                            <input data-image="red{{$key}}" type="radio" id="red{{$key}}" value="{{$item->size->id}}" name="size">
+                                                            <label for="red{{$key}}"><span>{{$item->size->tamanho}}</span></label>
+                                                          </div>
+                                                       @endforeach
+                                                    </div>
+                                                  </div>
+                                              @endif
+                                              @if(count($prod->produtocor) > 0)
                                                 <span>Cor</span>
                                                 <div class="exemplo">
                                                     @foreach($prod->produtocor as $key => $item)
-                                                        <input type="radio" value="0" name="campo-radio" id="campo-radio{{$key}}"/>
+                                                        <input type="radio" value="{{$item->cor->id}}" name="cor" id="campo-radio{{$key}}"/>
                                                         <label for="campo-radio{{$key}}"></label>
                                                     @endforeach
                                                 </div>
+                                              @endif
  
-                                              <input class="number" id="numeric" type="number" min="1" value="1">
-                                              <a class="add-cart" href="#">Add Pedido</a>
-                                </form>
+                                              <input class="number" id="numeric" type="number" name="quantidade" min="1" value="1">
+                                               <input  type="hidden" name="id" min="1" value="{{ $prod->id}}">
+
+                                              <button class="add-cart" type="submit"href="#">Add Pedido</button>
+                             {{ Form::close() }}
                             </div>
                             <div class="product-link">
                                 <ul class="list-inline">
-                                    <li><a href="#">Wish List</a></li>
-                                    <li><a href="#">Email</a></li>
+                                    @if(in_array($prod->id, $arrwhi))
+                                       <li><a class="exist-whish" href="#">Wish List</a></li>
+                                    @else
+                                        <li><a href="{{route('produto.wish',$prod->id)}}">Wish List</a></li>
+                                    @endif
                                 </ul>
                             </div>
                             <p class="ptb-20 text-justify"> {{ $prod->subtitulo }}</p>

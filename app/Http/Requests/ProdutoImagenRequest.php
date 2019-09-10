@@ -120,8 +120,9 @@ class ProdutoImagenRequest extends FormRequest
                 $altura =   $height;
                 $comprimento = $width;
 
-                $divisaoalt = 270 / $altura; 
-                $divisaocom = 380 / $comprimento;
+
+                $divisaocom = 270 / $comprimento;
+                $divisaoalt = 380 / $altura; 
 
                 if($divisaoalt < $divisaocom){
                     $altfinal = $altura * $divisaoalt;
