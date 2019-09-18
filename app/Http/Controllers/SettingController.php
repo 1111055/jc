@@ -139,8 +139,8 @@ class SettingController extends Controller
                         $altura =   $height;
                         $comprimento = $width;
 
-                        $divisaocom = 90 / $comprimento;
-                        $divisaoalt = 95 / $altura; 
+                        $divisaocom = 1000 / $comprimento;
+                        $divisaoalt = 1000 / $altura; 
 
                         if($divisaoalt < $divisaocom){
                             $altfinal = $altura * $divisaoalt;
@@ -155,9 +155,9 @@ class SettingController extends Controller
                             $constraint->aspectRatio();
                         });
                         // Canvas image
-                        $canvas = Image::canvas(110, 110);
+                        $canvas = Image::canvas(1000, 1000);
                         $canvas->insert($thumb_img, 'center');
-                        $canvas->save($destinationPath.'/'.$imagename,50);
+                        $canvas->save($destinationPath.'/'.$imagename,100);
             										
 
            return redirect()->route('setting')->with(['sucess' => "Guardado com sucesso."]);

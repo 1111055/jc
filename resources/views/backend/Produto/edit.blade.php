@@ -107,12 +107,12 @@ img {
 
 </style>
            @if(session('sucess'))
-              <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+              <div class="alert alert-success" id="showsucess" style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;margin-right: 32%">
                 {{session('sucess')}}
             </div>
             @endif
              @if ($errors->any())
-                  <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;">
+                  <div style="border-radius: 0; float: right; margin-top: 2%; position: fixed; right: 0; top: 0; width: 600px; z-index: 9999;margin-right: 32%">
                       <ul>
                           @foreach ($errors->all() as $error)
                               <li>{{ $error }}</li>
@@ -170,13 +170,19 @@ img {
                                              ]) !!}
                                             <div class="box-body">
                                               <div class="form-group">
+                                                {!! Form::label('Codigo Artigo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                <div class="col-sm-8">
+                                                   {!! Form::text('cod_art',$produto->cod_art,['class' => 'form-control']) !!}
+                                                </div>
+                                              </div>
+                                              <div class="form-group">
                                                 {!! Form::label('* Titulo:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                 <div class="col-sm-8">
                                                    {!! Form::text('titulo',$produto->titulo,['class' => 'form-control']) !!}
                                                 </div>
                                               </div>
                                                <div class="form-group">
-                                                  {!! Form::label('* Titulo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                  {!! Form::label('* Subtitulo:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                   <div class="col-sm-8">
                                                      {!! Form::text('subtitulo',$produto->subtitulo,['class' => 'form-control']) !!}
                                                   </div>

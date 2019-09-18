@@ -29,7 +29,7 @@ class BannerLineRequest extends FormRequest
     {
         return [
 
-            'titulo'  => 'required'
+            
         ];
 
     }
@@ -137,7 +137,7 @@ class BannerLineRequest extends FormRequest
                         // Canvas image
                         $canvas = Image::canvas($_compv1, $_largv1);
                         $canvas->insert($thumb_img, 'center');
-                        $canvas->save($destinationPath.'/'.$imagename,50);
+                        $canvas->save($destinationPath.'/'.$imagename,90);
                                     
                     }
 

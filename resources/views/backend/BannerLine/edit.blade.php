@@ -57,7 +57,7 @@
                                             <div class="box-body">
                                               <div class="form-group">
                                                   {!! Form::hidden('idbanner',$bannerlines->idbannner,['class' => 'form-control']) !!}
-                                                {!! Form::label('* Titulo:',null, ['class' => 'col-sm-2 control-label']) !!}
+                                                {!! Form::label('Titulo:',null, ['class' => 'col-sm-2 control-label']) !!}
                                                 <div class="col-sm-8">
                                                    {!! Form::text('titulo',$bannerlines->titulo,['class' => 'form-control']) !!}
                                                 </div>

@@ -5,7 +5,8 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-   <img src="{{asset('logotipo/CROP/logotipo.png')}}" alt="logo-image">
+   <img src="{{asset('logotipo/CROP/logotipo.png')}}" alt="logo-image" 
+    style="max-width: 110px";>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

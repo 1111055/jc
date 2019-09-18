@@ -14,25 +14,25 @@ class SubcategoriaTableSeeder extends Seeder
     public function run()
     {
          DB::table('subcategorias')->insert([
-            'titulo'   => 'T Shirt',
-            'subtitulo' => 'Polos de Mulher',
+            'titulo'   => 'Canecas',
+            'subtitulo' => 'Canecas',
             'categoria_id' => 1,
             'ordem' => '001',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('subcategorias')->insert([
-            'titulo'   => 'Canetas',
-            'subtitulo' => 'Canetas',
-            'categoria_id' => 2,
+            'titulo'   => 'Frascos',
+            'subtitulo' => 'Frascos',
+            'categoria_id' => 1,
             'ordem' => '002',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('subcategorias')->insert([
-            'titulo'   => 'Pulseiras',
-            'subtitulo' => 'Pulseiras',
-            'categoria_id' => 3,
+            'titulo'   => 'Termos',
+            'subtitulo' => 'Termos',
+            'categoria_id' => 1,
             'ordem' => '003',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()

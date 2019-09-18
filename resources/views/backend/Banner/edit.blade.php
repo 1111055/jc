@@ -230,7 +230,7 @@ img {
                                                       <div class="box-body">
                                                         <div class="form-group">
                                                           {!! Form::hidden('idbannner',$banner->id) !!}
-                                                          {!! Form::label('* Titulo:',null, ['class' => 'col-sm-1 control-label']) !!}
+                                                          {!! Form::label('Titulo:',null, ['class' => 'col-sm-1 control-label']) !!}
                                                           <div class="col-sm-3">
                                                              {!! Form::text('titulo',null,['class' => 'form-control']) !!}
                                                           </div>

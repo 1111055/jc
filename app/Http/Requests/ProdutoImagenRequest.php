@@ -140,7 +140,7 @@ class ProdutoImagenRequest extends FormRequest
                 // Canvas image
                 $canvas = Image::canvas(270, 380);
                 $canvas->insert($thumb_img, 'center');
-                $canvas->save($destinationPath.'/'.$imagename,50);
+                $canvas->save($destinationPath.'/'.$imagename,100);
 
                 // imagebig
 
@@ -163,7 +163,7 @@ class ProdutoImagenRequest extends FormRequest
                 // Canvas image
                 $canvas = Image::canvas(468, 659);
                 $canvas->insert($thumb_img, 'center');
-                $canvas->save($destinationPath.'/'.$imagenamebig,50);
+                $canvas->save($destinationPath.'/'.$imagenamebig,100);
                             
        }
 

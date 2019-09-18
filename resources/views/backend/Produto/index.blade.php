@@ -85,6 +85,7 @@
                             <table class="table table-hover">
                               <tr>
                                 <th class="col-xs-1">#</th>
+                                <th>Código Artigo</th>
                                 <th>Titulo</th>
                                 <th>Subtitulo</th>
                                 <th>Ordem</th>
@@ -94,6 +95,7 @@
                               @foreach($produto as $item)
                                 <tr>
                                     <td class="col-xs-1"><img src="{{ $item->path }}" class="img-thumbnail"></td>
+                                    <td>{{ $item->cod_art }}</td>
                                     <td>{{ $item->titulo }}</td>
                                     <td>{{ $item->subtitulo }}</td>
                                     <td>{{ $item->ordem }}</td>

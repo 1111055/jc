@@ -38,7 +38,7 @@ class ProdutoController extends Controller
     public function index()
     {
 
-        $produto = Produto::orderBy('ordem','asc')->get();
+        $produto = Produto::orderBy('ordem','desc')->get();
         return view('backend.Produto.index',compact('produto'));
 
     }
@@ -470,7 +470,7 @@ class ProdutoController extends Controller
                 // Canvas image
                 $canvas = Image::canvas(270, 380);
                 $canvas->insert($thumb_img, 'center');
-                $canvas->save($destinationPath.'/'.$imagename,50);
+                $canvas->save($destinationPath.'/'.$imagename,100);
 
                 //imagem big
                  $_pathbig = $request->root().'/img/Produtos/CROP/'.$imagenamebig;
@@ -481,11 +481,11 @@ class ProdutoController extends Controller
                 // Canvas image
                 $canvas = Image::canvas(468, 659);
                 $canvas->insert($thumb_img, 'center');
-                $canvas->save($destinationPath.'/'.$imagenamebig,50);
+                $canvas->save($destinationPath.'/'.$imagenamebig,100);
                             
        }
 
-        
+        $produto->cod_art          = $request->cod_art;
         $produto->titulo           = $request->titulo;
         $produto->subtitulo        = $request->subtitulo;
         $produto->descricao        = $request->descricao;

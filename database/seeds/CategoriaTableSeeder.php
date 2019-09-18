@@ -14,37 +14,65 @@ class CategoriaTableSeeder extends Seeder
     public function run()
     {
         DB::table('categorias')->insert([
-            'titulo'   => 'Roupa',
-            'subtitulo' => 'Camisolas',
+            'titulo'   => 'Canecas, Frascos e Termos',
+            'subtitulo' => 'Canecas',
             'ordem' => '001',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('categorias')->insert([
-            'titulo'   => 'Escritorio',
-            'subtitulo' => ' Material de Escritorio',
+            'titulo'   => 'Casa e Decoração',
+            'subtitulo' => 'Casa',
             'ordem' => '002',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('categorias')->insert([
-            'titulo'   => 'Acessórios',
-            'subtitulo' => 'Acessórios Diversos',
+            'titulo'   => 'Bonés e Chapeus',
+            'subtitulo' => 'Bonés',
             'ordem' => '003',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('categorias')->insert([
-            'titulo'   => 'Teste 1',
-            'subtitulo' => 'Teste 1',
+            'titulo'   => 'Outlet',
+            'subtitulo' => 'Outlet',
             'ordem' => '004',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('categorias')->insert([
-            'titulo'   => 'Teste 2',
-            'subtitulo' => 'Teste 2',
+            'titulo'   => 'Marcas',
+            'subtitulo' => 'Marcas',
             'ordem' => '005',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'titulo'   => 'Textil',
+            'subtitulo' => 'Textil',
+            'ordem' => '006',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'titulo'   => 'Desporto e Aventura',
+            'subtitulo' => 'Desporto',
+            'ordem' => '007',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'titulo'   => 'Presentes',
+            'subtitulo' => 'Presentes',
+            'ordem' => '008',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+        DB::table('categorias')->insert([
+            'titulo'   => 'Tecnologia e Acessórios',
+            'subtitulo' => 'Tecnologia',
+            'ordem' => '009',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);

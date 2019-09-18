@@ -104,6 +104,8 @@ class BannerLinesController extends Controller
                        
                       //  dd($photo);
 
+                        $bn = Banner::find(request()->idbanner);
+
                         //Nome Do Ficheiro
                         $filenamewithextension = $request->file('banerimg')->getClientOriginalName();
                  
@@ -148,8 +150,7 @@ class BannerLinesController extends Controller
                         }
 
     
-                        //Upload File                     
-                        $file = $request->file('banerimg')->storeAs('Banners', $imagename, 'upload');
+                      
                         
                         
                        // crop image
@@ -166,8 +167,10 @@ class BannerLinesController extends Controller
                         $altura =   $height;
                         $comprimento = $width;
 
-                        $divisaoalt = 560 / $altura; 
-                        $divisaocom = 1920 / $comprimento;
+
+
+                        $divisaoalt = $bn->height / $altura; 
+                        $divisaocom = $bn->width / $comprimento;
 
                         if($divisaoalt < $divisaocom){
                             $altfinal = $altura * $divisaoalt;
@@ -183,9 +186,11 @@ class BannerLinesController extends Controller
                             $constraint->aspectRatio();
                         });
                         // Canvas image
-                        $canvas = Image::canvas(1920, 560);
+                        $canvas = Image::canvas($bn->width, $bn->height);
                         $canvas->insert($thumb_img, 'center');
-                        $canvas->save($destinationPath.'/'.$imagename,50);
+                        $canvas->save($destinationPath.'/'.$imagename,90);
+
+
                                     
       }
 

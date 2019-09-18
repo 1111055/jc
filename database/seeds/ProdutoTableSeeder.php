@@ -14,65 +14,62 @@ class ProdutoTableSeeder extends Seeder
     public function run()
     {
          DB::table('produtos')->insert([
-            'titulo'   => 'T-SHIRT ADULTO BRANCA "KEYA" MC150',
+            'titulo'   => 'CHÁVENA SUBLIMAÇÃO BORNEL',
             'subtitulo' => ' ',
-            'cod_art'   => '5856',
+            'cod_art'   => '3893',
             'ordem' => '001',
-            'path' => 'http://localhost/public/img/Produtos/CROP/prod_1.jpg',
-            'pathbig' => 'http://localhost/public/img/Produtos/CROP/prod_big1.jpg',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('produtos')->insert([
-            'titulo'   => 'CASACO TECNICO KLUSTEN',
+            'titulo'   => 'CHÁVENA SUBLIMAÇÃO HARNET',
             'subtitulo' => ' ',
-            'cod_art'   => '4724',
+            'cod_art'   => '3894',
             'ordem' => '002',
-            'path' => 'http://localhost/public/img/Produtos/CROP/prod_2.jpg',
-            'pathbig' => 'http://localhost/public/img/Produtos/CROP/prod_big2.jpg',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('produtos')->insert([
-            'titulo'   => 'POLO ADULTO CÔR "KEYA" MPS180',
+            'titulo'   => 'CHÁVENA WILEM',
             'subtitulo' => ' ',
-            'cod_art'   => '5863',
+            'cod_art'   => '5571',
             'ordem' => '003',
-            'path' => 'http://localhost/public/img/Produtos/CROP/prod_3.jpg',
-            'pathbig' => 'http://localhost/public/img/Produtos/CROP/prod_big3.jpg',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('produtos')->insert([
-            'titulo'   => 'SACO JAZZIN',
+            'titulo'   => 'CHÁVENA LOUSA',
             'subtitulo' => ' ',
-            'cod_art'   => '5726',
+            'cod_art'   => '5291',
             'ordem' => '004',
-            'path' => 'http://localhost/public/img/Produtos/CROP/prod_4.jpg',
-            'pathbig' => 'http://localhost/public/img/Produtos/CROP/prod_big4.jpg',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('produtos')->insert([
-            'titulo'   => 'SACO JAZZIN',
+            'titulo'   => 'CHÁVENA WITAR',
             'subtitulo' => ' ',
-            'cod_art'   => '4622',
+            'cod_art'   => '2495',
             'ordem' => '005',
-            'path' => 'http://localhost/public/img/Produtos/CROP/prod_5.jpg',
-            'pathbig' => 'http://localhost/public/img/Produtos/CROP/prod_big5.jpg',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
         DB::table('produtos')->insert([
-            'titulo'   => 'T-SHIRT MULHER CÔR "KEYA" WCS180',
+            'titulo'   => 'CHÁVENA KULMER',
             'subtitulo' => ' ',
-            'cod_art'   => '5870',
+            'cod_art'   => '5836',
             'ordem' => '006',
-            'path' => 'http://localhost/public/img/Produtos/CROP/prod_6.jpg',
-            'pathbig' => 'http://localhost/public/img/Produtos/CROP/prod_big6.jpg',
             'created_at' =>  Carbon::now(),
             'updated_at' =>  Carbon::now()
         ]);
+        DB::table('produtos')->insert([
+            'titulo'   => 'JARRA MELTIK',
+            'subtitulo' => ' ',
+            'cod_art'   => '5732',
+            'ordem' => '007',
+            'created_at' =>  Carbon::now(),
+            'updated_at' =>  Carbon::now()
+        ]);
+
 
     }
 }

@@ -19,8 +19,7 @@
                                 <div class="text-content">
                                     <h4 class="title2 wow bounceInLeft mb-16" data-wow-duration="2s" data-wow-delay="0s">{{$item->titulo}}</h4>
                                     <h1 class="title1 wow bounceInRight mb-16" data-wow-duration="2s" data-wow-delay="1s">{!! $item->descricao !!} </h1>
-                                    <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">
-                                        <a class="button slider-btn" href="{{$item->link}}">Ver Mais</a>                    
+                                    <div class="banner-readmore wow bounceInUp mt-35" data-wow-duration="2s" data-wow-delay="2s">             
                                     </div>
                                 </div>
                             </div>

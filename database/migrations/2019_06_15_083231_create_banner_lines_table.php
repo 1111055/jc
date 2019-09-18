@@ -16,7 +16,7 @@ class CreateBannerLinesTable extends Migration
         Schema::create('banner_lines', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idbannner');
-            $table->string('titulo');
+            $table->string('titulo')->nullable();
             $table->string('subtitulo')->nullable();
             $table->text('descricao')->nullable();
             $table->string('link')->nullable();
